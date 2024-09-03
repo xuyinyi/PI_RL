@@ -73,7 +73,9 @@ $ python Ensembling.py
 
 ### polyBERT model
 The relevant files and code for the descriptor model are in './QSPR/polyBERT'
+```
 Before running, download polyBERT model on https://huggingface.co/kuelumbus/polyBERT
+```
 
 To carry out a single-objective bayesian optimization on a polyBERT model, do:
 ```commandline
