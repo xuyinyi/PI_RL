@@ -97,11 +97,11 @@ The building blocks of dianhydride and diamine are in './RL_PPO/outpus/building_
 
 The agent takes an action from building blocks obtained from a decomposition step. The agent is trained by PPO with RLlib.
 ```commandline
-python train.py
+$ python train.py
 ```
 Generated polyimides are sampled through the trained agent. Select and rewrite the model path that you want to use.
 To generate polyimides randomly, do:
 ```commandline
-python env_test.py
+$ python env_test.py
 ```
 To the cluster analysis of the generate polyimides, run './RL_PPO/outpus/postprocess.py'
