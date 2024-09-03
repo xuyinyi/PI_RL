@@ -73,7 +73,7 @@ $ python Ensembling.py
 
 ### polyBERT model
 The relevant files and code for the descriptor model are in './QSPR/polyBERT'
-```
+```text
 Before running, download polyBERT model on https://huggingface.co/kuelumbus/polyBERT
 ```
 
