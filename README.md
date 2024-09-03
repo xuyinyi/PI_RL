@@ -95,6 +95,7 @@ $ python Decompose.py
 The building blocks of dianhydride and diamine are in './RL_PPO/outpus/building_blocks/'
 
 The agent takes an action from building blocks obtained from a decomposition step. The agent is trained by PPO with RLlib.
+#### Before running, download polyBERT model on https://huggingface.co/kuelumbus/polyBERT
 ```commandline
 $ python train.py
 ```
