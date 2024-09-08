@@ -29,7 +29,7 @@ A command line for training a FraGAT model and tuning the splitting seed:
 ```commandline
 $ python Seed_Tuning_Frag.py 
 ```
-The results of every attempt containing metrics on three folds are automatically printed in './QSPR/GNN/output/'.
+The results of every attempt containing metrics are automatically printed in './QSPR/GNN/output/'.
 
 To carry out a single-objective bayesian optimization on a AFP model, do:
 ```commandline
