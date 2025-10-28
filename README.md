@@ -3,11 +3,11 @@
 
 
 DAPiGen: *De novo* Design of Polyimides Leveraging Deep Reinforcement Learning Agent
-- https://xxxxxx.xxx
+- https://doi.org/10.1002/adma.202511099
 
 ## Background
 ***
-This code is the basis of our work submitted to *XXXXXXX*, which aims to *de novo* design of polyimides using PPO algorithm of reinforcement learning based on fragment generation to bring more insights into polymer design. 
+This code is the basis of our work submitted to *Advanced Materials*, which aims to *de novo* design of polyimides using PPO algorithm of reinforcement learning based on fragment generation to bring more insights into polymer design. 
 
 ## Prerequisites and dependencies
 ```
@@ -105,3 +105,4 @@ To generate polyimides randomly, do:
 $ python env_test.py
 ```
 To the cluster analysis of the generate polyimides, run './RL_PPO/outpus/postprocess.py'
+
