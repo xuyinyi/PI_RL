@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "method": "scicf-ppo",
+  "phase": "scaffold",
+  "provenance": {
+    "baseline_tag": "dapigen-ppo-compat-baseline-v1",
+    "upstream_revision": "5f692946cbe0d15eede882dfe4cff7fb26eb7d8c",
+    "specification_sha256": "d4ed7363e29a301bcc654e675a33acc7de97e16a7df8a6deaa4d7cd20296769f",
+    "require_clean_git": true,
+    "require_slurm": true
+  },
+  "ppo_safety": {
+    "preserve_standard_clipped_objective": true,
+    "external_actions_in_ppo_clipping": false,
+    "llm_as_reward_or_value": false
+  },
+  "acquisition": {
+    "pool_size": 24,
+    "budget": 4,
+    "source_quotas": {
+      "policy_near": 8,
+      "random_legal": 8,
+      "structural": 8
+    }
+  },
+  "verification": {
+    "paired_replicates": 2,
+    "common_random_numbers": true,
+    "confidence_rule": "sign-consistency",
+    "atomic_oracle_budget": 192
+  },
+  "llm": {
+    "enabled": false,
+    "model_id": null,
+    "trusted_learning_signal": false,
+    "decoding": {}
+  },
+  "pairwise_refinement": {
+    "enabled": false
+  },
+  "gate1": {
+    "status": "pending",
+    "checkpoint_stages": ["early", "middle", "late"],
+    "seeds": [2023, 2024, 2025],
+    "required_comparators": ["random", "policy_probability", "chemistry_heuristic", "llm"],
+    "metrics": ["hit_rate_at_b", "best_gain_at_b", "regret_at_b", "ndcg_at_b"]
+  }
+}
