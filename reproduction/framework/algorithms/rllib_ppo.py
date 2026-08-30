@@ -187,6 +187,41 @@ class RLLibPPOAdapter(AlgorithmAdapter):
             raise ContractError("adapter is not initialized")
         self._trainer.restore(checkpoint_path)
 
+    def restore_policy_weights(self, checkpoint_path: str) -> Mapping[str, Any]:
+        """Restore only frozen policy weights for read-only diagnostics.
+
+        RLlib 1.13 checkpoints include optimizer variables that can contain
+        object-dtype arrays. Those variables are irrelevant to acquisition
+        evaluation and may fail conversion in newer NumPy/Torch patch levels.
+        This path deliberately excludes optimizer and exploration state.
+        """
+        if self._trainer is None:
+            raise ContractError("adapter is not initialized")
+        checkpoint = Path(checkpoint_path)
+        try:
+            with checkpoint.open("rb") as handle:
+                trainer_state = pickle.load(handle)
+            worker_state = trainer_state["worker"]
+            if isinstance(worker_state, bytes):
+                worker_state = pickle.loads(worker_state)
+            policy_state = worker_state["state"]["default_policy"]
+            weights = policy_state["weights"]
+        except (OSError, KeyError, pickle.PickleError, TypeError) as error:
+            raise ContractError(
+                "cannot extract policy weights from {}: {}".format(
+                    checkpoint, error
+                )
+            )
+        self._trainer.get_policy().set_weights(weights)
+        return {
+            "checkpoint": str(checkpoint),
+            "mode": "policy-weights-only",
+            "weight_tensors": len(weights),
+            "source_global_timestep": policy_state.get("global_timestep"),
+            "optimizer_restored": False,
+            "exploration_state_restored": False,
+        }
+
     def effective_config(self) -> Mapping[str, Any]:
         if self._config is None:
             return {}

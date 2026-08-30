@@ -101,7 +101,7 @@ def main() -> None:
     adapter_class = load_adapter_class(framework_config["algorithm"]["adapter"])
     policy_adapter = adapter_class()
     policy_adapter.initialize(context, framework_config["algorithm"].get("parameters", {}))
-    policy_adapter.restore(str(checkpoint_path))
+    restore_metadata = policy_adapter.restore_policy_weights(str(checkpoint_path))
     policy_version = "{}:{}".format(args.stage, checkpoint_path.name)
 
     ledger = OracleLedger(
@@ -239,6 +239,7 @@ def main() -> None:
                 "stage": args.stage,
                 "checkpoint": str(checkpoint_path),
                 "policy_version": policy_version,
+                "policy_restore": restore_metadata,
                 "source": source,
                 "slurm_job_id": os.environ["SLURM_JOB_ID"],
                 "config": scicf_config,
@@ -266,6 +267,7 @@ def main() -> None:
             "checkpoint": str(checkpoint_path),
             "checkpoint_sha256": hashlib.sha256(checkpoint_path.read_bytes()).hexdigest(),
             "policy_version": policy_version,
+            "policy_restore": restore_metadata,
             "source": source,
             "slurm_job_id": os.environ["SLURM_JOB_ID"],
             "config": scicf_config,
