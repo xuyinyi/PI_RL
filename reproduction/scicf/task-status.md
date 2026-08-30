@@ -10,7 +10,7 @@ Status date: 2026-08-30
 | 1.2 isolated legacy runtime | complete | `reproduction/environment-linux-h100.yml` and the n001 runtime |
 | 1.3 compatibility assets and environment cycle | complete for compatibility assets | Author AFP assets remain unavailable; this is not original-asset reproduction. |
 | 1.4 baseline PPO run | complete for compatibility baseline | Slurm job 4562; not a paper-result reproduction claim. |
-| 1.5 wrapper regression | implemented, runtime validation pending | `validate_dapigen_adapter.py` plus its n001 Slurm job |
+| 1.5 wrapper regression | complete | n001 Slurm job 4567, `COMPLETED 0:0`; direct and wrapped scientific outputs match. |
 | 2.1-2.4 scaffold, records, adapter, config/manifest | implemented | `reproduction/scicf` and `scicf-gate1-dev-v1.json` |
 
 ## Trajectory, oracle, and acquisition foundation
@@ -18,8 +18,8 @@ Status date: 2026-08-30
 | Spec task | Status | Evidence or boundary |
 |---|---|---|
 | 3.1-3.4 serialization and snapshot/restore | implemented | DAPiGen is wrapped; the chemistry stack is not rewritten. |
-| 3.5 deterministic replay | unit-tested; real-runtime validation pending | Same snapshot, action, policy seed, and random state are replayed. |
-| 3.6 identity intervention | unit-tested; real-runtime validation pending | The paired effect must be zero within tolerance. |
+| 3.5 deterministic replay | complete for adapter runtime | n001 Slurm job 4567 restored the same state with matched continuation randomness. |
+| 3.6 identity intervention | complete for adapter runtime | n001 Slurm job 4567 produced `delta = 0.0` and equal terminal objects. |
 | 4.1-4.3 atomic oracle accounting | implemented and unit-tested | Factual, counterfactual, and evaluation calls are independent. |
 | 4.4 all run summaries | partial | SciCF manifest supports counters; the offline Gate 1 runner is not implemented yet. |
 | 5.1-5.7 fixed-pool non-LLM acquisition | implemented and unit-tested | Random, policy-probability, and Morgan-distance chemistry strategies share one pool. |

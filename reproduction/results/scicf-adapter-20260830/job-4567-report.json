@@ -1,0 +1,63 @@
+{
+  "baseline_tag": "dapigen-ppo-compat-baseline-v1",
+  "candidate_enumeration": {
+    "all_atomic": true,
+    "count": 1578
+  },
+  "direct": {
+    "terminal_object": "C=C(C)c1ccc(-n2c(=O)c3cc4c(=O)oc(=O)c4c(-c4ccc5c(c4)C(=O)N(C)C5=O)c3c2=O)cc1F",
+    "terminal_properties": {
+      "cte": 6.11,
+      "sa_score": 3.09,
+      "strength": 176.0,
+      "tg": 352.33,
+      "transmittance": 0.95
+    },
+    "terminal_return": 0.0065
+  },
+  "identity_replay": {
+    "continuation_seed": 3107,
+    "counterfactual_oracle_calls": 1,
+    "delta": 0.0,
+    "factual_oracle_calls": 1,
+    "terminal_object_equal": true
+  },
+  "known_valid_action": [
+    173,
+    952
+  ],
+  "oracle_ledger": {
+    "counterfactual": 1,
+    "evaluation": 0,
+    "factual": 2,
+    "total": 3
+  },
+  "schema_version": 1,
+  "slurm_job_id": "4567",
+  "source": {
+    "branch": "codex/algorithm-framework",
+    "commit": "1d2f0e17c29b2ab1d81616e5bd9c49c495391302",
+    "dirty": false,
+    "tags": []
+  },
+  "status": "passed",
+  "trajectory": {
+    "atomic_oracle_calls": 1,
+    "id": "baseline-wrapper-regression-v1",
+    "snapshot_ids": [
+      "b52d03fe76e34cf6feac07c4df039918525e8b713e1eeba710ff7329a2a781c2"
+    ],
+    "steps": 1
+  },
+  "wrapped": {
+    "terminal_object": "C=C(C)c1ccc(-n2c(=O)c3cc4c(=O)oc(=O)c4c(-c4ccc5c(c4)C(=O)N(C)C5=O)c3c2=O)cc1F",
+    "terminal_properties": {
+      "cte": 6.11,
+      "sa_score": 3.09,
+      "strength": 176.0,
+      "tg": 352.33,
+      "transmittance": 0.95
+    },
+    "terminal_return": 0.0065
+  }
+}
