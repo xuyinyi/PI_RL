@@ -55,6 +55,10 @@ python reproduction/evaluate_generated_csv.py \
   --output-json /path/to/evaluation-summary.json
 ```
 
+Formal offline evaluations can use
+`slurm/evaluate_generated_csv.sbatch`; its output also records the evaluator
+Git identity and Slurm job id.
+
 ## Slurm execution
 
 Formal runner configurations require a clean Git worktree descended from the
