@@ -39,7 +39,10 @@ version `scicf-dapigen-acquisition-v1`, and response schema
 `greedy-attention-mask-exact-budget-v2` uses an explicit all-ones attention
 mask, unsets sampling-only temperature, top-p, and top-k values, and requires
 exactly four unique IDs rather than a full-pool ranking. The model receives no
-verified gains.
+verified gains. Before prompting, candidate presentation order is blinded with
+`sha256-shuffle-v1`, seeded only by request and pool identity. This removes the
+policy-near/random/structural source-block ordering while preserving the exact
+same candidate set used by every acquisition strategy.
 
 ## Decision
 

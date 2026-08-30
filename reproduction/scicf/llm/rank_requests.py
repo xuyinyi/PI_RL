@@ -183,7 +183,12 @@ def main() -> None:
                                 attempt + 1,
                                 error,
                                 request["budget"],
-                                json.dumps(request["candidate_ids"]),
+                                json.dumps(
+                                    request.get(
+                                        "presented_candidate_ids",
+                                        request["candidate_ids"],
+                                    )
+                                ),
                             ),
                         }
                     )

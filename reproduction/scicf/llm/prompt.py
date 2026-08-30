@@ -4,13 +4,36 @@ from __future__ import annotations
 
 import hashlib
 import json
+import random
 from typing import Any, Dict, Mapping, Sequence
 
 from reproduction.scicf.acquisition.base import CandidatePool
 from reproduction.scicf.core.records import TrajectoryRecord
 
 
-PROMPT_VERSION = "scicf-dapigen-acquisition-v1"
+PROMPT_VERSION = "scicf-dapigen-acquisition-blinded-v2"
+PRESENTATION_PROTOCOL = "sha256-shuffle-v1"
+
+
+def blind_candidate_rows(
+    request_id: str, pool_id: str, candidate_rows: Sequence[Mapping[str, Any]]
+) -> list:
+    """Deterministically blind source-group and policy-near presentation order."""
+
+    identity = "{}|{}|{}".format(request_id, pool_id, PRESENTATION_PROTOCOL)
+    seed = int(hashlib.sha256(identity.encode("utf-8")).hexdigest()[:16], 16)
+    blinded = [dict(row) for row in candidate_rows]
+    random.Random(seed).shuffle(blinded)
+    return blinded
+
+
+def acquisition_system_prompt(budget: int) -> str:
+    return (
+        "You rank proposed scientific experiments. You do not provide reward, "
+        "value, advantage, or truth. Rank only intervention IDs explicitly "
+        "listed by the user. Return exactly {} unique IDs in best-first order "
+        "inside one JSON object and no markdown."
+    ).format(budget)
 
 
 def build_acquisition_request(
@@ -37,6 +60,7 @@ def build_acquisition_request(
                 "alternative_building_block_smiles": intervention.alternative_structure,
             }
         )
+    candidate_rows = blind_candidate_rows(request_id, pool.pool_id, candidate_rows)
     scientific_context = {
         "objective": (
             "Select atomic polymer-building-block interventions most worth evaluating "
@@ -63,12 +87,7 @@ def build_acquisition_request(
     messages = [
         {
             "role": "system",
-            "content": (
-                "You rank proposed scientific experiments. You do not provide reward, "
-                "value, advantage, or truth. Rank only intervention IDs explicitly "
-                "listed by the user. Return exactly the requested budget of IDs in one "
-                "JSON object and no markdown."
-            ),
+            "content": acquisition_system_prompt(budget),
         },
         {
             "role": "user",
@@ -87,6 +106,10 @@ def build_acquisition_request(
         "pool_id": pool.pool_id,
         "candidate_ids": list(pool.candidate_ids),
         "budget": budget,
+        "candidate_presentation": PRESENTATION_PROTOCOL,
+        "presented_candidate_ids": [
+            row["intervention_id"] for row in candidate_rows
+        ],
         "messages": messages,
         "prompt_sha256": hashlib.sha256(prompt_bytes).hexdigest(),
         "verified_gain_exposed": False,

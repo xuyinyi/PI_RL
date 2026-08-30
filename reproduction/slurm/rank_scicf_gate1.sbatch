@@ -22,7 +22,7 @@ gate1_root="$1"
 repo_root="/home/wch/workspaces/DAPiGen-reproduction/algorithm-worktree"
 python_bin="/home/wch/workspaces/DAPiGen-reproduction/envs/scicf-llm-py38/bin/python"
 model_root="/home/wch/workspaces/DAPiGen-reproduction/models/qwen2.5-7b-instruct-a09a3545"
-response_root="$gate1_root/llm-attention-exact-v2"
+response_root="$gate1_root/llm-blinded-v3"
 cache_root="/home/wch/workspaces/DAPiGen-reproduction/cache/scicf-llm-responses"
 
 export PYTHONPATH="$repo_root"
@@ -33,9 +33,9 @@ export TOKENIZERS_PARALLELISM=false
 echo "job_id=${SLURM_JOB_ID} host=$(hostname) cuda=${CUDA_VISIBLE_DEVICES:-unset}"
 cd "$repo_root"
 srun "$python_bin" reproduction/scicf/llm/rank_requests.py \
-    --requests "$gate1_root/early/llm-requests.jsonl" \
-    --requests "$gate1_root/middle/llm-requests.jsonl" \
-    --requests "$gate1_root/late/llm-requests.jsonl" \
+    --requests "$gate1_root/early/llm-requests-blinded-v2.jsonl" \
+    --requests "$gate1_root/middle/llm-requests-blinded-v2.jsonl" \
+    --requests "$gate1_root/late/llm-requests-blinded-v2.jsonl" \
     --output-root "$response_root" \
     --cache-root "$cache_root" \
     --model-path "$model_root" \

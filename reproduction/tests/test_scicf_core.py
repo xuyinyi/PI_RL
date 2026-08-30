@@ -346,9 +346,17 @@ class SciCFCoreTests(unittest.TestCase):
         request = build_acquisition_request(
             "prompt-test", trajectory, 0, pool, budget=2
         )
+        repeated = build_acquisition_request(
+            "prompt-test", trajectory, 0, pool, budget=2
+        )
         prompt_text = json.dumps(request["messages"], sort_keys=True)
         self.assertNotIn("verified_gain", prompt_text)
         self.assertFalse(request["verified_gain_exposed"])
+        self.assertEqual(request["prompt_sha256"], repeated["prompt_sha256"])
+        self.assertEqual(request["candidate_presentation"], "sha256-shuffle-v1")
+        self.assertEqual(
+            set(request["presented_candidate_ids"]), set(pool.candidate_ids)
+        )
 
 
 if __name__ == "__main__":

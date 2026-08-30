@@ -33,5 +33,5 @@ srun "$python_bin" reproduction/scicf/gate1/aggregate.py \
     --stage-report "$gate1_root/early/gate1-stage-report.json" \
     --stage-report "$gate1_root/middle/gate1-stage-report.json" \
     --stage-report "$gate1_root/late/gate1-stage-report.json" \
-    --llm-responses "$gate1_root/llm-attention-exact-v2/responses.jsonl" \
-    --output "$gate1_root/gate1-decision.json"
+    --llm-responses "$gate1_root/llm-blinded-v3/responses.jsonl" \
+    --output "$gate1_root/gate1-decision-blinded-v2.json"
