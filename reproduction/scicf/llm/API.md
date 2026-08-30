@@ -52,3 +52,16 @@ sbatch reproduction/slurm/aggregate_scicf_gate1_api.sbatch \
 ```
 
 Both commands must be submitted on n001. The API ranking job requests no GPU.
+
+## Validation evidence
+
+- Slurm job 4589: `COMPLETED 0:0`, 22/22 tests passed. The HTTP integration
+  test forced one invalid invented ID, verified exact-pool repair, then proved
+  identical prompt/model/decoding identity reused the successful cache without
+  another API call. It also verified token accounting and that neither the API
+  key nor credential path appeared in the manifest.
+- Slurm job 4591: `COMPLETED 0:0`, both API Slurm scripts passed `bash -n` and
+  the API Gate 1 configuration passed JSON parsing.
+- Job 4590 is an excluded diagnostic: its ad hoc validation command
+  mistakenly passed the non-JSON `.env.example` file to `jq`. No implementation
+  failure or scientific output came from that job.

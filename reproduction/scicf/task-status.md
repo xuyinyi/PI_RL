@@ -38,8 +38,10 @@ Status date: 2026-08-30
 - Gate 1 status is `failed`; configuration continues to reject refinement.
 - Jobs 4581-4582 are explicitly excluded because the unblinded pool order made
   23/24 LLM selections equal the policy-near first-four block.
-- A private OpenAI-compatible API acquisition path is implemented for the next
-  Gate 1 run. It is pending server tests and the user's endpoint, API key,
-  model ID, and immutable model/deployment revision; no formal API request has
-  been made yet.
+- A private OpenAI-compatible API acquisition path is implemented and
+  server-tested for the next Gate 1 run. Slurm job 4589 passed 22/22 tests,
+  including schema repair, cache reuse, token accounting, and secret-redaction
+  checks; job 4591 passed runner/config static validation. It is waiting for
+  the user's endpoint, API key, model ID, and immutable model/deployment
+  revision; no formal external API request has been made yet.
 - No SciCF performance, oracle-efficiency, or generality claim is currently authorized.
