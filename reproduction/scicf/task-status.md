@@ -11,7 +11,7 @@ Status date: 2026-08-30
 | 1.3 compatibility assets and environment cycle | complete for compatibility assets | Author AFP assets remain unavailable; this is not original-asset reproduction. |
 | 1.4 baseline PPO run | complete for compatibility baseline | Slurm job 4562; not a paper-result reproduction claim. |
 | 1.5 wrapper regression | complete | n001 Slurm job 4567, `COMPLETED 0:0`; direct and wrapped scientific outputs match. |
-| 2.1-2.4 scaffold, records, adapter, config/manifest | implemented | `reproduction/scicf` and `scicf-gate1-dev-v1.json` |
+| 2.1-2.4 scaffold, records, adapter, config/manifest | implemented and server-tested | n001 Slurm job 4568; `reproduction/scicf` and `scicf-gate1-dev-v1.json` |
 
 ## Trajectory, oracle, and acquisition foundation
 
@@ -22,7 +22,7 @@ Status date: 2026-08-30
 | 3.6 identity intervention | complete for adapter runtime | n001 Slurm job 4567 produced `delta = 0.0` and equal terminal objects. |
 | 4.1-4.3 atomic oracle accounting | implemented and unit-tested | Factual, counterfactual, and evaluation calls are independent. |
 | 4.4 all run summaries | partial | SciCF manifest supports counters; the offline Gate 1 runner is not implemented yet. |
-| 5.1-5.7 fixed-pool non-LLM acquisition | implemented and unit-tested | Random, policy-probability, and Morgan-distance chemistry strategies share one pool. |
+| 5.1-5.7 fixed-pool non-LLM acquisition | implemented and server-tested | n001 Slurm job 4568; Random, policy-probability, and Morgan-distance chemistry strategies share one pool. |
 
 ## Gates and blocked work
 

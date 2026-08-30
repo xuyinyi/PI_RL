@@ -1,0 +1,19 @@
+job_id=4568 host=yanlih100n1
+test_adapter_locator (reproduction.tests.test_framework_contracts.FrameworkContractTests) ... ok
+test_atomic_json_converts_nonfinite_values (reproduction.tests.test_framework_contracts.FrameworkContractTests) ... ok
+test_checkpoint_budget_must_close (reproduction.tests.test_framework_contracts.FrameworkContractTests) ... ok
+test_full_config_is_valid (reproduction.tests.test_framework_contracts.FrameworkContractTests) ... ok
+test_missing_seed_fails_closed (reproduction.tests.test_framework_contracts.FrameworkContractTests) ... ok
+test_smoke_config_is_valid (reproduction.tests.test_framework_contracts.FrameworkContractTests) ... ok
+test_acquisition_strategies_share_one_fixed_pool (reproduction.tests.test_scicf_core.SciCFCoreTests) ... ok
+test_dapigen_snapshot_replay_and_identity_intervention (reproduction.tests.test_scicf_core.SciCFCoreTests) ... ok
+test_gate1_metrics (reproduction.tests.test_scicf_core.SciCFCoreTests) ... ok
+test_interventions_are_atomic_and_legal (reproduction.tests.test_scicf_core.SciCFCoreTests) ... ok
+test_oracle_calls_require_scope_and_count_atomic_objects (reproduction.tests.test_scicf_core.SciCFCoreTests) ... ok
+test_scaffold_config_is_valid_and_gate1_fails_closed (reproduction.tests.test_scicf_core.SciCFCoreTests) ... ok
+test_trajectory_contains_snapshots_and_atomic_oracle_count (reproduction.tests.test_scicf_core.SciCFCoreTests) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.005s
+
+OK

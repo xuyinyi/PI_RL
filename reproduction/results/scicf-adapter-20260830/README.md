@@ -2,6 +2,7 @@
 
 - Execution host: n001 SSH target / Slurm node `yanlih100n1`
 - Passed job: 4567 (`COMPLETED`, exit `0:0`, elapsed `00:00:05`)
+- Server test job: 4568 (`COMPLETED`, exit `0:0`, 13/13 tests passed)
 - Source commit: `1d2f0e17c29b2ab1d81616e5bd9c49c495391302`
 - Remote report: `/home/wch/workspaces/DAPiGen-reproduction/runs/scicf/adapter-validation-20260830-v2.json`
 
