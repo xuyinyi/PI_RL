@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "provenance": {
+    "baseline_tag": "dapigen-ppo-compat-baseline-v1",
+    "require_clean_git": true,
+    "require_slurm": true
+  },
+  "task": {
+    "asset_mode": "reconstructed-afp-compatibility",
+    "length": 60,
+    "step_length": 5
+  },
+  "algorithm": {
+    "name": "rllib_ppo",
+    "version": "ray-1.13.0",
+    "adapter": "reproduction.framework.algorithms.rllib_ppo:RLLibPPOAdapter",
+    "parameters": {
+      "framework": "torch",
+      "train_batch_size": 20,
+      "sgd_minibatch_size": 10,
+      "num_sgd_iter": 1,
+      "rollout_fragment_length": 10,
+      "evaluation_num_workers": 0,
+      "log_level": "WARN",
+      "model": {
+        "fcnet_hiddens": [256, 128, 128],
+        "fcnet_activation": "relu",
+        "max_seq_len": 100
+      }
+    }
+  },
+  "training": {
+    "seed": 2023,
+    "max_environment_steps": 20,
+    "max_iterations": 1,
+    "strict_environment_step_budget": true
+  },
+  "evaluation": {
+    "protocol": "dapigen-common-v1",
+    "checkpoint_environment_steps": [0, 20],
+    "samples": 10,
+    "progress_every": 5,
+    "max_episode_steps": 16,
+    "explore": false,
+    "compute_paper_metrics": false
+  },
+  "resources": {
+    "cpus": 4,
+    "rollout_workers": 1,
+    "gpus": 1
+  }
+}

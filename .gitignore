@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+
+# Runtime chemistry assets are hash-gated but are not distributed by DAPiGen.
+RL_PPO/models/
+RL_PPO/GNN/model/*.pt
+RL_PPO/GNN/model/*_settings.csv
+RL_PPO/GNN/model/*_scaler.pkl

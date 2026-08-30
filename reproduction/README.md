@@ -128,6 +128,17 @@ This is execution evidence for the reconstructed compatibility baseline only.
 Paper-result reproduction still requires matched paper-metric and multi-seed
 comparison audits.
 
+## Common algorithm framework
+
+New algorithms must use the versioned adapter/evaluator/runner contract under
+`framework/`; see `framework/README.md`. Formal runs use
+`slurm/run_algorithm.sbatch` and a JSON configuration under `configs/`.
+
+The framework freezes task and reward semantics, requires an explicit seed,
+compares algorithms at exact environment-step checkpoints, evaluates with
+`explore=false`, and writes a common artifact schema. The original PPO runner is
+retained as frozen baseline evidence and is not silently rewritten.
+
 ## Configuration-only smoke
 
 This test constructs the repaired RLlib configuration and the environment
