@@ -19,15 +19,20 @@ The tiny untrained/trained evaluations produced no valid PI in ten samples.
 That is acceptable for an interface smoke and is not an algorithm-performance
 result.
 
-## Job 4564: paper-metric path smoke
+## Jobs 4564 and 4565: paper-metric path smoke
 
-- State/exit: `COMPLETED` / `0:0`
-- Elapsed: 3 seconds
+- State/exit: both `COMPLETED` / `0:0`
+- Elapsed: 3 seconds each
 - Allocation: 4 CPUs, 32 GB RAM
-- Source: `9ae3afd8936e42bcd85ec17123f9698431562a64`, clean worktree
+- Job 4564 source: `9ae3afd8936e42bcd85ec17123f9698431562a64`, clean worktree
+- Formal Job 4565 source: `dd0b9bfa408e06eb1771c53709ada99fb2706cf4`, clean worktree
 - Protocol: `dapigen-common-v1`
 - Exercised metrics: validity, canonical uniqueness, novelty, diversity, Frag, SNN
 - Input: deterministic four-row interface fixture, not a scientific PI result
+
+Job 4565 additionally verified that the formal evaluator fails closed unless it
+has both a Slurm job id and a clean Git worktree; its summary records
+`formal=true`.
 
 The fixture produced validity 0.75, uniqueness 1.0, novelty 0.3333,
 diversity 0.8571, Frag 0.3333, and SNN 0.5671. These values only prove that the
@@ -42,6 +47,7 @@ performance claims.
 | `job-4563-training-metrics.jsonl` | `a01c6cd0d4bcb6b522d2f8a039331acf36822eb1180ed39a8a56bc56bf5f4db5` |
 | `job-4563-evaluation-metrics.jsonl` | `3c0f07632651698917ebaf1e98890ededbd4bc77d729895a10707744c749d9d6` |
 | `job-4564-evaluator-summary.json` | `1a7e3b492334547470667e5fb822b5d87cd4a60bc7e096f47efe05da588ed878` |
+| `job-4565-formal-evaluator-summary.json` | `a0563ceb697ea8cac2fc0e625bcc8362344a5642d14fb6079aa88858b1bd2d98` |
 
 Full checkpoints, native Ray logs, generation CSVs, and Slurm logs remain under
 `/home/wch/workspaces/DAPiGen-reproduction/runs/algorithms/` and
