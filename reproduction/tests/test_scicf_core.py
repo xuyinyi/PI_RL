@@ -130,6 +130,7 @@ class SciCFCoreTests(unittest.TestCase):
         )
         self.assertEqual(config["phase"], "offline-gate1")
         self.assertEqual(config["llm"]["model_id"], "Qwen/Qwen2.5-7B-Instruct")
+        self.assertEqual(config["gate1"]["status"], "failed")
         self.assertFalse(config["pairwise_refinement"]["enabled"])
 
     def test_oracle_calls_require_scope_and_count_atomic_objects(self):

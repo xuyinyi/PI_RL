@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "gate": "offline-acquisition-gate1",
+  "status": "failed",
+  "date": "2026-08-30",
+  "decision": {
+    "primary_metric": "ndcg_at_b",
+    "budget": 4,
+    "required_comparators": [
+      "random",
+      "chemistry_heuristic"
+    ],
+    "minimum_successful_stages": 2,
+    "successful_stages": [],
+    "pairwise_refinement_authorized": false
+  },
+  "provenance": {
+    "baseline_tag": "dapigen-ppo-compat-baseline-v1",
+    "collection_source_commit": "ad3889d2e6db365e93c6d42daee1fa4cc4e6c3ee",
+    "decision_source_commit": "6f1cbc8ce0d5cbbeaa6c4a9ef2d6e91b7a9fa1af",
+    "decision_source_dirty": false,
+    "full_artifact": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf/gate1-formal-ad3889d-v1/gate1-decision-blinded-v2.json"
+  },
+  "llm": {
+    "model_id": "Qwen/Qwen2.5-7B-Instruct",
+    "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+    "prompt_version": "scicf-dapigen-acquisition-blinded-v2",
+    "candidate_presentation": "sha256-shuffle-v1",
+    "generation_protocol": "greedy-attention-mask-exact-budget-v2",
+    "requests": 24,
+    "validated_responses": 24,
+    "first_attempt_responses": 22,
+    "schema_repair_responses": 2
+  },
+  "presentation_audit": {
+    "all_presentations_shuffled": true,
+    "all_final_responses_exactly_four": true,
+    "selected_equals_original_pool_first_four": 0,
+    "selected_equals_shuffled_presentation_first_four": 4
+  },
+  "stages": {
+    "early": {
+      "trajectories": 8,
+      "pool_size_each": 24,
+      "verified_gain_count_each": 24,
+      "mean_ndcg_at_4": {
+        "llm": 0.3057077262580966,
+        "random": 0.3105471100513705,
+        "chemistry_heuristic": 0.5845389067901942,
+        "policy_probability": 0.0
+      },
+      "llm_minus_random_95_ci": [-0.18864457950243863, 0.1671618374303227],
+      "llm_minus_chemistry_95_ci": [-0.40261295077442305, -0.13387521774560834],
+      "stage_success": false,
+      "oracle_counts": {
+        "factual": 0,
+        "counterfactual": 117,
+        "evaluation": 0,
+        "total": 117
+      }
+    },
+    "middle": {
+      "trajectories": 8,
+      "pool_size_each": 24,
+      "verified_gain_count_each": 24,
+      "mean_ndcg_at_4": {
+        "llm": 0.12777132541302783,
+        "random": 0.2913422220254739,
+        "chemistry_heuristic": 0.0,
+        "policy_probability": 0.47461631589784664
+      },
+      "llm_minus_random_95_ci": [-0.3694885643506699, 0.03180292753916883],
+      "llm_minus_chemistry_95_ci": [0.03734160483761113, 0.22852100940916026],
+      "stage_success": false,
+      "oracle_counts": {
+        "factual": 392,
+        "counterfactual": 332,
+        "evaluation": 0,
+        "total": 724
+      }
+    },
+    "late": {
+      "trajectories": 8,
+      "pool_size_each": 24,
+      "verified_gain_count_each": 24,
+      "mean_ndcg_at_4": {
+        "llm": 0.08166016612013739,
+        "random": 0.08386527203587449,
+        "chemistry_heuristic": 0.0,
+        "policy_probability": 0.14644283635783434
+      },
+      "llm_minus_random_95_ci": [-0.1332756059367591, 0.12666028818954783],
+      "llm_minus_chemistry_95_ci": [0.0, 0.22833435712318423],
+      "stage_success": false,
+      "oracle_counts": {
+        "factual": 392,
+        "counterfactual": 320,
+        "evaluation": 0,
+        "total": 712
+      }
+    }
+  },
+  "slurm": {
+    "model_setup": "4570 COMPLETED 0:0",
+    "smoke": "4572 COMPLETED 0:0",
+    "formal_collection_array": "4573 tasks 0-2 COMPLETED 0:0",
+    "blinding_tests": "4583 COMPLETED 0:0; 19 tests passed",
+    "request_blinding": "4584 COMPLETED 0:0",
+    "llm_ranking": "4585 COMPLETED 0:0",
+    "aggregation": "4586 COMPLETED 0:0"
+  },
+  "excluded_diagnostics": [
+    {
+      "jobs": [4581, 4582],
+      "reason": "Unblinded source-block ordering caused 23 of 24 LLM selections to equal the original policy-near first-four block."
+    },
+    {
+      "job": 4576,
+      "reason": "Cancelled while correcting the decoding protocol; partial output excluded."
+    },
+    {
+      "job": 4578,
+      "reason": "Failed strict response validation; partial output excluded."
+    }
+  ],
+  "claim_boundary": "This offline acquisition gate does not establish online PPO improvement, independent-oracle robustness, cross-domain generality, or wet-lab validity."
+}

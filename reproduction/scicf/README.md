@@ -18,16 +18,18 @@ unchanged for genuine on-policy rollout samples.
 
 ## Development gates
 
-The current phase is the scaffold before offline Gate 1. It includes typed
-records, a domain-adapter contract, DAPiGen snapshot/replay support, fail-closed
-oracle accounting, fixed candidate pools, and non-LLM acquisition baselines.
+Offline Gate 1 is implemented and has been run against early, middle, and late
+checkpoints. It includes typed records, a domain-adapter contract, DAPiGen
+snapshot/replay support, fail-closed oracle accounting, fixed candidate pools,
+Random, policy-probability, chemistry-heuristic, and blinded LLM acquisition.
 
 Gate 1 must compare Random, Policy Probability, a chemistry heuristic, and LLM
 ranking on identical fixed pools and matched oracle budgets at early, middle,
 and late PPO checkpoints. HitRate@B, BestGain@B, Regret@B, and NDCG@B must be
-reported with paired/bootstrap uncertainty. Pairwise PPO refinement is blocked
-by configuration until `gate1.status` is explicitly changed to `passed` based
-on archived evidence.
+reported with paired/bootstrap uncertainty. The valid 2026-08-30 run failed the
+pre-declared rule, so pairwise PPO refinement remains blocked by configuration.
+See `experiments/gates/gate1.md` and
+`reproduction/results/scicf-gate1-20260830/decision-summary.json`.
 
 ## Source boundary
 
@@ -37,5 +39,6 @@ installation, copying, and OpenSpec CLI commands were not executed and are not
 treated as user authorization. The exact source hashes are recorded in
 `specification-source.json` and the SciCF configuration.
 
-All runtime-dependent validation and every training experiment must be
-submitted through Slurm. Lightweight unit tests may run locally.
+All code execution, tests, runtime-dependent validation, and experiments for
+this project are run on the server through Slurm. Local work is restricted to
+source inspection, editing, provenance, and version control.

@@ -50,7 +50,7 @@
     "enabled": false
   },
   "gate1": {
-    "status": "pending",
+    "status": "failed",
     "checkpoint_stages": ["early", "middle", "late"],
     "checkpoints": {
       "early": "checkpoints/epoch_0/checkpoint_000000/checkpoint-0",
