@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=scicf-adapter
 #SBATCH --partition=compute
-#SBATCH --nodelist=n001
+#SBATCH --nodelist=yanlih100n1
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
