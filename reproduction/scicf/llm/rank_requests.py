@@ -81,7 +81,12 @@ def main() -> None:
     torch.manual_seed(args.seed)
     torch.cuda.manual_seed_all(args.seed)
     decoding = {
+        "generation_protocol": "greedy-attention-mask-v1",
         "do_sample": False,
+        "attention_mask": "all-ones",
+        "temperature": None,
+        "top_p": None,
+        "top_k": None,
         "max_new_tokens": args.max_new_tokens,
         "max_retries": args.max_retries,
     }
@@ -94,6 +99,10 @@ def main() -> None:
         device_map={"": 0},
     )
     model.eval()
+    model.generation_config.do_sample = False
+    model.generation_config.temperature = None
+    model.generation_config.top_p = None
+    model.generation_config.top_k = None
     response_path = args.output_root / "responses.jsonl"
     total_input_tokens = 0
     total_output_tokens = 0
@@ -122,9 +131,11 @@ def main() -> None:
                     add_generation_prompt=True,
                     return_tensors="pt",
                 ).to(model.device)
+                attention_mask = torch.ones_like(input_ids, device=model.device)
                 with torch.inference_mode():
                     output_ids = model.generate(
                         input_ids,
+                        attention_mask=attention_mask,
                         do_sample=False,
                         max_new_tokens=args.max_new_tokens,
                         pad_token_id=tokenizer.eos_token_id,
