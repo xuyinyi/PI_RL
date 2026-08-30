@@ -1,3 +1,5 @@
+import copy
+
 import gym
 import numpy as np
 from RL_PPO.utils.chemutils import get_mol
@@ -13,7 +15,7 @@ def get_default_config(
         base_smiles_dianhydride="[16*]c1ccc2c(c1)C(=O)OC2=O",
         base_smiles_diamine="[16*]c1ccc(N)cc1",
         num_workers=4,
-        # num_gpus=1,
+        num_gpus=1,
         length=50,
         step_length=10,
 ):
@@ -30,21 +32,25 @@ def get_default_config(
     observation_space = gym.spaces.Box(-high, high, dtype=np.float32)
     scoring_function = sc
 
-    config = ppo.DEFAULT_CONFIG
+    env_config = {
+        "ACTION_SPACE_DIANHYDRIDE": gym.spaces.Discrete(len(building_blocks_dianhydride)),
+        "ACTION_SPACE_DIAMINE": gym.spaces.Discrete(len(building_blocks_diamine)),
+        "OBS_SPACE": observation_space,
+        "BUILDING_BLOCKS_DIANHYDRIDE": building_blocks_dianhydride,
+        "BUILDING_BLOCKS_DIAMINE": building_blocks_diamine,
+        "SCORE_FUNCTION": scoring_function,
+        "BASE_SMILES_DIANHYDRIDE": base_smiles_dianhydride,
+        "BASE_SMILES_DIAMINE": base_smiles_diamine,
+        "MODEL_PATH": model_path,
+        "LENGTH": length,
+        "STEP_LENGTH": step_length,
+    }
+
+    config = copy.deepcopy(ppo.DEFAULT_CONFIG)
     config.update(
         {
             "env": env,
-            "ACTION_SPACE_DIANHYDRIDE": gym.spaces.Discrete(len(building_blocks_dianhydride)),
-            "ACTION_SPACE_DIAMINE": gym.spaces.Discrete(len(building_blocks_diamine)),
-            "OBS_SPACE": observation_space,
-            "BUILDING_BLOCKS_DIANHYDRIDE": building_blocks_dianhydride,
-            "BUILDING_BLOCKS_DIAMINE": building_blocks_diamine,
-            "SCORE_FUNCTION": scoring_function,
-            "BASE_SMILES_DIANHYDRIDE": base_smiles_dianhydride,  # Starting point of dianhydride
-            "BASE_SMILES_DIAMINE": base_smiles_diamine,  # Starting point of dianhydride
-            "MODEL_PATH": model_path,  # polyBERT PATH
-            "LENGTH": length,  # Max nodes of molecules
-            "STEP_LENGTH": step_length,  # Step size
+            "env_config": env_config,
             "model": {
                 "fcnet_hiddens": [256, 128, 128],  # [256, 128] # old version
                 "fcnet_activation": "relu",
@@ -54,7 +60,7 @@ def get_default_config(
             # Set up a separate evaluation worker set for the
             # `trainer.evaluate()` call after training (see below).
             "num_workers": num_workers,
-            # "num_gpus": num_gpus,
+            "num_gpus": num_gpus,
             # "num_gpus_per_worker": 0.25,
             "train_batch_size": 500,
             # "sgd_minibatch_size": 20,

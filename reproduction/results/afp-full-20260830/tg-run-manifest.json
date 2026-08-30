@@ -1,0 +1,149 @@
+{
+  "assets": {
+    "Ensemble_tg_AFP_64.pt": {
+      "bytes": 1936658,
+      "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/afp-reconstruction/full-20260830-v1/assets/Ensemble_tg_AFP_64.pt",
+      "sha256": "c333c54fe983e5924dcece1af6360c5a9cbbca5ca0b9f2063429b33d80dfbdd2"
+    },
+    "Ensemble_tg_AFP_settings.csv": {
+      "bytes": 1203,
+      "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/afp-reconstruction/full-20260830-v1/assets/Ensemble_tg_AFP_settings.csv",
+      "sha256": "2d3a3b3bea5e6c636f6aeb493b8809fbefa88b0630a5fef2265c7dfe5f412123"
+    },
+    "tg_scaler.pkl": {
+      "bytes": 206,
+      "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/afp-reconstruction/full-20260830-v1/assets/tg_scaler.pkl",
+      "sha256": "567d3654755a7d966d649b571950e28ef9ebe1596e7d8eacaef867c8bac8f3c5"
+    }
+  },
+  "best_epoch": 982,
+  "best_validation_loss": 0.07501748949289322,
+  "code": {
+    "expected_upstream_commit": "5f692946cbe0d15eede882dfe4cff7fb26eb7d8c",
+    "worktree_commit": "5f692946cbe0d15eede882dfe4cff7fb26eb7d8c"
+  },
+  "data_audit": {
+    "duplicate_canonical_smiles": 0,
+    "filtered_rows": 936,
+    "raw_rows": 936,
+    "removed_rows": 0,
+    "scaler": {
+      "dev": 63.93276896871356,
+      "mu": 293.2007300569801,
+      "type": "population_standardization"
+    },
+    "source": "/home/wch/workspaces/DAPiGen-reproduction/worktree/raw_data/tg.csv",
+    "source_sha256": "aada84d2f7f0861e8db0f006a1bf42af2b5c2e92d2611de8c36e1bb39570f9b4",
+    "target_max": 491.0,
+    "target_min": 142.0
+  },
+  "elapsed_seconds": 55.658446311950684,
+  "environment": {
+    "device": "cuda",
+    "dgl": "2.1.0+cu118",
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "numpy": "1.23.5",
+    "pandas": "1.5.3",
+    "python": "3.8.20",
+    "rdkit": "2022.09.5",
+    "slurm_array_job_id": "4551",
+    "slurm_array_task_id": "3",
+    "slurm_job_id": "4551",
+    "torch": "2.1.2"
+  },
+  "label": "reconstructed AFP compatibility baseline",
+  "metrics": {
+    "all": {
+      "AIC": 963055.6313552856,
+      "BIC": 3282586.457057123,
+      "MAE": 9.19755744934082,
+      "MAPE": 0.03201508894562721,
+      "MaxErr": 93.66981506347656,
+      "R2": 0.954478108327456,
+      "RMSE": 13.640604864675861,
+      "SSE": 174157.875,
+      "scaled_mse_loss": 0.045521900057792664
+    },
+    "test": {
+      "AIC": 958718.4076752663,
+      "BIC": 2182234.8566570366,
+      "MAE": 13.421385765075684,
+      "MAPE": 0.0463707372546196,
+      "MaxErr": 93.66984558105469,
+      "R2": 0.9031719770758186,
+      "RMSE": 18.50304161018196,
+      "SSE": 32524.439453125,
+      "scaled_mse_loss": 0.08376052975654602
+    },
+    "train": {
+      "AIC": 961918.0447597504,
+      "BIC": 3174032.6982537187,
+      "MAE": 8.335721969604492,
+      "MAPE": 0.029013315215706825,
+      "MaxErr": 77.14297485351562,
+      "R2": 0.9636012161818436,
+      "RMSE": 12.297405459293982,
+      "SSE": 113117.203125,
+      "scaled_mse_loss": 0.03699815645813942
+    },
+    "validation": {
+      "AIC": 958696.4835720062,
+      "BIC": 2172019.3139508544,
+      "MAE": 11.814651489257812,
+      "MAPE": 0.041493985801935196,
+      "MaxErr": 75.26138305664062,
+      "R2": 0.9249296319415491,
+      "RMSE": 17.510749349283643,
+      "SSE": 28516.248046875,
+      "scaled_mse_loss": 0.07501748949289322
+    }
+  },
+  "network_parameters": {
+    "batch_norm": false,
+    "depth": 1,
+    "device": "cuda",
+    "dropout": 0.1,
+    "hidden_dim": 111,
+    "layer_norm": false,
+    "layers": 4,
+    "num_atom_type": 36,
+    "num_bond_type": 12,
+    "residual": false,
+    "sigmoid": false
+  },
+  "original_author_weights": false,
+  "parameter_count": 479082,
+  "parameters": {
+    "Dataset": "tg",
+    "earlystopping_patience": 150,
+    "init_lr": 0.001,
+    "lr_reduce_factor": 0.9,
+    "lr_schedule_patience": 30,
+    "max_epoch": 1000,
+    "min_lr": 1e-06,
+    "sigmoid": false,
+    "weight_decay": 0.0
+  },
+  "property": {
+    "depth": 1,
+    "dropout": 0.1,
+    "hidden_dim": 111,
+    "init_lr_exponent": -3.0,
+    "init_seed": 109,
+    "layers": 4,
+    "lr_reduce_factor": 0.9,
+    "model_id": 64,
+    "name": "tg",
+    "sigmoid": false,
+    "split_seed": 525,
+    "weight_decay": 0.0
+  },
+  "run_label": "full-target-members-v1",
+  "split_rows": {
+    "all": 936,
+    "test": 95,
+    "train": 748,
+    "validation": 93
+  },
+  "stop_reason": "max_epoch"
+}

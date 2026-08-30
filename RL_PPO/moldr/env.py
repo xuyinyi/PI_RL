@@ -7,7 +7,7 @@ from pathlib import Path
 from gym.utils import seeding
 from numpy import ndarray
 from rdkit.Chem import Draw
-from config import get_default_config
+from RL_PPO.moldr.config import get_default_config
 from RL_PPO.moldr.utils import BRICSBuild
 from RL_PPO.utils.polyBERT import Embedding_smiles
 from RL_PPO.utils.genPI import generate_PI
@@ -154,7 +154,8 @@ class PIEnvValueMax(gym.Env):
             if not gen_PI:
                 return np.zeros(1200), 0.0, True, infos
 
-            print(gen_PI)
+            if os.environ.get("DAPIGEN_VERBOSE_ENV") == "1":
+                print(gen_PI)
 
             transmittances, ctes, strengths, tgs, SaScores, rewards = self.compute_score([PI[0] for PI in gen_PI])
 
@@ -229,8 +230,9 @@ class PIEnvValueMax(gym.Env):
 
 if __name__ == "__main__":
     os.environ["CUDA_VISIBLE_DEVICES"] = "0"
-    block_dianhydride_path = os.getcwd().strip('moldr') + f"outputs/building_blocks/blocks_dianhydride.csv"
-    block_diamine_path = os.getcwd().strip('moldr') + f"outputs/building_blocks/blocks_diamine.csv"
+    rl_root = Path(__file__).resolve().parents[1]
+    block_dianhydride_path = rl_root / "outputs/building_blocks/blocks_dianhydride.csv"
+    block_diamine_path = rl_root / "outputs/building_blocks/blocks_diamine.csv"
     building_blocks_dianhydride = pd.read_csv(block_dianhydride_path)["block"].values.tolist()
     building_blocks_diamine = pd.read_csv(block_diamine_path)["block"].values.tolist()
 
@@ -245,9 +247,9 @@ if __name__ == "__main__":
         length=60,
         step_length=5,
     )
-    env = PIEnvValueMax(config)
+    env = PIEnvValueMax(config["env_config"])
 
-    save_path = os.getcwd().strip('moldr') + f"outputs/PPO/random/"
+    save_path = rl_root / "outputs/PPO/random/"
     if not os.path.exists(save_path):
         os.makedirs(save_path)
 

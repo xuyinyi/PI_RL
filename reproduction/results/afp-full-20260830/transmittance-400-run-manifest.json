@@ -1,0 +1,148 @@
+{
+  "assets": {
+    "Ensemble_transmittance(400)_AFP_43.pt": {
+      "bytes": 2441202,
+      "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/afp-reconstruction/full-20260830-v1/assets/Ensemble_transmittance(400)_AFP_43.pt",
+      "sha256": "a2220756d8faea96e29d768119ea13cf39a0c894a8c1664ba6fe5c2bac8a1bc0"
+    },
+    "Ensemble_transmittance(400)_AFP_settings.csv": {
+      "bytes": 1223,
+      "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/afp-reconstruction/full-20260830-v1/assets/Ensemble_transmittance(400)_AFP_settings.csv",
+      "sha256": "231e708ddd7ceb62b41d03dd6958c3f65bf47410defc9b32cf1328dbed64a448"
+    },
+    "transmittance(400)_scaler.pkl": {
+      "bytes": 87,
+      "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/afp-reconstruction/full-20260830-v1/assets/transmittance(400)_scaler.pkl",
+      "sha256": "5bde8e80e9996dbf0a983bcdc3c0981337fe3757252b5276af30dd0c14e4838c"
+    }
+  },
+  "best_epoch": 372,
+  "best_validation_loss": 0.006055589299649,
+  "code": {
+    "expected_upstream_commit": "5f692946cbe0d15eede882dfe4cff7fb26eb7d8c",
+    "worktree_commit": "5f692946cbe0d15eede882dfe4cff7fb26eb7d8c"
+  },
+  "data_audit": {
+    "duplicate_canonical_smiles": 3,
+    "filtered_rows": 389,
+    "raw_rows": 389,
+    "removed_rows": 0,
+    "scaler": {
+      "range": 100.0,
+      "type": "zero_one"
+    },
+    "source": "/home/wch/workspaces/DAPiGen-reproduction/worktree/raw_data/transmittance(400).csv",
+    "source_sha256": "a29f45e7ff3a6a210317180ad38d0a65d385a6c3e66bd65d1b21d22bf3da5b15",
+    "target_max": 92.0,
+    "target_min": 0.6
+  },
+  "elapsed_seconds": 29.927106857299805,
+  "environment": {
+    "device": "cuda",
+    "dgl": "2.1.0+cu118",
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "numpy": "1.23.5",
+    "pandas": "1.5.3",
+    "python": "3.8.20",
+    "rdkit": "2022.09.5",
+    "slurm_array_job_id": "4551",
+    "slurm_array_task_id": "0",
+    "slurm_job_id": "4552",
+    "torch": "2.1.2"
+  },
+  "label": "reconstructed AFP compatibility baseline",
+  "metrics": {
+    "all": {
+      "AIC": 1209523.274486065,
+      "BIC": 3603136.7672559316,
+      "MAE": 5.889021873474121,
+      "MAPE": 0.3341682255268097,
+      "MaxErr": 53.810028076171875,
+      "R2": 0.8628768258756692,
+      "RMSE": 9.114479166071423,
+      "SSE": 32315.6796875,
+      "scaled_mse_loss": 0.008307373151183128
+    },
+    "test": {
+      "AIC": 1207983.6075439453,
+      "BIC": 2227901.2876422596,
+      "MAE": 5.613327980041504,
+      "MAPE": 0.1713745892047882,
+      "MaxErr": 38.17323303222656,
+      "R2": 0.8036353125540623,
+      "RMSE": 9.441305643728562,
+      "SSE": 3565.530029296875,
+      "scaled_mse_loss": 0.008913824334740639
+    },
+    "train": {
+      "AIC": 1209185.8295993805,
+      "BIC": 3467654.248850244,
+      "MAE": 5.970761299133301,
+      "MAPE": 0.3736339211463928,
+      "MaxErr": 53.810028076171875,
+      "R2": 0.8635404561979284,
+      "RMSE": 9.22199029388281,
+      "SSE": 26449.02734375,
+      "scaled_mse_loss": 0.008504511788487434
+    },
+    "validation": {
+      "AIC": 1207959.93553257,
+      "BIC": 2196901.4925636537,
+      "MAE": 5.510256767272949,
+      "MAPE": 0.18253442645072937,
+      "MaxErr": 21.533344268798828,
+      "R2": 0.9009258780960319,
+      "RMSE": 7.781766943248378,
+      "SSE": 2301.124267578125,
+      "scaled_mse_loss": 0.006055589299649
+    }
+  },
+  "network_parameters": {
+    "batch_norm": false,
+    "depth": 3,
+    "device": "cuda",
+    "dropout": 0.25,
+    "hidden_dim": 116,
+    "layer_norm": false,
+    "layers": 2,
+    "num_atom_type": 36,
+    "num_bond_type": 12,
+    "residual": false,
+    "sigmoid": true
+  },
+  "original_author_weights": false,
+  "parameter_count": 603902,
+  "parameters": {
+    "Dataset": "transmittance(400)",
+    "earlystopping_patience": 150,
+    "init_lr": 0.001,
+    "lr_reduce_factor": 0.9,
+    "lr_schedule_patience": 30,
+    "max_epoch": 1000,
+    "min_lr": 1e-06,
+    "sigmoid": true,
+    "weight_decay": 0.0
+  },
+  "property": {
+    "depth": 3,
+    "dropout": 0.25,
+    "hidden_dim": 116,
+    "init_lr_exponent": -3.0,
+    "init_seed": 922,
+    "layers": 2,
+    "lr_reduce_factor": 0.9,
+    "model_id": 43,
+    "name": "transmittance(400)",
+    "sigmoid": true,
+    "split_seed": 825,
+    "weight_decay": 0.0
+  },
+  "run_label": "full-target-members-v1",
+  "split_rows": {
+    "all": 389,
+    "test": 40,
+    "train": 311,
+    "validation": 38
+  },
+  "stop_reason": "early_stopping"
+}

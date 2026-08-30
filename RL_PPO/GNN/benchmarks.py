@@ -5,13 +5,55 @@ import gzip
 import math
 import torch
 import pandas as pd
+from functools import lru_cache
 from rdkit.Chem import AllChem as Chem
 from rdkit.Chem import rdMolDescriptors
-from model.utils.mol2graph import smiles_2_bigraph
-from model.src.feature.atom_featurizer import classic_atom_featurizer
-from model.src.feature.bond_featurizer import classic_bond_featurizer
-from model.src.feature.mol_featurizer import classic_mol_featurizer
-from model.networks.AttentiveFP import AttentiveFPNet as AFP
+from RL_PPO.GNN.model.utils.mol2graph import smiles_2_bigraph
+from RL_PPO.GNN.model.src.feature.atom_featurizer import classic_atom_featurizer
+from RL_PPO.GNN.model.src.feature.bond_featurizer import classic_bond_featurizer
+from RL_PPO.GNN.model.src.feature.mol_featurizer import classic_mol_featurizer
+from RL_PPO.GNN.model.networks.AttentiveFP import AttentiveFPNet as AFP
+
+
+@lru_cache(maxsize=16)
+def _load_scaler(path):
+    with open(path, 'rb') as handle:
+        return pickle.load(handle)
+
+
+@lru_cache(maxsize=16)
+def _load_afp_model(model_file_path, setting_file_path, device_name):
+    filename = os.path.basename(model_file_path)
+    idx = int(re.findall('_(\\d+).pt', filename)[0])
+    df = pd.read_csv(setting_file_path, sep=',', encoding='windows-1250', index_col=-1)
+    params = {}
+    net_params = {}
+    for item in df.columns:
+        if ':' in item:
+            prefix, key = item.split(':', 1)
+            if prefix == 'param':
+                params[key] = df[item][idx]
+            if prefix == 'net_param':
+                net_params[key] = df[item][idx]
+    if 'sigmoid' not in net_params:
+        net_params['sigmoid'] = False
+    device = torch.device(device_name)
+    model = AFP(net_params).to(device=device)
+    model.load_state_dict(
+        torch.load(model_file_path, map_location=device), strict=False
+    )
+    model.eval()
+    return params, net_params, model
+
+
+@lru_cache(maxsize=1)
+def _load_fingerprint_scores(path):
+    data = pickle.load(gzip.open(path))
+    scores = {}
+    for item in data:
+        for index in range(1, len(item)):
+            scores[item[index]] = float(item[0])
+    return scores
 
 
 class MoleculeCSVDataset(object):
@@ -24,7 +66,8 @@ class MoleculeCSVDataset(object):
         '''
         :param
         '''
-        print('Preparing dgl by featurizers ...')
+        if os.environ.get('DAPIGEN_VERBOSE_ENV') == '1':
+            print('Preparing dgl by featurizers ...')
         self.origin_graphs = []
         for i, s in enumerate(self.smiles):
             self.origin_graphs.append(smiles_2_graph(s, atom_featurizer, bond_featurizer, mol_featurizer))
@@ -86,12 +129,17 @@ class Benchmark(object):
         self.Score_tg = self.score_tg(self.tg)
         self.Score_SA = self.score_SA(self.ScoreSA)
 
-        self.Score = round((coef * (self.Score_cte * self.Score_strength * self.Score_tg * self.Score_SA) ** 0.25), 4)
-
-        # self.Score = [round((c + c * (s_cte + s_str + s_tg + s_sa)) / 5, 4)
-        #               for c, s_cte, s_str, s_tg, s_sa in zip(
-        #         coef, self.Score_cte, self.Score_strength, self.Score_tg, self.Score_SA
-        #     )]
+        # Main-text Equation (1): transparency is the primary coefficient,
+        # while CLTE, strength, Tg, and SA have equal secondary weights.
+        self.Score = round(
+            (
+                coef
+                + coef
+                * (self.Score_cte + self.Score_strength + self.Score_tg + self.Score_SA)
+            )
+            / 5,
+            4,
+        )
 
     def pred_transmittance(self):
         self.property_name = 'transmittance(400)'
@@ -99,8 +147,7 @@ class Benchmark(object):
         self.params.update({'Dataset': self.property_name})
         self.scaler_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                         f'model/{self.property_name}_scaler.pkl')
-        with open(self.scaler_path, 'rb') as fw:
-            self.scaling = pickle.load(fw)
+        self.scaling = _load_scaler(self.scaler_path)
         self.model_name = 'Ensemble_{}_AFP_{}'.format(self.params['Dataset'], self.model_id[0])
         _, _, self.model = self.load_model(self.model_name)
         pred, smiles = self.evaluate(self.model, self.scaling, self.dataset.origin_graphs, self.dataset.smiles)
@@ -113,8 +160,7 @@ class Benchmark(object):
         self.params.update({'Dataset': self.property_name})
         self.scaler_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                         f'model/{self.property_name}_scaler.pkl')
-        with open(self.scaler_path, 'rb') as fw:
-            self.scaling = pickle.load(fw)
+        self.scaling = _load_scaler(self.scaler_path)
         self.model_name = 'Ensemble_{}_AFP_{}'.format(self.params['Dataset'], self.model_id[1])
         _, _, self.model = self.load_model(self.model_name)
         pred, smiles = self.evaluate(self.model, self.scaling, self.dataset.origin_graphs, self.dataset.smiles)
@@ -127,8 +173,7 @@ class Benchmark(object):
         self.params.update({'Dataset': self.property_name})
         self.scaler_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                         f'model/{self.property_name}_scaler.pkl')
-        with open(self.scaler_path, 'rb') as fw:
-            self.scaling = pickle.load(fw)
+        self.scaling = _load_scaler(self.scaler_path)
         self.model_name = 'Ensemble_{}_AFP_{}'.format(self.params['Dataset'], self.model_id[2])
         _, _, self.model = self.load_model(self.model_name)
         pred, smiles = self.evaluate(self.model, self.scaling, self.dataset.origin_graphs, self.dataset.smiles)
@@ -141,8 +186,7 @@ class Benchmark(object):
         self.params.update({'Dataset': self.property_name})
         self.scaler_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                         f'model/{self.property_name}_scaler.pkl')
-        with open(self.scaler_path, 'rb') as fw:
-            self.scaling = pickle.load(fw)
+        self.scaling = _load_scaler(self.scaler_path)
         self.model_name = 'Ensemble_{}_AFP_{}'.format(self.params['Dataset'], self.model_id[3])
         _, _, self.model = self.load_model(self.model_name)
         pred, smiles = self.evaluate(self.model, self.scaling, self.dataset.origin_graphs, self.dataset.smiles)
@@ -151,11 +195,7 @@ class Benchmark(object):
 
     def pred_SA(self):
         FpScoresPath = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'model/fpscores.pkl.gz')
-        FpScoresData = pickle.load(gzip.open(FpScoresPath))
-        FpScores = {}
-        for i in FpScoresData:
-            for j in range(1, len(i)):
-                FpScores[i[j]] = float(i[0])
+        FpScores = _load_fingerprint_scores(FpScoresPath)
 
         mols = [Chem.MolFromSmiles(smi) for smi in self.smiles]
         scoreSA = [self.calculateSAScore(mol, FpScores) for mol in mols]
@@ -170,24 +210,9 @@ class Benchmark(object):
         idx = int(re.findall('_(\d+).pt', filename)[0])
         name = filename.split(f"_{idx}")[0]
         setting_file_path = os.path.join(model_dir_path, name + '_settings' + '.csv')
-        df = pd.read_csv(setting_file_path, sep=',', encoding='windows-1250', index_col=-1)
-        params = {}
-        net_params = {}
-        for _, item in enumerate(df.columns):
-            if ':' in item:
-                if item.split(':')[0] == 'param':
-                    params[item.split(':')[1]] = df[item][idx]
-                if item.split(':')[0] == 'net_param':
-                    net_params[item.split(':')[1]] = df[item][idx]
-
-        if "sigmoid" not in net_params.keys():
-            net_params["sigmoid"] = False
-
-        network = re.findall('\w*_(\w*)_\d*.pt', filename)[0]
-        model = eval(network)(net_params).to(device=self.device)
-
-        model.load_state_dict(torch.load(model_file_path), strict=False)
-        return params, net_params, model
+        return _load_afp_model(
+            model_file_path, setting_file_path, str(self.device)
+        )
 
     def evaluate(self, model, scaling, origin_graph, smiles):
         model.eval()

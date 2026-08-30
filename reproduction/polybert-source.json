@@ -1,0 +1,21 @@
+{
+  "downloaded_on": "2026-08-30",
+  "expected_primary": {
+    "repo_id": "kuelumbus/polyBERT",
+    "revision": "3675d021d0938179b6b57dfcca4753ca34048182",
+    "access_status": "inaccessible_to_authenticated_account"
+  },
+  "installed_snapshot": {
+    "repo_id": "xushijie/polyBERT",
+    "revision": "e7dce434fb3eff37905dc114008660e5479ca9a8",
+    "requested_by_user": true,
+    "target": "RL_PPO/models"
+  },
+  "identity_to_primary_verified": false,
+  "runtime_smoke": {
+    "entrypoint": "RL_PPO.utils.polyBERT.Embedding_smiles",
+    "shape": [600],
+    "dtype": "float32",
+    "all_finite": true
+  }
+}

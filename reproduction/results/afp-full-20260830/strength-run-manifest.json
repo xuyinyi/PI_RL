@@ -1,0 +1,149 @@
+{
+  "assets": {
+    "Ensemble_strength_AFP_84.pt": {
+      "bytes": 2260710,
+      "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/afp-reconstruction/full-20260830-v1/assets/Ensemble_strength_AFP_84.pt",
+      "sha256": "078b0a5a67781e3d6f7dc488d09e41d87d555ed7fe6ee490ea2ddcd1ab7e6541"
+    },
+    "Ensemble_strength_AFP_settings.csv": {
+      "bytes": 1225,
+      "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/afp-reconstruction/full-20260830-v1/assets/Ensemble_strength_AFP_settings.csv",
+      "sha256": "363df230aec1e6996301afc9f16308a10cfd093c0345c4d6d59fa0f701ba1260"
+    },
+    "strength_scaler.pkl": {
+      "bytes": 206,
+      "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/afp-reconstruction/full-20260830-v1/assets/strength_scaler.pkl",
+      "sha256": "22128758962a089e4ce6a52c6b9453aa53fd056c2af9f3889040b4df2b2263c8"
+    }
+  },
+  "best_epoch": 136,
+  "best_validation_loss": 0.3744208514690399,
+  "code": {
+    "expected_upstream_commit": "5f692946cbe0d15eede882dfe4cff7fb26eb7d8c",
+    "worktree_commit": "5f692946cbe0d15eede882dfe4cff7fb26eb7d8c"
+  },
+  "data_audit": {
+    "duplicate_canonical_smiles": 0,
+    "filtered_rows": 764,
+    "raw_rows": 764,
+    "removed_rows": 0,
+    "scaler": {
+      "dev": 40.34658955184252,
+      "mu": 108.62212041884818,
+      "type": "population_standardization"
+    },
+    "source": "/home/wch/workspaces/DAPiGen-reproduction/worktree/raw_data/strength.csv",
+    "source_sha256": "eb94b725af2b003747beee504b2fb315f4b2017bbc4c8db9f3bec98e656f6cd1",
+    "target_max": 420.0,
+    "target_min": 30.1
+  },
+  "elapsed_seconds": 26.262039184570312,
+  "environment": {
+    "device": "cuda",
+    "dgl": "2.1.0+cu118",
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "numpy": "1.23.5",
+    "pandas": "1.5.3",
+    "python": "3.8.20",
+    "rdkit": "2022.09.5",
+    "slurm_array_job_id": "4551",
+    "slurm_array_task_id": "2",
+    "slurm_job_id": "4554",
+    "torch": "2.1.2"
+  },
+  "label": "reconstructed AFP compatibility baseline",
+  "metrics": {
+    "all": {
+      "AIC": 1119613.6701698303,
+      "BIC": 3705012.198817574,
+      "MAE": 15.841048240661621,
+      "MAPE": 0.15426793694496155,
+      "MaxErr": 152.9443359375,
+      "R2": 0.6379106226278133,
+      "RMSE": 24.278100161687643,
+      "SSE": 450321.625,
+      "scaled_mse_loss": 0.3620893955230713
+    },
+    "test": {
+      "AIC": 1115253.448243618,
+      "BIC": 2421620.2762222057,
+      "MAE": 18.062917709350586,
+      "MAPE": 0.15837709605693817,
+      "MaxErr": 152.9443359375,
+      "R2": 0.748338345499755,
+      "RMSE": 28.052547737599745,
+      "SSE": 60594.80078125,
+      "scaled_mse_loss": 0.4834270775318146
+    },
+    "train": {
+      "AIC": 1118608.588195324,
+      "BIC": 3579451.1803287957,
+      "MAE": 15.340531349182129,
+      "MAPE": 0.1447167545557022,
+      "MaxErr": 152.9443359375,
+      "R2": 0.6141431975726622,
+      "RMSE": 23.707327000647396,
+      "SSE": 343404.78125,
+      "scaled_mse_loss": 0.345264196395874
+    },
+    "validation": {
+      "AIC": 1115227.3605747223,
+      "BIC": 2414308.202450115,
+      "MAE": 17.61383056640625,
+      "MAPE": 0.22689133882522583,
+      "MaxErr": 72.721435546875,
+      "R2": 0.5724990299686568,
+      "RMSE": 24.68805379125702,
+      "SSE": 46321.99609375,
+      "scaled_mse_loss": 0.3744208514690399
+    }
+  },
+  "network_parameters": {
+    "batch_norm": false,
+    "depth": 3,
+    "device": "cuda",
+    "dropout": 0.2,
+    "hidden_dim": 97,
+    "layer_norm": false,
+    "layers": 4,
+    "num_atom_type": 36,
+    "num_bond_type": 12,
+    "residual": false,
+    "sigmoid": false
+  },
+  "original_author_weights": false,
+  "parameter_count": 557370,
+  "parameters": {
+    "Dataset": "strength",
+    "earlystopping_patience": 150,
+    "init_lr": 0.005540258133641691,
+    "lr_reduce_factor": 0.8,
+    "lr_schedule_patience": 30,
+    "max_epoch": 1000,
+    "min_lr": 1e-06,
+    "sigmoid": false,
+    "weight_decay": 0.0
+  },
+  "property": {
+    "depth": 3,
+    "dropout": 0.2,
+    "hidden_dim": 97,
+    "init_lr_exponent": -2.25647,
+    "init_seed": 734,
+    "layers": 4,
+    "lr_reduce_factor": 0.8,
+    "model_id": 84,
+    "name": "strength",
+    "sigmoid": false,
+    "split_seed": 331,
+    "weight_decay": 0.0
+  },
+  "run_label": "full-target-members-v1",
+  "split_rows": {
+    "all": 764,
+    "test": 77,
+    "train": 611,
+    "validation": 76
+  },
+  "stop_reason": "early_stopping"
+}

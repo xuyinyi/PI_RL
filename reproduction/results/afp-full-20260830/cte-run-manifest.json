@@ -1,0 +1,149 @@
+{
+  "assets": {
+    "Ensemble_cte_AFP_56.pt": {
+      "bytes": 861788,
+      "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/afp-reconstruction/full-20260830-v1/assets/Ensemble_cte_AFP_56.pt",
+      "sha256": "862ca8a97392302ad91bf784685c3b6af0b8439d4d5aa9439a01df38c2ca2d14"
+    },
+    "Ensemble_cte_AFP_settings.csv": {
+      "bytes": 1232,
+      "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/afp-reconstruction/full-20260830-v1/assets/Ensemble_cte_AFP_settings.csv",
+      "sha256": "e50b62726b991aa991935ccfc0d994a7ae5362b418b876c3fd98294edd1dc38a"
+    },
+    "cte_scaler.pkl": {
+      "bytes": 206,
+      "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/afp-reconstruction/full-20260830-v1/assets/cte_scaler.pkl",
+      "sha256": "c114884f6faef9efd6a1d6815969e0a0ab8f48a7c10ab9ab22638cf8cffc47c6"
+    }
+  },
+  "best_epoch": 321,
+  "best_validation_loss": 0.08416581898927689,
+  "code": {
+    "expected_upstream_commit": "5f692946cbe0d15eede882dfe4cff7fb26eb7d8c",
+    "worktree_commit": "5f692946cbe0d15eede882dfe4cff7fb26eb7d8c"
+  },
+  "data_audit": {
+    "duplicate_canonical_smiles": 0,
+    "filtered_rows": 454,
+    "raw_rows": 454,
+    "removed_rows": 0,
+    "scaler": {
+      "dev": 19.873848112944405,
+      "mu": 45.29235682819384,
+      "type": "population_standardization"
+    },
+    "source": "/home/wch/workspaces/DAPiGen-reproduction/worktree/raw_data/cte.csv",
+    "source_sha256": "84aa218169a68a8952c77388cbd50150b63465d2c63289738dae8aca663ae70c",
+    "target_max": 120.0,
+    "target_min": -16.2
+  },
+  "elapsed_seconds": 18.390345811843872,
+  "environment": {
+    "device": "cuda",
+    "dgl": "2.1.0+cu118",
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "numpy": "1.23.5",
+    "pandas": "1.5.3",
+    "python": "3.8.20",
+    "rdkit": "2022.09.5",
+    "slurm_array_job_id": "4551",
+    "slurm_array_task_id": "1",
+    "slurm_job_id": "4553",
+    "torch": "2.1.2"
+  },
+  "label": "reconstructed AFP compatibility baseline",
+  "metrics": {
+    "all": {
+      "AIC": 424749.78413772583,
+      "BIC": 1295731.4596206688,
+      "MAE": 4.753106594085693,
+      "MAPE": 0.20465241372585297,
+      "MaxErr": 46.83351135253906,
+      "R2": 0.8810514885578338,
+      "RMSE": 6.854273956603133,
+      "SSE": 21329.404296875,
+      "scaled_mse_loss": 0.11894850432872772
+    },
+    "test": {
+      "AIC": 423202.83401203156,
+      "BIC": 809962.3180108716,
+      "MAE": 6.480466842651367,
+      "MAPE": 0.24450762569904327,
+      "MaxErr": 25.22658920288086,
+      "R2": 0.8268211345417968,
+      "RMSE": 8.872693259036136,
+      "SSE": 3621.335693359375,
+      "scaled_mse_loss": 0.19931823015213013
+    },
+    "train": {
+      "AIC": 424381.0779452324,
+      "BIC": 1248051.1717950825,
+      "MAE": 4.6027655601501465,
+      "MAPE": 0.19601242244243622,
+      "MaxErr": 46.83351135253906,
+      "R2": 0.8756403216593223,
+      "RMSE": 6.6829287868725755,
+      "SSE": 16212.138671875,
+      "scaled_mse_loss": 0.11307582259178162
+    },
+    "validation": {
+      "AIC": 423159.67293810844,
+      "BIC": 805270.5961870208,
+      "MAE": 4.200113773345947,
+      "MAPE": 0.23360738158226013,
+      "MaxErr": 17.0004940032959,
+      "R2": 0.9441894617006646,
+      "RMSE": 5.765670982942481,
+      "SSE": 1495.93310546875,
+      "scaled_mse_loss": 0.08416581898927689
+    }
+  },
+  "network_parameters": {
+    "batch_norm": false,
+    "depth": 2,
+    "device": "cuda",
+    "dropout": 0.35,
+    "hidden_dim": 87,
+    "layer_norm": false,
+    "layers": 1,
+    "num_atom_type": 36,
+    "num_bond_type": 12,
+    "residual": false,
+    "sigmoid": false
+  },
+  "original_author_weights": false,
+  "parameter_count": 211501,
+  "parameters": {
+    "Dataset": "cte",
+    "earlystopping_patience": 150,
+    "init_lr": 0.011912145789822663,
+    "lr_reduce_factor": 0.6,
+    "lr_schedule_patience": 30,
+    "max_epoch": 1000,
+    "min_lr": 1e-06,
+    "sigmoid": false,
+    "weight_decay": 0.0
+  },
+  "property": {
+    "depth": 2,
+    "dropout": 0.35,
+    "hidden_dim": 87,
+    "init_lr_exponent": -1.92401,
+    "init_seed": 125,
+    "layers": 1,
+    "lr_reduce_factor": 0.6,
+    "model_id": 56,
+    "name": "cte",
+    "sigmoid": false,
+    "split_seed": 854,
+    "weight_decay": 0.0
+  },
+  "run_label": "full-target-members-v1",
+  "split_rows": {
+    "all": 454,
+    "test": 46,
+    "train": 363,
+    "validation": 45
+  },
+  "stop_reason": "early_stopping"
+}

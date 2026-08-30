@@ -1,17 +1,28 @@
+import os
 import time
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
 import ray
 from datetime import datetime
 from ray.rllib.agents.ppo import PPOTrainer
 from tqdm import tqdm
-from env import *
+from RL_PPO.moldr.env import PIEnvValueMax
+from RL_PPO.moldr.config import get_default_config
 from RL_PPO.moldr.utils import save, custom_log_creator
 from RL_PPO.GNN.benchmarks import Benchmark
+from reproduction.check_assets import require_assets
 
 
 def main():
-    model_path = Path(__file__).resolve().parent.parent / "models"
-    block_dianhydride_path = os.getcwd().strip('moldr') + f"outputs/building_blocks/blocks_dianhydride.csv"
-    block_diamine_path = os.getcwd().strip('moldr') + f"outputs/building_blocks/blocks_diamine.csv"
+    repo_root = Path(__file__).resolve().parents[2]
+    rl_root = Path(__file__).resolve().parents[1]
+    require_assets(repo_root)
+
+    model_path = rl_root / "models"
+    block_dianhydride_path = rl_root / "outputs/building_blocks/blocks_dianhydride.csv"
+    block_diamine_path = rl_root / "outputs/building_blocks/blocks_diamine.csv"
     building_blocks_dianhydride = pd.read_csv(block_dianhydride_path)["block"].values.tolist()
     building_blocks_diamine = pd.read_csv(block_diamine_path)["block"].values.tolist()
 
@@ -29,12 +40,12 @@ def main():
         length=60,
         step_length=5,
     )
-    save_path = os.getcwd().strip('moldr') + f"outputs/PPO/models/{_time}/config.pkl"
+    save_path = rl_root / f"outputs/PPO/models/{_time}/config.pkl"
     save(save_path, config)
-    custom_path = Path(os.getcwd().strip('moldr') + f"ray_results/PPO_PIEnvValueMax")
+    custom_path = rl_root / "ray_results/PPO_PIEnvValueMax"
     trainer = PPOTrainer(
         env=PIEnvValueMax,
-        config={"env_config": config},
+        config=config,
         logger_creator=custom_log_creator(custom_path, "PI"),
     )
 
@@ -44,12 +55,12 @@ def main():
 
         print(f'epoch_{i} has completed.')
         if i % 10 == 0:
-            save_path = os.getcwd().strip('moldr') + f"outputs/PPO/models/{_time}/epoch_{i}"
+            save_path = rl_root / f"outputs/PPO/models/{_time}/epoch_{i}"
             if not os.path.exists(save_path):
                 os.makedirs(save_path)
             policy = trainer.get_policy()
             trainer.save(save_path)
-            env = PIEnvValueMax(config)
+            env = PIEnvValueMax(config["env_config"])
             PI, A_1, A_2, transmittance, cte, strength, tg, SaScore, reward_l = \
                 list(), list(), list(), list(), list(), list(), list(), list(), list()
             for j in range(10000):
@@ -88,7 +99,7 @@ def main():
         runTime = endTime - startTime
         log_temp = pd.DataFrame(data=np.array([i, runTime]).reshape(1, -1), columns=['Epoch', 'RunTime'])
         timeLog = timeLog.append(log_temp, ignore_index=True)
-        timeLog.to_csv(os.getcwd().strip('moldr') + f"outputs/PPO/models/{_time}/log.csv", index=False)
+        timeLog.to_csv(rl_root / f"outputs/PPO/models/{_time}/log.csv", index=False)
 
     ray.shutdown()
 

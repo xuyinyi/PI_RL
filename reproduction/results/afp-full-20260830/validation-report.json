@@ -1,0 +1,315 @@
+{
+  "asset_gate": {
+    "polybert": {
+      "empty": [],
+      "missing": [],
+      "present": [
+        "config.json",
+        "pytorch_model.bin",
+        "spm.model",
+        "tokenizer.json",
+        "tokenizer_config.json",
+        "special_tokens_map.json"
+      ],
+      "ready": true,
+      "root": "/home/wch/workspaces/DAPiGen-reproduction/worktree/RL_PPO/models"
+    },
+    "polybert_source": {
+      "expected_repo": "kuelumbus/polyBERT",
+      "expected_revision": "3675d021d0938179b6b57dfcca4753ca34048182",
+      "identity_verified": false,
+      "installed_repo": "xushijie/polyBERT",
+      "installed_revision": "e7dce434fb3eff37905dc114008660e5479ca9a8"
+    },
+    "ppo_assets_ready": false,
+    "ppo_runtime_files_ready": true,
+    "reward_models": {
+      "empty": [],
+      "missing": [],
+      "present": [
+        "transmittance(400)_scaler.pkl",
+        "cte_scaler.pkl",
+        "strength_scaler.pkl",
+        "tg_scaler.pkl",
+        "Ensemble_transmittance(400)_AFP_43.pt",
+        "Ensemble_cte_AFP_56.pt",
+        "Ensemble_strength_AFP_84.pt",
+        "Ensemble_tg_AFP_64.pt",
+        "Ensemble_transmittance(400)_AFP_settings.csv",
+        "Ensemble_cte_AFP_settings.csv",
+        "Ensemble_strength_AFP_settings.csv",
+        "Ensemble_tg_AFP_settings.csv"
+      ],
+      "ready": true,
+      "root": "/home/wch/workspaces/DAPiGen-reproduction/worktree/RL_PPO/GNN/model"
+    }
+  },
+  "benchmark_smoke": {
+    "SA": 3.24,
+    "cte": 32.64,
+    "reward": 0.3159,
+    "smiles": "Cc1ccc(-c2c3ccccc3nc3cc(N4C(=O)CC(C)(c5ccc6c(c5)C(=O)N(C)C6=O)C4=O)ccc23)cc1",
+    "strength": 156.81,
+    "tg": 333.86,
+    "transmittance": 53.82
+  },
+  "environment_smoke": {
+    "action": [
+      47,
+      0
+    ],
+    "done": true,
+    "generated_PI": "Cc1ccc2c(c1)-c1cc(N3C(=O)c4ccc(C5(C6=CC7C(=O)N(C)C(=O)C7C=C6)c6ccccc6-c6ccccc65)cc4C3=O)ccc1C21c2ccccc2Oc2ccccc21",
+    "info_keys": [
+      "gen_smiles_diamine",
+      "gen_smiles_dianhydride",
+      "prev_action"
+    ],
+    "properties": {
+      "SA": 4.9,
+      "cte": 39.3,
+      "strength": 96.19,
+      "tg": 430.33,
+      "transmittance": 71.31
+    },
+    "reset_shape": [
+      1200
+    ],
+    "reward": 0.3356
+  },
+  "label": "reconstructed AFP compatibility baseline",
+  "original_author_weights": false,
+  "properties": {
+    "cte": {
+      "hashes": {
+        "scaler": "c114884f6faef9efd6a1d6815969e0a0ab8f48a7c10ab9ab22638cf8cffc47c6",
+        "settings": "e50b62726b991aa991935ccfc0d994a7ae5362b418b876c3fd98294edd1dc38a",
+        "weight": "862ca8a97392302ad91bf784685c3b6af0b8439d4d5aa9439a01df38c2ca2d14"
+      },
+      "init_seed": 125,
+      "metrics": {
+        "all": {
+          "AIC": 424749.78413772583,
+          "BIC": 1295731.4596206688,
+          "MAE": 4.753106594085693,
+          "MAPE": 0.20465241372585297,
+          "MaxErr": 46.83351135253906,
+          "R2": 0.8810514885578338,
+          "RMSE": 6.854273956603133,
+          "SSE": 21329.404296875,
+          "scaled_mse_loss": 0.11894850432872772
+        },
+        "test": {
+          "AIC": 423202.83401203156,
+          "BIC": 809962.3180108716,
+          "MAE": 6.480466842651367,
+          "MAPE": 0.24450762569904327,
+          "MaxErr": 25.22658920288086,
+          "R2": 0.8268211345417968,
+          "RMSE": 8.872693259036136,
+          "SSE": 3621.335693359375,
+          "scaled_mse_loss": 0.19931823015213013
+        },
+        "train": {
+          "AIC": 424381.0779452324,
+          "BIC": 1248051.1717950825,
+          "MAE": 4.6027655601501465,
+          "MAPE": 0.19601242244243622,
+          "MaxErr": 46.83351135253906,
+          "R2": 0.8756403216593223,
+          "RMSE": 6.6829287868725755,
+          "SSE": 16212.138671875,
+          "scaled_mse_loss": 0.11307582259178162
+        },
+        "validation": {
+          "AIC": 423159.67293810844,
+          "BIC": 805270.5961870208,
+          "MAE": 4.200113773345947,
+          "MAPE": 0.23360738158226013,
+          "MaxErr": 17.0004940032959,
+          "R2": 0.9441894617006646,
+          "RMSE": 5.765670982942481,
+          "SSE": 1495.93310546875,
+          "scaled_mse_loss": 0.08416581898927689
+        }
+      },
+      "model_id": 56,
+      "sigmoid": false
+    },
+    "strength": {
+      "hashes": {
+        "scaler": "22128758962a089e4ce6a52c6b9453aa53fd056c2af9f3889040b4df2b2263c8",
+        "settings": "363df230aec1e6996301afc9f16308a10cfd093c0345c4d6d59fa0f701ba1260",
+        "weight": "078b0a5a67781e3d6f7dc488d09e41d87d555ed7fe6ee490ea2ddcd1ab7e6541"
+      },
+      "init_seed": 734,
+      "metrics": {
+        "all": {
+          "AIC": 1119613.6701698303,
+          "BIC": 3705012.198817574,
+          "MAE": 15.841048240661621,
+          "MAPE": 0.15426793694496155,
+          "MaxErr": 152.9443359375,
+          "R2": 0.6379106226278133,
+          "RMSE": 24.278100161687643,
+          "SSE": 450321.625,
+          "scaled_mse_loss": 0.3620893955230713
+        },
+        "test": {
+          "AIC": 1115253.448243618,
+          "BIC": 2421620.2762222057,
+          "MAE": 18.062917709350586,
+          "MAPE": 0.15837709605693817,
+          "MaxErr": 152.9443359375,
+          "R2": 0.748338345499755,
+          "RMSE": 28.052547737599745,
+          "SSE": 60594.80078125,
+          "scaled_mse_loss": 0.4834270775318146
+        },
+        "train": {
+          "AIC": 1118608.588195324,
+          "BIC": 3579451.1803287957,
+          "MAE": 15.340531349182129,
+          "MAPE": 0.1447167545557022,
+          "MaxErr": 152.9443359375,
+          "R2": 0.6141431975726622,
+          "RMSE": 23.707327000647396,
+          "SSE": 343404.78125,
+          "scaled_mse_loss": 0.345264196395874
+        },
+        "validation": {
+          "AIC": 1115227.3605747223,
+          "BIC": 2414308.202450115,
+          "MAE": 17.61383056640625,
+          "MAPE": 0.22689133882522583,
+          "MaxErr": 72.721435546875,
+          "R2": 0.5724990299686568,
+          "RMSE": 24.68805379125702,
+          "SSE": 46321.99609375,
+          "scaled_mse_loss": 0.3744208514690399
+        }
+      },
+      "model_id": 84,
+      "sigmoid": false
+    },
+    "tg": {
+      "hashes": {
+        "scaler": "567d3654755a7d966d649b571950e28ef9ebe1596e7d8eacaef867c8bac8f3c5",
+        "settings": "2d3a3b3bea5e6c636f6aeb493b8809fbefa88b0630a5fef2265c7dfe5f412123",
+        "weight": "c333c54fe983e5924dcece1af6360c5a9cbbca5ca0b9f2063429b33d80dfbdd2"
+      },
+      "init_seed": 109,
+      "metrics": {
+        "all": {
+          "AIC": 963055.6313552856,
+          "BIC": 3282586.457057123,
+          "MAE": 9.19755744934082,
+          "MAPE": 0.03201508894562721,
+          "MaxErr": 93.66981506347656,
+          "R2": 0.954478108327456,
+          "RMSE": 13.640604864675861,
+          "SSE": 174157.875,
+          "scaled_mse_loss": 0.045521900057792664
+        },
+        "test": {
+          "AIC": 958718.4076752663,
+          "BIC": 2182234.8566570366,
+          "MAE": 13.421385765075684,
+          "MAPE": 0.0463707372546196,
+          "MaxErr": 93.66984558105469,
+          "R2": 0.9031719770758186,
+          "RMSE": 18.50304161018196,
+          "SSE": 32524.439453125,
+          "scaled_mse_loss": 0.08376052975654602
+        },
+        "train": {
+          "AIC": 961918.0447597504,
+          "BIC": 3174032.6982537187,
+          "MAE": 8.335721969604492,
+          "MAPE": 0.029013315215706825,
+          "MaxErr": 77.14297485351562,
+          "R2": 0.9636012161818436,
+          "RMSE": 12.297405459293982,
+          "SSE": 113117.203125,
+          "scaled_mse_loss": 0.03699815645813942
+        },
+        "validation": {
+          "AIC": 958696.4835720062,
+          "BIC": 2172019.3139508544,
+          "MAE": 11.814651489257812,
+          "MAPE": 0.041493985801935196,
+          "MaxErr": 75.26138305664062,
+          "R2": 0.9249296319415491,
+          "RMSE": 17.510749349283643,
+          "SSE": 28516.248046875,
+          "scaled_mse_loss": 0.07501748949289322
+        }
+      },
+      "model_id": 64,
+      "sigmoid": false
+    },
+    "transmittance(400)": {
+      "hashes": {
+        "scaler": "5bde8e80e9996dbf0a983bcdc3c0981337fe3757252b5276af30dd0c14e4838c",
+        "settings": "231e708ddd7ceb62b41d03dd6958c3f65bf47410defc9b32cf1328dbed64a448",
+        "weight": "a2220756d8faea96e29d768119ea13cf39a0c894a8c1664ba6fe5c2bac8a1bc0"
+      },
+      "init_seed": 922,
+      "metrics": {
+        "all": {
+          "AIC": 1209523.274486065,
+          "BIC": 3603136.7672559316,
+          "MAE": 5.889021873474121,
+          "MAPE": 0.3341682255268097,
+          "MaxErr": 53.810028076171875,
+          "R2": 0.8628768258756692,
+          "RMSE": 9.114479166071423,
+          "SSE": 32315.6796875,
+          "scaled_mse_loss": 0.008307373151183128
+        },
+        "test": {
+          "AIC": 1207983.6075439453,
+          "BIC": 2227901.2876422596,
+          "MAE": 5.613327980041504,
+          "MAPE": 0.1713745892047882,
+          "MaxErr": 38.17323303222656,
+          "R2": 0.8036353125540623,
+          "RMSE": 9.441305643728562,
+          "SSE": 3565.530029296875,
+          "scaled_mse_loss": 0.008913824334740639
+        },
+        "train": {
+          "AIC": 1209185.8295993805,
+          "BIC": 3467654.248850244,
+          "MAE": 5.970761299133301,
+          "MAPE": 0.3736339211463928,
+          "MaxErr": 53.810028076171875,
+          "R2": 0.8635404561979284,
+          "RMSE": 9.22199029388281,
+          "SSE": 26449.02734375,
+          "scaled_mse_loss": 0.008504511788487434
+        },
+        "validation": {
+          "AIC": 1207959.93553257,
+          "BIC": 2196901.4925636537,
+          "MAE": 5.510256767272949,
+          "MAPE": 0.18253442645072937,
+          "MaxErr": 21.533344268798828,
+          "R2": 0.9009258780960319,
+          "RMSE": 7.781766943248378,
+          "SSE": 2301.124267578125,
+          "scaled_mse_loss": 0.006055589299649
+        }
+      },
+      "model_id": 43,
+      "sigmoid": true
+    }
+  },
+  "scientific_identity_boundary": "runtime files are complete, but the user-selected polyBERT mirror and reconstructed AFP weights are not verified as the authors' original assets",
+  "slurm": {
+    "cuda_visible_devices": "0",
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "job_id": "4558"
+  },
+  "status": "passed"
+}
