@@ -24,4 +24,5 @@ cd "$repo_root"
 srun "$python_bin" -m unittest \
     reproduction.tests.test_framework_contracts \
     reproduction.tests.test_scicf_core \
+    reproduction.tests.test_scicf_api \
     -v

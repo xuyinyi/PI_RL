@@ -6,3 +6,8 @@ RL_PPO/models/
 RL_PPO/GNN/model/*.pt
 RL_PPO/GNN/model/*_settings.csv
 RL_PPO/GNN/model/*_scaler.pkl
+
+# Private SciCF API credentials must never enter source control.
+scicf-api.env
+scicf-api-*.env
+*.scicf-api.env

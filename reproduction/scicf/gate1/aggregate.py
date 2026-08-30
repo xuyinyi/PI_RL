@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import os
 from collections import defaultdict
@@ -26,6 +27,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--scicf-config", type=Path, required=True)
     parser.add_argument("--stage-report", type=Path, action="append", required=True)
     parser.add_argument("--llm-responses", type=Path, required=True)
+    parser.add_argument("--llm-manifest", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     return parser.parse_args()
 
@@ -89,11 +91,51 @@ def main() -> None:
     if args.output.exists():
         raise FileExistsError("Gate 1 aggregate output already exists")
     config = load_scicf_config(args.scicf_config.resolve())
+    aggregate_source = git_identity(args.repo_root.resolve())
+    if config["provenance"].get("require_clean_git") and aggregate_source.get(
+        "dirty"
+    ) is not False:
+        raise RuntimeError("Gate 1 aggregation requires a clean Git worktree")
+    llm_execution = None
+    if args.llm_manifest is not None:
+        llm_execution = json.loads(
+            args.llm_manifest.resolve().read_text(encoding="utf-8")
+        )
+        if llm_execution.get("status") != "complete":
+            raise ValueError("LLM execution manifest is not complete")
+        if llm_execution.get("source", {}).get("commit") != aggregate_source.get(
+            "commit"
+        ):
+            raise ValueError("LLM ranking and aggregation source commits differ")
+        if llm_execution.get("source", {}).get("dirty") is not False:
+            raise ValueError("LLM execution manifest records a dirty source tree")
+        if Path(llm_execution.get("responses", "")).resolve() != args.llm_responses.resolve():
+            raise ValueError("LLM manifest response path mismatch")
+        provider = llm_execution.get("provider")
+        if not isinstance(provider, dict):
+            raise ValueError("LLM execution manifest is missing provider identity")
+        if provider.get("type") != config["llm"].get("provider"):
+            raise ValueError("LLM provider type does not match Gate 1 config")
+        if llm_execution.get("prompt_versions") != [config["llm"]["prompt_version"]]:
+            raise ValueError("LLM prompt version does not match Gate 1 config")
+        config = copy.deepcopy(config)
+        config["llm"]["model_id"] = llm_execution.get("model_id")
+        config["llm"]["revision"] = llm_execution.get("revision")
+        config["llm"]["provider_identity"] = provider
+        if not config["llm"]["model_id"] or not config["llm"]["revision"]:
+            raise ValueError("LLM manifest must resolve model ID and revision")
     responses = {}
     for record in read_jsonl(args.llm_responses.resolve()):
         request_id = record["request_id"]
         if request_id in responses:
             raise ValueError("duplicate LLM response: {}".format(request_id))
+        if llm_execution is not None:
+            if record.get("provider") != llm_execution["provider"]:
+                raise ValueError("LLM response provider identity mismatch")
+            if record.get("model_id") != llm_execution["model_id"]:
+                raise ValueError("LLM response model identity mismatch")
+            if record.get("revision") != llm_execution["revision"]:
+                raise ValueError("LLM response model revision mismatch")
         responses[request_id] = record
 
     rows = []
@@ -154,6 +196,8 @@ def main() -> None:
                 len(responses), expected_requests
             )
         )
+    if llm_execution is not None and llm_execution.get("requests") != expected_requests:
+        raise ValueError("LLM manifest request count mismatch")
 
     resamples = int(config["gate1"]["bootstrap_resamples"])
     confidence = float(config["gate1"]["confidence_level"])
@@ -219,9 +263,10 @@ def main() -> None:
         "schema_version": 1,
         "gate": "offline-acquisition-gate1",
         "status": "passed" if gate_passed else "failed",
-        "source": git_identity(args.repo_root.resolve()),
+        "source": aggregate_source,
         "slurm_job_id": os.environ["SLURM_JOB_ID"],
         "configuration": config,
+        "llm_execution": llm_execution,
         "metric_definitions": METRIC_DEFINITIONS,
         "rows": rows,
         "summaries": summaries,

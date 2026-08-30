@@ -31,6 +31,13 @@ pre-declared rule, so pairwise PPO refinement remains blocked by configuration.
 See `experiments/gates/gate1.md` and
 `reproduction/results/scicf-gate1-20260830/decision-summary.json`.
 
+Future LLM acquisition runs use the private OpenAI-compatible HTTP client in
+`reproduction/scicf/llm/rank_requests_api.py`. This is a separate experiment
+path with a private credential file, immutable API model/deployment identity,
+pre-request run intent, response cache, token accounting, and CPU-only Slurm
+runner. See `reproduction/scicf/llm/API.md`. The original local-Qwen runner is
+retained only to reproduce the archived 2026-08-30 decision.
+
 ## Source boundary
 
 The algorithm definition was supplied in `SCICF_OPENSPEC_COMBINED.md`. Its
