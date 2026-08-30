@@ -137,6 +137,45 @@ class RLLibPPOAdapter(AlgorithmAdapter):
             observation, explore=explore
         )[0]
 
+    def action_component_probabilities(self, observation: Any) -> Mapping[str, Any]:
+        """Return tuple-component probabilities for fixed-pool diagnostics."""
+        if self._trainer is None or self._context is None:
+            raise ContractError("adapter is not initialized")
+        import numpy as np
+
+        policy = self._trainer.get_policy()
+        result = policy.compute_single_action(
+            observation, explore=False, full_fetch=True
+        )
+        if len(result) != 3 or not isinstance(result[2], dict):
+            raise ContractError("RLlib did not return full action-distribution metadata")
+        logits = result[2].get("action_dist_inputs")
+        if logits is None:
+            raise ContractError("RLlib action metadata is missing action_dist_inputs")
+        if hasattr(logits, "detach"):
+            logits = logits.detach().cpu().numpy()
+        values = np.asarray(logits, dtype=np.float64).reshape(-1)
+        dianhydride_count = int(
+            self._context.env_config["ACTION_SPACE_DIANHYDRIDE"].n
+        )
+        diamine_count = int(self._context.env_config["ACTION_SPACE_DIAMINE"].n)
+        if len(values) != dianhydride_count + diamine_count:
+            raise ContractError(
+                "tuple logits have length {} instead of {} + {}".format(
+                    len(values), dianhydride_count, diamine_count
+                )
+            )
+
+        def softmax(component_logits: Any) -> Any:
+            shifted = component_logits - np.max(component_logits)
+            weights = np.exp(shifted)
+            return weights / np.sum(weights)
+
+        return {
+            "dianhydride": softmax(values[:dianhydride_count]).tolist(),
+            "diamine": softmax(values[dianhydride_count:]).tolist(),
+        }
+
     def save(self, checkpoint_dir: Path) -> str:
         if self._trainer is None:
             raise ContractError("adapter is not initialized")

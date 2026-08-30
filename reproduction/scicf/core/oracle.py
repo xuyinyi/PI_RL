@@ -11,6 +11,10 @@ from typing import Any, Dict, Iterator, Mapping, Optional
 ORACLE_SCOPES = ("factual", "counterfactual", "evaluation")
 
 
+class OracleBudgetExceeded(RuntimeError):
+    """Raised before an oracle call would exceed the declared atomic budget."""
+
+
 @dataclass(frozen=True)
 class OracleCounterSnapshot:
     factual: int
@@ -33,8 +37,11 @@ class OracleCounterSnapshot:
 class OracleLedger:
     """Fail-closed counter for every atomic scientific object scored."""
 
-    def __init__(self) -> None:
+    def __init__(self, max_total: Optional[int] = None) -> None:
+        if max_total is not None and max_total < 1:
+            raise ValueError("max_total must be positive when supplied")
         self._counts = {scope: 0 for scope in ORACLE_SCOPES}
+        self.max_total = max_total
         self._scope: ContextVar[Optional[str]] = ContextVar(
             "scicf_oracle_scope", default=None
         )
@@ -55,6 +62,12 @@ class OracleLedger:
         scope = self._scope.get()
         if scope is None:
             raise RuntimeError("scientific oracle call has no declared accounting scope")
+        if self.max_total is not None:
+            current_total = sum(self._counts.values())
+            if current_total + int(atomic_objects) > self.max_total:
+                raise OracleBudgetExceeded(
+                    "atomic oracle budget {} would be exceeded".format(self.max_total)
+                )
         self._counts[scope] += int(atomic_objects)
 
     def snapshot(self) -> OracleCounterSnapshot:

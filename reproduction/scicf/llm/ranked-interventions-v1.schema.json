@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "scicf-ranked-interventions-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ranked_intervention_ids"],
+  "properties": {
+    "ranked_intervention_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string"}
+    },
+    "reasoning": {"type": "string"},
+    "confidence": {"type": "number", "minimum": 0.0, "maximum": 1.0}
+  }
+}

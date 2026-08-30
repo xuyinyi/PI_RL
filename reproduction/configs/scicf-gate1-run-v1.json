@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "method": "scicf-ppo",
+  "phase": "offline-gate1",
+  "provenance": {
+    "baseline_tag": "dapigen-ppo-compat-baseline-v1",
+    "upstream_revision": "5f692946cbe0d15eede882dfe4cff7fb26eb7d8c",
+    "specification_sha256": "d4ed7363e29a301bcc654e675a33acc7de97e16a7df8a6deaa4d7cd20296769f",
+    "require_clean_git": true,
+    "require_slurm": true
+  },
+  "ppo_safety": {
+    "preserve_standard_clipped_objective": true,
+    "external_actions_in_ppo_clipping": false,
+    "llm_as_reward_or_value": false
+  },
+  "acquisition": {
+    "pool_size": 24,
+    "budget": 4,
+    "source_quotas": {
+      "policy_near": 8,
+      "random_legal": 8,
+      "structural": 8
+    }
+  },
+  "verification": {
+    "paired_replicates": 2,
+    "common_random_numbers": true,
+    "confidence_rule": "sign-consistency",
+    "sign_consistency_fraction": 1.0,
+    "numerical_tolerance": 1e-12,
+    "max_steps": 16,
+    "atomic_oracle_budget": 20000
+  },
+  "llm": {
+    "enabled": true,
+    "model_id": "Qwen/Qwen2.5-7B-Instruct",
+    "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+    "prompt_version": "scicf-dapigen-acquisition-v1",
+    "response_schema": "scicf-ranked-interventions-v1",
+    "trusted_learning_signal": false,
+    "decoding": {
+      "do_sample": false,
+      "max_new_tokens": 384,
+      "max_retries": 2
+    }
+  },
+  "pairwise_refinement": {
+    "enabled": false
+  },
+  "gate1": {
+    "status": "pending",
+    "checkpoint_stages": ["early", "middle", "late"],
+    "checkpoints": {
+      "early": "checkpoints/epoch_0/checkpoint_000000/checkpoint-0",
+      "middle": "checkpoints/epoch_50/checkpoint_000050/checkpoint-50",
+      "late": "checkpoints/epoch_100/checkpoint_000100/checkpoint-100"
+    },
+    "seeds": [2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030],
+    "decision_timestep": 0,
+    "required_comparators": ["random", "policy_probability", "chemistry_heuristic", "llm"],
+    "metrics": ["hit_rate_at_b", "best_gain_at_b", "regret_at_b", "ndcg_at_b"],
+    "primary_metric": "ndcg_at_b",
+    "bootstrap_resamples": 10000,
+    "confidence_level": 0.95,
+    "decision_rule": {
+      "stage_success": "paired bootstrap 95% CI lower bound for LLM minus comparator NDCG@B is greater than zero",
+      "required_comparators": ["random", "chemistry_heuristic"],
+      "minimum_successful_stages": 2
+    }
+  }
+}

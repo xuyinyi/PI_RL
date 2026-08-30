@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import copy
+import json
 import random
 import unittest
 from pathlib import Path
@@ -17,9 +18,19 @@ from reproduction.scicf.acquisition.strategies import (
     RandomAcquisition,
 )
 from reproduction.scicf.core.config import load_scicf_config, validate_scicf_config
-from reproduction.scicf.core.oracle import CountingOracle, OracleLedger
+from reproduction.scicf.core.oracle import (
+    CountingOracle,
+    OracleBudgetExceeded,
+    OracleLedger,
+)
 from reproduction.scicf.core.records import Intervention
+from reproduction.scicf.core.verifier import (
+    PairedCounterfactualVerifier,
+    VerificationConfig,
+)
 from reproduction.scicf.domains.dapigen import DAPiGenDomainAdapter
+from reproduction.scicf.llm.prompt import build_acquisition_request
+from reproduction.scicf.llm.schema import validate_ranked_response
 
 
 REPRODUCTION_ROOT = Path(__file__).resolve().parents[1]
@@ -113,6 +124,14 @@ class SciCFCoreTests(unittest.TestCase):
         with self.assertRaises(ContractError):
             validate_scicf_config(config)
 
+    def test_gate1_run_config_freezes_llm_and_keeps_refinement_disabled(self):
+        config = load_scicf_config(
+            REPRODUCTION_ROOT / "configs" / "scicf-gate1-run-v1.json"
+        )
+        self.assertEqual(config["phase"], "offline-gate1")
+        self.assertEqual(config["llm"]["model_id"], "Qwen/Qwen2.5-7B-Instruct")
+        self.assertFalse(config["pairwise_refinement"]["enabled"])
+
     def test_oracle_calls_require_scope_and_count_atomic_objects(self):
         ledger = OracleLedger()
         oracle = CountingOracle(lambda values: list(values), ledger)
@@ -122,6 +141,16 @@ class SciCFCoreTests(unittest.TestCase):
             self.assertEqual(oracle([1, 2, 3]), [1, 2, 3])
         self.assertEqual(ledger.snapshot().as_dict()["evaluation"], 3)
         self.assertEqual(ledger.snapshot().total, 3)
+
+    def test_oracle_budget_fails_before_delegate_call(self):
+        delegate_calls = []
+        ledger = OracleLedger(max_total=2)
+        oracle = CountingOracle(lambda values: delegate_calls.append(values), ledger)
+        with ledger.scope("evaluation"):
+            with self.assertRaises(OracleBudgetExceeded):
+                oracle([1, 2, 3])
+        self.assertEqual(delegate_calls, [])
+        self.assertEqual(ledger.snapshot().total, 0)
 
     def test_dapigen_snapshot_replay_and_identity_intervention(self):
         adapter = DAPiGenDomainAdapter(_FakeDAPiGenEnvironment())
@@ -150,6 +179,46 @@ class SciCFCoreTests(unittest.TestCase):
         self.assertEqual(factual.terminal_scientific_object, identity.terminal_scientific_object)
         self.assertEqual(factual.atomic_oracle_calls, 3)
         self.assertEqual(identity.atomic_oracle_calls, 3)
+
+    def test_paired_verifier_uses_oracle_delta_and_matched_seeds(self):
+        adapter = DAPiGenDomainAdapter(_FakeDAPiGenEnvironment())
+        observation = adapter.reset(31)
+        snapshot = adapter.capture_snapshot(observation)
+        intervention = Intervention(
+            intervention_id="paired-test",
+            trajectory_id="trajectory-1",
+            timestep=0,
+            component="dianhydride",
+            factual_action=(0, 1),
+            alternative_action=(2, 1),
+            factual_component_value=0,
+            alternative_component_value=2,
+            alternative_structure="CCC",
+            metadata={"factual_structure": "C"},
+        )
+        verifier = PairedCounterfactualVerifier(
+            adapter,
+            VerificationConfig(
+                paired_replicates=2,
+                confidence_rule="sign-consistency",
+                max_steps=3,
+            ),
+        )
+        result = verifier.verify(
+            intervention=intervention,
+            snapshot=snapshot,
+            continuation_policy=_policy,
+            policy_version="frozen-test-policy",
+            continuation_seeds=[101, 102],
+        )
+        self.assertEqual(
+            [item.continuation_seed for item in result.paired_outcomes], [101, 102]
+        )
+        self.assertEqual(result.atomic_oracle_calls, 12)
+        self.assertEqual(
+            result.mean_delta,
+            sum(item.delta for item in result.paired_outcomes) / 2.0,
+        )
 
     def test_trajectory_contains_snapshots_and_atomic_oracle_count(self):
         adapter = DAPiGenDomainAdapter(_FakeDAPiGenEnvironment())
@@ -220,6 +289,52 @@ class SciCFCoreTests(unittest.TestCase):
         self.assertEqual(metrics["regret_at_b"], 2.0)
         self.assertGreater(metrics["ndcg_at_b"], 0.0)
         self.assertLess(metrics["ndcg_at_b"], 1.0)
+
+    def test_llm_schema_rejects_invented_candidate(self):
+        with self.assertRaises(ValueError):
+            validate_ranked_response(
+                {"ranked_intervention_ids": ["candidate-0", "invented"]},
+                ["candidate-0", "candidate-1"],
+                budget=2,
+            )
+
+    def test_llm_prompt_contains_no_verified_gain(self):
+        adapter = DAPiGenDomainAdapter(_FakeDAPiGenEnvironment())
+        trajectory, _ = adapter.record_episode(
+            policy=_policy,
+            policy_version="frozen-test-policy",
+            seed=41,
+            max_steps=3,
+        )
+        adapter.reset(41)
+        interventions = adapter.enumerate_interventions(
+            trajectory.trajectory_id, 0, trajectory.steps[0].factual_action
+        )
+        candidates = tuple(
+            AcquisitionCandidate(
+                intervention=item,
+                policy_score=0.1,
+                structural_score=0.2,
+                heuristic_score=0.2,
+            )
+            for item in interventions
+        )
+        pool = CandidatePoolBuilder().build(
+            source_candidates={
+                "policy_near": candidates,
+                "random_legal": candidates,
+                "structural": candidates,
+            },
+            source_quotas={"policy_near": 2, "random_legal": 2, "structural": 1},
+            requested_size=5,
+            seed=41,
+        )
+        request = build_acquisition_request(
+            "prompt-test", trajectory, 0, pool, budget=2
+        )
+        prompt_text = json.dumps(request["messages"], sort_keys=True)
+        self.assertNotIn("verified_gain", prompt_text)
+        self.assertFalse(request["verified_gain_exposed"])
 
 
 if __name__ == "__main__":
