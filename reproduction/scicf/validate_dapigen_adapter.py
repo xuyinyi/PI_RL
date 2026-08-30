@@ -173,6 +173,7 @@ def main() -> None:
     if factual.atomic_oracle_calls != identity.atomic_oracle_calls:
         raise AssertionError("paired identity branches used different oracle counts")
 
+    adapter.restore_snapshot(snapshot)
     interventions = adapter.enumerate_interventions(
         trajectory_id=trajectory.trajectory_id,
         timestep=0,

@@ -69,6 +69,8 @@ class _FakeDAPiGenEnvironment:
         done = self.env_step >= 2
         reward = 0.0
         if done:
+            self.flag_dianhydride = True
+            self.flag_diamine = True
             scores = self.scoring_function(["polymer-a", "polymer-b", "polymer-c"])
             reward = max(scores) + noise
             self.PI = "polymer-{}-{}".format(action[0], action[1])
@@ -162,6 +164,13 @@ class SciCFCoreTests(unittest.TestCase):
         self.assertEqual(len(record.steps), len(snapshots))
         self.assertTrue(record.steps[-1].terminated)
         self.assertIsNotNone(record.terminal_scientific_object)
+        self.assertEqual(
+            adapter.enumerate_interventions(record.trajectory_id, 0, (0, 0)), ()
+        )
+        adapter.restore_snapshot(snapshots[record.steps[0].snapshot_id])
+        self.assertGreater(
+            len(adapter.enumerate_interventions(record.trajectory_id, 0, (0, 0))), 0
+        )
 
     def test_interventions_are_atomic_and_legal(self):
         adapter = DAPiGenDomainAdapter(_FakeDAPiGenEnvironment())
