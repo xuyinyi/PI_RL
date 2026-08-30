@@ -139,6 +139,10 @@ compares algorithms at exact environment-step checkpoints, evaluates with
 `explore=false`, and writes a common artifact schema. The original PPO runner is
 retained as frozen baseline evidence and is not silently rewritten.
 
+End-to-end Slurm validation passed: Job `4563` exercised the adapter/runner and
+Job `4564` exercised validity, uniqueness, novelty, diversity, Frag, and SNN.
+See `results/framework-smoke-20260830/` for terminal manifests and boundaries.
+
 ## Configuration-only smoke
 
 This test constructs the repaired RLlib configuration and the environment

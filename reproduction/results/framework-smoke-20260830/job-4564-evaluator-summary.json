@@ -1,0 +1,36 @@
+{
+  "canonical_unique_valid_PI": 3,
+  "created_at": "2026-08-30T11:48:33.705898+00:00",
+  "diversity": 0.8571428571428572,
+  "frag": 0.33333333333333337,
+  "generation_csv_sha256": "4f20419c6fa041d5ff6659b0c24999bd536257536c8b0ed4e56f4a8f3bce42b9",
+  "input_csv": "/home/wch/workspaces/DAPiGen-reproduction/algorithm-worktree/reproduction/tests/data/evaluator-generated.csv",
+  "max_reward": 0.5,
+  "mean_reward": 0.3,
+  "metric_definitions": {
+    "diversity": "1 - mean pairwise generated-set Tanimoto",
+    "fingerprint": "Morgan radius=3 nBits=2048",
+    "frag": "BRICS fragment-count cosine similarity to training set",
+    "novelty": "fraction with max training-set Tanimoto < 0.4",
+    "snn": "mean maximum Tanimoto similarity to training set",
+    "uniqueness_denominator": "RDKit-valid generated rows",
+    "validity_denominator": "all generated rows"
+  },
+  "novelty": 0.3333333333333333,
+  "paper_metrics_computed": true,
+  "protocol": "dapigen-common-v1",
+  "reference_csv": "/home/wch/workspaces/DAPiGen-reproduction/algorithm-worktree/reproduction/tests/data/evaluator-reference.csv",
+  "reference_valid_samples": 3,
+  "samples": 4,
+  "slurm_job_id": "4564",
+  "snn": 0.5670995712280273,
+  "source": {
+    "branch": "codex/algorithm-framework",
+    "commit": "9ae3afd8936e42bcd85ec17123f9698431562a64",
+    "dirty": false,
+    "tags": []
+  },
+  "uniqueness": 1.0,
+  "valid_samples": 3,
+  "validity": 0.75
+}

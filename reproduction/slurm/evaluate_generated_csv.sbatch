@@ -31,4 +31,5 @@ srun "$python_bin" reproduction/evaluate_generated_csv.py \
     --input-csv "$1" \
     --reference-csv "$2" \
     --output-json "$3" \
-    --repo-root "$repo_root"
+    --repo-root "$repo_root" \
+    --formal

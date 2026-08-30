@@ -57,7 +57,8 @@ python reproduction/evaluate_generated_csv.py \
 
 Formal offline evaluations can use
 `slurm/evaluate_generated_csv.sbatch`; its output also records the evaluator
-Git identity and Slurm job id.
+Git identity and Slurm job id. The Slurm entry point enables `--formal`, which
+fails if either the allocation or clean-worktree requirement is absent.
 
 ## Slurm execution
 
