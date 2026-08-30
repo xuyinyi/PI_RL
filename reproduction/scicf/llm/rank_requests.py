@@ -81,7 +81,7 @@ def main() -> None:
     torch.manual_seed(args.seed)
     torch.cuda.manual_seed_all(args.seed)
     decoding = {
-        "generation_protocol": "greedy-attention-mask-v1",
+        "generation_protocol": "greedy-attention-mask-exact-budget-v2",
         "do_sample": False,
         "attention_mask": "all-ones",
         "temperature": None,
@@ -123,6 +123,7 @@ def main() -> None:
         else:
             messages: List[Dict[str, str]] = [dict(item) for item in request["messages"]]
             errors = []
+            raw_attempts = []
             record = None
             for attempt in range(args.max_retries + 1):
                 input_ids = tokenizer.apply_chat_template(
@@ -142,6 +143,7 @@ def main() -> None:
                     )
                 generated = output_ids[0, input_ids.shape[1] :]
                 raw = tokenizer.decode(generated, skip_special_tokens=True)
+                raw_attempts.append(raw)
                 try:
                     parsed = extract_json(raw)
                     validated = validate_ranked_response(
@@ -168,19 +170,37 @@ def main() -> None:
                     break
                 except ValueError as error:
                     errors.append(str(error))
-                    messages.extend(
-                        [
-                            {"role": "assistant", "content": raw},
-                            {
-                                "role": "user",
-                                "content": (
-                                    "The previous response was invalid: {}. Return only a JSON "
-                                    "object using IDs from this exact list: {}"
-                                ).format(error, json.dumps(request["candidate_ids"])),
-                            },
-                        ]
+                    messages = [dict(item) for item in request["messages"]]
+                    messages.append(
+                        {
+                            "role": "user",
+                            "content": (
+                                "Repair instruction {}: the prior response was invalid because "
+                                "{}. Start with '{{'. Return one compact JSON object containing "
+                                "exactly {} unique ranked_intervention_ids from this exact list, "
+                                "then end with '}}': {}"
+                            ).format(
+                                attempt + 1,
+                                error,
+                                request["budget"],
+                                json.dumps(request["candidate_ids"]),
+                            ),
+                        }
                     )
             if record is None:
+                write_json(
+                    args.output_root
+                    / "failed-{}.json".format(
+                        hashlib.sha256(request["request_id"].encode("utf-8")).hexdigest()[:16]
+                    ),
+                    {
+                        "request_id": request["request_id"],
+                        "prompt_sha256": request["prompt_sha256"],
+                        "errors": errors,
+                        "raw_attempts": raw_attempts,
+                        "decoding": decoding,
+                    },
+                )
                 raise RuntimeError(
                     "LLM response for {} failed validation after retries: {}".format(
                         request["request_id"], errors

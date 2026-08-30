@@ -298,6 +298,20 @@ class SciCFCoreTests(unittest.TestCase):
                 budget=2,
             )
 
+    def test_llm_schema_rejects_more_than_budget(self):
+        with self.assertRaises(ValueError):
+            validate_ranked_response(
+                {
+                    "ranked_intervention_ids": [
+                        "candidate-0",
+                        "candidate-1",
+                        "candidate-2",
+                    ]
+                },
+                ["candidate-0", "candidate-1", "candidate-2"],
+                budget=2,
+            )
+
     def test_llm_prompt_contains_no_verified_gain(self):
         adapter = DAPiGenDomainAdapter(_FakeDAPiGenEnvironment())
         trajectory, _ = adapter.record_episode(

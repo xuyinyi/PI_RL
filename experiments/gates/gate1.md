@@ -36,8 +36,9 @@ The LLM acquisition model is `Qwen/Qwen2.5-7B-Instruct` at immutable revision
 `a09a35458c702b33eeacc393d103063234e8bc28`, with greedy decoding, prompt
 version `scicf-dapigen-acquisition-v1`, and response schema
 `scicf-ranked-interventions-v1`. Generation protocol
-`greedy-attention-mask-v1` uses an explicit all-ones attention mask and unsets
-sampling-only temperature, top-p, and top-k values. The model receives no
+`greedy-attention-mask-exact-budget-v2` uses an explicit all-ones attention
+mask, unsets sampling-only temperature, top-p, and top-k values, and requires
+exactly four unique IDs rather than a full-pool ranking. The model receives no
 verified gains.
 
 ## Decision

@@ -18,8 +18,8 @@ def validate_ranked_response(
     if unknown_fields:
         raise ValueError("LLM response has unknown fields: {}".format(unknown_fields))
     ranked = value.get("ranked_intervention_ids")
-    if not isinstance(ranked, list) or len(ranked) < budget:
-        raise ValueError("LLM response must rank at least budget interventions")
+    if not isinstance(ranked, list) or len(ranked) != budget:
+        raise ValueError("LLM response must return exactly budget interventions")
     if any(not isinstance(identifier, str) for identifier in ranked):
         raise ValueError("ranked intervention IDs must be strings")
     if len(ranked) != len(set(ranked)):

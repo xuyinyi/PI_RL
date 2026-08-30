@@ -22,7 +22,7 @@ gate1_root="$1"
 repo_root="/home/wch/workspaces/DAPiGen-reproduction/algorithm-worktree"
 python_bin="/home/wch/workspaces/DAPiGen-reproduction/envs/scicf-llm-py38/bin/python"
 model_root="/home/wch/workspaces/DAPiGen-reproduction/models/qwen2.5-7b-instruct-a09a3545"
-response_root="$gate1_root/llm-attention-v1"
+response_root="$gate1_root/llm-attention-exact-v2"
 cache_root="/home/wch/workspaces/DAPiGen-reproduction/cache/scicf-llm-responses"
 
 export PYTHONPATH="$repo_root"

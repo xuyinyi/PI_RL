@@ -53,7 +53,9 @@ def build_acquisition_request(
         },
         "candidate_interventions": candidate_rows,
         "required_output": {
-            "ranked_intervention_ids": ["candidate ID strings in best-first order"],
+            "ranked_intervention_ids": (
+                "exactly {} candidate ID strings in best-first order".format(budget)
+            ),
             "reasoning": "brief scientific rationale; advisory only",
             "confidence": "optional number in [0,1]; advisory only",
         },
@@ -64,7 +66,8 @@ def build_acquisition_request(
             "content": (
                 "You rank proposed scientific experiments. You do not provide reward, "
                 "value, advantage, or truth. Rank only intervention IDs explicitly "
-                "listed by the user. Return one JSON object and no markdown."
+                "listed by the user. Return exactly the requested budget of IDs in one "
+                "JSON object and no markdown."
             ),
         },
         {
