@@ -73,4 +73,14 @@ Status date: 2026-09-03
   frozen model manifest therefore has `test_collection_authorized=false`; no
   sealed test labels were collected. See
   `reproduction/results/scicf-gate1b1-structure-split-20260903`.
+- Gate 1B.2 nonlinear-validity development evaluation also stopped with a
+  no-go while preserving the sealed test. A single fixed random-forest validity
+  filter raised early rescue headroom capture to 68.75%, and the unchanged
+  policy-conditioned Ridge gain ranker retained 85.33% BestGain@4 headroom
+  capture. The validity-first joint ordering captured only 23.50% of middle
+  NDCG@4 headroom, below the pre-declared 25% threshold. All 32 combined
+  late-dev trajectories lacked a positive candidate, so the zero-to-four
+  abstention rule remained non-calibratable. Slurm jobs 4625-4628 completed;
+  `sealed_test_eligible=false`, and no test label was collected, accessed, or
+  evaluated. See `reproduction/results/scicf-gate1b2-development-20260903`.
 - No SciCF performance, oracle-efficiency, or generality claim is currently authorized.

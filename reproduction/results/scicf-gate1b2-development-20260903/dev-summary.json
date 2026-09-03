@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "gate": "scicf-gate1b2-nonlinear-validity-development-v1",
+  "status": "complete",
+  "decision": "dev-entry-no-go",
+  "date": "2026-09-03",
+  "sealed_test_eligible": false,
+  "test_collection_authorized": false,
+  "test_collected": false,
+  "test_accessed": false,
+  "test_evaluated": false,
+  "source": {
+    "implementation_commit": "c899a1ac22ec3e627ce04e2b1000123cd8e624bd",
+    "config_sha256": "d74d7bfd619ab3751071584ecdc85843825a5350b7c41f7be492437601a702e1",
+    "late_collection_config_sha256": "61575ec72d1c6fb06ba9a5dd32d77203ea628da7f204759b23e46cf5152f2cca",
+    "late_expansion_report": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf/gate1b2-development-20260903-v1/late-expansion-v1/dev/late/gate1b1-stage-report.json",
+    "late_expansion_report_sha256": "82c650cb69f11af18cb7aae54f069a96d9826f0c0b2580630193d5ed979128e8",
+    "dev_report": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf/gate1b2-development-20260903-v1/frozen-development-model-v1/dev-entry-report.json",
+    "dev_report_sha256": "6d6127658d2855d77041dc08d041358479d5b88b1591ca7ac066efa57b8dfffe",
+    "model_manifest": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf/gate1b2-development-20260903-v1/frozen-development-model-v1/frozen-development-model-manifest.json",
+    "model_manifest_sha256": "10b8c9b603bfaec1ff1600c22ca2fb1cb5cb96e5904d95267e42422a8202f8fd",
+    "validity_model_sha256": "9964539e604bde893f500beeedc39df1b0aa94bb42ebea692dc405414ab93047"
+  },
+  "structure_isolation": {
+    "train_unique_keys": 160,
+    "original_dev_unique_keys": 104,
+    "combined_dev_unique_keys": 200,
+    "overlap_count": 0
+  },
+  "models": {
+    "validity_filter": {
+      "family": "sklearn.ensemble.RandomForestRegressor",
+      "training_rows": 576,
+      "feature_count": 87,
+      "policy_conditioned": false,
+      "fixed_parameters": {
+        "n_estimators": 512,
+        "criterion": "squared_error",
+        "max_depth": 8,
+        "min_samples_split": 4,
+        "min_samples_leaf": 2,
+        "max_features": "sqrt",
+        "bootstrap": true,
+        "random_state": 71021,
+        "n_jobs": 1
+      }
+    },
+    "gain_ranker": {
+      "family": "ridge",
+      "policy_conditioned": true,
+      "source": "exact frozen Gate 1B.1 model manifest",
+      "canonical_model_sha256": "8a816aac270b224cce761542145fcd61ca85509b365bc7ff1247f68137951c49",
+      "refit": false
+    },
+    "hyperparameter_search": false,
+    "model_family_search": false
+  },
+  "early_dev": {
+    "mean_rescue_rate_at_4_improvement_over_expected_random": 0.515625,
+    "mean_oracle_minus_random_headroom": 0.75,
+    "oracle_headroom_fraction_captured": 0.6875,
+    "minimum_required_fraction": 0.25,
+    "passed": true
+  },
+  "middle_dev": {
+    "best_gain_at_4": {
+      "mean_improvement_over_expected_random": 0.015964297477884432,
+      "mean_oracle_minus_random_headroom": 0.01870804747788442,
+      "oracle_headroom_fraction_captured": 0.853338516312646,
+      "minimum_required_fraction": 0.25,
+      "passed": true
+    },
+    "ndcg_at_4": {
+      "mean_improvement_over_expected_random": 0.19265819640748744,
+      "mean_oracle_minus_random_headroom": 0.8199198451394261,
+      "oracle_headroom_fraction_captured": 0.23497198848105233,
+      "minimum_required_fraction": 0.25,
+      "passed": false
+    }
+  },
+  "late_dev": {
+    "original_trajectories": 8,
+    "expanded_trajectories": 24,
+    "combined_trajectories": 32,
+    "positive_candidate_trajectories": 0,
+    "no_positive_candidate_trajectories": 32,
+    "abstention_threshold_status": "not-calibratable",
+    "selection_count_range": [0, 4],
+    "passed": false
+  },
+  "decision_checks": {
+    "train_combined_dev_structure_overlap_zero": true,
+    "original_dev_cross_timestep_fraction_at_least_0_25": true,
+    "early_rescue_entry": true,
+    "middle_best_gain_entry": true,
+    "middle_ndcg_entry": false,
+    "late_threshold_calibratable": false,
+    "dev_entry_passed": false,
+    "sealed_test_eligible": false,
+    "gate1c_authorized": false,
+    "pairwise_refinement_authorized": false,
+    "ppo_integration_authorized": false
+  },
+  "execution": {
+    "slurm_dependency_probe": "4625 COMPLETED 0:0; scikit-learn 1.2.2; joblib 1.4.2",
+    "slurm_tests": "4626 COMPLETED 0:0; 43 tests passed",
+    "slurm_late_dev_collection": "4627 COMPLETED 0:0",
+    "slurm_dev_fit": "4628 COMPLETED 0:0",
+    "new_atomic_oracle_calls": 2002,
+    "new_factual_oracle_calls": 1176,
+    "new_counterfactual_oracle_calls": 826,
+    "new_evaluation_oracle_calls": 0,
+    "llm_calls": 0,
+    "ppo_updates": 0,
+    "local_code_execution": false
+  },
+  "claim_boundary": "Gate 1B.2 stopped at a structure-isolated development-entry no-go. The sealed test was not collected, accessed, or evaluated, and no LLM or PPO claim is authorized."
+}
