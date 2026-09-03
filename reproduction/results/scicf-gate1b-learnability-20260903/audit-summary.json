@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "audit": "scicf-gate1b-cheap-feature-learnability-v1",
+  "status": "complete",
+  "decision": "no-go",
+  "date": "2026-09-03",
+  "dataset_role": "Gate1-dev",
+  "independent_test_status": "not-created",
+  "source": {
+    "commit": "ffae2415de83b79f95962baa430d42c6b5a7e18d",
+    "dirty": false,
+    "full_artifact": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf/gate1-formal-ad3889d-v1/gate1b-learnability-gate1-dev-cheap-descriptors-20260903-v1.json",
+    "full_artifact_sha256": "62ea1c6ca867563c014162d8909825b3cd7b81911e08ab449acb5dc7d545fe03",
+    "full_artifact_bytes": 95889
+  },
+  "execution": {
+    "new_llm_calls": 0,
+    "new_oracle_calls": 0,
+    "ppo_updates": 0,
+    "local_code_execution": false
+  },
+  "protocol": {
+    "features": "81 request-time deterministic RDKit descriptors",
+    "model": "ridge alpha=1.0",
+    "hyperparameter_tuning": false,
+    "cross_validation": "leave-one-trajectory-out",
+    "bootstrap_resamples": 10000,
+    "permutation_resamples": 10000,
+    "minimum_oracle_headroom_fraction_captured": 0.25
+  },
+  "early_invalid": {
+    "required_metric": "rescue_rate_at_4",
+    "descriptor": 0.96875,
+    "expected_random": 0.3046875,
+    "oracle": 1.0,
+    "difference": 0.6640625,
+    "difference_ci_95": [0.6067708333333334, 0.7083333333333333],
+    "permutation_p_one_sided": 0.00009999000099990002,
+    "oracle_headroom_fraction_captured": 0.9550561797752809,
+    "descriptor_any_rescue_auc": 0.9369852454870838,
+    "passed": true
+  },
+  "middle_valid": {
+    "best_gain_at_4": {
+      "descriptor": 0.006487499999999993,
+      "expected_random": 0.0059641886645962604,
+      "oracle": 0.014381249999999929,
+      "difference": 0.0005233113354037332,
+      "difference_ci_95": [-0.002228553783173343, 0.002446977343308875],
+      "permutation_p_one_sided": 0.16578342165783422,
+      "oracle_headroom_fraction_captured": 0.062172688845998046,
+      "passed": false
+    },
+    "ndcg_at_4": {
+      "descriptor": 0.21757672336400585,
+      "expected_random": 0.1914587675450674,
+      "oracle": 1.0,
+      "difference": 0.026117955818938433,
+      "difference_ci_95": [-0.046451564103970694, 0.09088459739648883],
+      "permutation_p_one_sided": 0.10138986101389862,
+      "oracle_headroom_fraction_captured": 0.03230256512662664,
+      "passed": false
+    },
+    "policy_probability_comparator": {
+      "best_gain_at_4": 0.010406249999999992,
+      "ndcg_at_4": 0.4746163158978466,
+      "used_by_descriptor_model": false
+    }
+  },
+  "late_valid": {
+    "role": "saturation-diagnostic-only",
+    "contributes_to_gate": false,
+    "trajectories_without_positive_candidate": 5,
+    "descriptor_best_gain_at_4": 0.0003750000000000142,
+    "expected_random_best_gain_at_4": -0.00048383916807828595,
+    "descriptor_ndcg_at_4": 0.014338205626505821,
+    "expected_random_ndcg_at_4": 0.05679573995424801
+  },
+  "post_result_non_gating_overlap_check": {
+    "candidate_rows_per_stage": 192,
+    "unique_component_alternative_structure_keys_per_stage": 80,
+    "repeated_keys_per_stage": 16,
+    "rows_in_repeated_keys_per_stage": 128,
+    "early_repeated_key_rescue_label_conflicts": 0,
+    "interpretation": "trajectory-held-out validation does not establish unseen-structure generalization"
+  },
+  "gate_checks": {
+    "early_invalid_rescue_rate_at_4": true,
+    "middle_valid_best_gain_at_4": false,
+    "middle_valid_ndcg_at_4": false,
+    "gate1b_passed": false,
+    "gate1c_eligible": false,
+    "llm_gate1c_authorized": false,
+    "pairwise_refinement_authorized": false,
+    "ppo_integration_authorized": false
+  },
+  "slurm": {
+    "tests": "4611 COMPLETED 0:0; 32 tests passed",
+    "gate1b_audit": "4612 COMPLETED 0:0"
+  },
+  "claim_boundary": "Gate 1B tests fixed deterministic-descriptor learnability on Gate1-dev only. It does not establish independent-test or unseen-chemistry generalization, LLM acquisition benefit, online PPO improvement, independent-oracle robustness, or wet-lab validity."
+}

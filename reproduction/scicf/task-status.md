@@ -56,4 +56,12 @@ Status date: 2026-09-03
   cheap-information learnability diagnosis eligible. Late-stage headroom is
   sparse: 5/8 trajectories have no positive candidate. See
   `reproduction/results/scicf-gate1a-headroom-20260903`.
+- Gate 1B deterministic-descriptor learnability audit is complete with a formal
+  no-go. Slurm job 4611 passed 32/32 tests and job 4612 completed the frozen
+  Gate1-dev audit. Early-invalid rescue passed, capturing 95.51% of available
+  Oracle-minus-Random headroom. Middle-valid BestGain@4 and NDCG@4 both failed
+  their pre-declared confidence, permutation, and 25%-headroom criteria. Late
+  remains a non-gating saturation diagnostic. Gate 1C is not eligible; LLM
+  ranking, pairwise refinement, and PPO integration remain closed. See
+  `reproduction/results/scicf-gate1b-learnability-20260903`.
 - No SciCF performance, oracle-efficiency, or generality claim is currently authorized.
