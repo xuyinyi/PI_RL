@@ -3,6 +3,8 @@
   "gate": "offline-acquisition-gate1",
   "status": "failed",
   "date": "2026-09-03",
+  "diagnostic_label": "prompt-starved-v2-negative-diagnostic",
+  "core_scicf_hypothesis_tested": false,
   "decision": {
     "primary_metric": "ndcg_at_b",
     "budget": 4,
@@ -97,5 +99,5 @@
     "formal_api_ranking": "4605 COMPLETED 0:0",
     "aggregation": "4606 COMPLETED 0:0"
   },
-  "claim_boundary": "This offline acquisition gate does not establish online PPO improvement, independent-oracle robustness, cross-domain generality, or wet-lab validity."
+  "claim_boundary": "This prompt-starved diagnostic does not test the fully specified SciCF acquisition hypothesis and does not establish online PPO improvement, independent-oracle robustness, cross-domain generality, or wet-lab validity."
 }

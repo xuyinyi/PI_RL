@@ -1,7 +1,9 @@
 # SciCF-PPO DeepSeek Flash offline Gate 1 result
 
-The independent DeepSeek Flash Gate 1 decision is **failed / no-go**. Zero of
-three PPO stages satisfied the pre-declared requirement that the lower bound of
+The independent DeepSeek Flash Gate 1 decision is **failed / no-go**. This run
+is retained as the **prompt-starved-v2 negative diagnostic**, not as a test of
+the fully specified SciCF acquisition hypothesis. Zero of three PPO stages
+satisfied the pre-declared requirement that the lower bound of
 the paired-bootstrap 95% confidence interval for LLM-minus-comparator NDCG@4
 be strictly positive against both Random and the chemistry heuristic. Pairwise
 refinement remains unauthorized.
@@ -26,3 +28,8 @@ The public `deepseek-v4-flash` name is a rolling API alias. This run records the
 dated release/snapshot marker `DeepSeek-V4-Flash-0731-api-snapshot-2026-09-03`,
 the provider response fingerprint, prompt hashes, and response hashes; it does
 not claim that the public alias is an immutable model endpoint.
+
+The diagnostic prompt omitted the exact reward semantics, complete factual
+trajectory, explicit invalid-termination semantics, and deterministic
+structural comparison features. Follow-up prompt development must use this
+dataset only as Gate1-dev; it cannot be reused as a final held-out Gate1-test.
