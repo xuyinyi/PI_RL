@@ -172,6 +172,125 @@ def validate_collection_authorization(
     }
 
 
+def validate_evaluation_authorization(
+    receipt_path: Path,
+    config: Mapping[str, Any],
+    collection_validation_path: Path,
+    early_report_path: Path,
+    middle_report_path: Path,
+    gate1b1_manifest_path: Path,
+    gate1b2_manifest_path: Path,
+) -> Tuple[Mapping[str, Any], Dict[str, Any]]:
+    """Validate one narrowly scoped fresh-dev evaluation authorization."""
+    resolved = receipt_path.resolve()
+    receipt = json.loads(resolved.read_text(encoding="utf-8"))
+    if (
+        receipt.get("gate") != GATE_VERSION
+        or receipt.get("status") != "authorized"
+        or receipt.get("action") != "fresh-dev-evaluation"
+    ):
+        raise RuntimeError("Gate 1B.3 evaluation authorization identity mismatch")
+
+    confirmation = config["fresh_development_confirmation"]
+    scope = receipt.get("scope", {})
+    if (
+        scope.get("split") != "dev"
+        or tuple(scope.get("stages", ())) != tuple(confirmation["stages"])
+        or tuple(scope.get("seeds", ())) != tuple(confirmation["seeds"])
+    ):
+        raise RuntimeError("Gate 1B.3 evaluation authorization scope mismatch")
+
+    authorization = receipt.get("authorization", {})
+    if authorization.get("fresh_dev_evaluation_authorized") is not True:
+        raise RuntimeError("Gate 1B.3 fresh-dev evaluation is not authorized")
+    closed = (
+        "fresh_dev_collection_authorized",
+        "test_collection_authorized",
+        "test_evaluation_authorized",
+        "gate1c_authorized",
+        "pairwise_refinement_authorized",
+        "ppo_integration_authorized",
+    )
+    if any(authorization.get(key) is not False for key in closed):
+        raise RuntimeError("Gate 1B.3 evaluation receipt exceeds its allowed scope")
+
+    collection = scope.get("collection", {})
+    model_manifests = scope.get("model_manifests", {})
+    observed = {
+        "collection_validation_sha256": file_sha256(
+            collection_validation_path.resolve()
+        ),
+        "early_report_sha256": file_sha256(early_report_path.resolve()),
+        "middle_report_sha256": file_sha256(middle_report_path.resolve()),
+        "gate1b1_manifest_sha256": file_sha256(
+            gate1b1_manifest_path.resolve()
+        ),
+        "gate1b2_manifest_sha256": file_sha256(
+            gate1b2_manifest_path.resolve()
+        ),
+    }
+    expected = {
+        "collection_validation_sha256": collection.get(
+            "validation_sha256"
+        ),
+        "early_report_sha256": collection.get("early_report_sha256"),
+        "middle_report_sha256": collection.get("middle_report_sha256"),
+        "gate1b1_manifest_sha256": model_manifests.get("gate1b1_sha256"),
+        "gate1b2_manifest_sha256": model_manifests.get("gate1b2_sha256"),
+    }
+    if observed != expected:
+        raise RuntimeError("Gate 1B.3 evaluation artifact checksum mismatch")
+    if (
+        expected["gate1b1_manifest_sha256"]
+        != config["models"]["middle_gain_ranker"]["source_manifest_sha256"]
+        or expected["gate1b2_manifest_sha256"]
+        != config["models"]["early_validity_filter"]["source_manifest_sha256"]
+    ):
+        raise RuntimeError("Gate 1B.3 evaluation receipt model identity mismatch")
+
+    validation = json.loads(
+        collection_validation_path.resolve().read_text(encoding="utf-8")
+    )
+    validation_reports = validation.get("reports", {})
+    if (
+        validation.get("gate") != GATE_VERSION
+        or validation.get("status") != "collection-complete-valid"
+        or validation.get("collection_source_commit")
+        != collection.get("source_commit")
+        or validation_reports.get("early", {}).get("sha256")
+        != collection.get("early_report_sha256")
+        or validation_reports.get("middle", {}).get("sha256")
+        != collection.get("middle_report_sha256")
+        or validation.get("train_structure_overlap_count") != 0
+        or validation.get("prior_dev_structure_overlap_count") != 0
+        or validation.get("labels_evaluated") is not False
+        or validation.get("test_data_accessed") is not False
+        or validation.get("test_collection_authorized") is not False
+        or validation.get("test_evaluation_authorized") is not False
+        or validation.get("ppo_integration_authorized") is not False
+        or validation.get("authorization_receipt", {}).get("receipt_sha256")
+        != collection.get("collection_authorization_receipt_sha256")
+    ):
+        raise RuntimeError("Gate 1B.3 collection validation seal mismatch")
+    if any(
+        int(validation_reports.get(stage, {}).get("oracle_counts", {}).get(
+            "evaluation", -1
+        ))
+        != 0
+        for stage in ("early", "middle")
+    ):
+        raise RuntimeError("Gate 1B.3 collection already contains evaluation calls")
+
+    return receipt, {
+        "receipt": str(resolved),
+        "receipt_sha256": file_sha256(resolved),
+        "action": receipt["action"],
+        "authorized_on": receipt["authorized_on"],
+        "collection_source_commit": collection["source_commit"],
+        **observed,
+    }
+
+
 def validate_model_manifests(
     gate1b1_manifest_path: Path,
     gate1b2_manifest_path: Path,

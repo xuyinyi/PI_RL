@@ -24,6 +24,7 @@ from reproduction.scicf.gate1.gate1b3 import (
     load_config,
     load_early_validity_model,
     validate_collection_config,
+    validate_evaluation_authorization,
     validate_model_manifests,
 )
 
@@ -37,6 +38,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--gate1b2-model-manifest", type=Path, required=True)
     parser.add_argument("--early-report", type=Path, required=True)
     parser.add_argument("--middle-report", type=Path, required=True)
+    parser.add_argument("--collection-validation", type=Path, required=True)
+    parser.add_argument(
+        "--evaluation-authorization-receipt", type=Path, required=True
+    )
     parser.add_argument("--output-root", type=Path, required=True)
     return parser.parse_args()
 
@@ -92,12 +97,17 @@ def main() -> None:
         raise RuntimeError("Gate 1B.3 dev evaluation requires clean Git")
     config_path = args.config.resolve()
     config = load_config(config_path)
-    if config["authorization"].get("fresh_dev_evaluation_authorized") is not True:
-        raise RuntimeError(
-            "Gate 1B.3 fresh-dev evaluation requires separate authorization"
-        )
     collection_config = validate_collection_config(
         repo_root, config, args.collection_config
+    )
+    evaluation_receipt, evaluation_seal = validate_evaluation_authorization(
+        args.evaluation_authorization_receipt,
+        config,
+        args.collection_validation,
+        args.early_report,
+        args.middle_report,
+        args.gate1b1_model_manifest,
+        args.gate1b2_model_manifest,
     )
     b1_manifest, b2_manifest = validate_model_manifests(
         args.gate1b1_model_manifest,
@@ -124,7 +134,7 @@ def main() -> None:
         item.get("source", {}).get("commit") for item in sources
     }
     if (
-        source_commits != {source.get("commit")}
+        source_commits != {evaluation_seal["collection_source_commit"]}
         or any(item.get("source", {}).get("dirty") is not False for item in sources)
         or any(item.get("test_seal") is not None for item in sources)
     ):
@@ -134,6 +144,12 @@ def main() -> None:
     if (
         len(receipt_hashes) != 1
         or None in receipt_hashes
+        or receipt_hashes
+        != {
+            evaluation_receipt["scope"]["collection"][
+                "collection_authorization_receipt_sha256"
+            ]
+        }
         or any(item.get("action") != "fresh-dev-collection" for item in receipt_seals)
     ):
         raise RuntimeError("Gate 1B.3 fresh dev lacks one collection authorization seal")
@@ -213,6 +229,11 @@ def main() -> None:
             "sha256": file_sha256(args.gate1b2_model_manifest.resolve()),
         },
         "fresh_sources": {"early": early_source, "middle": middle_source},
+        "collection_validation": {
+            "path": str(args.collection_validation.resolve()),
+            "sha256": file_sha256(args.collection_validation.resolve()),
+        },
+        "evaluation_authorization_receipt": evaluation_seal,
         "fresh_structure_keys": sorted(fresh_keys),
         "entry_checks": checks,
         "dev_entry_passed": passed,
@@ -222,7 +243,7 @@ def main() -> None:
         "test_data_accessed": False,
         "test_evaluations_completed": 0,
         "late_saturation_diagnostic": config["late_saturation_diagnostic"],
-        "authorization": config["authorization"],
+        "authorization": evaluation_receipt["authorization"],
     }
     manifest_path = output_root / "frozen-stage-routed-model-manifest.json"
     write_json(manifest_path, manifest)
@@ -234,6 +255,7 @@ def main() -> None:
         "slurm_job_id": os.environ["SLURM_JOB_ID"],
         "model_manifest": str(manifest_path),
         "model_manifest_sha256": file_sha256(manifest_path),
+        "evaluation_authorization_receipt": evaluation_seal,
         "structure_isolation": {
             "fresh_keys": len(fresh_keys),
             "train_overlap_count": len(train_overlap),

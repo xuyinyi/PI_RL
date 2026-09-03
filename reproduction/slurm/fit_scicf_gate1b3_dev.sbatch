@@ -12,15 +12,17 @@
 
 set -euo pipefail
 
-if [[ "$#" -ne 4 ]]; then
-    echo "usage: $0 DATA_ROOT GATE1B1_MODEL_MANIFEST GATE1B2_MODEL_MANIFEST OUTPUT_ROOT" >&2
+if [[ "$#" -ne 6 ]]; then
+    echo "usage: $0 DATA_ROOT GATE1B1_MODEL_MANIFEST GATE1B2_MODEL_MANIFEST COLLECTION_VALIDATION EVALUATION_AUTHORIZATION_RECEIPT OUTPUT_ROOT" >&2
     exit 2
 fi
 
 data_root="$1"
 gate1b1_manifest="$2"
 gate1b2_manifest="$3"
-output_root="$4"
+collection_validation="$4"
+evaluation_receipt="$5"
+output_root="$6"
 repo_root="/home/wch/workspaces/DAPiGen-reproduction/algorithm-worktree"
 python_bin="/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/bin/python"
 
@@ -39,4 +41,6 @@ srun "$python_bin" reproduction/scicf/gate1/fit_gate1b3_dev.py \
     --gate1b2-model-manifest "$gate1b2_manifest" \
     --early-report "$data_root/dev/early/gate1b1-stage-report.json" \
     --middle-report "$data_root/dev/middle/gate1b1-stage-report.json" \
+    --collection-validation "$collection_validation" \
+    --evaluation-authorization-receipt "$evaluation_receipt" \
     --output-root "$output_root"

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "gate": "scicf-gate1b3-stage-routed-unseen-development-v1",
+  "status": "authorized",
+  "authorized_on": "2026-09-03",
+  "authorization_basis": "explicit user authorization to perform Gate 1B.3 fresh-dev evaluation",
+  "action": "fresh-dev-evaluation",
+  "scope": {
+    "split": "dev",
+    "stages": ["early", "middle"],
+    "seeds": [4241, 4242, 4243, 4244, 4245, 4246, 4247, 4248, 4249, 4250, 4251, 4252, 4253, 4254, 4255, 4256],
+    "collection": {
+      "source_commit": "bbac223d123588619675539e989e3010c079ddea",
+      "validation_sha256": "6f260f26700f4fc5c8da65ab173f9920989f37fd372b1a8b5a44e25f9e1ba13a",
+      "early_report_sha256": "9799e54e74810a36b53401adc1ae0865b90a039557c2dbbfaa5b4bd0ff997316",
+      "middle_report_sha256": "457142ffbbc68e29c16a1e467a890e0a88d1dde61923dddf637131992bce4815",
+      "collection_authorization_receipt_sha256": "609120c8c7cb9c8008f5b63eadaeaeafad823b40152c3e5353fc784bb5d67f36"
+    },
+    "model_manifests": {
+      "gate1b1_sha256": "b5a5c400b0bc90decaffa333d60c0378fea10f07c2fb3dbc02cb1487d2cae47d",
+      "gate1b2_sha256": "10b8c9b603bfaec1ff1600c22ca2fb1cb5cb96e5904d95267e42422a8202f8fd"
+    }
+  },
+  "authorization": {
+    "fresh_dev_collection_authorized": false,
+    "fresh_dev_evaluation_authorized": true,
+    "test_collection_authorized": false,
+    "test_evaluation_authorized": false,
+    "gate1c_authorized": false,
+    "pairwise_refinement_authorized": false,
+    "ppo_integration_authorized": false
+  }
+}

@@ -22,6 +22,7 @@ from reproduction.scicf.gate1.gate1b3 import (
     select_routed_rows,
     validate_collection_authorization,
     validate_collection_config,
+    validate_evaluation_authorization,
 )
 
 
@@ -95,6 +96,119 @@ class SciCFGate1B3Tests(unittest.TestCase):
         )
         self.assertFalse(receipt["authorization"]["test_collection_authorized"])
         self.assertEqual(seal["action"], "fresh-dev-collection")
+
+    def test_evaluation_authorization_is_narrow_and_artifact_bound(self):
+        config = load_config(self.config_path)
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            paths = {
+                name: root / name
+                for name in (
+                    "early.json",
+                    "middle.json",
+                    "gate1b1.json",
+                    "gate1b2.json",
+                )
+            }
+            for name, path in paths.items():
+                path.write_text(name, encoding="utf-8")
+            collection_receipt_sha = "a" * 64
+            validation = {
+                "gate": config["gate"],
+                "status": "collection-complete-valid",
+                "collection_source_commit": "b" * 40,
+                "reports": {
+                    "early": {
+                        "sha256": hashlib.sha256(b"early.json").hexdigest(),
+                        "oracle_counts": {"evaluation": 0},
+                    },
+                    "middle": {
+                        "sha256": hashlib.sha256(b"middle.json").hexdigest(),
+                        "oracle_counts": {"evaluation": 0},
+                    },
+                },
+                "train_structure_overlap_count": 0,
+                "prior_dev_structure_overlap_count": 0,
+                "labels_evaluated": False,
+                "test_data_accessed": False,
+                "test_collection_authorized": False,
+                "test_evaluation_authorized": False,
+                "ppo_integration_authorized": False,
+                "authorization_receipt": {
+                    "receipt_sha256": collection_receipt_sha
+                },
+            }
+            validation_path = root / "collection-validation.json"
+            validation_path.write_text(
+                json.dumps(validation, sort_keys=True), encoding="utf-8"
+            )
+            receipt = {
+                "gate": config["gate"],
+                "status": "authorized",
+                "action": "fresh-dev-evaluation",
+                "authorized_on": "2026-09-03",
+                "scope": {
+                    "split": "dev",
+                    "stages": ["early", "middle"],
+                    "seeds": config["fresh_development_confirmation"]["seeds"],
+                    "collection": {
+                        "source_commit": "b" * 40,
+                        "validation_sha256": hashlib.sha256(
+                            validation_path.read_bytes()
+                        ).hexdigest(),
+                        "early_report_sha256": hashlib.sha256(
+                            b"early.json"
+                        ).hexdigest(),
+                        "middle_report_sha256": hashlib.sha256(
+                            b"middle.json"
+                        ).hexdigest(),
+                        "collection_authorization_receipt_sha256": collection_receipt_sha,
+                    },
+                    "model_manifests": {
+                        "gate1b1_sha256": hashlib.sha256(
+                            b"gate1b1.json"
+                        ).hexdigest(),
+                        "gate1b2_sha256": hashlib.sha256(
+                            b"gate1b2.json"
+                        ).hexdigest(),
+                    },
+                },
+                "authorization": {
+                    "fresh_dev_collection_authorized": False,
+                    "fresh_dev_evaluation_authorized": True,
+                    "test_collection_authorized": False,
+                    "test_evaluation_authorized": False,
+                    "gate1c_authorized": False,
+                    "pairwise_refinement_authorized": False,
+                    "ppo_integration_authorized": False,
+                },
+            }
+            config = copy.deepcopy(config)
+            config["models"]["middle_gain_ranker"][
+                "source_manifest_sha256"
+            ] = receipt["scope"]["model_manifests"]["gate1b1_sha256"]
+            config["models"]["early_validity_filter"][
+                "source_manifest_sha256"
+            ] = receipt["scope"]["model_manifests"]["gate1b2_sha256"]
+            receipt_path = root / "evaluation-receipt.json"
+            receipt_path.write_text(
+                json.dumps(receipt, sort_keys=True), encoding="utf-8"
+            )
+            validated, seal = validate_evaluation_authorization(
+                receipt_path,
+                config,
+                validation_path,
+                paths["early.json"],
+                paths["middle.json"],
+                paths["gate1b1.json"],
+                paths["gate1b2.json"],
+            )
+        self.assertTrue(
+            validated["authorization"]["fresh_dev_evaluation_authorized"]
+        )
+        self.assertFalse(validated["authorization"]["test_collection_authorized"])
+        self.assertFalse(validated["authorization"]["ppo_integration_authorized"])
+        self.assertEqual(seal["action"], "fresh-dev-evaluation")
 
     def test_structure_exclusion_requires_exact_sealed_manifest(self):
         payload = {
