@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "gate": "scicf-gate1b2-nonlinear-validity-development-v1",
+  "dataset_role": "structure-isolated development entry; sealed test remains untouched",
+  "parent": {
+    "gate": "scicf-gate1b1-structure-isolated-two-stage-v1",
+    "config_path": "reproduction/configs/scicf-gate1b1-structure-split-v1.json",
+    "config_sha256": "1bd186938a9bc0807f4ad0c9f733402d16eac26fa68f746cec78efa007a5b782",
+    "frozen_model_manifest_sha256": "b5a5c400b0bc90decaffa333d60c0378fea10f07c2fb3dbc02cb1487d2cae47d",
+    "reuse": {
+      "train_rows": "all original Gate 1B.1 train rows",
+      "early_dev_rows": "all original Gate 1B.1 early-dev rows",
+      "middle_dev_rows": "all original Gate 1B.1 middle-dev rows",
+      "late_dev_rows": "all original Gate 1B.1 late-dev rows",
+      "gain_ranker": "exact frozen policy-conditioned Ridge model"
+    }
+  },
+  "late_dev_expansion": {
+    "collection_config_path": "reproduction/configs/scicf-gate1b2-late-dev-collection-v1.json",
+    "collection_config_sha256": "61575ec72d1c6fb06ba9a5dd32d77203ea628da7f204759b23e46cf5152f2cca",
+    "split": "dev",
+    "stage": "late",
+    "seeds": [4210, 4211, 4212, 4213, 4214, 4215, 4216, 4217, 4218, 4219, 4220, 4221, 4222, 4223, 4224, 4225, 4226, 4227, 4228, 4229, 4230, 4231, 4232, 4233],
+    "combine_with_original_late_dev": true
+  },
+  "models": {
+    "validity_filter": {
+      "family": "sklearn.ensemble.RandomForestRegressor",
+      "target": "paired counterfactual terminal-valid fraction",
+      "training_stages": ["early", "middle", "late"],
+      "uses_policy_score": false,
+      "threshold": 0.5,
+      "fixed_parameters": {
+        "n_estimators": 512,
+        "criterion": "squared_error",
+        "max_depth": 8,
+        "min_samples_split": 4,
+        "min_samples_leaf": 2,
+        "max_features": "sqrt",
+        "bootstrap": true,
+        "random_state": 71021,
+        "n_jobs": 1
+      }
+    },
+    "policy_conditioned_gain_ranker": {
+      "family": "ridge",
+      "source": "exact parent frozen-model-manifest gain_model",
+      "refit": false
+    },
+    "hyperparameter_search": false,
+    "model_family_search": false
+  },
+  "selection": {
+    "early": "rank four by nonlinear validity-filter score",
+    "middle": "validity-first lexicographic ordering, then frozen gain-ranker score; fill four",
+    "late": "hard validity threshold and dev-calibrated positive-gain threshold; select zero to four",
+    "late_threshold_calibration": "maximize trajectory-level balanced accuracy on combined original and expanded late-dev; ties choose the larger conservative threshold"
+  },
+  "dev_entry_rule": {
+    "minimum_oracle_headroom_fraction_captured": 0.25,
+    "minimum_cross_timestep_trajectory_fraction": 0.25,
+    "required": [
+      "train and combined dev structure-key overlap is zero",
+      "early rescue-rate@4 improvement over exact Random is positive and captures at least 25% headroom",
+      "middle BestGain@4 improvement over exact Random is positive and captures at least 25% headroom",
+      "middle NDCG@4 improvement over exact Random is positive and captures at least 25% headroom",
+      "combined late dev contains both positive-available and no-positive trajectories for abstention calibration",
+      "at least 25% of original early, middle, and late dev trajectories contain candidates from more than one timestep"
+    ]
+  },
+  "execution": {
+    "require_slurm": true,
+    "require_clean_git": true,
+    "expected_sklearn_version": "1.2.2",
+    "expected_joblib_version": "1.4.2",
+    "llm_calls": 0,
+    "ppo_updates": 0
+  },
+  "authorization": {
+    "sealed_test_eligible_if_dev_passes": true,
+    "test_collection_authorized": false,
+    "test_evaluation_authorized": false,
+    "separate_user_authorization_required_for_test": true,
+    "gate1c_authorized": false,
+    "pairwise_refinement_authorized": false,
+    "ppo_integration_authorized": false
+  }
+}

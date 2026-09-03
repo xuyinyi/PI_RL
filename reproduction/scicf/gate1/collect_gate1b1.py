@@ -71,6 +71,12 @@ def main() -> None:
     sys.path.insert(0, str(repo_root))
     framework_config = load_framework_config(args.framework_config.resolve())
     gate_config = load_config(args.gate_config.resolve())
+    allowed_split = gate_config.get("execution", {}).get("allowed_split")
+    allowed_stage = gate_config.get("execution", {}).get("allowed_stage")
+    if allowed_split is not None and args.split != allowed_split:
+        raise ContractError("collection config is restricted to split={}".format(allowed_split))
+    if allowed_stage is not None and args.stage != allowed_stage:
+        raise ContractError("collection config is restricted to stage={}".format(allowed_stage))
     source = git_identity(repo_root)
     require_execution_provenance(repo_root, framework_config, source)
     if source.get("dirty") is not False:

@@ -28,4 +28,5 @@ srun "$python_bin" -m unittest \
     reproduction.tests.test_scicf_headroom \
     reproduction.tests.test_scicf_learnability \
     reproduction.tests.test_scicf_gate1b1 \
+    reproduction.tests.test_scicf_gate1b2 \
     -v
