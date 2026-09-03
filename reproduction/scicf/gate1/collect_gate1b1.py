@@ -30,6 +30,7 @@ from reproduction.scicf.gate1.gate1b1 import (
     structure_key,
     structure_split,
 )
+from reproduction.scicf.gate1.gate1b3 import load_excluded_structure_keys
 
 
 def parse_args() -> argparse.Namespace:
@@ -42,6 +43,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--stage", choices=STAGES, required=True)
     parser.add_argument("--output-root", type=Path, required=True)
     parser.add_argument("--model-manifest", type=Path)
+    parser.add_argument("--excluded-structure-manifest", type=Path)
     return parser.parse_args()
 
 
@@ -73,10 +75,26 @@ def main() -> None:
     gate_config = load_config(args.gate_config.resolve())
     allowed_split = gate_config.get("execution", {}).get("allowed_split")
     allowed_stage = gate_config.get("execution", {}).get("allowed_stage")
+    allowed_stages = gate_config.get("execution", {}).get("allowed_stages")
     if allowed_split is not None and args.split != allowed_split:
         raise ContractError("collection config is restricted to split={}".format(allowed_split))
     if allowed_stage is not None and args.stage != allowed_stage:
         raise ContractError("collection config is restricted to stage={}".format(allowed_stage))
+    if allowed_stages is not None and args.stage not in allowed_stages:
+        raise ContractError(
+            "collection config is restricted to stages={}".format(allowed_stages)
+        )
+    exclusion_config = gate_config.get("structure_exclusion")
+    excluded_structure_keys = set()
+    structure_exclusion_seal = None
+    if exclusion_config is not None:
+        if args.excluded_structure_manifest is None:
+            raise ContractError("collection config requires a structure exclusion manifest")
+        excluded_structure_keys, structure_exclusion_seal = load_excluded_structure_keys(
+            args.excluded_structure_manifest, gate_config
+        )
+    elif args.excluded_structure_manifest is not None:
+        raise ContractError("structure exclusion manifest is not allowed by this config")
     source = git_identity(repo_root)
     require_execution_provenance(repo_root, framework_config, source)
     if source.get("dirty") is not False:
@@ -197,6 +215,11 @@ def main() -> None:
                         gate_config,
                     )
                     == args.split
+                    and structure_key(
+                        candidate.intervention.component,
+                        candidate.intervention.alternative_structure,
+                    )
+                    not in excluded_structure_keys
                 ]
                 if not filtered:
                     raise RuntimeError("structure split removed an entire timestep")
@@ -259,6 +282,7 @@ def main() -> None:
                     "stage": args.stage,
                     "source": source,
                     "slurm_job_id": os.environ["SLURM_JOB_ID"],
+                    "structure_exclusion_seal": structure_exclusion_seal,
                     "trajectories": trajectory_results,
                 },
             )
@@ -292,6 +316,7 @@ def main() -> None:
                 "slurm_job_id": os.environ["SLURM_JOB_ID"],
                 "config": gate_config,
                 "test_seal": test_seal,
+                "structure_exclusion_seal": structure_exclusion_seal,
                 "oracle_counts": ledger.snapshot().as_dict(),
                 "trajectories": trajectory_results,
             },

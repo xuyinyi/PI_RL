@@ -210,6 +210,7 @@ def load_stage_report(
         "checkpoint_sha256": report.get("checkpoint_sha256"),
         "source": report.get("source"),
         "test_seal": report.get("test_seal"),
+        "structure_exclusion_seal": report.get("structure_exclusion_seal"),
     }
     return rows, source
 

@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "gate": "scicf-gate1b3-stage-routed-unseen-development-v1",
+  "status": "implementation-candidate; requires fresh unseen-structure development confirmation",
+  "design_basis": "post-hoc stage routing from Gate 1B.1 and Gate 1B.2 development diagnostics; not independent evidence",
+  "models": {
+    "early_validity_filter": {
+      "family": "sklearn.ensemble.RandomForestRegressor",
+      "source_gate": "scicf-gate1b2-nonlinear-validity-development-v1",
+      "source_manifest_sha256": "10b8c9b603bfaec1ff1600c22ca2fb1cb5cb96e5904d95267e42422a8202f8fd",
+      "artifact_sha256": "9964539e604bde893f500beeedc39df1b0aa94bb42ebea692dc405414ab93047",
+      "refit": false
+    },
+    "middle_validity_filter": {
+      "family": "ridge",
+      "source_gate": "scicf-gate1b1-structure-isolated-two-stage-v1",
+      "source_manifest_sha256": "b5a5c400b0bc90decaffa333d60c0378fea10f07c2fb3dbc02cb1487d2cae47d",
+      "refit": false
+    },
+    "middle_gain_ranker": {
+      "family": "ridge",
+      "policy_conditioned": true,
+      "source_gate": "scicf-gate1b1-structure-isolated-two-stage-v1",
+      "source_manifest_sha256": "b5a5c400b0bc90decaffa333d60c0378fea10f07c2fb3dbc02cb1487d2cae47d",
+      "refit": false
+    },
+    "validity_threshold": 0.5,
+    "hyperparameter_search": false,
+    "model_family_search": false
+  },
+  "stage_router": {
+    "early": "rank exactly four by frozen nonlinear validity score",
+    "middle": "validity-first lexicographic ordering using frozen linear validity, then frozen policy-conditioned gain; fill four",
+    "late": "return zero while the abstention threshold is uncalibrated; late remains a non-gating saturation diagnostic",
+    "late_default_selection_count": 0
+  },
+  "fresh_development_confirmation": {
+    "collection_config_path": "reproduction/configs/scicf-gate1b3-unseen-dev-collection-v1.json",
+    "collection_config_sha256": "0a1c82f6f6d8c8d76a277c4090f26dd2e8d8ee02bdd346b7a5efb8c5e0776932",
+    "split": "dev",
+    "stages": ["early", "middle"],
+    "seeds": [4241, 4242, 4243, 4244, 4245, 4246, 4247, 4248, 4249, 4250, 4251, 4252, 4253, 4254, 4255, 4256],
+    "exclude_prior_dev_structures": true,
+    "prior_dev_structure_manifest_sha256": "10b8c9b603bfaec1ff1600c22ca2fb1cb5cb96e5904d95267e42422a8202f8fd",
+    "test_data_allowed": false
+  },
+  "entry_rule": {
+    "minimum_oracle_headroom_fraction_captured": 0.25,
+    "minimum_cross_timestep_trajectory_fraction": 0.25,
+    "late_is_gating": false,
+    "required": [
+      "fresh dev structure-key overlap with original train is zero",
+      "fresh dev structure-key overlap with all prior dev structures is zero",
+      "early rescue-rate@4 improvement over exact Random is positive and captures at least 25% headroom",
+      "middle BestGain@4 improvement over exact Random is positive and captures at least 25% headroom",
+      "middle NDCG@4 improvement over exact Random is positive and captures at least 25% headroom",
+      "at least 25% of fresh early-middle trajectories contain candidates from more than one timestep"
+    ]
+  },
+  "late_saturation_diagnostic": {
+    "source_dev_report_sha256": "6d6127658d2855d77041dc08d041358479d5b88b1591ca7ac066efa57b8dfffe",
+    "positive_candidate_trajectories": 0,
+    "no_positive_candidate_trajectories": 32,
+    "calibration_status": "not-calibratable",
+    "operational_default": "abstain",
+    "can_change_entry_decision": false
+  },
+  "execution": {
+    "require_slurm": true,
+    "require_clean_git": true,
+    "llm_calls": 0,
+    "ppo_updates": 0
+  },
+  "authorization": {
+    "fresh_dev_collection_authorized": false,
+    "fresh_dev_evaluation_authorized": false,
+    "sealed_test_eligible_if_fresh_dev_passes": true,
+    "test_collection_authorized": false,
+    "test_evaluation_authorized": false,
+    "separate_user_authorization_required_for_test": true,
+    "gate1c_authorized": false,
+    "pairwise_refinement_authorized": false,
+    "ppo_integration_authorized": false
+  }
+}
