@@ -42,3 +42,6 @@ The full row-level artifact remains at:
 Slurm job 4607 passed 27/27 tests before the audit. Job 4608 produced the full
 headroom artifact from clean source commit
 `f8e5e314d43cf250394d3d770df9bbf4a87cdbb0`.
+After archiving the audit and adding an exhaustive ordered-enumeration check
+for exact expected Random NDCG@4, Slurm job 4609 passed 28/28 tests from commit
+`73f18ae34ccabf1aae206d3ed15aafeac53953e2`.

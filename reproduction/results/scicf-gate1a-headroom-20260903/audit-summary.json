@@ -115,7 +115,8 @@
   },
   "slurm": {
     "pre_audit_tests": "4607 COMPLETED 0:0; 27 tests passed",
-    "headroom_audit": "4608 COMPLETED 0:0"
+    "headroom_audit": "4608 COMPLETED 0:0",
+    "post_archive_tests": "4609 COMPLETED 0:0; 28 tests passed"
   },
   "claim_boundary": "Gate 1A establishes candidate-pool headroom only. It does not establish cheap-feature learnability, LLM acquisition benefit, online PPO improvement, independent-oracle robustness, or wet-lab validity."
 }

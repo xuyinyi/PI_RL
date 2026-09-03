@@ -50,8 +50,10 @@ Status date: 2026-09-03
   `reproduction/results/scicf-gate1-deepseek-flash-20260903`.
 - Gate 1A headroom audit is complete. Slurm job 4607 passed 27/27 tests and job
   4608 computed exact expected Random top-4 performance without new LLM,
-  oracle, or PPO calls. Statistical headroom exists in all three stages, making
-  Gate 1B cheap-information learnability diagnosis eligible. Late-stage
-  headroom is sparse: 5/8 trajectories have no positive candidate. See
+  oracle, or PPO calls. Post-archive Slurm job 4609 passed 28/28 tests,
+  including exhaustive ordered-enumeration validation of expected Random
+  NDCG. Statistical headroom exists in all three stages, making Gate 1B
+  cheap-information learnability diagnosis eligible. Late-stage headroom is
+  sparse: 5/8 trajectories have no positive candidate. See
   `reproduction/results/scicf-gate1a-headroom-20260903`.
 - No SciCF performance, oracle-efficiency, or generality claim is currently authorized.
