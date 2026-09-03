@@ -1,6 +1,6 @@
 # SciCF-PPO task status
 
-Status date: 2026-08-30
+Status date: 2026-09-03
 
 ## Baseline and framework
 
@@ -38,10 +38,13 @@ Status date: 2026-08-30
 - Gate 1 status is `failed`; configuration continues to reject refinement.
 - Jobs 4581-4582 are explicitly excluded because the unblinded pool order made
   23/24 LLM selections equal the policy-near first-four block.
-- A private OpenAI-compatible API acquisition path is implemented and
-  server-tested for the next Gate 1 run. Slurm job 4589 passed 22/22 tests,
-  including schema repair, cache reuse, token accounting, and secret-redaction
-  checks; job 4591 passed runner/config static validation. It is waiting for
-  the user's endpoint, API key, model ID, and immutable model/deployment
-  revision; no formal external API request has been made yet.
+- The private API path was extended for official DeepSeek Flash and passed
+  23/23 compatibility/security tests in Slurm job 4601 plus shell validation
+  in job 4602. It disables provider thinking, omits unsupported `seed`, enables
+  JSON-object mode, and keeps the API key and credential path out of manifests.
+- The user-authorized DeepSeek API run completed in jobs 4603-4606. The
+  one-request smoke and all 24 formal requests passed schema validation. The
+  independent DeepSeek Gate 1 also failed with 0/3 successful stages, so
+  pairwise refinement remains unauthorized. See
+  `reproduction/results/scicf-gate1-deepseek-flash-20260903`.
 - No SciCF performance, oracle-efficiency, or generality claim is currently authorized.

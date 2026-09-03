@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "gate": "offline-acquisition-gate1",
+  "status": "failed",
+  "date": "2026-09-03",
+  "decision": {
+    "primary_metric": "ndcg_at_b",
+    "budget": 4,
+    "required_comparators": [
+      "random",
+      "chemistry_heuristic"
+    ],
+    "minimum_successful_stages": 2,
+    "successful_stages": [],
+    "pairwise_refinement_authorized": false
+  },
+  "provenance": {
+    "baseline_tag": "dapigen-ppo-compat-baseline-v1",
+    "collection_source_commit": "ad3889d2e6db365e93c6d42daee1fa4cc4e6c3ee",
+    "decision_source_commit": "5fbaab0876541af206da102d9ff37e89d9dfedc7",
+    "decision_source_dirty": false,
+    "full_artifact": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf/gate1-formal-ad3889d-v1/gate1-decision-api-deepseek-v4-flash-20260903-v1.json"
+  },
+  "llm": {
+    "provider_id": "deepseek-official",
+    "model_id": "deepseek-v4-flash",
+    "revision": "DeepSeek-V4-Flash-0731-api-snapshot-2026-09-03",
+    "public_alias_is_immutable": false,
+    "system_fingerprint": "a26a7955944dc5c60445bff77fac9c8e",
+    "prompt_version": "scicf-dapigen-acquisition-blinded-v2",
+    "candidate_presentation": "sha256-shuffle-v1",
+    "generation_protocol": "openai-compatible-json-exact-budget-v1",
+    "thinking": "disabled",
+    "include_seed": false,
+    "requests": 24,
+    "validated_responses": 24,
+    "first_attempt_responses": 24,
+    "schema_repair_responses": 0,
+    "transport_retries": 0,
+    "formal_cache_hits": 0,
+    "reported_input_tokens": 52014,
+    "reported_output_tokens": 4552,
+    "reported_total_tokens": 56566
+  },
+  "estimated_api_cost_usd": {
+    "pricing_snapshot_date": "2026-09-03",
+    "assumption": "all reported input tokens charged at cache-miss rate; taxes excluded",
+    "input_usd_per_million_tokens": 0.14,
+    "output_usd_per_million_tokens": 0.28,
+    "formal_ranking": 0.00855652,
+    "one_request_smoke": 0.00038598,
+    "total": 0.0089425
+  },
+  "stages": {
+    "early": {
+      "trajectories": 8,
+      "mean_ndcg_at_4": {
+        "llm": 0.2145101567760499,
+        "random": 0.3105471100513705,
+        "chemistry_heuristic": 0.5845389067901942,
+        "policy_probability": 0.0
+      },
+      "llm_minus_random_95_ci": [-0.25708239546123357, 0.06579010773850612],
+      "llm_minus_chemistry_95_ci": [-0.47235925774943843, -0.2721388772840975],
+      "stage_success": false
+    },
+    "middle": {
+      "trajectories": 8,
+      "mean_ndcg_at_4": {
+        "llm": 0.1635635752967113,
+        "random": 0.2913422220254739,
+        "chemistry_heuristic": 0.0,
+        "policy_probability": 0.47461631589784664
+      },
+      "llm_minus_random_95_ci": [-0.25769036308435167, -0.0029395201291121664],
+      "llm_minus_chemistry_95_ci": [0.09430073911734312, 0.23846272970220933],
+      "stage_success": false
+    },
+    "late": {
+      "trajectories": 8,
+      "mean_ndcg_at_4": {
+        "llm": 0.02392602511528847,
+        "random": 0.08386527203587449,
+        "chemistry_heuristic": 0.0,
+        "policy_probability": 0.14644283635783434
+      },
+      "llm_minus_random_95_ci": [-0.16543579211565337, 0.0],
+      "llm_minus_chemistry_95_ci": [0.0, 0.07177807534586542],
+      "stage_success": false
+    }
+  },
+  "slurm": {
+    "compatibility_and_security_tests": "4601 COMPLETED 0:0; 23 tests passed",
+    "script_static_validation": "4602 COMPLETED 0:0",
+    "credential_provisioning": "4603 COMPLETED 0:0",
+    "one_request_smoke": "4604 COMPLETED 0:0",
+    "formal_api_ranking": "4605 COMPLETED 0:0",
+    "aggregation": "4606 COMPLETED 0:0"
+  },
+  "claim_boundary": "This offline acquisition gate does not establish online PPO improvement, independent-oracle robustness, cross-domain generality, or wet-lab validity."
+}

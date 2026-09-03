@@ -80,3 +80,11 @@ Both commands must be submitted on n001. The API ranking job requests no GPU.
 - Job 4590 is an excluded diagnostic: its ad hoc validation command
   mistakenly passed the non-JSON `.env.example` file to `jq`. No implementation
   failure or scientific output came from that job.
+- Slurm job 4601: `COMPLETED 0:0`, 23/23 tests passed after adding the official
+  DeepSeek Flash profile, Slurm-only secret provisioning, disabled thinking,
+  omitted seed, and JSON-object mode. Job 4602 passed shell validation.
+- Jobs 4603-4606: credential provisioning, one-request smoke, 24-request formal
+  ranking, and aggregation all completed successfully. All 24 formal responses
+  validated on the first attempt with no transport retry. The resulting
+  independent Gate 1 decision is failed/no-go (0/3 successful stages), and
+  pairwise refinement remains unauthorized.
