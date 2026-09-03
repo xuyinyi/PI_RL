@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "gate": "scicf-gate1b3-stage-routed-unseen-development-v1",
+  "status": "collection-complete-evaluation-not-authorized",
+  "date": "2026-09-03",
+  "scope": {
+    "split": "dev",
+    "stages": ["early", "middle"],
+    "seeds": [4241, 4242, 4243, 4244, 4245, 4246, 4247, 4248, 4249, 4250, 4251, 4252, 4253, 4254, 4255, 4256],
+    "trajectory_count": 32,
+    "candidate_pool_size": 24,
+    "prior_dev_structure_keys_excluded": 200
+  },
+  "reports": {
+    "early": {
+      "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf/gate1b3-stage-routed-20260903-v1/fresh-dev-v1/dev/early/gate1b1-stage-report.json",
+      "sha256": "9799e54e74810a36b53401adc1ae0865b90a039557c2dbbfaa5b4bd0ff997316",
+      "trajectory_count": 16,
+      "unique_structure_keys": 63,
+      "oracle_counts": {
+        "factual": 0,
+        "counterfactual": 85,
+        "evaluation": 0,
+        "total": 85
+      }
+    },
+    "middle": {
+      "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf/gate1b3-stage-routed-20260903-v1/fresh-dev-v1/dev/middle/gate1b1-stage-report.json",
+      "sha256": "457142ffbbc68e29c16a1e467a890e0a88d1dde61923dddf637131992bce4815",
+      "trajectory_count": 16,
+      "unique_structure_keys": 81,
+      "oracle_counts": {
+        "factual": 784,
+        "counterfactual": 622,
+        "evaluation": 0,
+        "total": 1406
+      }
+    }
+  },
+  "combined": {
+    "unique_fresh_structure_keys": 85,
+    "train_structure_overlap_count": 0,
+    "prior_dev_structure_overlap_count": 0,
+    "oracle_counts": {
+      "factual": 784,
+      "counterfactual": 707,
+      "evaluation": 0,
+      "total": 1491
+    }
+  },
+  "authorization_receipt": {
+    "sha256": "609120c8c7cb9c8008f5b63eadaeaeafad823b40152c3e5353fc784bb5d67f36",
+    "fresh_dev_collection_authorized": true,
+    "fresh_dev_evaluation_authorized": false
+  },
+  "source": {
+    "collection_commit": "bbac223d123588619675539e989e3010c079ddea",
+    "validation_commit": "be50578d63f90272340955c79cba8f30a5589451",
+    "collection_validation": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf/gate1b3-stage-routed-20260903-v1/fresh-dev-v1/collection-validation.json",
+    "collection_validation_sha256": "6f260f26700f4fc5c8da65ab173f9920989f37fd372b1a8b5a44e25f9e1ba13a"
+  },
+  "execution": {
+    "slurm_tests": "4634 COMPLETED 0:0; 50 tests passed",
+    "slurm_collection_array": "4635_0 and 4635_1 COMPLETED 0:0",
+    "slurm_collection_validation": "4637 COMPLETED 0:0",
+    "labels_evaluated": false,
+    "llm_calls": 0,
+    "ppo_updates": 0,
+    "local_code_execution": false
+  },
+  "authorization": {
+    "fresh_dev_evaluation_authorized": false,
+    "sealed_test_eligible": false,
+    "test_collection_authorized": false,
+    "test_evaluation_authorized": false,
+    "gate1c_authorized": false,
+    "pairwise_refinement_authorized": false,
+    "ppo_integration_authorized": false
+  },
+  "claim_boundary": "Fresh-dev collection and structure isolation are validated. The collected gain labels have not been evaluated, and no algorithmic performance claim is authorized."
+}

@@ -157,6 +157,25 @@ class SciCFGate1B3Tests(unittest.TestCase):
         self.assertFalse(contract["policy_score_in_validity"])
         self.assertTrue(contract["policy_score_in_gain"])
 
+    def test_collection_archive_preserves_evaluation_and_test_seals(self):
+        summary_path = (
+            self.repo_root
+            / "reproduction/results/scicf-gate1b3-fresh-dev-collection-20260903"
+            / "collection-summary.json"
+        )
+        summary = json.loads(summary_path.read_text(encoding="utf-8"))
+        self.assertEqual(
+            summary["status"], "collection-complete-evaluation-not-authorized"
+        )
+        self.assertFalse(summary["execution"]["labels_evaluated"])
+        self.assertFalse(
+            summary["authorization"]["fresh_dev_evaluation_authorized"]
+        )
+        self.assertFalse(summary["authorization"]["test_collection_authorized"])
+        self.assertFalse(summary["authorization"]["ppo_integration_authorized"])
+        self.assertEqual(summary["combined"]["train_structure_overlap_count"], 0)
+        self.assertEqual(summary["combined"]["prior_dev_structure_overlap_count"], 0)
+
 
 if __name__ == "__main__":
     unittest.main()
