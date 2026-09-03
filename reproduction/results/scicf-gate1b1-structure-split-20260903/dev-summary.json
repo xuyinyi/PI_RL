@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "gate": "scicf-gate1b1-structure-isolated-two-stage-v1",
+  "status": "complete",
+  "decision": "dev-entry-no-go",
+  "date": "2026-09-03",
+  "test_collection_authorized": false,
+  "test_collected": false,
+  "test_evaluated": false,
+  "source": {
+    "collection_commit": "9663b2d9060da427fef71cf42a2d271d616e4c3c",
+    "fitting_commit": "0204fd460d74691e6b1bfccb626797d94c552563",
+    "dev_report": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf/gate1b1-structure-split-20260903-v1/frozen-model-v1/dev-entry-report.json",
+    "dev_report_sha256": "c7c657c31ec842be55b07322114c127b5edb8f1b0b41540e7322c71d361d256c",
+    "model_manifest": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf/gate1b1-structure-split-20260903-v1/frozen-model-v1/frozen-model-manifest.json",
+    "model_manifest_sha256": "b5a5c400b0bc90decaffa333d60c0378fea10f07c2fb3dbc02cb1487d2cae47d"
+  },
+  "structure_isolation": {
+    "protocol": "sha256-canonical-component-structure-v1",
+    "train_unique_keys": 160,
+    "dev_unique_keys": 104,
+    "overlap_count": 0,
+    "train_dev_seed_overlap_count": 0
+  },
+  "cross_timestep": {
+    "trajectory_fraction": 0.3333333333333333,
+    "minimum_required": 0.25,
+    "early_multistep_trajectories": 8,
+    "middle_multistep_trajectories": 0,
+    "late_multistep_trajectories": 0,
+    "all_observed_timesteps_covered_by_pool": true,
+    "passed": true
+  },
+  "models": {
+    "validity_filter": {
+      "family": "ridge",
+      "policy_conditioned": false,
+      "training_rows": 576
+    },
+    "gain_ranker": {
+      "family": "ridge",
+      "policy_conditioned": true,
+      "training_rows": 270
+    },
+    "hyperparameter_search": false
+  },
+  "early_dev": {
+    "mean_rescue_rate_at_4_improvement_over_expected_random": 0.10937499999999999,
+    "mean_oracle_minus_random_headroom": 0.75,
+    "oracle_headroom_fraction_captured": 0.14583333333333331,
+    "minimum_required_fraction": 0.25,
+    "passed": false
+  },
+  "middle_dev": {
+    "best_gain_at_4": {
+      "mean_improvement_over_expected_random": 0.015964297477884432,
+      "mean_oracle_minus_random_headroom": 0.01870804747788442,
+      "oracle_headroom_fraction_captured": 0.853338516312646,
+      "minimum_required_fraction": 0.25,
+      "passed": true
+    },
+    "ndcg_at_4": {
+      "mean_improvement_over_expected_random": 0.24021537055203473,
+      "mean_oracle_minus_random_headroom": 0.8199198451394261,
+      "oracle_headroom_fraction_captured": 0.29297421202335516,
+      "minimum_required_fraction": 0.25,
+      "passed": true
+    }
+  },
+  "late_dev": {
+    "positive_candidate_trajectories": 0,
+    "no_positive_candidate_trajectories": 8,
+    "abstention_threshold_status": "not-calibratable",
+    "passed": false
+  },
+  "decision_checks": {
+    "train_dev_structure_overlap_zero": true,
+    "cross_timestep_fraction_at_least_0_25": true,
+    "early_rescue_entry": false,
+    "middle_best_gain_entry": true,
+    "middle_ndcg_entry": true,
+    "late_threshold_calibratable": false,
+    "dev_entry_passed": false,
+    "gate1c_authorized": false,
+    "pairwise_refinement_authorized": false,
+    "ppo_integration_authorized": false
+  },
+  "execution": {
+    "slurm_tests_initial": "4614 COMPLETED 0:0; 36 tests passed",
+    "slurm_preflight": "4615 COMPLETED 0:0",
+    "slurm_train_array": "4616 COMPLETED",
+    "slurm_dev_array": "4617 COMPLETED",
+    "slurm_tests_corrected": "4622 COMPLETED 0:0; 37 tests passed",
+    "slurm_dev_fit": "4623 COMPLETED 0:0",
+    "train_atomic_oracle_calls": 1457,
+    "dev_atomic_oracle_calls": 1374,
+    "test_atomic_oracle_calls": 0,
+    "llm_calls": 0,
+    "ppo_updates": 0,
+    "local_code_execution": false
+  },
+  "claim_boundary": "Gate 1B.1 stopped at a structure-isolated development-entry no-go. No sealed test was collected or evaluated, and no LLM or PPO claim is authorized."
+}

@@ -64,4 +64,13 @@ Status date: 2026-09-03
   remains a non-gating saturation diagnostic. Gate 1C is not eligible; LLM
   ranking, pairwise refinement, and PPO integration remain closed. See
   `reproduction/results/scicf-gate1b-learnability-20260903`.
+- Gate 1B.1 structure-isolated two-stage acquisition stopped at a development-
+  entry no-go. Train/dev structure overlap is zero and early trajectories now
+  contribute candidates from both t=0 and t=1. The policy-conditioned middle
+  ranker passed both development entry metrics, but early rescue captured only
+  14.58% of headroom versus the required 25%, and all 8 dev-late pools lacked a
+  positive candidate, making the abstention threshold non-calibratable. The
+  frozen model manifest therefore has `test_collection_authorized=false`; no
+  sealed test labels were collected. See
+  `reproduction/results/scicf-gate1b1-structure-split-20260903`.
 - No SciCF performance, oracle-efficiency, or generality claim is currently authorized.
