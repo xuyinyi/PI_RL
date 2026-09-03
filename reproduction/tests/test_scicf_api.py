@@ -11,6 +11,7 @@ from pathlib import Path
 
 from reproduction.scicf.core.config import load_scicf_config
 from reproduction.scicf.llm.api_client import APISettings
+from reproduction.scicf.llm.provision_credentials import provision
 from reproduction.scicf.llm.rank_requests_api import run
 
 
@@ -28,6 +29,9 @@ def _write_credentials(path: Path, endpoint: str, mode: int = 0o600) -> None:
                 "SCICF_LLM_MODEL_REVISION=mock-deployment-001",
                 "SCICF_LLM_PROVIDER_ID=slurm-local-mock",
                 "SCICF_LLM_ALLOW_INSECURE_HTTP=true",
+                "SCICF_LLM_INCLUDE_SEED=false",
+                "SCICF_LLM_JSON_MODE=true",
+                "SCICF_LLM_THINKING=disabled",
             ]
         )
         + "\n",
@@ -38,11 +42,13 @@ def _write_credentials(path: Path, endpoint: str, mode: int = 0o600) -> None:
 
 class _MockHandler(BaseHTTPRequestHandler):
     calls = 0
+    last_payload = None
 
     def do_POST(self):
         type(self).calls += 1
         length = int(self.headers["Content-Length"])
         payload = json.loads(self.rfile.read(length).decode("utf-8"))
+        type(self).last_payload = payload
         if self.headers.get("Authorization") != "Bearer unit-test-secret":
             self.send_error(401)
             return
@@ -97,10 +103,52 @@ class SciCFAPITests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 APISettings.from_private_file(path)
 
+    def test_deepseek_flash_provisioning_is_slurm_only_and_private(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            root.chmod(0o700)
+            raw_key = root / "raw-key.txt"
+            raw_key.write_text(
+                "sk-abcdefghijklmnopqrstuvwxyz123456\n", encoding="utf-8"
+            )
+            raw_key.chmod(0o600)
+            output = root / "deepseek.env"
+            previous_job = os.environ.get("SLURM_JOB_ID")
+            try:
+                os.environ.pop("SLURM_JOB_ID", None)
+                with self.assertRaises(RuntimeError):
+                    provision(
+                        raw_key,
+                        output,
+                        "deepseek-v4-flash",
+                        "DeepSeek-V4-Flash-0731-api-snapshot-2026-09-03",
+                    )
+                os.environ["SLURM_JOB_ID"] = previous_job or "unit-test-slurm"
+                provision(
+                    raw_key,
+                    output,
+                    "deepseek-v4-flash",
+                    "DeepSeek-V4-Flash-0731-api-snapshot-2026-09-03",
+                )
+            finally:
+                if previous_job is None:
+                    os.environ.pop("SLURM_JOB_ID", None)
+                else:
+                    os.environ["SLURM_JOB_ID"] = previous_job
+            settings = APISettings.from_private_file(output)
+            self.assertEqual(settings.model_id, "deepseek-v4-flash")
+            self.assertEqual(settings.provider_id, "deepseek-official")
+            self.assertFalse(settings.include_seed)
+            self.assertTrue(settings.json_mode)
+            self.assertEqual(settings.thinking, "disabled")
+            self.assertEqual(output.stat().st_mode & 0o777, 0o600)
+            self.assertNotIn(settings.api_key, json.dumps(settings.public_identity()))
+
     def test_api_runner_uses_strict_identity_and_cache_without_logging_key(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             _MockHandler.calls = 0
+            _MockHandler.last_payload = None
             server = ThreadingHTTPServer(("127.0.0.1", 0), _MockHandler)
             thread = threading.Thread(target=server.serve_forever, daemon=True)
             thread.start()
@@ -158,6 +206,7 @@ class SciCFAPITests(unittest.TestCase):
                                 expected_pool_size=2,
                                 expected_prompt_version="scicf-dapigen-acquisition-blinded-v2",
                                 expected_candidate_presentation="sha256-shuffle-v1",
+                                limit=None,
                             )
                         )
                 finally:
@@ -196,6 +245,14 @@ class SciCFAPITests(unittest.TestCase):
                 self.assertEqual(
                     first_manifest["provider"]["model_revision"],
                     "mock-deployment-001",
+                )
+                self.assertNotIn("seed", _MockHandler.last_payload)
+                self.assertEqual(
+                    _MockHandler.last_payload["response_format"],
+                    {"type": "json_object"},
+                )
+                self.assertEqual(
+                    _MockHandler.last_payload["thinking"], {"type": "disabled"}
                 )
             finally:
                 server.shutdown()

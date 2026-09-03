@@ -33,6 +33,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--expected-pool-size", type=int, required=True)
     parser.add_argument("--expected-prompt-version", required=True)
     parser.add_argument("--expected-candidate-presentation", required=True)
+    parser.add_argument("--limit", type=int)
     return parser.parse_args()
 
 
@@ -100,6 +101,10 @@ def run(args: argparse.Namespace) -> None:
     if args.output_root.exists():
         raise FileExistsError("output root already exists: {}".format(args.output_root))
     requests = list(iter_requests(args.requests))
+    if args.limit is not None:
+        if args.limit < 1:
+            raise ValueError("limit must be positive")
+        requests = requests[: args.limit]
     if not requests:
         raise ValueError("no LLM requests were supplied")
     if len(requests) != args.expected_request_count:
@@ -132,6 +137,7 @@ def run(args: argparse.Namespace) -> None:
         "include_seed": settings.include_seed,
         "json_mode": settings.json_mode,
         "max_tokens_field": settings.max_tokens_field,
+        "thinking": settings.thinking,
     }
     prompt_versions = sorted({str(item["prompt_version"]) for item in requests})
     candidate_presentations = sorted(

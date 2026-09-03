@@ -32,6 +32,7 @@ _ALLOWED_CREDENTIAL_KEYS = {
     "SCICF_LLM_INCLUDE_SEED",
     "SCICF_LLM_JSON_MODE",
     "SCICF_LLM_MAX_TOKENS_FIELD",
+    "SCICF_LLM_THINKING",
 }
 _REQUIRED_CREDENTIAL_KEYS = {
     "SCICF_LLM_API_URL",
@@ -112,6 +113,7 @@ class APISettings:
     include_seed: bool = True
     json_mode: bool = False
     max_tokens_field: str = "max_tokens"
+    thinking: str = "omit"
 
     @classmethod
     def from_private_file(cls, path: Path) -> "APISettings":
@@ -142,6 +144,7 @@ class APISettings:
             max_tokens_field=values.get(
                 "SCICF_LLM_MAX_TOKENS_FIELD", "max_tokens"
             ),
+            thinking=values.get("SCICF_LLM_THINKING", "omit").strip().lower(),
         )
         settings.validate()
         return settings
@@ -163,6 +166,8 @@ class APISettings:
             raise ValueError("API key prefix cannot contain newlines")
         if self.max_tokens_field not in {"max_tokens", "max_completion_tokens"}:
             raise ValueError("unsupported max-token request field")
+        if self.thinking not in {"omit", "enabled", "disabled"}:
+            raise ValueError("SCICF_LLM_THINKING must be omit, enabled, or disabled")
         for name, value in (
             ("api_key", self.api_key),
             ("model_id", self.model_id),
@@ -184,6 +189,7 @@ class APISettings:
             "include_seed": self.include_seed,
             "json_mode": self.json_mode,
             "max_tokens_field": self.max_tokens_field,
+            "thinking": self.thinking,
         }
 
 
@@ -259,6 +265,8 @@ class OpenAICompatibleClient:
             payload["seed"] = seed
         if self.settings.json_mode:
             payload["response_format"] = {"type": "json_object"}
+        if self.settings.thinking != "omit":
+            payload["thinking"] = {"type": self.settings.thinking}
         body = json.dumps(payload, separators=(",", ":")).encode("utf-8")
         authentication = self.settings.api_key
         if self.settings.api_key_prefix:
