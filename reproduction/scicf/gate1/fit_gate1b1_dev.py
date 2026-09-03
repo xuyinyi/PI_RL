@@ -27,8 +27,8 @@ from reproduction.scicf.gate1.gate1b1 import (
     load_config,
     load_split_reports,
     mean,
+    raw_cross_timestep_fraction,
     structure_keys,
-    trajectory_cross_timestep_fraction,
     validity_feature_names,
 )
 
@@ -78,10 +78,17 @@ def main() -> None:
 
     train, train_sources = load_split_reports(args.train_report, "train", config)
     dev, dev_sources = load_split_reports(args.dev_report, "dev", config)
-    for split_sources in (train_sources, dev_sources):
-        for stage in STAGES:
-            if split_sources[stage]["source"] != source:
-                raise RuntimeError("Gate 1B.1 data source does not match fitting source")
+    data_sources = [
+        split_sources[stage]["source"]
+        for split_sources in (train_sources, dev_sources)
+        for stage in STAGES
+    ]
+    data_commits = {item.get("commit") for item in data_sources if item}
+    if (
+        len(data_commits) != 1
+        or any(not item or item.get("dirty") is not False for item in data_sources)
+    ):
+        raise RuntimeError("Gate 1B.1 train/dev data do not share one clean source")
     train_keys = structure_keys(train)
     dev_keys = structure_keys(dev)
     overlap = sorted(train_keys & dev_keys)
@@ -139,8 +146,7 @@ def main() -> None:
         [float(row["ndcg_oracle_minus_random"]) for row in middle],
         minimum_fraction,
     )
-    evaluated = {"early": early, "middle": middle, "late": late}
-    cross_timestep_fraction = trajectory_cross_timestep_fraction(evaluated)
+    cross_timestep_fraction = raw_cross_timestep_fraction(predicted)
     checks = {
         "train_dev_structure_overlap_zero": len(overlap) == 0,
         "early_rescue_entry": bool(early_entry["passed"]),
@@ -173,6 +179,7 @@ def main() -> None:
         "dev_structure_keys": sorted(dev_keys),
         "train_sources": train_sources,
         "dev_sources": dev_sources,
+        "collection_source_commit": next(iter(data_commits)),
         "dev_entry_checks": checks,
         "dev_entry_passed": passed,
         "test_collection_authorized": passed,

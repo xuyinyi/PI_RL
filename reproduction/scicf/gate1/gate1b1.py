@@ -756,5 +756,19 @@ def trajectory_cross_timestep_fraction(
     )
 
 
+def raw_cross_timestep_fraction(
+    rows_by_stage: Mapping[str, Sequence[Mapping[str, Any]]]
+) -> float:
+    total = 0
+    multistep = 0
+    for stage in STAGES:
+        for current in group_rows(rows_by_stage[stage]).values():
+            total += 1
+            multistep += len({int(row["timestep"]) for row in current}) > 1
+    if total == 0:
+        raise ValueError("cross-timestep coverage has no trajectories")
+    return multistep / float(total)
+
+
 def structure_keys(rows_by_stage: Mapping[str, Sequence[Mapping[str, Any]]]) -> set:
     return {str(row["structure_key"]) for row in flatten_rows(rows_by_stage)}

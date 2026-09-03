@@ -9,6 +9,7 @@ from reproduction.scicf.gate1.gate1b1 import (
     calibrate_late_threshold,
     common_feature_names,
     gain_feature_names,
+    raw_cross_timestep_fraction,
     structure_key,
     structure_split,
     validity_feature_names,
@@ -96,6 +97,17 @@ class SciCFGate1B1Tests(unittest.TestCase):
         self.assertEqual(calibration["chosen"]["balanced_accuracy"], 1.0)
         self.assertGreaterEqual(calibration["chosen"]["threshold"], -0.1)
         self.assertLess(calibration["chosen"]["threshold"], 0.2)
+
+    def test_raw_cross_timestep_fraction_keeps_uncalibrated_late_in_denominator(self):
+        rows = {
+            "early": [
+                {"trajectory_id": "early-a", "timestep": 0},
+                {"trajectory_id": "early-a", "timestep": 1},
+            ],
+            "middle": [{"trajectory_id": "middle-a", "timestep": 0}],
+            "late": [{"trajectory_id": "late-a", "timestep": 0}],
+        }
+        self.assertAlmostEqual(raw_cross_timestep_fraction(rows), 1.0 / 3.0)
 
 
 if __name__ == "__main__":
