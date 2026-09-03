@@ -44,7 +44,14 @@ Status date: 2026-09-03
   JSON-object mode, and keeps the API key and credential path out of manifests.
 - The user-authorized DeepSeek API run completed in jobs 4603-4606. The
   one-request smoke and all 24 formal requests passed schema validation. The
-  independent DeepSeek Gate 1 also failed with 0/3 successful stages, so
-  pairwise refinement remains unauthorized. See
+  resulting 0/3 no-go is now classified as the prompt-starved-v2 negative
+  diagnostic, not a test of the fully specified SciCF acquisition hypothesis.
+  Pairwise refinement remains unauthorized. See
   `reproduction/results/scicf-gate1-deepseek-flash-20260903`.
+- Gate 1A headroom audit is complete. Slurm job 4607 passed 27/27 tests and job
+  4608 computed exact expected Random top-4 performance without new LLM,
+  oracle, or PPO calls. Statistical headroom exists in all three stages, making
+  Gate 1B cheap-information learnability diagnosis eligible. Late-stage
+  headroom is sparse: 5/8 trajectories have no positive candidate. See
+  `reproduction/results/scicf-gate1a-headroom-20260903`.
 - No SciCF performance, oracle-efficiency, or generality claim is currently authorized.

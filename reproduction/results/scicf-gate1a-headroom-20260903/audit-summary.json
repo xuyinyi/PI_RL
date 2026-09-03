@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "audit": "scicf-gate1a-headroom-v1",
+  "status": "complete",
+  "date": "2026-09-03",
+  "dataset_role": "Gate1-dev",
+  "source": {
+    "commit": "f8e5e314d43cf250394d3d770df9bbf4a87cdbb0",
+    "dirty": false,
+    "full_artifact": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf/gate1-formal-ad3889d-v1/gate1a-headroom-prompt-starved-v2-20260903-v1.json"
+  },
+  "inputs": {
+    "trajectories": 24,
+    "stages": ["early", "middle", "late"],
+    "trajectories_per_stage": 8,
+    "candidate_pool_size": 24,
+    "acquisition_budget": 4,
+    "new_llm_calls": 0,
+    "new_oracle_calls": 0,
+    "ppo_updates": 0
+  },
+  "diagnostic": {
+    "stage_headroom_detected": {
+      "early": true,
+      "middle": true,
+      "late": true
+    },
+    "all_stages_headroom_detected": true,
+    "gate1b_learnability_probe_eligible": true,
+    "llm_gate1c_authorized": false,
+    "pairwise_refinement_authorized": false,
+    "minimum_effect_size_predeclared": false
+  },
+  "strata": {
+    "early-invalid": {
+      "trajectories": 8,
+      "positive_rate": {
+        "mean": 0.3125,
+        "ci_95": [0.2760416666666667, 0.35416666666666663]
+      },
+      "oracle_best_gain_at_4": {
+        "mean": 0.41815625,
+        "ci_95": [0.4177, 0.41855624999999996]
+      },
+      "expected_random_best_gain_at_4": {
+        "mean": 0.2842718832345191,
+        "ci_95": [0.27123199698851874, 0.30024025150574063]
+      },
+      "oracle_minus_expected_random_best_gain_at_4": {
+        "mean": 0.1338843667654809,
+        "ci_95": [0.11838150997553175, 0.146914273950687]
+      },
+      "expected_random_ndcg_at_4": 0.25097475047730583,
+      "oracle_minus_expected_random_ndcg_at_4": {
+        "mean": 0.7490252495226942,
+        "ci_95": [0.7211439992421836, 0.7689577979077706]
+      },
+      "interpretation": "validity-rescue headroom"
+    },
+    "early-valid": {
+      "status": "not-observed",
+      "trajectories": 0
+    },
+    "middle-valid": {
+      "trajectories": 8,
+      "positive_rate": {
+        "mean": 0.2916666666666667,
+        "ci_95": [0.2916666666666667, 0.2916666666666667]
+      },
+      "oracle_best_gain_at_4": {
+        "mean": 0.014381249999999929,
+        "ci_95": [0.012906249999999925, 0.015856249999999933]
+      },
+      "expected_random_best_gain_at_4": {
+        "mean": 0.0059641886645962604,
+        "ci_95": [0.005190692052512689, 0.006799824134199123]
+      },
+      "oracle_minus_expected_random_best_gain_at_4": {
+        "mean": 0.00841706133540367,
+        "ci_95": [0.00758253870223973, 0.009245565711462393]
+      },
+      "expected_random_ndcg_at_4": 0.1914587675450674,
+      "oracle_minus_expected_random_ndcg_at_4": {
+        "mean": 0.8085412324549327,
+        "ci_95": [0.8041270498182297, 0.8130354967841396]
+      },
+      "interpretation": "property-improvement headroom"
+    },
+    "late-valid": {
+      "trajectories": 8,
+      "trajectories_without_positive_candidate": 5,
+      "positive_rate": {
+        "mean": 0.06770833333333333,
+        "ci_95": [0.020833333333333332, 0.13020833333333334]
+      },
+      "oracle_best_gain_at_4": {
+        "mean": 0.0021000000000000185,
+        "ci_95": [0.0007000000000000062, 0.004200000000000037]
+      },
+      "expected_random_best_gain_at_4": {
+        "mean": -0.00048383916807828595,
+        "ci_95": [-0.0018037537643515833, 0.0009621235648409737]
+      },
+      "oracle_minus_expected_random_best_gain_at_4": {
+        "mean": 0.0025838391680783044,
+        "ci_95": [0.0019153726708074504, 0.003247657867494834]
+      },
+      "expected_random_ndcg_at_4": 0.05679573995424801,
+      "oracle_minus_expected_random_ndcg_at_4": {
+        "mean": 0.318204260045752,
+        "ci_95": [0.10567340072714297, 0.636408520091504]
+      },
+      "interpretation": "statistical but sparse and practically small headroom"
+    }
+  },
+  "slurm": {
+    "pre_audit_tests": "4607 COMPLETED 0:0; 27 tests passed",
+    "headroom_audit": "4608 COMPLETED 0:0"
+  },
+  "claim_boundary": "Gate 1A establishes candidate-pool headroom only. It does not establish cheap-feature learnability, LLM acquisition benefit, online PPO improvement, independent-oracle robustness, or wet-lab validity."
+}
