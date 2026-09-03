@@ -84,14 +84,18 @@ Status date: 2026-09-03
   `sealed_test_eligible=false`, and no test label was collected, accessed, or
   evaluated. See `reproduction/results/scicf-gate1b2-development-20260903`.
 - Gate 1B.3 stage-routed acquisition is implementation-complete and its
-  collection-only fresh-development dataset has been acquired. Early routes to the frozen Gate
+  fresh-development dataset has been acquired and evaluated. Early routes to the frozen Gate
   1B.2 nonlinear validity model; middle routes to the frozen Gate 1B.1 linear
   validity and policy-conditioned gain models; uncalibrated late defaults to
   abstention and is non-gating. A future dev-only collector uses new seeds and
   excludes all 200 previously observed dev structure keys. Slurm array 4635
   collected 16 early and 16 middle trajectories; job 4637 validated 85 fresh
-  keys with zero train/prior-dev overlap and 1,491 atomic Oracle calls. The
-  collected labels have not been evaluated. Fresh-dev evaluation, sealed test,
-  Gate 1C, and PPO integration remain unauthorized. See
-  `reproduction/results/scicf-gate1b3-fresh-dev-collection-20260903`.
+  keys with zero train/prior-dev overlap and 1,491 atomic Oracle calls. After
+  separate user authorization, Slurm job 4640 completed the checksum-bound
+  fresh-dev evaluation and returned a no-go. Early rescue captured 2.63% of
+  Oracle headroom, middle BestGain@4 captured 4.57%, and middle NDCG@4 was
+  worse than Random; all three missed the required 25%. Cross-timestep
+  coverage passed at 50%. `sealed_test_eligible=false`; sealed test, Gate 1C,
+  pairwise refinement, and PPO integration remain unauthorized. See
+  `reproduction/results/scicf-gate1b3-fresh-dev-evaluation-20260903`.
 - No SciCF performance, oracle-efficiency, or generality claim is currently authorized.

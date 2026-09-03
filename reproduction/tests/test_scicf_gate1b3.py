@@ -290,6 +290,29 @@ class SciCFGate1B3Tests(unittest.TestCase):
         self.assertEqual(summary["combined"]["train_structure_overlap_count"], 0)
         self.assertEqual(summary["combined"]["prior_dev_structure_overlap_count"], 0)
 
+    def test_evaluation_archive_records_no_go_and_preserves_test_seal(self):
+        summary_path = (
+            self.repo_root
+            / "reproduction/results/scicf-gate1b3-fresh-dev-evaluation-20260903"
+            / "dev-summary.json"
+        )
+        summary = json.loads(summary_path.read_text(encoding="utf-8"))
+        self.assertEqual(summary["decision"], "fresh-development-no-go")
+        self.assertFalse(summary["dev_entry_passed"])
+        self.assertFalse(summary["sealed_test_eligible"])
+        self.assertFalse(summary["test_collection_authorized"])
+        self.assertFalse(summary["test_accessed"])
+        self.assertFalse(summary["decision_checks"]["gate1c_authorized"])
+        self.assertFalse(
+            summary["decision_checks"]["pairwise_refinement_authorized"]
+        )
+        self.assertFalse(
+            summary["decision_checks"]["ppo_integration_authorized"]
+        )
+        self.assertFalse(summary["early_dev"]["passed"])
+        self.assertFalse(summary["middle_dev"]["best_gain_at_4"]["passed"])
+        self.assertFalse(summary["middle_dev"]["ndcg_at_4"]["passed"])
+
 
 if __name__ == "__main__":
     unittest.main()

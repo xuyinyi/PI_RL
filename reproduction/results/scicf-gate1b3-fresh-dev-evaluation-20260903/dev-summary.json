@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "gate": "scicf-gate1b3-stage-routed-unseen-development-v1",
+  "status": "complete",
+  "decision": "fresh-development-no-go",
+  "date": "2026-09-03",
+  "dev_entry_passed": false,
+  "sealed_test_eligible": false,
+  "test_collection_authorized": false,
+  "test_collected": false,
+  "test_accessed": false,
+  "test_evaluated": false,
+  "source": {
+    "evaluation_commit": "03809fdaa383adb3e697090584f9cfe643e1eb30",
+    "collection_commit": "bbac223d123588619675539e989e3010c079ddea",
+    "config_sha256": "148734e658e7f52d6144f4e298beae9e9b93ad6d3f3f8e92b3b66ef11b51cffa",
+    "evaluation_authorization_receipt_sha256": "071c24a118c7a6b7221a06ad06c96de82a54d5ebf3e12b3762b33ad4e64c780d",
+    "collection_validation_sha256": "6f260f26700f4fc5c8da65ab173f9920989f37fd372b1a8b5a44e25f9e1ba13a",
+    "early_report_sha256": "9799e54e74810a36b53401adc1ae0865b90a039557c2dbbfaa5b4bd0ff997316",
+    "middle_report_sha256": "457142ffbbc68e29c16a1e467a890e0a88d1dde61923dddf637131992bce4815",
+    "dev_report": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf/gate1b3-stage-routed-20260903-v1/frozen-stage-routed-model-v1/dev-confirmation-report.json",
+    "dev_report_sha256": "0c04a58d990aacbe5b0b4ce00252ca719a4056111c6173237439b2ed9893d612",
+    "model_manifest": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf/gate1b3-stage-routed-20260903-v1/frozen-stage-routed-model-v1/frozen-stage-routed-model-manifest.json",
+    "model_manifest_sha256": "330145c21c5bda3da3e4ee733f945bf7bb60d72cb4b262e6ace828d59377b20d"
+  },
+  "structure_isolation": {
+    "fresh_unique_keys": 85,
+    "train_overlap_count": 0,
+    "prior_dev_overlap_count": 0
+  },
+  "early_dev": {
+    "mean_rescue_rate_at_4_improvement_over_expected_random": 0.014322916666666668,
+    "mean_oracle_minus_random_headroom": 0.5455729166666667,
+    "oracle_headroom_fraction_captured": 0.026252983293556083,
+    "minimum_required_fraction": 0.25,
+    "passed": false
+  },
+  "middle_dev": {
+    "best_gain_at_4": {
+      "mean_improvement_over_expected_random": 0.0011462744682853403,
+      "mean_oracle_minus_random_headroom": 0.025058774468285347,
+      "oracle_headroom_fraction_captured": 0.04574343688419709,
+      "minimum_required_fraction": 0.25,
+      "passed": false
+    },
+    "ndcg_at_4": {
+      "mean_improvement_over_expected_random": -0.03500664334886136,
+      "mean_oracle_minus_random_headroom": 0.27749335665113867,
+      "oracle_headroom_fraction_captured": -0.12615308622638954,
+      "minimum_required_fraction": 0.25,
+      "passed": false
+    }
+  },
+  "cross_timestep_trajectory_fraction": 0.5,
+  "late_dev": {
+    "gating": false,
+    "calibration_status": "not-calibratable",
+    "operational_default": "abstain",
+    "selected_count": 0
+  },
+  "decision_checks": {
+    "fresh_dev_train_structure_overlap_zero": true,
+    "fresh_dev_prior_dev_structure_overlap_zero": true,
+    "fresh_cross_timestep_fraction_at_least_0_25": true,
+    "early_rescue_entry": false,
+    "middle_best_gain_entry": false,
+    "middle_ndcg_entry": false,
+    "dev_entry_passed": false,
+    "sealed_test_eligible": false,
+    "gate1c_authorized": false,
+    "pairwise_refinement_authorized": false,
+    "ppo_integration_authorized": false
+  },
+  "execution": {
+    "slurm_tests": "4639 COMPLETED 0:0; 52 tests passed",
+    "slurm_fresh_dev_evaluation": "4640 COMPLETED 0:0",
+    "new_oracle_calls": 0,
+    "llm_calls": 0,
+    "ppo_updates": 0,
+    "local_code_execution": false
+  },
+  "claim_boundary": "Gate 1B.3 stopped at a fresh, structure-isolated development no-go. The sealed test was not collected, accessed, or evaluated, and no Gate 1C, LLM acquisition, pairwise refinement, or PPO claim is authorized."
+}

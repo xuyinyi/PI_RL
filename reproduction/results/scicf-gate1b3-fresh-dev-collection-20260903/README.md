@@ -1,7 +1,8 @@
 # SciCF Gate 1B.3 fresh-development collection
 
-The authorized Gate 1B.3 fresh-development collection is complete and passed
-metadata-only integrity validation. The labels have not been evaluated.
+The authorized Gate 1B.3 fresh-development collection completed and passed
+metadata-only integrity validation. At collection completion, the labels had
+not been evaluated.
 
 ## Scope
 
@@ -54,5 +55,12 @@ or test directory. No LLM call or PPO update occurred.
 
 This artifact establishes collection completeness and structure isolation
 only. It is not evidence that the Gate 1B.3 algorithm passes its fresh-dev
-metrics. A separate explicit authorization is required before the frozen
-stage-routed evaluator may read the collected gain labels.
+metrics.
+
+## Evaluation follow-up
+
+The user separately authorized fresh-dev evaluation on 2026-09-03. Slurm job
+4640 subsequently evaluated these checksum-bound reports and returned a
+development no-go. The sealed test remained untouched. See
+`reproduction/results/scicf-gate1b3-fresh-dev-evaluation-20260903` for the
+evaluation decision and exact evidence hashes.
