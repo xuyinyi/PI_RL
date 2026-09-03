@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "gate": "scicf-gate1b1-structure-isolated-two-stage-v1",
+  "dataset_roles": {
+    "train": "model fitting only",
+    "dev": "entry decision and abstention calibration only",
+    "test": "sealed until model and thresholds are frozen; one evaluation only"
+  },
+  "execution": {
+    "require_slurm": true,
+    "require_clean_git": true,
+    "llm_calls": 0,
+    "ppo_updates": 0
+  },
+  "structure_split": {
+    "protocol": "sha256-canonical-component-structure-v1",
+    "salt": "scicf-gate1b1-structure-split-20260903-v1",
+    "train_upper_exclusive": 60,
+    "dev_upper_exclusive": 80,
+    "modulus": 100
+  },
+  "stages": ["early", "middle", "late"],
+  "seeds": {
+    "train": [4101, 4102, 4103, 4104, 4105, 4106, 4107, 4108],
+    "dev": [4201, 4202, 4203, 4204, 4205, 4206, 4207, 4208],
+    "test": [4301, 4302, 4303, 4304, 4305, 4306, 4307, 4308]
+  },
+  "checkpoints": {
+    "early": "checkpoints/epoch_0/checkpoint_000000/checkpoint-0",
+    "middle": "checkpoints/epoch_50/checkpoint_000050/checkpoint-50",
+    "late": "checkpoints/epoch_100/checkpoint_000100/checkpoint-100"
+  },
+  "candidate_pool": {
+    "size": 24,
+    "budget": 4,
+    "cross_timestep": true,
+    "require_all_observed_timesteps": true,
+    "source_quotas": {
+      "policy_near": 8,
+      "random_legal": 8,
+      "structural": 8
+    }
+  },
+  "verification": {
+    "paired_replicates": 2,
+    "common_random_numbers": true,
+    "confidence_rule": "sign-consistency",
+    "sign_consistency_fraction": 1.0,
+    "numerical_tolerance": 1e-12,
+    "max_steps": 16,
+    "atomic_oracle_budget_per_stage_split": 10000
+  },
+  "features": {
+    "protocol": "gate1b1-request-time-trajectory-descriptors-v1",
+    "rdkit_descriptors_per_structure": [
+      "mol_wt",
+      "tpsa",
+      "aromatic_ring_count",
+      "ring_count",
+      "rotatable_bonds",
+      "hetero_atom_count",
+      "halogen_count",
+      "fraction_csp3",
+      "h_donors",
+      "h_acceptors",
+      "attachment_point_count",
+      "formal_charge"
+    ],
+    "validity_filter_uses_policy_score": false,
+    "gain_ranker_uses_policy_score": true,
+    "forbidden": [
+      "candidate_id_as_predictor",
+      "counterfactual_terminal_object",
+      "counterfactual_properties",
+      "verified_gain",
+      "verification_acceptance"
+    ]
+  },
+  "models": {
+    "validity_filter": {
+      "family": "ridge",
+      "alpha": 1.0,
+      "target": "paired counterfactual terminal-valid fraction",
+      "threshold": 0.5,
+      "training_stages": ["early", "middle", "late"]
+    },
+    "policy_conditioned_gain_ranker": {
+      "family": "ridge",
+      "alpha": 1.0,
+      "target": "verified mean reward delta",
+      "training_stages": ["middle", "late"],
+      "training_rows": "counterfactual terminal-valid fraction equals 1"
+    },
+    "standardization": "training-only",
+    "hyperparameter_search": false
+  },
+  "selection": {
+    "early": "rank four by validity-filter score",
+    "middle": "validity-first lexicographic ordering, then gain-ranker score; fill four",
+    "late": "hard validity threshold and dev-calibrated positive-gain threshold; select zero to four",
+    "late_threshold_calibration": "maximize trajectory-level balanced accuracy on dev; ties choose the larger conservative threshold"
+  },
+  "dev_entry_rule": {
+    "minimum_oracle_headroom_fraction_captured": 0.25,
+    "required": [
+      "early rescue-rate@4 improvement over exact Random is positive and captures at least 25% headroom",
+      "middle BestGain@4 improvement over exact Random is positive and captures at least 25% headroom",
+      "middle NDCG@4 improvement over exact Random is positive and captures at least 25% headroom",
+      "late dev contains both positive-available and no-positive trajectories for abstention calibration",
+      "at least 25% of all dev trajectories contain candidates from more than one timestep",
+      "train and dev structure-key overlap is zero"
+    ]
+  },
+  "test_rule": {
+    "confidence_level": 0.95,
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 61001,
+    "permutation_resamples": 10000,
+    "permutation_seed": 62001,
+    "one_sided_alpha": 0.05,
+    "minimum_oracle_headroom_fraction_captured": 0.25,
+    "late_minimum_correct_abstention_rate": 0.75,
+    "late_minimum_opportunity_response_rate": 0.5,
+    "minimum_cross_timestep_trajectory_fraction": 0.25,
+    "overall_pass": "early metric, both middle metrics, late abstention safety, structure isolation, and cross-timestep coverage must all pass"
+  },
+  "authorization": {
+    "gate1c_authorized": false,
+    "pairwise_refinement_authorized": false,
+    "ppo_integration_authorized": false
+  }
+}
