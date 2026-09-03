@@ -92,6 +92,10 @@ def main() -> None:
         raise RuntimeError("Gate 1B.3 dev evaluation requires clean Git")
     config_path = args.config.resolve()
     config = load_config(config_path)
+    if config["authorization"].get("fresh_dev_evaluation_authorized") is not True:
+        raise RuntimeError(
+            "Gate 1B.3 fresh-dev evaluation requires separate authorization"
+        )
     collection_config = validate_collection_config(
         repo_root, config, args.collection_config
     )
@@ -125,6 +129,14 @@ def main() -> None:
         or any(item.get("test_seal") is not None for item in sources)
     ):
         raise RuntimeError("Gate 1B.3 fresh dev provenance violates the test seal")
+    receipt_seals = [item.get("authorization_receipt_seal") or {} for item in sources]
+    receipt_hashes = {item.get("receipt_sha256") for item in receipt_seals}
+    if (
+        len(receipt_hashes) != 1
+        or None in receipt_hashes
+        or any(item.get("action") != "fresh-dev-collection" for item in receipt_seals)
+    ):
+        raise RuntimeError("Gate 1B.3 fresh dev lacks one collection authorization seal")
 
     prior_dev_keys = {str(key) for key in b2_manifest["combined_dev_structure_keys"]}
     train_keys = {str(key) for key in b2_manifest["train_structure_keys"]}

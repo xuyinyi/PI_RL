@@ -211,6 +211,7 @@ def load_stage_report(
         "source": report.get("source"),
         "test_seal": report.get("test_seal"),
         "structure_exclusion_seal": report.get("structure_exclusion_seal"),
+        "authorization_receipt_seal": report.get("authorization_receipt_seal"),
     }
     return rows, source
 

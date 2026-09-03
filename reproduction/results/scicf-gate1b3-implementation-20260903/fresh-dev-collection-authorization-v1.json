@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "gate": "scicf-gate1b3-stage-routed-unseen-development-v1",
+  "status": "authorized",
+  "authorized_on": "2026-09-03",
+  "authorization_basis": "explicit user authorization to perform Gate 1B.3 fresh-dev collection",
+  "action": "fresh-dev-collection",
+  "scope": {
+    "split": "dev",
+    "stages": ["early", "middle"],
+    "seeds": [4241, 4242, 4243, 4244, 4245, 4246, 4247, 4248, 4249, 4250, 4251, 4252, 4253, 4254, 4255, 4256],
+    "prior_dev_structure_manifest_sha256": "10b8c9b603bfaec1ff1600c22ca2fb1cb5cb96e5904d95267e42422a8202f8fd"
+  },
+  "authorization": {
+    "fresh_dev_collection_authorized": true,
+    "fresh_dev_evaluation_authorized": false,
+    "test_collection_authorized": false,
+    "test_evaluation_authorized": false,
+    "gate1c_authorized": false,
+    "pairwise_refinement_authorized": false,
+    "ppo_integration_authorized": false
+  }
+}

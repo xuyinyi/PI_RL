@@ -130,6 +130,48 @@ def load_excluded_structure_keys(
     }
 
 
+def validate_collection_authorization(
+    receipt_path: Path, collection_config: Mapping[str, Any]
+) -> Tuple[Mapping[str, Any], Dict[str, Any]]:
+    resolved = receipt_path.resolve()
+    receipt = json.loads(resolved.read_text(encoding="utf-8"))
+    if (
+        receipt.get("gate") != GATE_VERSION
+        or receipt.get("status") != "authorized"
+        or receipt.get("action") != "fresh-dev-collection"
+    ):
+        raise RuntimeError("Gate 1B.3 collection authorization identity mismatch")
+    scope = receipt.get("scope", {})
+    if (
+        scope.get("split") != "dev"
+        or tuple(scope.get("stages", ())) != ("early", "middle")
+        or tuple(scope.get("seeds", ()))
+        != tuple(collection_config["seeds"]["dev"])
+        or scope.get("prior_dev_structure_manifest_sha256")
+        != collection_config["structure_exclusion"]["manifest_sha256"]
+    ):
+        raise RuntimeError("Gate 1B.3 collection authorization scope mismatch")
+    authorization = receipt.get("authorization", {})
+    if authorization.get("fresh_dev_collection_authorized") is not True:
+        raise RuntimeError("Gate 1B.3 fresh-dev collection is not authorized")
+    closed = (
+        "fresh_dev_evaluation_authorized",
+        "test_collection_authorized",
+        "test_evaluation_authorized",
+        "gate1c_authorized",
+        "pairwise_refinement_authorized",
+        "ppo_integration_authorized",
+    )
+    if any(authorization.get(key) is not False for key in closed):
+        raise RuntimeError("Gate 1B.3 collection receipt exceeds its allowed scope")
+    return receipt, {
+        "receipt": str(resolved),
+        "receipt_sha256": file_sha256(resolved),
+        "action": receipt["action"],
+        "authorized_on": receipt["authorized_on"],
+    }
+
+
 def validate_model_manifests(
     gate1b1_manifest_path: Path,
     gate1b2_manifest_path: Path,

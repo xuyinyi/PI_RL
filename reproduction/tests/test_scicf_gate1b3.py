@@ -20,6 +20,7 @@ from reproduction.scicf.gate1.gate1b3 import (
     load_config,
     load_excluded_structure_keys,
     select_routed_rows,
+    validate_collection_authorization,
     validate_collection_config,
 )
 
@@ -75,6 +76,25 @@ class SciCFGate1B3Tests(unittest.TestCase):
             collection["execution"]["allowed_stages"], ["early", "middle"]
         )
         self.assertTrue(collection["structure_exclusion"]["required"])
+
+    def test_collection_authorization_is_narrow_and_versioned(self):
+        collection = json.loads(self.collection_path.read_text(encoding="utf-8"))
+        receipt_path = (
+            self.repo_root
+            / "reproduction/results/scicf-gate1b3-implementation-20260903"
+            / "fresh-dev-collection-authorization-v1.json"
+        )
+        receipt, seal = validate_collection_authorization(
+            receipt_path, collection
+        )
+        self.assertTrue(
+            receipt["authorization"]["fresh_dev_collection_authorized"]
+        )
+        self.assertFalse(
+            receipt["authorization"]["fresh_dev_evaluation_authorized"]
+        )
+        self.assertFalse(receipt["authorization"]["test_collection_authorized"])
+        self.assertEqual(seal["action"], "fresh-dev-collection")
 
     def test_structure_exclusion_requires_exact_sealed_manifest(self):
         payload = {

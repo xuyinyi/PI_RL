@@ -30,7 +30,11 @@ from reproduction.scicf.gate1.gate1b1 import (
     structure_key,
     structure_split,
 )
-from reproduction.scicf.gate1.gate1b3 import load_excluded_structure_keys
+from reproduction.scicf.gate1.gate1b3 import (
+    COLLECTION_ROLE,
+    load_excluded_structure_keys,
+    validate_collection_authorization,
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -44,6 +48,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-root", type=Path, required=True)
     parser.add_argument("--model-manifest", type=Path)
     parser.add_argument("--excluded-structure-manifest", type=Path)
+    parser.add_argument("--authorization-receipt", type=Path)
     return parser.parse_args()
 
 
@@ -95,6 +100,15 @@ def main() -> None:
         )
     elif args.excluded_structure_manifest is not None:
         raise ContractError("structure exclusion manifest is not allowed by this config")
+    authorization_receipt_seal = None
+    if gate_config.get("extension_role") == COLLECTION_ROLE:
+        if args.authorization_receipt is None:
+            raise ContractError("Gate 1B.3 collection requires an authorization receipt")
+        _, authorization_receipt_seal = validate_collection_authorization(
+            args.authorization_receipt, gate_config
+        )
+    elif args.authorization_receipt is not None:
+        raise ContractError("authorization receipt is not allowed by this config")
     source = git_identity(repo_root)
     require_execution_provenance(repo_root, framework_config, source)
     if source.get("dirty") is not False:
@@ -283,6 +297,7 @@ def main() -> None:
                     "source": source,
                     "slurm_job_id": os.environ["SLURM_JOB_ID"],
                     "structure_exclusion_seal": structure_exclusion_seal,
+                    "authorization_receipt_seal": authorization_receipt_seal,
                     "trajectories": trajectory_results,
                 },
             )
@@ -317,6 +332,7 @@ def main() -> None:
                 "config": gate_config,
                 "test_seal": test_seal,
                 "structure_exclusion_seal": structure_exclusion_seal,
+                "authorization_receipt_seal": authorization_receipt_seal,
                 "oracle_counts": ledger.snapshot().as_dict(),
                 "trajectories": trajectory_results,
             },

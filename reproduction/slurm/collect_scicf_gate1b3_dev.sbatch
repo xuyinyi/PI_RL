@@ -14,13 +14,14 @@
 
 set -euo pipefail
 
-if [[ "$#" -ne 2 ]]; then
-    echo "usage: $0 OUTPUT_ROOT PRIOR_DEV_MODEL_MANIFEST" >&2
+if [[ "$#" -ne 3 ]]; then
+    echo "usage: $0 OUTPUT_ROOT PRIOR_DEV_MODEL_MANIFEST AUTHORIZATION_RECEIPT" >&2
     exit 2
 fi
 
 output_root="$1"
 prior_dev_manifest="$2"
+authorization_receipt="$3"
 repo_root="/home/wch/workspaces/DAPiGen-reproduction/algorithm-worktree"
 python_bin="/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/bin/python"
 baseline_root="/home/wch/workspaces/DAPiGen-reproduction/runs/ppo-compat/full-20260830-v1"
@@ -46,4 +47,5 @@ srun "$python_bin" reproduction/scicf/gate1/collect_gate1b1.py \
     --split dev \
     --stage "$stage" \
     --excluded-structure-manifest "$prior_dev_manifest" \
+    --authorization-receipt "$authorization_receipt" \
     --output-root "$output_root"
