@@ -83,4 +83,14 @@ Status date: 2026-09-03
   abstention rule remained non-calibratable. Slurm jobs 4625-4628 completed;
   `sealed_test_eligible=false`, and no test label was collected, accessed, or
   evaluated. See `reproduction/results/scicf-gate1b2-development-20260903`.
+- Gate 1B.3 stage-routed acquisition is implementation-complete but has not
+  started its fresh development experiment. Early routes to the frozen Gate
+  1B.2 nonlinear validity model; middle routes to the frozen Gate 1B.1 linear
+  validity and policy-conditioned gain models; uncalibrated late defaults to
+  abstention and is non-gating. A future dev-only collector uses new seeds and
+  excludes all 200 previously observed dev structure keys. Slurm job 4631
+  passed 49/49 tests and job 4632 validated the actual frozen model artifacts
+  with zero Oracle calls. Fresh-dev collection/evaluation, sealed test, Gate
+  1C, and PPO integration remain unauthorized. See
+  `reproduction/results/scicf-gate1b3-implementation-20260903`.
 - No SciCF performance, oracle-efficiency, or generality claim is currently authorized.

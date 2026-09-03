@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "gate": "scicf-gate1b3-stage-routed-unseen-development-v1",
+  "status": "implementation-complete-experiment-not-authorized",
+  "date": "2026-09-03",
+  "architecture": {
+    "early": "exact Gate 1B.2 nonlinear validity filter",
+    "middle": "exact Gate 1B.1 linear validity filter then exact policy-conditioned Ridge gain ranker",
+    "late": "non-gating saturation diagnostic; abstain while uncalibrated",
+    "models_refit": false,
+    "hyperparameter_search": false,
+    "model_family_search": false,
+    "post_hoc_design_candidate": true
+  },
+  "fresh_development_confirmation": {
+    "split": "dev",
+    "stages": ["early", "middle"],
+    "seeds": [4241, 4242, 4243, 4244, 4245, 4246, 4247, 4248, 4249, 4250, 4251, 4252, 4253, 4254, 4255, 4256],
+    "prior_dev_structure_keys_excluded": 200,
+    "test_data_allowed": false,
+    "collected": false,
+    "evaluated": false
+  },
+  "source": {
+    "implementation_commit": "db9018a7fd5299f90f136f0fbaf596ce8d78d4c7",
+    "preflight_commit": "fb3979a216d95a4351fb509348a64a7ba51eb7e1",
+    "implementation_config_sha256": "148734e658e7f52d6144f4e298beae9e9b93ad6d3f3f8e92b3b66ef11b51cffa",
+    "collection_config_sha256": "0a1c82f6f6d8c8d76a277c4090f26dd2e8d8ee02bdd346b7a5efb8c5e0776932",
+    "gate1b1_model_manifest_sha256": "b5a5c400b0bc90decaffa333d60c0378fea10f07c2fb3dbc02cb1487d2cae47d",
+    "gate1b2_model_manifest_sha256": "10b8c9b603bfaec1ff1600c22ca2fb1cb5cb96e5904d95267e42422a8202f8fd",
+    "gate1b2_validity_model_sha256": "9964539e604bde893f500beeedc39df1b0aa94bb42ebea692dc405414ab93047"
+  },
+  "validation": {
+    "slurm_tests": "4631 COMPLETED 0:0; 49 tests passed",
+    "slurm_frozen_artifact_preflight": "4632 COMPLETED 0:0",
+    "validity_feature_count": 87,
+    "gain_feature_count": 89,
+    "policy_score_in_validity": false,
+    "policy_score_in_gain": true,
+    "oracle_calls": 0,
+    "local_code_execution": false
+  },
+  "authorization": {
+    "fresh_dev_collection_authorized": false,
+    "fresh_dev_evaluation_authorized": false,
+    "sealed_test_eligible": false,
+    "test_collection_authorized": false,
+    "test_evaluation_authorized": false,
+    "gate1c_authorized": false,
+    "pairwise_refinement_authorized": false,
+    "ppo_integration_authorized": false
+  },
+  "claim_boundary": "Gate 1B.3 code and frozen-artifact compatibility are validated. No fresh development or sealed-test performance evidence has been generated."
+}
