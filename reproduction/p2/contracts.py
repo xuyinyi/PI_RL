@@ -61,6 +61,12 @@ METHOD_QUERY_SOURCES = {
     MCC_PPO: frozenset((MCC_PPO_FACTUAL, MCC_PPO_COUNTERFACTUAL)),
 }
 
+METHOD_ON_POLICY_SOURCE = {
+    PPO: PPO_ON_POLICY,
+    POLICY_CC: POLICY_CC_ON_POLICY,
+    MCC_PPO: MCC_PPO_ON_POLICY,
+}
+
 
 class ContractViolation(ValueError):
     """Raised before an update when a P2 invariant is violated."""

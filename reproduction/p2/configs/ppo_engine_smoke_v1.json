@@ -1,0 +1,32 @@
+{
+  "base_seed": 20260904,
+  "benchmark_name": "dapigen-p2-native-ppo-engine-smoke-v1",
+  "expected_accepted_environment_id": "dapigen:8004c1fa2055a186b4a4f3ed",
+  "expected_evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+  "expected_objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+  "expected_observation_dimension": 1246,
+  "maximum_requested_calls": 256,
+  "maximum_unique_calls": 256,
+  "minimum_successful_terminals_per_iteration": 8,
+  "ppo": {
+    "adam_epsilon": 1e-08,
+    "clip_ratio": 0.2,
+    "deterministic_torch": true,
+    "device": "cuda:0",
+    "entropy_coefficient": 0.01,
+    "gae_lambda": 0.95,
+    "gamma": 1.0,
+    "hidden_sizes": [128, 128],
+    "learning_rate": 0.0003,
+    "maximum_gradient_norm": 0.5,
+    "minibatch_size": 32,
+    "normalize_actor_advantages": true,
+    "rollout_steps": 64,
+    "seed": 20260904,
+    "target_kl": 0.02,
+    "update_epochs": 2,
+    "value_clip": 0.2,
+    "value_loss_coefficient": 0.5
+  },
+  "schema_version": 1
+}
