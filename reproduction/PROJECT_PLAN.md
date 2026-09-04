@@ -108,20 +108,22 @@ Required evidence on a newly resolved governed Slurm checkout:
 - Reward-independent terminal-product selection and explicit NOOP semantics pass regression tests.
 - Shared Ray evaluator produces one global transactional requested/unique/cache ledger.
 - The formal Stage 0 configuration is fixed before baseline training.
-- `legacy_effective` regression quantifies changes caused by task-semantic repair separately from algorithm changes.
+- The `legacy_effective` configuration is frozen for the post-P1 baseline
+  regression; no PPO regression is part of the environment-acceptance gate.
 - Environment, budget, action-catalog, model-asset, and source hashes are emitted in a contract manifest.
 
 Stop condition: any parity, custom-chemistry, replay, ledger, or contract mismatch keeps all algorithm-training gates closed.
 
-Current status: **not passed, with mask-refinement development acceptance
-complete**. Stage-0 v2.3 passed 44 tests, custom BRICS, polyBERT parity,
-100-PI evaluator parity, 1,000-transition replay/restore and Ray evaluator
-checkpoint accounting on n001. On the same 100-state sequence used for v2.2,
-`closure_exact_cached` removed all 3,742/11,878 label-mask false positives with
-zero false negatives and was 129.5x faster than the independent full-exact
-reference. The only active P1 blocker is now regeneration from a clean immutable
-Git coordinate. No PPO was launched. The separate `ssh cpu` alias is a different
-host and is not n001 evidence.
+Current status: **passed under the reconstructed AFP compatibility contract** at
+clean Git commit `373b3291ac04dbf654c134bee2ca61a0c86d1a68`. Slurm jobs 4659,
+4660 and 4661 passed 44 tests, custom BRICS, polyBERT parity, 100-PI evaluator
+parity, 1,000-transition replay/restore, Ray checkpoint accounting and formal
+manifest generation on `yanlih100n1`. On the same 100-state sequence used for
+v2.2, `closure_exact_cached` removed all 3,742/11,878 label-mask false positives
+with zero false negatives and zero false positives, and was 128.834x faster than
+the independent full-exact equivalent. The formal manifest records a clean Git
+coordinate. No PPO was launched. Author-original model identity and scientific
+validation remain outside P1; the separate `ssh cpu` alias is not n001 evidence.
 
 ### Gate P2: unified algorithm implementation
 
@@ -171,6 +173,9 @@ Current status: **partial reference evidence only**. The supplied validation rep
 Required evidence:
 
 - Accepted P1/P2 contract and clean immutable run coordinate.
+- Matched original-compatibility, Stage-0 `legacy_effective` six-step and
+  Stage-0 standard five-step baselines to locate task-semantic changes without
+  attributing them to the learning algorithm.
 - Multiple declared seeds and matched evaluator checkpoints.
 - Learning curves versus requested evaluator calls and environment transitions.
 - Final validity, objective, uniqueness, novelty, diversity, Frag, and SNN metrics under a common evaluation protocol.
@@ -259,7 +264,7 @@ Current status: **not started**.
 |---|---|---|
 | Reconstructed AFP PPO compatibility baseline | complete | Engineering/runtime baseline; not paper-result reproduction |
 | Historical SciCF gates | archived no-go | No SciCF performance, pairwise-refinement, or PPO-integration claim |
-| Stage 0 v2.3 implementation candidate | mask-refinement development acceptance passed on n001 | Same-state mask and replay checks passed; clean formal coordinate remains open |
+| Stage 0 v2.3 environment | P1 engineering acceptance passed at clean commit `373b3291` | Reconstructed-asset compatibility scope; not author-original model or scientific validation |
 | MCC-PPO reference files | received and hash-identified | Toy/reference validation only; not a unified runnable project |
 | Unified Stage 0 + PPO engine | not started | No implementation claim |
 | PPO / Policy-CC / MCC-PPO pilot | closed | No performance claim |
@@ -269,13 +274,14 @@ Current status: **not started**.
 ## 9. Immediate work order
 
 1. Preserve the completed reference-artifact intake and Stage-0 v2.2/v2.3 development evidence.
-2. Freeze a clean immutable Git coordinate and rerun P1 manifests and acceptance on n001.
+2. Preserve the clean P1 run coordinate and its synchronized, hash-verified evidence.
 3. Profile accepted-mask throughput under the planned multi-worker P2 engine before freezing training budgets.
 4. Design the single PPOEngine/CreditEstimator seam and its test matrix.
 5. Integrate PPO first, then Policy-CC (`eta = 0`), then MCC-PPO.
 6. Complete P3 estimator validation and P4 baseline evidence.
 7. Draft and freeze the P5 pilot protocol before running it.
 
-The next planned activity is **clean-coordinate Stage-0 P1 acceptance**.
-No PPO, external API experiment, formal experiment, or scientific claim
-promotion is opened by the current development evidence.
+The next planned activity is **P2 multi-worker accepted-mask throughput
+profiling, followed by the single PPOEngine/CreditEstimator seam design**. No
+PPO training, external API experiment, formal comparison or scientific claim
+promotion is opened by P1 acceptance.

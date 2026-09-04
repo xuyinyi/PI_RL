@@ -1,0 +1,103 @@
+{
+  "budget_contract_id": "ae3040512c12039bf2a63fdcdaf29ac766ff3754753c77290077051583b9e54e",
+  "catalog_reports": [
+    {
+      "canonical_duplicates_removed": 0,
+      "invalid_rows_removed": 0,
+      "path": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v23-p1-373b329-clean/RL_PPO/outputs/building_blocks/blocks_dianhydride.csv",
+      "raw_rows": 576,
+      "retained_actions": 576
+    },
+    {
+      "canonical_duplicates_removed": 0,
+      "invalid_rows_removed": 0,
+      "path": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v23-p1-373b329-clean/RL_PPO/outputs/building_blocks/blocks_diamine.csv",
+      "raw_rows": 1004,
+      "retained_actions": 1004
+    }
+  ],
+  "dapigen_repository": {
+    "critical_source_sha256": {
+      "RL_PPO/GNN/benchmarks.py": "e062a41f81911296e3dd8f716d4b56a400056a1c08ee425bcbe6b4453fc61642",
+      "RL_PPO/moldr/env.py": "65967e7959a38fada562166d38323e57d5ba615eac3e4cdf5d9d70e6e28fd040",
+      "RL_PPO/moldr/utils.py": "e9f66fcccf1fe39957cc233922e54199c9288881d3a3c6d0d3958501fa38e037",
+      "RL_PPO/outputs/building_blocks/blocks_diamine.csv": "e12974836687203697ce29ab3e9e44138fed4c5c49e1c9e2618ebb5aef1a76d0",
+      "RL_PPO/outputs/building_blocks/blocks_dianhydride.csv": "49ea9a071d7cf35110d4f9b95d67cda563c9f661d5d261d2e921edbb245c0561",
+      "RL_PPO/utils/genPI.py": "5ba08121c2be59a3af5afa3f152efa84c22da26fb53d0edb2c309c3f40bd53af",
+      "RL_PPO/utils/polyBERT.py": "a5913755496850c5e44bde3f5fce14d4afb3264c54940664cb43773e3071fafa"
+    },
+    "dapigen_git_commit": "373b3291ac04dbf654c134bee2ca61a0c86d1a68",
+    "dapigen_git_dirty": false,
+    "qspr_code_tree_sha256": "1315ac33664b716aef9a75d83925e5083b8fc75703694a461c3b75f7f1882a40"
+  },
+  "environment": {
+    "chemistry_backend": "dapigen-legacy-chemistry-deterministic-v2:dapigen_custom-sha256-e9f66fcccf1fe399:rdkit-2022.09.5",
+    "config": {
+      "attachment_label_max": 16,
+      "complete_block_policy": "pristine_only",
+      "environment_version": "dapigen-stage0-standard-v2.3",
+      "failure_reward": 0.0,
+      "horizon_semantics": "failure_terminal",
+      "include_terminal_candidates_in_info": false,
+      "invalid_action_handling": "raise",
+      "mask_mode": "closure_exact_cached",
+      "max_atoms": 60,
+      "max_steps": 5,
+      "minimum_diamine_growth_steps": 0,
+      "minimum_dianhydride_growth_steps": 0,
+      "observation_mode": "augmented_v3",
+      "product_selection": "seeded_uniform"
+    },
+    "diamine_catalog_sha256": "0a91e1b7084692136139379b69a06301ed510750dc8f32220cee0cba6a49100a",
+    "diamine_noop_id": 1004,
+    "dianhydride_catalog_sha256": "0a021f30b960a251b763ef6c0e0133e4f6d1214c1fa91da272a2cb241693b934",
+    "dianhydride_noop_id": 576,
+    "encoder_version": "polybert-sha256:6bdd24f951dd90d3031e749e",
+    "environment_id": "dapigen:8004c1fa2055a186b4a4f3ed",
+    "environment_version": "dapigen-stage0-standard-v2.3",
+    "initial_diamine_smiles": "[16*]c1ccc(N)cc1",
+    "initial_dianhydride_smiles": "[16*]c1ccc2c(c1)C(=O)OC2=O",
+    "number_of_diamine_actions": 1005,
+    "number_of_dianhydride_actions": 577,
+    "observation_dimension": 1246,
+    "product_selection_estimand": "common-uniform-quantile-over-sorted-unique-products-v1",
+    "state_schema_version": 3
+  },
+  "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+  "extra": {
+    "cache_scope": "per_run",
+    "run_name": "stage0_v23_p1_acceptance"
+  },
+  "implementation_sha256": {
+    "chemistry": "5bdc056b85b3a96519f39704921c06ad461ef8230cb6a36d27870f0fce5fc363",
+    "core": "f362b139db19d87b3a6e37ad9aa5694900fa145d4453d9353673aa6bcd1bcadb",
+    "encoder": "8ce287facd0c69eeb6bd5167c239fe0f80671a15987b44f53ff94354dc39f660",
+    "evaluator_service": "3503b254183f5f5931abf8585cd9a70d15813826268bd3ab89d57154e6b46044",
+    "reward_adapter": "3503b254183f5f5931abf8585cd9a70d15813826268bd3ab89d57154e6b46044",
+    "stage0_source_tree": "e3a7024d68de81d0f7c30d9368d271f49f1ab8f058d03557896321b5cd58a10a",
+    "terminal_evaluator": "3503b254183f5f5931abf8585cd9a70d15813826268bd3ab89d57154e6b46044"
+  },
+  "manifest_schema_version": 2,
+  "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+  "oracle_budget": {
+    "budget_protocol_version": "terminal-requested-unique-backend-v2",
+    "cache_scope": "per_run",
+    "maximum_requested_calls": 100000,
+    "maximum_unique_calls": 100000,
+    "task_contract_id": "237bfedb2bfa364f3251b47c4e6f83f1ba99ad698c7e1cdde65c62c9f1d0768e"
+  },
+  "reward_adapter_version": "terminal-only-reward-v1",
+  "runtime": {
+    "dgl": "2.1.0+cu118",
+    "gym": "0.19.0",
+    "numpy": "1.23.5",
+    "platform": "Linux-4.18.0-553.63.1.el8_10.x86_64-x86_64-with-glibc2.17",
+    "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+    "ray": "1.13.0",
+    "rdkit": "2022.09.5",
+    "torch": "2.1.2",
+    "transformers": "4.20.1"
+  },
+  "runtime_contract_id": "ea5a805dd837627305ee51cdddad8b37c55cb24adea73f97829126368348d25f",
+  "task_contract_id": "237bfedb2bfa364f3251b47c4e6f83f1ba99ad698c7e1cdde65c62c9f1d0768e"
+}

@@ -1,5 +1,17 @@
 # Changelog
 
+## v2.3 P1 acceptance
+
+- froze clean implementation coordinate
+  `373b3291ac04dbf654c134bee2ca61a0c86d1a68`;
+- reran the full P1 acceptance on `yanlih100n1` through Slurm jobs 4659, 4660
+  and 4661, all completing with exit code `0:0`;
+- regenerated the formal manifest with `dapigen_git_dirty=false` and preserved
+  environment, runtime and Stage-0 implementation identities;
+- reproduced the same 100-state mask decisions and exact 1,000-step replay;
+- retained reconstructed-asset provenance limits and kept all PPO and
+  counterfactual-credit experiments closed.
+
 ## v2.3 candidate
 
 - replaced the formal label-only mask with `closure_exact_cached`;
@@ -17,7 +29,8 @@
 - passed 1,000 transition replays and 1,000 snapshot restores with zero
   `no_reaction_product`, while targeted closure reduced chemistry replay time
   from 29:59 to 2:10 for the same observed trajectory statistics;
-- retained the clean immutable Git coordinate as the final open P1 blocker.
+- identified the clean immutable Git coordinate as the final development-stage
+  P1 blocker; it was later closed by the v2.3 P1 acceptance above.
 
 ## v2.2 candidate
 

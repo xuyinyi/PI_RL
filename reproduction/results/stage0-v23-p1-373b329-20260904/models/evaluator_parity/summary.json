@@ -1,0 +1,17 @@
+{
+  "csv": "/home/wch/workspaces/DAPiGen-reproduction/runs/stage0-v23-p1-373b329/models/evaluator_parity/evaluator_parity.csv",
+  "dapigen_root": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v23-p1-373b329-clean",
+  "evaluated_sample_size": 100,
+  "input_csv": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v23-p1-373b329-clean/raw_data/PI.csv",
+  "invalid_input_count": 0,
+  "legacy_evaluator_version": "dapigen-benchmark-legacy-v1",
+  "mismatch_count": 0,
+  "mismatches": [],
+  "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+  "persistent_evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+  "requested_sample_size": 100,
+  "seed": 20260903,
+  "smiles_column": "smile",
+  "status": "passed",
+  "tolerance": 0.0
+}

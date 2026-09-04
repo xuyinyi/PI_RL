@@ -2,7 +2,8 @@
 
 Status date: 2026-09-04
 
-Status: **mask-refinement development acceptance passed; Gate P1 remains closed pending a clean immutable Git coordinate**
+Status: **mask-refinement development acceptance passed; subsequently promoted
+at the clean coordinate recorded in `VALIDATION_V2.3_P1.md`**
 
 ## Frozen task decisions
 
@@ -114,10 +115,10 @@ synced evidence is under
 `reproduction/results/stage0-v23-mask-dev-20260904/`.
 
 This is development evidence only. The staging directory intentionally has no
-Git metadata, so `dapigen_git_commit` and `dapigen_git_dirty` are null. Gate P1
-therefore remains closed until this candidate is placed at a clean immutable
-Git coordinate and the acceptance manifest is regenerated there. No PPO,
-Policy-CC or MCC-PPO run is authorized by this record.
+Git metadata, so `dapigen_git_commit` and `dapigen_git_dirty` are null. The
+candidate was subsequently rerun and accepted at clean commit `373b3291`;
+`VALIDATION_V2.3_P1.md` is the formal P1 record. No PPO, Policy-CC or MCC-PPO
+run is authorized by this development record.
 
 The reconstructed AFP/QSPR assets and installed polyBERT checkpoint passed
 engineering parity and do not require retraining for the next environment gate.
