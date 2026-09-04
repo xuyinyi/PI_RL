@@ -1,5 +1,7 @@
 # P4-A native PPO baseline
 
+Current status: **preflight Job 4675 passed; formal array Job 4676 running**.
+
 This directory contains the frozen standard-five-step native-PPO baseline arm.
 The machine protocol fixes the task, optimizer, training evaluator budget,
 evaluation checkpoints, seeds, metrics, data boundary and fail-closed launch

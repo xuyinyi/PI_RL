@@ -2,7 +2,7 @@
 
 Status date: 2026-09-04
 
-Plan status: **active development; the P4-A native-standard PPO baseline protocol is frozen before execution, while counterfactual and scientific gates remain closed**
+Plan status: **active development; the frozen P4-A native-standard PPO preflight passed and its five-seed formal array is running, while counterfactual and scientific gates remain closed**
 
 ## 1. Authority and scope
 
@@ -207,10 +207,11 @@ Required evidence:
 
 This baseline is distinct from both the original reconstructed compatibility run and paper-result reproduction.
 
-Current status: **P4-A protocol frozen before results; single-seed preflight not
-yet executed**. P4-A covers the standard five-step native-PPO arm only. The
-original RLlib compatibility evidence and `legacy_effective` six-step semantic
-control remain required before the complete P4 gate can close.
+Current status: **P4-A protocol frozen before results; single-seed preflight
+passed in Slurm Job 4675 and the five-seed formal array was launched as Job
+4676**. P4-A covers the standard five-step native-PPO arm only. The original
+RLlib compatibility evidence and `legacy_effective` six-step semantic control
+remain required before the complete P4 gate can close.
 
 ### Gate P5: matched-budget pilot
 
@@ -294,7 +295,7 @@ Current status: **not started**.
 | Stage 0 v2.3 environment | P1 engineering acceptance passed at clean commit `373b3291` | Reconstructed-asset compatibility scope; not author-original model or scientific validation |
 | MCC-PPO reference files | received and hash-identified | Toy/reference validation only; not a unified runnable project |
 | Unified Stage 0 + PPO engine | P2-A/P2-C profiles and native PPO/GAE smoke passed; counterfactual estimators pending | PPO engineering smoke only; no production-training or performance claim |
-| P4-A native standard PPO baseline | protocol frozen; preflight pending | No baseline result or performance claim yet |
+| P4-A native standard PPO baseline | preflight passed; formal Job 4676 running | Preflight engineering evidence only; no completed baseline or performance claim yet |
 | PPO / Policy-CC / MCC-PPO pilot | closed | No performance claim |
 | Formal comparison | closed | No method claim |
 | Independent validation | not started | No physical-property or experimental claim |
@@ -310,13 +311,13 @@ Current status: **not started**.
 7. **Frozen before execution:** P4-A standard-five-step native-PPO protocol,
    seed `20260910` preflight, and formal seeds `20260911-20260915`; formal jobs
    may launch only after every preflight gate passes.
-8. **Next:** execute the P4-A preflight and, conditionally, its five formal
-   seeds. This produces baseline engineering evidence only; complete P4 still
-   requires the declared task-semantic controls.
+8. **In progress:** P4-A preflight passed all frozen gates in Job 4675; formal
+   seeds `20260911-20260915` are running as Slurm array Job 4676. Completion,
+   per-seed audit, aggregation and local evidence synchronization remain open.
 9. Integrate Policy-CC (`eta = 0`) and close I02-I04 without changing the common PPO optimizer path; integrate MCC-PPO last.
 10. Complete P3 estimator validation and draft/freeze P5 before running it.
 
-The next authorized activity is **the frozen P4-A single-seed native-PPO
-preflight, followed only on a full pass by the five-seed formal P4-A array**.
-Neither the smoke nor P4-A alone authorizes external API work, counterfactual
-training, a matched algorithm comparison or scientific claim promotion.
+The current authorized activity is **completion and audit of the already
+launched five-seed formal P4-A array**. Neither the smoke nor P4-A alone
+authorizes external API work, counterfactual training, a matched algorithm
+comparison or scientific claim promotion.

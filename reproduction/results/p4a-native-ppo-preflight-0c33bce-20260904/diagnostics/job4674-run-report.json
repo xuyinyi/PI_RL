@@ -1,0 +1,1478 @@
+{
+  "acceptance_checks": {
+    "accepted_environment": false,
+    "accepted_evaluator": true,
+    "accepted_objective": true,
+    "accepted_observation_dimension": true,
+    "accepted_p1_commit": true,
+    "accepted_stage0_source_unchanged": true,
+    "accepted_task_configuration": true,
+    "checkpoint_roundtrip": true,
+    "checkpoint_targets_complete": true,
+    "clean_git": true,
+    "evaluation_metrics_complete": true,
+    "external_api_not_invoked": true,
+    "finite_exact_gae_updates": true,
+    "policy_changed": true,
+    "policy_version_matches_iterations": true,
+    "required_host": true,
+    "sealed_test_not_accessed": true,
+    "slurm_execution": true,
+    "standard_five_step_task": true,
+    "training_budget_lower_bound": true,
+    "training_budget_upper_bound": true,
+    "training_evaluator_valid": true,
+    "training_source_isolated": true
+  },
+  "accepted_binding": {
+    "accepted_chemistry_backend": "dapigen-legacy-chemistry-deterministic-v2:dapigen_custom-sha256-e9f66fcccf1fe399:rdkit-2022.09.5",
+    "accepted_diamine_catalog_sha256": "0a91e1b7084692136139379b69a06301ed510750dc8f32220cee0cba6a49100a",
+    "accepted_dianhydride_catalog_sha256": "0a021f30b960a251b763ef6c0e0133e4f6d1214c1fa91da272a2cb241693b934",
+    "accepted_environment_id": "dapigen:8004c1fa2055a186b4a4f3ed",
+    "accepted_git_commit": "373b3291ac04dbf654c134bee2ca61a0c86d1a68",
+    "accepted_task_config": {
+      "attachment_label_max": 16,
+      "complete_block_policy": "pristine_only",
+      "environment_version": "dapigen-stage0-standard-v2.3",
+      "failure_reward": 0.0,
+      "horizon_semantics": "failure_terminal",
+      "include_terminal_candidates_in_info": false,
+      "invalid_action_handling": "raise",
+      "mask_mode": "closure_exact_cached",
+      "max_atoms": 60,
+      "max_steps": 5,
+      "minimum_diamine_growth_steps": 0,
+      "minimum_dianhydride_growth_steps": 0,
+      "observation_mode": "augmented_v3",
+      "product_selection": "seeded_uniform"
+    },
+    "profile_git_commit": "0c33bced38ae321247f952e0d36a52b830c1efa2",
+    "profile_git_dirty": false,
+    "stage0_source_changed_from_accepted": false
+  },
+  "accepted_manifest_sha256": "8d4eaa0f72d042384a1eaaa87ae8b9c8728cef490482ead8ea8e350c6cbe8165",
+  "checkpoint_roundtrip": {
+    "contract_equal": true,
+    "evaluator_ledger_equal": true,
+    "policy_sha256_equal": true,
+    "policy_version_equal": true,
+    "specification_equal": true
+  },
+  "checkpoints": [
+    {
+      "actual_training_requested_calls": 0,
+      "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/p4a-native-ppo-0c33bce/preflight-seed-20260910/checkpoints/target_000000_actual_000000.pt",
+      "policy_sha256": "8c4748397f62819c4777f933bddcef272c8108c5dbcbe14596cc298158997b82",
+      "policy_version": 0,
+      "sha256": "2b652a8dc59eb1df98019b2aabe1961fcf629e83bb53148edb05ed1c274a5602",
+      "target_requested_calls": 0
+    },
+    {
+      "actual_training_requested_calls": 271,
+      "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/p4a-native-ppo-0c33bce/preflight-seed-20260910/checkpoints/target_000256_actual_000271.pt",
+      "policy_sha256": "82983951569e3f5dfb08ec82151136ac512e5d03331e95b3b328fd40b8e647f9",
+      "policy_version": 9,
+      "sha256": "0256ac64d27df97fc95543039d0baa8fab80cbc4462c70055116efa5d3489023",
+      "target_requested_calls": 256
+    },
+    {
+      "actual_training_requested_calls": 390,
+      "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/p4a-native-ppo-0c33bce/preflight-seed-20260910/checkpoints/target_000512_actual_000390.pt",
+      "policy_sha256": "60157665c688a29722447d282b6eb178d9cf3894e5d9e2e356604ad26b44d1b1",
+      "policy_version": 12,
+      "sha256": "40c6c9a35e0227f3648bbbb8c3c34b1a4b902e00ef5ed9480f084b868838d0e1",
+      "target_requested_calls": 512
+    }
+  ],
+  "classification": "P4-A baseline engineering evidence only; not complete P4, an algorithm comparison, optimization superiority, or scientific validation",
+  "completed_at": "2026-09-04T12:02:11.097850+00:00",
+  "device": "cuda:0",
+  "elapsed_seconds": 254.86126098036766,
+  "environment_transitions": 1536,
+  "error": "RuntimeError: P4-A acceptance gate failed: {'clean_git': True, 'slurm_execution': True, 'required_host': True, 'accepted_stage0_source_unchanged': True, 'accepted_p1_commit': True, 'accepted_environment': False, 'accepted_task_configuration': True, 'accepted_observation_dimension': True, 'accepted_evaluator': True, 'accepted_objective': True, 'standard_five_step_task': True, 'training_budget_lower_bound': True, 'training_budget_upper_bound': True, 'training_source_isolated': True, 'training_evaluator_valid': True, 'finite_exact_gae_updates': True, 'policy_changed': True, 'policy_version_matches_iterations': True, 'checkpoint_targets_complete': True, 'evaluation_metrics_complete': True, 'checkpoint_roundtrip': True, 'sealed_test_not_accessed': True, 'external_api_not_invoked': True}",
+  "evaluations": [
+    {
+      "actual_training_requested_calls": 0,
+      "canonical_duplicate_count": 126,
+      "elapsed_seconds": 6.554986711591482,
+      "evaluation_seed": 21260910,
+      "evaluator_ledger": {
+        "allowed_sources": [
+          "evaluation"
+        ],
+        "backend_by_source": {
+          "evaluation": 2
+        },
+        "backend_calls": 2,
+        "budget_protocol_version": "terminal-requested-unique-backend-v2",
+        "cache_entries": 2,
+        "cache_hit_rate": 0.984375,
+        "cache_hits": 126,
+        "cache_scope": "dapigen-p4a-native-ppo-standard-v1:seed-20260910:eval-0",
+        "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+        "invalid_results": 0,
+        "maximum_requested_calls": 128,
+        "maximum_unique_calls": 128,
+        "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+        "remaining_requested_calls": 0,
+        "remaining_unique_calls": 126,
+        "requested_by_source": {
+          "evaluation": 128
+        },
+        "requested_calls": 128,
+        "unique_by_source": {
+          "evaluation": 2
+        },
+        "unique_calls": 2
+      },
+      "metrics": {
+        "canonical_unique_valid_PI": 2,
+        "diversity": 0.11448256467941487,
+        "frag": 0.33188461722839313,
+        "generation_csv_sha256": "ae8c2d8ce63d0602b56b2f7cf313b8a4eee8ab0e65ddf4099b59723e0d5b3cca",
+        "max_reward": 0.0232,
+        "mean_reward": 0.023146093750000006,
+        "metric_definitions": {
+          "diversity": "1 - mean pairwise generated-set Tanimoto",
+          "fingerprint": "Morgan radius=3 nBits=2048",
+          "frag": "BRICS fragment-count cosine similarity to training set",
+          "novelty": "fraction with max training-set Tanimoto < 0.4",
+          "snn": "mean maximum Tanimoto similarity to training set",
+          "uniqueness_denominator": "RDKit-valid generated rows",
+          "validity_denominator": "all generated rows"
+        },
+        "novelty": 0.0,
+        "paper_metrics_computed": true,
+        "protocol": "dapigen-common-v1",
+        "reference_csv": "/home/wch/workspaces/DAPiGen-reproduction/p4a-native-ppo-0c33bce-clean/raw_data/PI.csv",
+        "reference_valid_samples": 1013,
+        "samples": 128,
+        "snn": 0.4642857015132904,
+        "uniqueness": 0.015625,
+        "valid_samples": 128,
+        "validity": 1.0
+      },
+      "output_csv": "/home/wch/workspaces/DAPiGen-reproduction/runs/p4a-native-ppo-0c33bce/preflight-seed-20260910/evaluations/target_000000_actual_000000/generate.csv",
+      "output_csv_sha256": "ae8c2d8ce63d0602b56b2f7cf313b8a4eee8ab0e65ddf4099b59723e0d5b3cca",
+      "policy_sha256": "8c4748397f62819c4777f933bddcef272c8108c5dbcbe14596cc298158997b82",
+      "policy_version": 0,
+      "target_requested_calls": 0,
+      "termination_reasons": {
+        "success": 128
+      },
+      "training_state_checks": {
+        "engine_rng_unchanged": true,
+        "numpy_rng_unchanged": true,
+        "policy_unchanged": true,
+        "policy_version_unchanged": true,
+        "python_rng_unchanged": true,
+        "torch_rng_unchanged": true
+      }
+    },
+    {
+      "actual_training_requested_calls": 271,
+      "canonical_duplicate_count": 126,
+      "elapsed_seconds": 7.603671126067638,
+      "evaluation_seed": 21261166,
+      "evaluator_ledger": {
+        "allowed_sources": [
+          "evaluation"
+        ],
+        "backend_by_source": {
+          "evaluation": 2
+        },
+        "backend_calls": 2,
+        "budget_protocol_version": "terminal-requested-unique-backend-v2",
+        "cache_entries": 2,
+        "cache_hit_rate": 0.984375,
+        "cache_hits": 126,
+        "cache_scope": "dapigen-p4a-native-ppo-standard-v1:seed-20260910:eval-256",
+        "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+        "invalid_results": 0,
+        "maximum_requested_calls": 128,
+        "maximum_unique_calls": 128,
+        "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+        "remaining_requested_calls": 0,
+        "remaining_unique_calls": 126,
+        "requested_by_source": {
+          "evaluation": 128
+        },
+        "requested_calls": 128,
+        "unique_by_source": {
+          "evaluation": 2
+        },
+        "unique_calls": 2
+      },
+      "metrics": {
+        "canonical_unique_valid_PI": 2,
+        "diversity": 0.1453066721922912,
+        "frag": 0.1483553867453834,
+        "generation_csv_sha256": "d906139f0c4ff49aedf95c1140e9edaa405b6b8bb6d076eefbbaa645a7bcf4db",
+        "max_reward": 0.3217,
+        "mean_reward": 0.3198249999999999,
+        "metric_definitions": {
+          "diversity": "1 - mean pairwise generated-set Tanimoto",
+          "fingerprint": "Morgan radius=3 nBits=2048",
+          "frag": "BRICS fragment-count cosine similarity to training set",
+          "novelty": "fraction with max training-set Tanimoto < 0.4",
+          "snn": "mean maximum Tanimoto similarity to training set",
+          "uniqueness_denominator": "RDKit-valid generated rows",
+          "validity_denominator": "all generated rows"
+        },
+        "novelty": 1.0,
+        "paper_metrics_computed": true,
+        "protocol": "dapigen-common-v1",
+        "reference_csv": "/home/wch/workspaces/DAPiGen-reproduction/p4a-native-ppo-0c33bce-clean/raw_data/PI.csv",
+        "reference_valid_samples": 1013,
+        "samples": 128,
+        "snn": 0.2599628297612071,
+        "uniqueness": 0.015625,
+        "valid_samples": 128,
+        "validity": 1.0
+      },
+      "output_csv": "/home/wch/workspaces/DAPiGen-reproduction/runs/p4a-native-ppo-0c33bce/preflight-seed-20260910/evaluations/target_000256_actual_000271/generate.csv",
+      "output_csv_sha256": "d906139f0c4ff49aedf95c1140e9edaa405b6b8bb6d076eefbbaa645a7bcf4db",
+      "policy_sha256": "82983951569e3f5dfb08ec82151136ac512e5d03331e95b3b328fd40b8e647f9",
+      "policy_version": 9,
+      "target_requested_calls": 256,
+      "termination_reasons": {
+        "success": 128
+      },
+      "training_state_checks": {
+        "engine_rng_unchanged": true,
+        "numpy_rng_unchanged": true,
+        "policy_unchanged": true,
+        "policy_version_unchanged": true,
+        "python_rng_unchanged": true,
+        "torch_rng_unchanged": true
+      }
+    },
+    {
+      "actual_training_requested_calls": 390,
+      "canonical_duplicate_count": 124,
+      "elapsed_seconds": 7.538691226392984,
+      "evaluation_seed": 21261422,
+      "evaluator_ledger": {
+        "allowed_sources": [
+          "evaluation"
+        ],
+        "backend_by_source": {
+          "evaluation": 4
+        },
+        "backend_calls": 4,
+        "budget_protocol_version": "terminal-requested-unique-backend-v2",
+        "cache_entries": 4,
+        "cache_hit_rate": 0.96875,
+        "cache_hits": 124,
+        "cache_scope": "dapigen-p4a-native-ppo-standard-v1:seed-20260910:eval-512",
+        "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+        "invalid_results": 0,
+        "maximum_requested_calls": 128,
+        "maximum_unique_calls": 128,
+        "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+        "remaining_requested_calls": 0,
+        "remaining_unique_calls": 124,
+        "requested_by_source": {
+          "evaluation": 128
+        },
+        "requested_calls": 128,
+        "unique_by_source": {
+          "evaluation": 4
+        },
+        "unique_calls": 4
+      },
+      "metrics": {
+        "canonical_unique_valid_PI": 4,
+        "diversity": 0.23038963026644843,
+        "frag": 0.30376393618575404,
+        "generation_csv_sha256": "d4e42cde77fb960c63ac915cac5b6bdbb441fc118533b4a58164d5e210ac9b43",
+        "max_reward": 0.2883,
+        "mean_reward": 0.287828125,
+        "metric_definitions": {
+          "diversity": "1 - mean pairwise generated-set Tanimoto",
+          "fingerprint": "Morgan radius=3 nBits=2048",
+          "frag": "BRICS fragment-count cosine similarity to training set",
+          "novelty": "fraction with max training-set Tanimoto < 0.4",
+          "snn": "mean maximum Tanimoto similarity to training set",
+          "uniqueness_denominator": "RDKit-valid generated rows",
+          "validity_denominator": "all generated rows"
+        },
+        "novelty": 1.0,
+        "paper_metrics_computed": true,
+        "protocol": "dapigen-common-v1",
+        "reference_csv": "/home/wch/workspaces/DAPiGen-reproduction/p4a-native-ppo-0c33bce-clean/raw_data/PI.csv",
+        "reference_valid_samples": 1013,
+        "samples": 128,
+        "snn": 0.3819457439240068,
+        "uniqueness": 0.03125,
+        "valid_samples": 128,
+        "validity": 1.0
+      },
+      "output_csv": "/home/wch/workspaces/DAPiGen-reproduction/runs/p4a-native-ppo-0c33bce/preflight-seed-20260910/evaluations/target_000512_actual_000390/generate.csv",
+      "output_csv_sha256": "d4e42cde77fb960c63ac915cac5b6bdbb441fc118533b4a58164d5e210ac9b43",
+      "policy_sha256": "60157665c688a29722447d282b6eb178d9cf3894e5d9e2e356604ad26b44d1b1",
+      "policy_version": 12,
+      "target_requested_calls": 512,
+      "termination_reasons": {
+        "success": 128
+      },
+      "training_state_checks": {
+        "engine_rng_unchanged": true,
+        "numpy_rng_unchanged": true,
+        "policy_unchanged": true,
+        "policy_version_unchanged": true,
+        "python_rng_unchanged": true,
+        "torch_rng_unchanged": true
+      }
+    }
+  ],
+  "external_api_invoked": false,
+  "failed_at": "2026-09-04T12:02:11.117138+00:00",
+  "final_policy_sha256": "60157665c688a29722447d282b6eb178d9cf3894e5d9e2e356604ad26b44d1b1",
+  "final_policy_version": 12,
+  "gymnasium": "0.29.1",
+  "host": "yanlih100n1",
+  "initial_policy_sha256": "8c4748397f62819c4777f933bddcef272c8108c5dbcbe14596cc298158997b82",
+  "iterations": [
+    {
+      "actor_advantages_sha256": "19784fc6a8b30a0a20e0b774c84d3d275f3a8ae8b08b7e0cc20561a571717277",
+      "batch_id": "p2b-000000-6447893c5999d30d",
+      "credit_evaluator_delta": {
+        "backend_calls": 0,
+        "cache_hits": 0,
+        "requested_by_source": {},
+        "requested_calls": 0,
+        "unique_calls": 0
+      },
+      "critic_returns_sha256": "c22f1792c946bd136b7c9f99eeef0cc525129e35c15e2be0e8724bbb3eceacc6",
+      "cumulative_environment_transitions": 128,
+      "gae_sha256": "19784fc6a8b30a0a20e0b774c84d3d275f3a8ae8b08b7e0cc20561a571717277",
+      "iteration": 1,
+      "policy_version": 1,
+      "reward_sum": 6.5304,
+      "rollout_digest": "5e12ae3eb78cb2209d2dd037283dfaeff589a2642884f3b7da0e804d0fee3394",
+      "rollout_evaluator_delta": {
+        "backend_calls": 30,
+        "cache_hits": 0,
+        "requested_by_source": {
+          "ppo/on_policy": 30
+        },
+        "requested_calls": 30,
+        "unique_calls": 30
+      },
+      "successful_terminal_count": 30,
+      "terminal_unique_count": 30,
+      "termination_reasons": {
+        "atom_limit_exceeded": 28,
+        "success": 30
+      },
+      "training_evaluator_ledger": {
+        "allowed_sources": [
+          "evaluation",
+          "ppo/on_policy"
+        ],
+        "backend_by_source": {
+          "ppo/on_policy": 30
+        },
+        "backend_calls": 30,
+        "budget_protocol_version": "terminal-requested-unique-backend-v2",
+        "cache_entries": 30,
+        "cache_hit_rate": 0.0,
+        "cache_hits": 0,
+        "cache_scope": "dapigen-p4a-native-ppo-standard-v1:preflight:20260910:training",
+        "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+        "invalid_results": 0,
+        "maximum_requested_calls": 512,
+        "maximum_unique_calls": 512,
+        "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+        "remaining_requested_calls": 482,
+        "remaining_unique_calls": 482,
+        "requested_by_source": {
+          "ppo/on_policy": 30
+        },
+        "requested_calls": 30,
+        "unique_by_source": {
+          "ppo/on_policy": 30
+        },
+        "unique_calls": 30
+      },
+      "transition_count": 128,
+      "update_metrics": {
+        "actor_loss": -0.070538841933012,
+        "approximate_kl": 0.029218226671218872,
+        "clip_fraction": 0.184375,
+        "entropy": 9.259626388549805,
+        "optimizer_steps": 5.0,
+        "stopped_for_target_kl": 1.0,
+        "value_loss": 0.3898557245731354
+      },
+      "update_receipt": {
+        "actor_advantages_sha256": "19784fc6a8b30a0a20e0b774c84d3d275f3a8ae8b08b7e0cc20561a571717277",
+        "critic_returns_sha256": "c22f1792c946bd136b7c9f99eeef0cc525129e35c15e2be0e8724bbb3eceacc6",
+        "engine_contract_id": "dapigen-p2-single-ppo-engine-v1",
+        "optimizer_step_completed": true,
+        "policy_version_after": 1,
+        "policy_version_before": 0,
+        "source_batch_id": "p2b-000000-6447893c5999d30d"
+      }
+    },
+    {
+      "actor_advantages_sha256": "336a39fbe67966515f336d9221f615697cf6cf2ef15424db4444b9ba6ddfb083",
+      "batch_id": "p2b-000001-5434c313e0f28036",
+      "credit_evaluator_delta": {
+        "backend_calls": 0,
+        "cache_hits": 0,
+        "requested_by_source": {},
+        "requested_calls": 0,
+        "unique_calls": 0
+      },
+      "critic_returns_sha256": "c3cab83cd98d668c14d5973e535895b5def1e9e25795dbd2ef82414d411e806c",
+      "cumulative_environment_transitions": 256,
+      "gae_sha256": "336a39fbe67966515f336d9221f615697cf6cf2ef15424db4444b9ba6ddfb083",
+      "iteration": 2,
+      "policy_version": 2,
+      "reward_sum": 6.2341,
+      "rollout_digest": "9ed345e0b92938350f623a76ba65385a4aed6173841cc927a4724cd876bc466d",
+      "rollout_evaluator_delta": {
+        "backend_calls": 33,
+        "cache_hits": 0,
+        "requested_by_source": {
+          "ppo/on_policy": 33
+        },
+        "requested_calls": 33,
+        "unique_calls": 33
+      },
+      "successful_terminal_count": 33,
+      "terminal_unique_count": 33,
+      "termination_reasons": {
+        "atom_limit_exceeded": 23,
+        "design_horizon_exhausted": 1,
+        "success": 33
+      },
+      "training_evaluator_ledger": {
+        "allowed_sources": [
+          "evaluation",
+          "ppo/on_policy"
+        ],
+        "backend_by_source": {
+          "ppo/on_policy": 63
+        },
+        "backend_calls": 63,
+        "budget_protocol_version": "terminal-requested-unique-backend-v2",
+        "cache_entries": 63,
+        "cache_hit_rate": 0.0,
+        "cache_hits": 0,
+        "cache_scope": "dapigen-p4a-native-ppo-standard-v1:preflight:20260910:training",
+        "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+        "invalid_results": 0,
+        "maximum_requested_calls": 512,
+        "maximum_unique_calls": 512,
+        "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+        "remaining_requested_calls": 449,
+        "remaining_unique_calls": 449,
+        "requested_by_source": {
+          "ppo/on_policy": 63
+        },
+        "requested_calls": 63,
+        "unique_by_source": {
+          "ppo/on_policy": 63
+        },
+        "unique_calls": 63
+      },
+      "transition_count": 128,
+      "update_metrics": {
+        "actor_loss": -0.06992196966893971,
+        "approximate_kl": 0.033287763595581055,
+        "clip_fraction": 0.134765625,
+        "entropy": 9.073752880096436,
+        "optimizer_steps": 8.0,
+        "stopped_for_target_kl": 1.0,
+        "value_loss": 0.2520879730582237
+      },
+      "update_receipt": {
+        "actor_advantages_sha256": "336a39fbe67966515f336d9221f615697cf6cf2ef15424db4444b9ba6ddfb083",
+        "critic_returns_sha256": "c3cab83cd98d668c14d5973e535895b5def1e9e25795dbd2ef82414d411e806c",
+        "engine_contract_id": "dapigen-p2-single-ppo-engine-v1",
+        "optimizer_step_completed": true,
+        "policy_version_after": 2,
+        "policy_version_before": 1,
+        "source_batch_id": "p2b-000001-5434c313e0f28036"
+      }
+    },
+    {
+      "actor_advantages_sha256": "2b4b329bbac0660969c65860feda06fbfbbbb828eeeab8e6aa70d97ddb6a80d8",
+      "batch_id": "p2b-000002-516162c05df8a9ca",
+      "credit_evaluator_delta": {
+        "backend_calls": 0,
+        "cache_hits": 0,
+        "requested_by_source": {},
+        "requested_calls": 0,
+        "unique_calls": 0
+      },
+      "critic_returns_sha256": "71e6a97c3b5ededecf5115588417372076dbeb25e0e97874f5737d1d2e93fdf7",
+      "cumulative_environment_transitions": 384,
+      "gae_sha256": "2b4b329bbac0660969c65860feda06fbfbbbb828eeeab8e6aa70d97ddb6a80d8",
+      "iteration": 3,
+      "policy_version": 3,
+      "reward_sum": 5.3148,
+      "rollout_digest": "b3568fc0605f8ec1294740cd1015e865bd6f26c03b9f8888419904186154edb2",
+      "rollout_evaluator_delta": {
+        "backend_calls": 32,
+        "cache_hits": 0,
+        "requested_by_source": {
+          "ppo/on_policy": 32
+        },
+        "requested_calls": 32,
+        "unique_calls": 32
+      },
+      "successful_terminal_count": 32,
+      "terminal_unique_count": 32,
+      "termination_reasons": {
+        "atom_limit_exceeded": 25,
+        "design_horizon_exhausted": 1,
+        "success": 32
+      },
+      "training_evaluator_ledger": {
+        "allowed_sources": [
+          "evaluation",
+          "ppo/on_policy"
+        ],
+        "backend_by_source": {
+          "ppo/on_policy": 95
+        },
+        "backend_calls": 95,
+        "budget_protocol_version": "terminal-requested-unique-backend-v2",
+        "cache_entries": 95,
+        "cache_hit_rate": 0.0,
+        "cache_hits": 0,
+        "cache_scope": "dapigen-p4a-native-ppo-standard-v1:preflight:20260910:training",
+        "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+        "invalid_results": 0,
+        "maximum_requested_calls": 512,
+        "maximum_unique_calls": 512,
+        "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+        "remaining_requested_calls": 417,
+        "remaining_unique_calls": 417,
+        "requested_by_source": {
+          "ppo/on_policy": 95
+        },
+        "requested_calls": 95,
+        "unique_by_source": {
+          "ppo/on_policy": 95
+        },
+        "unique_calls": 95
+      },
+      "transition_count": 128,
+      "update_metrics": {
+        "actor_loss": -0.06986886821687222,
+        "approximate_kl": 0.02913980931043625,
+        "clip_fraction": 0.12946428571428573,
+        "entropy": 9.27757031576974,
+        "optimizer_steps": 7.0,
+        "stopped_for_target_kl": 1.0,
+        "value_loss": 0.02018681980137314
+      },
+      "update_receipt": {
+        "actor_advantages_sha256": "2b4b329bbac0660969c65860feda06fbfbbbb828eeeab8e6aa70d97ddb6a80d8",
+        "critic_returns_sha256": "71e6a97c3b5ededecf5115588417372076dbeb25e0e97874f5737d1d2e93fdf7",
+        "engine_contract_id": "dapigen-p2-single-ppo-engine-v1",
+        "optimizer_step_completed": true,
+        "policy_version_after": 3,
+        "policy_version_before": 2,
+        "source_batch_id": "p2b-000002-516162c05df8a9ca"
+      }
+    },
+    {
+      "actor_advantages_sha256": "b4d6b1b889e6ee21c0866b5ce3801f510f5ab3685a48ab0209439fb9e6c26e40",
+      "batch_id": "p2b-000003-a313aef484bae364",
+      "credit_evaluator_delta": {
+        "backend_calls": 0,
+        "cache_hits": 0,
+        "requested_by_source": {},
+        "requested_calls": 0,
+        "unique_calls": 0
+      },
+      "critic_returns_sha256": "47e02b2ac4ee89f5bd3faa7c6c7bf36dcc2bb3bc2630406ef7a726a775931e28",
+      "cumulative_environment_transitions": 512,
+      "gae_sha256": "b4d6b1b889e6ee21c0866b5ce3801f510f5ab3685a48ab0209439fb9e6c26e40",
+      "iteration": 4,
+      "policy_version": 4,
+      "reward_sum": 6.668699999999999,
+      "rollout_digest": "c4af0f44a05ac8cd2f2c1d654c33375d4a5338aea03eb6980ae8841d6c7c075b",
+      "rollout_evaluator_delta": {
+        "backend_calls": 27,
+        "cache_hits": 0,
+        "requested_by_source": {
+          "ppo/on_policy": 27
+        },
+        "requested_calls": 27,
+        "unique_calls": 27
+      },
+      "successful_terminal_count": 27,
+      "terminal_unique_count": 27,
+      "termination_reasons": {
+        "atom_limit_exceeded": 26,
+        "success": 27
+      },
+      "training_evaluator_ledger": {
+        "allowed_sources": [
+          "evaluation",
+          "ppo/on_policy"
+        ],
+        "backend_by_source": {
+          "ppo/on_policy": 122
+        },
+        "backend_calls": 122,
+        "budget_protocol_version": "terminal-requested-unique-backend-v2",
+        "cache_entries": 122,
+        "cache_hit_rate": 0.0,
+        "cache_hits": 0,
+        "cache_scope": "dapigen-p4a-native-ppo-standard-v1:preflight:20260910:training",
+        "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+        "invalid_results": 0,
+        "maximum_requested_calls": 512,
+        "maximum_unique_calls": 512,
+        "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+        "remaining_requested_calls": 390,
+        "remaining_unique_calls": 390,
+        "requested_by_source": {
+          "ppo/on_policy": 122
+        },
+        "requested_calls": 122,
+        "unique_by_source": {
+          "ppo/on_policy": 122
+        },
+        "unique_calls": 122
+      },
+      "transition_count": 128,
+      "update_metrics": {
+        "actor_loss": -0.06302756230745997,
+        "approximate_kl": 0.02803260087966919,
+        "clip_fraction": 0.14955357142857142,
+        "entropy": 8.941676548549108,
+        "optimizer_steps": 7.0,
+        "stopped_for_target_kl": 1.0,
+        "value_loss": 0.019097996476505483
+      },
+      "update_receipt": {
+        "actor_advantages_sha256": "b4d6b1b889e6ee21c0866b5ce3801f510f5ab3685a48ab0209439fb9e6c26e40",
+        "critic_returns_sha256": "47e02b2ac4ee89f5bd3faa7c6c7bf36dcc2bb3bc2630406ef7a726a775931e28",
+        "engine_contract_id": "dapigen-p2-single-ppo-engine-v1",
+        "optimizer_step_completed": true,
+        "policy_version_after": 4,
+        "policy_version_before": 3,
+        "source_batch_id": "p2b-000003-a313aef484bae364"
+      }
+    },
+    {
+      "actor_advantages_sha256": "af4be4d6d0162ce02e6790ff93b752f9d65b683bba2b302f01ea6ae646ea381b",
+      "batch_id": "p2b-000004-b0d5d92aca689f4e",
+      "credit_evaluator_delta": {
+        "backend_calls": 0,
+        "cache_hits": 0,
+        "requested_by_source": {},
+        "requested_calls": 0,
+        "unique_calls": 0
+      },
+      "critic_returns_sha256": "d58cf00b80a4277514f150aa540288b9c52db3712dc26464c2c76c135639ce40",
+      "cumulative_environment_transitions": 640,
+      "gae_sha256": "af4be4d6d0162ce02e6790ff93b752f9d65b683bba2b302f01ea6ae646ea381b",
+      "iteration": 5,
+      "policy_version": 5,
+      "reward_sum": 5.5607,
+      "rollout_digest": "1dad2fee156c1283fb8a726b2492bcae569e465c2e38dec6ab87824450696a24",
+      "rollout_evaluator_delta": {
+        "backend_calls": 22,
+        "cache_hits": 0,
+        "requested_by_source": {
+          "ppo/on_policy": 22
+        },
+        "requested_calls": 22,
+        "unique_calls": 22
+      },
+      "successful_terminal_count": 22,
+      "terminal_unique_count": 22,
+      "termination_reasons": {
+        "atom_limit_exceeded": 28,
+        "design_horizon_exhausted": 1,
+        "success": 22
+      },
+      "training_evaluator_ledger": {
+        "allowed_sources": [
+          "evaluation",
+          "ppo/on_policy"
+        ],
+        "backend_by_source": {
+          "ppo/on_policy": 144
+        },
+        "backend_calls": 144,
+        "budget_protocol_version": "terminal-requested-unique-backend-v2",
+        "cache_entries": 144,
+        "cache_hit_rate": 0.0,
+        "cache_hits": 0,
+        "cache_scope": "dapigen-p4a-native-ppo-standard-v1:preflight:20260910:training",
+        "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+        "invalid_results": 0,
+        "maximum_requested_calls": 512,
+        "maximum_unique_calls": 512,
+        "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+        "remaining_requested_calls": 368,
+        "remaining_unique_calls": 368,
+        "requested_by_source": {
+          "ppo/on_policy": 144
+        },
+        "requested_calls": 144,
+        "unique_by_source": {
+          "ppo/on_policy": 144
+        },
+        "unique_calls": 144
+      },
+      "transition_count": 128,
+      "update_metrics": {
+        "actor_loss": -0.05799437952893121,
+        "approximate_kl": 0.02934934012591839,
+        "clip_fraction": 0.14285714285714285,
+        "entropy": 8.89270441872733,
+        "optimizer_steps": 7.0,
+        "stopped_for_target_kl": 1.0,
+        "value_loss": 0.012278539793831962
+      },
+      "update_receipt": {
+        "actor_advantages_sha256": "af4be4d6d0162ce02e6790ff93b752f9d65b683bba2b302f01ea6ae646ea381b",
+        "critic_returns_sha256": "d58cf00b80a4277514f150aa540288b9c52db3712dc26464c2c76c135639ce40",
+        "engine_contract_id": "dapigen-p2-single-ppo-engine-v1",
+        "optimizer_step_completed": true,
+        "policy_version_after": 5,
+        "policy_version_before": 4,
+        "source_batch_id": "p2b-000004-b0d5d92aca689f4e"
+      }
+    },
+    {
+      "actor_advantages_sha256": "af9a08a370c40b721a225a7d3df48dadc6c474204374f48b5b8dc44840c8b3e1",
+      "batch_id": "p2b-000005-c5194dc7404e48c0",
+      "credit_evaluator_delta": {
+        "backend_calls": 0,
+        "cache_hits": 0,
+        "requested_by_source": {},
+        "requested_calls": 0,
+        "unique_calls": 0
+      },
+      "critic_returns_sha256": "323be9842b0e8696544986e5730c70a4b3b92134c749dfdab1e7789908d1b954",
+      "cumulative_environment_transitions": 768,
+      "gae_sha256": "af9a08a370c40b721a225a7d3df48dadc6c474204374f48b5b8dc44840c8b3e1",
+      "iteration": 6,
+      "policy_version": 6,
+      "reward_sum": 4.149699999999998,
+      "rollout_digest": "e7a089011ed8b47df9bb94a5724a859c4095a21627dc3709e8b52c8a40755928",
+      "rollout_evaluator_delta": {
+        "backend_calls": 19,
+        "cache_hits": 0,
+        "requested_by_source": {
+          "ppo/on_policy": 19
+        },
+        "requested_calls": 19,
+        "unique_calls": 19
+      },
+      "successful_terminal_count": 19,
+      "terminal_unique_count": 19,
+      "termination_reasons": {
+        "atom_limit_exceeded": 33,
+        "design_horizon_exhausted": 1,
+        "success": 19
+      },
+      "training_evaluator_ledger": {
+        "allowed_sources": [
+          "evaluation",
+          "ppo/on_policy"
+        ],
+        "backend_by_source": {
+          "ppo/on_policy": 163
+        },
+        "backend_calls": 163,
+        "budget_protocol_version": "terminal-requested-unique-backend-v2",
+        "cache_entries": 163,
+        "cache_hit_rate": 0.0,
+        "cache_hits": 0,
+        "cache_scope": "dapigen-p4a-native-ppo-standard-v1:preflight:20260910:training",
+        "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+        "invalid_results": 0,
+        "maximum_requested_calls": 512,
+        "maximum_unique_calls": 512,
+        "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+        "remaining_requested_calls": 349,
+        "remaining_unique_calls": 349,
+        "requested_by_source": {
+          "ppo/on_policy": 163
+        },
+        "requested_calls": 163,
+        "unique_by_source": {
+          "ppo/on_policy": 163
+        },
+        "unique_calls": 163
+      },
+      "transition_count": 128,
+      "update_metrics": {
+        "actor_loss": -0.056551855678359665,
+        "approximate_kl": 0.022572148591279984,
+        "clip_fraction": 0.10677083333333333,
+        "entropy": 8.976238568623861,
+        "optimizer_steps": 6.0,
+        "stopped_for_target_kl": 1.0,
+        "value_loss": 0.011623029441883167
+      },
+      "update_receipt": {
+        "actor_advantages_sha256": "af9a08a370c40b721a225a7d3df48dadc6c474204374f48b5b8dc44840c8b3e1",
+        "critic_returns_sha256": "323be9842b0e8696544986e5730c70a4b3b92134c749dfdab1e7789908d1b954",
+        "engine_contract_id": "dapigen-p2-single-ppo-engine-v1",
+        "optimizer_step_completed": true,
+        "policy_version_after": 6,
+        "policy_version_before": 5,
+        "source_batch_id": "p2b-000005-c5194dc7404e48c0"
+      }
+    },
+    {
+      "actor_advantages_sha256": "bf4ca1b5eac5a70493516e9139570026909ab2ae0602bc97d569e183f7e683e0",
+      "batch_id": "p2b-000006-617cc15dc857bdb9",
+      "credit_evaluator_delta": {
+        "backend_calls": 0,
+        "cache_hits": 0,
+        "requested_by_source": {},
+        "requested_calls": 0,
+        "unique_calls": 0
+      },
+      "critic_returns_sha256": "b6bb3c882d0872c4bd01972277b3e413298d65b4048d1bdcc076af1c760ab70b",
+      "cumulative_environment_transitions": 896,
+      "gae_sha256": "bf4ca1b5eac5a70493516e9139570026909ab2ae0602bc97d569e183f7e683e0",
+      "iteration": 7,
+      "policy_version": 7,
+      "reward_sum": 5.8094,
+      "rollout_digest": "50f19175912cfb74f1ffd46cf9b55790be6e31ed6e8c2b9b819d8456a2a82d3c",
+      "rollout_evaluator_delta": {
+        "backend_calls": 26,
+        "cache_hits": 0,
+        "requested_by_source": {
+          "ppo/on_policy": 26
+        },
+        "requested_calls": 26,
+        "unique_calls": 26
+      },
+      "successful_terminal_count": 26,
+      "terminal_unique_count": 26,
+      "termination_reasons": {
+        "atom_limit_exceeded": 29,
+        "success": 26
+      },
+      "training_evaluator_ledger": {
+        "allowed_sources": [
+          "evaluation",
+          "ppo/on_policy"
+        ],
+        "backend_by_source": {
+          "ppo/on_policy": 189
+        },
+        "backend_calls": 189,
+        "budget_protocol_version": "terminal-requested-unique-backend-v2",
+        "cache_entries": 189,
+        "cache_hit_rate": 0.0,
+        "cache_hits": 0,
+        "cache_scope": "dapigen-p4a-native-ppo-standard-v1:preflight:20260910:training",
+        "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+        "invalid_results": 0,
+        "maximum_requested_calls": 512,
+        "maximum_unique_calls": 512,
+        "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+        "remaining_requested_calls": 323,
+        "remaining_unique_calls": 323,
+        "requested_by_source": {
+          "ppo/on_policy": 189
+        },
+        "requested_calls": 189,
+        "unique_by_source": {
+          "ppo/on_policy": 189
+        },
+        "unique_calls": 189
+      },
+      "transition_count": 128,
+      "update_metrics": {
+        "actor_loss": -0.05852572744091352,
+        "approximate_kl": 0.02358604222536087,
+        "clip_fraction": 0.10677083333333333,
+        "entropy": 8.732767899831137,
+        "optimizer_steps": 6.0,
+        "stopped_for_target_kl": 1.0,
+        "value_loss": 0.01568336272612214
+      },
+      "update_receipt": {
+        "actor_advantages_sha256": "bf4ca1b5eac5a70493516e9139570026909ab2ae0602bc97d569e183f7e683e0",
+        "critic_returns_sha256": "b6bb3c882d0872c4bd01972277b3e413298d65b4048d1bdcc076af1c760ab70b",
+        "engine_contract_id": "dapigen-p2-single-ppo-engine-v1",
+        "optimizer_step_completed": true,
+        "policy_version_after": 7,
+        "policy_version_before": 6,
+        "source_batch_id": "p2b-000006-617cc15dc857bdb9"
+      }
+    },
+    {
+      "actor_advantages_sha256": "2ea45bfb67859f7ce20cb79715cc41478ea17847a26ddd13ace7fb65c1217f8e",
+      "batch_id": "p2b-000007-e9cc60ee657b1af2",
+      "credit_evaluator_delta": {
+        "backend_calls": 0,
+        "cache_hits": 0,
+        "requested_by_source": {},
+        "requested_calls": 0,
+        "unique_calls": 0
+      },
+      "critic_returns_sha256": "e9135ac41aa16ed36d9d58163c6d94ca05dc6175a7e26fa4eb744f154c84a1c5",
+      "cumulative_environment_transitions": 1024,
+      "gae_sha256": "2ea45bfb67859f7ce20cb79715cc41478ea17847a26ddd13ace7fb65c1217f8e",
+      "iteration": 8,
+      "policy_version": 8,
+      "reward_sum": 10.672200000000002,
+      "rollout_digest": "0de274ed70405c05d67301f70c6896535af5311942baad29b6fe7a579c6fc517",
+      "rollout_evaluator_delta": {
+        "backend_calls": 42,
+        "cache_hits": 0,
+        "requested_by_source": {
+          "ppo/on_policy": 42
+        },
+        "requested_calls": 42,
+        "unique_calls": 42
+      },
+      "successful_terminal_count": 42,
+      "terminal_unique_count": 42,
+      "termination_reasons": {
+        "atom_limit_exceeded": 27,
+        "success": 42
+      },
+      "training_evaluator_ledger": {
+        "allowed_sources": [
+          "evaluation",
+          "ppo/on_policy"
+        ],
+        "backend_by_source": {
+          "ppo/on_policy": 231
+        },
+        "backend_calls": 231,
+        "budget_protocol_version": "terminal-requested-unique-backend-v2",
+        "cache_entries": 231,
+        "cache_hit_rate": 0.0,
+        "cache_hits": 0,
+        "cache_scope": "dapigen-p4a-native-ppo-standard-v1:preflight:20260910:training",
+        "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+        "invalid_results": 0,
+        "maximum_requested_calls": 512,
+        "maximum_unique_calls": 512,
+        "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+        "remaining_requested_calls": 281,
+        "remaining_unique_calls": 281,
+        "requested_by_source": {
+          "ppo/on_policy": 231
+        },
+        "requested_calls": 231,
+        "unique_by_source": {
+          "ppo/on_policy": 231
+        },
+        "unique_calls": 231
+      },
+      "transition_count": 128,
+      "update_metrics": {
+        "actor_loss": -0.07017791333297889,
+        "approximate_kl": 0.03044976107776165,
+        "clip_fraction": 0.14583333333333334,
+        "entropy": 9.843604882558187,
+        "optimizer_steps": 6.0,
+        "stopped_for_target_kl": 1.0,
+        "value_loss": 0.015875832953800757
+      },
+      "update_receipt": {
+        "actor_advantages_sha256": "2ea45bfb67859f7ce20cb79715cc41478ea17847a26ddd13ace7fb65c1217f8e",
+        "critic_returns_sha256": "e9135ac41aa16ed36d9d58163c6d94ca05dc6175a7e26fa4eb744f154c84a1c5",
+        "engine_contract_id": "dapigen-p2-single-ppo-engine-v1",
+        "optimizer_step_completed": true,
+        "policy_version_after": 8,
+        "policy_version_before": 7,
+        "source_batch_id": "p2b-000007-e9cc60ee657b1af2"
+      }
+    },
+    {
+      "actor_advantages_sha256": "55716e9641f78dda47bb83287a733475385bbfbeaabae899c9a35d6c7bd06dfc",
+      "batch_id": "p2b-000008-eb5f6ea9f0b5651e",
+      "credit_evaluator_delta": {
+        "backend_calls": 0,
+        "cache_hits": 0,
+        "requested_by_source": {},
+        "requested_calls": 0,
+        "unique_calls": 0
+      },
+      "critic_returns_sha256": "58010a0d30caee735c0c989a82b597b369e86d20e4a2c6334e22e1a89568419a",
+      "cumulative_environment_transitions": 1152,
+      "gae_sha256": "55716e9641f78dda47bb83287a733475385bbfbeaabae899c9a35d6c7bd06dfc",
+      "iteration": 9,
+      "policy_version": 9,
+      "reward_sum": 10.9438,
+      "rollout_digest": "289499ad3adade7115fc70e03b154a43a2e9a304f92899545124110ca9c02f79",
+      "rollout_evaluator_delta": {
+        "backend_calls": 40,
+        "cache_hits": 0,
+        "requested_by_source": {
+          "ppo/on_policy": 40
+        },
+        "requested_calls": 40,
+        "unique_calls": 40
+      },
+      "successful_terminal_count": 40,
+      "terminal_unique_count": 40,
+      "termination_reasons": {
+        "atom_limit_exceeded": 23,
+        "success": 40
+      },
+      "training_evaluator_ledger": {
+        "allowed_sources": [
+          "evaluation",
+          "ppo/on_policy"
+        ],
+        "backend_by_source": {
+          "ppo/on_policy": 271
+        },
+        "backend_calls": 271,
+        "budget_protocol_version": "terminal-requested-unique-backend-v2",
+        "cache_entries": 271,
+        "cache_hit_rate": 0.0,
+        "cache_hits": 0,
+        "cache_scope": "dapigen-p4a-native-ppo-standard-v1:preflight:20260910:training",
+        "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+        "invalid_results": 0,
+        "maximum_requested_calls": 512,
+        "maximum_unique_calls": 512,
+        "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+        "remaining_requested_calls": 241,
+        "remaining_unique_calls": 241,
+        "requested_by_source": {
+          "ppo/on_policy": 271
+        },
+        "requested_calls": 271,
+        "unique_by_source": {
+          "ppo/on_policy": 271
+        },
+        "unique_calls": 271
+      },
+      "transition_count": 128,
+      "update_metrics": {
+        "actor_loss": -0.10193334817886353,
+        "approximate_kl": 0.020826514810323715,
+        "clip_fraction": 0.09375,
+        "entropy": 9.580271911621093,
+        "optimizer_steps": 5.0,
+        "stopped_for_target_kl": 1.0,
+        "value_loss": 0.01576791685074568
+      },
+      "update_receipt": {
+        "actor_advantages_sha256": "55716e9641f78dda47bb83287a733475385bbfbeaabae899c9a35d6c7bd06dfc",
+        "critic_returns_sha256": "58010a0d30caee735c0c989a82b597b369e86d20e4a2c6334e22e1a89568419a",
+        "engine_contract_id": "dapigen-p2-single-ppo-engine-v1",
+        "optimizer_step_completed": true,
+        "policy_version_after": 9,
+        "policy_version_before": 8,
+        "source_batch_id": "p2b-000008-eb5f6ea9f0b5651e"
+      }
+    },
+    {
+      "actor_advantages_sha256": "182a1e40b04444d7efd8b8bc861927db1fb0276425fef145a1f7c4448b64cd76",
+      "batch_id": "p2b-000009-1e2d9a55cee1dba1",
+      "credit_evaluator_delta": {
+        "backend_calls": 0,
+        "cache_hits": 0,
+        "requested_by_source": {},
+        "requested_calls": 0,
+        "unique_calls": 0
+      },
+      "critic_returns_sha256": "000d61eab39c385c61ba58c4766df3e20134d77c10a9b21b878ff5ff267b9af1",
+      "cumulative_environment_transitions": 1280,
+      "gae_sha256": "182a1e40b04444d7efd8b8bc861927db1fb0276425fef145a1f7c4448b64cd76",
+      "iteration": 10,
+      "policy_version": 10,
+      "reward_sum": 8.4417,
+      "rollout_digest": "931393c8914172e2602cc526a5e81999b5e4db4723ebd5c6b3bbe304a0ae3820",
+      "rollout_evaluator_delta": {
+        "backend_calls": 43,
+        "cache_hits": 0,
+        "requested_by_source": {
+          "ppo/on_policy": 43
+        },
+        "requested_calls": 43,
+        "unique_calls": 43
+      },
+      "successful_terminal_count": 43,
+      "terminal_unique_count": 43,
+      "termination_reasons": {
+        "atom_limit_exceeded": 23,
+        "success": 43
+      },
+      "training_evaluator_ledger": {
+        "allowed_sources": [
+          "evaluation",
+          "ppo/on_policy"
+        ],
+        "backend_by_source": {
+          "ppo/on_policy": 314
+        },
+        "backend_calls": 314,
+        "budget_protocol_version": "terminal-requested-unique-backend-v2",
+        "cache_entries": 314,
+        "cache_hit_rate": 0.0,
+        "cache_hits": 0,
+        "cache_scope": "dapigen-p4a-native-ppo-standard-v1:preflight:20260910:training",
+        "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+        "invalid_results": 0,
+        "maximum_requested_calls": 512,
+        "maximum_unique_calls": 512,
+        "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+        "remaining_requested_calls": 198,
+        "remaining_unique_calls": 198,
+        "requested_by_source": {
+          "ppo/on_policy": 314
+        },
+        "requested_calls": 314,
+        "unique_by_source": {
+          "ppo/on_policy": 314
+        },
+        "unique_calls": 314
+      },
+      "transition_count": 128,
+      "update_metrics": {
+        "actor_loss": -0.04889114797115326,
+        "approximate_kl": 0.02716066688299179,
+        "clip_fraction": 0.128125,
+        "entropy": 9.351717948913574,
+        "optimizer_steps": 5.0,
+        "stopped_for_target_kl": 1.0,
+        "value_loss": 0.01298420261591673
+      },
+      "update_receipt": {
+        "actor_advantages_sha256": "182a1e40b04444d7efd8b8bc861927db1fb0276425fef145a1f7c4448b64cd76",
+        "critic_returns_sha256": "000d61eab39c385c61ba58c4766df3e20134d77c10a9b21b878ff5ff267b9af1",
+        "engine_contract_id": "dapigen-p2-single-ppo-engine-v1",
+        "optimizer_step_completed": true,
+        "policy_version_after": 10,
+        "policy_version_before": 9,
+        "source_batch_id": "p2b-000009-1e2d9a55cee1dba1"
+      }
+    },
+    {
+      "actor_advantages_sha256": "3d3dc9567bd13c4ab62e3b68cfd9d6024495b424d768f9f3305939137617a0ef",
+      "batch_id": "p2b-000010-e787d1ab3f09ea0f",
+      "credit_evaluator_delta": {
+        "backend_calls": 0,
+        "cache_hits": 0,
+        "requested_by_source": {},
+        "requested_calls": 0,
+        "unique_calls": 0
+      },
+      "critic_returns_sha256": "4aa8dd463fc72d6ebae34c4822d4ccefca5cd6a6ec0c170546e4e378da30c74d",
+      "cumulative_environment_transitions": 1408,
+      "gae_sha256": "3d3dc9567bd13c4ab62e3b68cfd9d6024495b424d768f9f3305939137617a0ef",
+      "iteration": 11,
+      "policy_version": 11,
+      "reward_sum": 10.533799999999998,
+      "rollout_digest": "0f4473663603c31dcdfa7cda0dca1c1b4c91d2c1e3ad04e9ef432ae92760c7dc",
+      "rollout_evaluator_delta": {
+        "backend_calls": 41,
+        "cache_hits": 0,
+        "requested_by_source": {
+          "ppo/on_policy": 41
+        },
+        "requested_calls": 41,
+        "unique_calls": 41
+      },
+      "successful_terminal_count": 41,
+      "terminal_unique_count": 41,
+      "termination_reasons": {
+        "atom_limit_exceeded": 21,
+        "success": 41
+      },
+      "training_evaluator_ledger": {
+        "allowed_sources": [
+          "evaluation",
+          "ppo/on_policy"
+        ],
+        "backend_by_source": {
+          "ppo/on_policy": 355
+        },
+        "backend_calls": 355,
+        "budget_protocol_version": "terminal-requested-unique-backend-v2",
+        "cache_entries": 355,
+        "cache_hit_rate": 0.0,
+        "cache_hits": 0,
+        "cache_scope": "dapigen-p4a-native-ppo-standard-v1:preflight:20260910:training",
+        "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+        "invalid_results": 0,
+        "maximum_requested_calls": 512,
+        "maximum_unique_calls": 512,
+        "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+        "remaining_requested_calls": 157,
+        "remaining_unique_calls": 157,
+        "requested_by_source": {
+          "ppo/on_policy": 355
+        },
+        "requested_calls": 355,
+        "unique_by_source": {
+          "ppo/on_policy": 355
+        },
+        "unique_calls": 355
+      },
+      "transition_count": 128,
+      "update_metrics": {
+        "actor_loss": -0.04264846593141556,
+        "approximate_kl": 0.026270393282175064,
+        "clip_fraction": 0.121875,
+        "entropy": 8.991947174072266,
+        "optimizer_steps": 5.0,
+        "stopped_for_target_kl": 1.0,
+        "value_loss": 0.014252563379704953
+      },
+      "update_receipt": {
+        "actor_advantages_sha256": "3d3dc9567bd13c4ab62e3b68cfd9d6024495b424d768f9f3305939137617a0ef",
+        "critic_returns_sha256": "4aa8dd463fc72d6ebae34c4822d4ccefca5cd6a6ec0c170546e4e378da30c74d",
+        "engine_contract_id": "dapigen-p2-single-ppo-engine-v1",
+        "optimizer_step_completed": true,
+        "policy_version_after": 11,
+        "policy_version_before": 10,
+        "source_batch_id": "p2b-000010-e787d1ab3f09ea0f"
+      }
+    },
+    {
+      "actor_advantages_sha256": "0939b8ac0fdd2ce0c719fd244d80e39c5c04e12416ce766c4ab2f56d5b277316",
+      "batch_id": "p2b-000011-cdb977ae8383f2ff",
+      "credit_evaluator_delta": {
+        "backend_calls": 0,
+        "cache_hits": 0,
+        "requested_by_source": {},
+        "requested_calls": 0,
+        "unique_calls": 0
+      },
+      "critic_returns_sha256": "e731a335114bec5e59b432353fd137792f64c52523c0155dbf440646ca984f12",
+      "cumulative_environment_transitions": 1536,
+      "gae_sha256": "0939b8ac0fdd2ce0c719fd244d80e39c5c04e12416ce766c4ab2f56d5b277316",
+      "iteration": 12,
+      "policy_version": 12,
+      "reward_sum": 9.876199999999999,
+      "rollout_digest": "7551d2046d14e783265175f3bc041be72255737aa5c1670f88043d1b7018b0ee",
+      "rollout_evaluator_delta": {
+        "backend_calls": 35,
+        "cache_hits": 0,
+        "requested_by_source": {
+          "ppo/on_policy": 35
+        },
+        "requested_calls": 35,
+        "unique_calls": 35
+      },
+      "successful_terminal_count": 35,
+      "terminal_unique_count": 35,
+      "termination_reasons": {
+        "atom_limit_exceeded": 28,
+        "success": 35
+      },
+      "training_evaluator_ledger": {
+        "allowed_sources": [
+          "evaluation",
+          "ppo/on_policy"
+        ],
+        "backend_by_source": {
+          "ppo/on_policy": 390
+        },
+        "backend_calls": 390,
+        "budget_protocol_version": "terminal-requested-unique-backend-v2",
+        "cache_entries": 390,
+        "cache_hit_rate": 0.0,
+        "cache_hits": 0,
+        "cache_scope": "dapigen-p4a-native-ppo-standard-v1:preflight:20260910:training",
+        "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+        "invalid_results": 0,
+        "maximum_requested_calls": 512,
+        "maximum_unique_calls": 512,
+        "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+        "remaining_requested_calls": 122,
+        "remaining_unique_calls": 122,
+        "requested_by_source": {
+          "ppo/on_policy": 390
+        },
+        "requested_calls": 390,
+        "unique_by_source": {
+          "ppo/on_policy": 390
+        },
+        "unique_calls": 390
+      },
+      "transition_count": 128,
+      "update_metrics": {
+        "actor_loss": -0.05875500440597534,
+        "approximate_kl": 0.02411218360066414,
+        "clip_fraction": 0.109375,
+        "entropy": 9.279879760742187,
+        "optimizer_steps": 5.0,
+        "stopped_for_target_kl": 1.0,
+        "value_loss": 0.013858834467828273
+      },
+      "update_receipt": {
+        "actor_advantages_sha256": "0939b8ac0fdd2ce0c719fd244d80e39c5c04e12416ce766c4ab2f56d5b277316",
+        "critic_returns_sha256": "e731a335114bec5e59b432353fd137792f64c52523c0155dbf440646ca984f12",
+        "engine_contract_id": "dapigen-p2-single-ppo-engine-v1",
+        "optimizer_step_completed": true,
+        "policy_version_after": 12,
+        "policy_version_before": 11,
+        "source_batch_id": "p2b-000011-cdb977ae8383f2ff"
+      }
+    }
+  ],
+  "mode": "preflight",
+  "model_and_stack_build_seconds": 4.051639329642057,
+  "platform": "Linux-4.18.0-553.63.1.el8_10.x86_64-x86_64-with-glibc2.17",
+  "ppo": {
+    "adam_epsilon": 1e-08,
+    "clip_ratio": 0.2,
+    "deterministic_torch": true,
+    "device": "cuda:0",
+    "entropy_coefficient": 0.01,
+    "gae_lambda": 0.95,
+    "gamma": 1.0,
+    "hidden_sizes": [
+      256,
+      256
+    ],
+    "learning_rate": 0.0003,
+    "maximum_gradient_norm": 0.5,
+    "minibatch_size": 64,
+    "normalize_actor_advantages": true,
+    "rollout_steps": 128,
+    "seed": 20260910,
+    "target_kl": 0.02,
+    "update_epochs": 4,
+    "value_clip": 0.2,
+    "value_loss_coefficient": 0.5
+  },
+  "protocol_id": "dapigen-p4a-native-ppo-standard-v1",
+  "protocol_sha256": "7bdc2a4fc35aa14a6f2c52f3d34b6945718ef826d7145de030f729ac54685f33",
+  "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "resources": {
+    "cuda_max_memory_allocated_bytes": 316633600,
+    "cuda_max_memory_reserved_bytes": 333447168,
+    "peak_rss_mib": 1952.8515625
+  },
+  "run_contract": {
+    "allowed_evaluator_sources": [
+      "evaluation",
+      "ppo/on_policy"
+    ],
+    "budget_contract_id": "15b487e9436b86d8f86ea2c68ba4635aae6efd53e8acee9bfd33cd956c45ce42",
+    "credit_estimator_contract_id": "dapigen-p2-credit-estimator-v1",
+    "environment_id": "dapigen:73e734c85af47dd503115d85",
+    "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "method": "ppo",
+    "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+    "ppo_engine_contract_id": "dapigen-p2-single-ppo-engine-v1",
+    "ppo_hyperparameters_sha256": "49b672791785a4dd38332f544145169a9bf8eda3b7ab05eb29910686e8bed6a1",
+    "task_contract_id": "237bfedb2bfa364f3251b47c4e6f83f1ba99ad698c7e1cdde65c62c9f1d0768e"
+  },
+  "run_specification": {
+    "checkpoint_requested_calls": [
+      0,
+      256,
+      512
+    ],
+    "evaluation": {
+      "compute_paper_metrics": true,
+      "explore": false,
+      "max_episode_steps": 5,
+      "minimum_valid_samples": 2,
+      "progress_every": 32,
+      "reference_column": "smile",
+      "reference_csv": "raw_data/PI.csv",
+      "samples": 128
+    },
+    "maximum_iterations": 64,
+    "maximum_training_requested_calls": 512,
+    "maximum_training_unique_calls": 512,
+    "minimum_training_requested_calls": 385
+  },
+  "schema_version": 1,
+  "sealed_test_accessed": false,
+  "seed": 20260910,
+  "slurm": {
+    "array_job_id": null,
+    "array_task_id": null,
+    "cpus_per_task": "8",
+    "cuda_visible_devices": "0",
+    "job_id": "4674"
+  },
+  "source": {
+    "commit": "0c33bced38ae321247f952e0d36a52b830c1efa2",
+    "dirty": false
+  },
+  "stack_specification": {
+    "chemistry_backend": "dapigen-legacy-chemistry-deterministic-v2:dapigen_custom-sha256-e9f66fcccf1fe399:rdkit-2022.09.5",
+    "config": {
+      "attachment_label_max": 16,
+      "complete_block_policy": "pristine_only",
+      "environment_version": "dapigen-stage0-standard-v2.3",
+      "failure_reward": 0.0,
+      "horizon_semantics": "failure_terminal",
+      "include_terminal_candidates_in_info": false,
+      "invalid_action_handling": "raise",
+      "mask_mode": "closure_exact_cached",
+      "max_atoms": 60,
+      "max_steps": 5,
+      "minimum_diamine_growth_steps": 0,
+      "minimum_dianhydride_growth_steps": 0,
+      "observation_mode": "augmented_v3",
+      "product_selection": "seeded_uniform"
+    },
+    "diamine_catalog_sha256": "0a91e1b7084692136139379b69a06301ed510750dc8f32220cee0cba6a49100a",
+    "diamine_noop_id": 1004,
+    "dianhydride_catalog_sha256": "0a021f30b960a251b763ef6c0e0133e4f6d1214c1fa91da272a2cb241693b934",
+    "dianhydride_noop_id": 576,
+    "encoder_version": "polybert-sha256:1d0e5a434e64fc9698871d2c",
+    "environment_id": "dapigen:73e734c85af47dd503115d85",
+    "environment_version": "dapigen-stage0-standard-v2.3",
+    "initial_diamine_smiles": "[16*]c1ccc(N)cc1",
+    "initial_dianhydride_smiles": "[16*]c1ccc2c(c1)C(=O)OC2=O",
+    "number_of_diamine_actions": 1005,
+    "number_of_dianhydride_actions": 577,
+    "observation_dimension": 1246,
+    "product_selection_estimand": "common-uniform-quantile-over-sorted-unique-products-v1",
+    "state_schema_version": 3
+  },
+  "started_at": "2026-09-04T11:57:56.255698+00:00",
+  "status": "failed_gate",
+  "stop_reason": "insufficient_remaining_budget_for_reserved_rollout",
+  "torch": "2.1.2",
+  "traceback": "Traceback (most recent call last):\n  File \"reproduction/p4/scripts/run_native_ppo_baseline.py\", line 659, in main\n    raise RuntimeError(\"P4-A acceptance gate failed: %s\" % checks)\nRuntimeError: P4-A acceptance gate failed: {'clean_git': True, 'slurm_execution': True, 'required_host': True, 'accepted_stage0_source_unchanged': True, 'accepted_p1_commit': True, 'accepted_environment': False, 'accepted_task_configuration': True, 'accepted_observation_dimension': True, 'accepted_evaluator': True, 'accepted_objective': True, 'standard_five_step_task': True, 'training_budget_lower_bound': True, 'training_budget_upper_bound': True, 'training_source_isolated': True, 'training_evaluator_valid': True, 'finite_exact_gae_updates': True, 'policy_changed': True, 'policy_version_matches_iterations': True, 'checkpoint_targets_complete': True, 'evaluation_metrics_complete': True, 'checkpoint_roundtrip': True, 'sealed_test_not_accessed': True, 'external_api_not_invoked': True}\n",
+  "training_evaluator_ledger": {
+    "allowed_sources": [
+      "evaluation",
+      "ppo/on_policy"
+    ],
+    "backend_by_source": {
+      "ppo/on_policy": 390
+    },
+    "backend_calls": 390,
+    "budget_protocol_version": "terminal-requested-unique-backend-v2",
+    "cache_entries": 390,
+    "cache_hit_rate": 0.0,
+    "cache_hits": 0,
+    "cache_scope": "dapigen-p4a-native-ppo-standard-v1:preflight:20260910:training",
+    "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "invalid_results": 0,
+    "maximum_requested_calls": 512,
+    "maximum_unique_calls": 512,
+    "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+    "remaining_requested_calls": 122,
+    "remaining_unique_calls": 122,
+    "requested_by_source": {
+      "ppo/on_policy": 390
+    },
+    "requested_calls": 390,
+    "unique_by_source": {
+      "ppo/on_policy": 390
+    },
+    "unique_calls": 390
+  }
+}

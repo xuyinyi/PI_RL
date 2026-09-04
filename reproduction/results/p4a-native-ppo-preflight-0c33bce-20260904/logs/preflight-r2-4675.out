@@ -1,0 +1,81 @@
+job_id=4675 host=yanlih100n1 cpus=8
+repo_root=/home/wch/workspaces/DAPiGen-reproduction/p4a-native-ppo-0c33bce-clean output_dir=/home/wch/workspaces/DAPiGen-reproduction/runs/p4a-native-ppo-0c33bce/preflight-seed-20260910-r2
+0, NVIDIA H100 80GB HBM3, GPU-03068b81-fa6b-f9df-55b0-9dceed2a481c, 81559 MiB
+1, NVIDIA H100 80GB HBM3, GPU-bec01859-a9c2-4efd-1084-09c6ce93403d, 81559 MiB
+2, NVIDIA H100 80GB HBM3, GPU-555c9266-e44c-11f2-5f85-e4fa2c75275e, 81559 MiB
+3, NVIDIA H100 80GB HBM3, GPU-c587808a-0204-5c97-2ae1-0adaa8130295, 81559 MiB
+4, NVIDIA H100 80GB HBM3, GPU-053e7d1b-f234-548d-79fd-732cfef5e3dc, 81559 MiB
+5, NVIDIA H100 80GB HBM3, GPU-710449b3-bffc-9940-dcfc-1d7806b27077, 81559 MiB
+6, NVIDIA H100 80GB HBM3, GPU-c3870331-bbb2-2215-7757-9f8d19a6c703, 81559 MiB
+7, NVIDIA H100 80GB HBM3, GPU-29796cff-eba6-cbda-3a58-df073afd6aa0, 81559 MiB
+..............................                                           [100%]
+30 passed in 3.79s
+{"completed": 1, "event": "p4_evaluation_progress", "target_requested_calls": 0, "total": 128}
+{"completed": 32, "event": "p4_evaluation_progress", "target_requested_calls": 0, "total": 128}
+{"completed": 64, "event": "p4_evaluation_progress", "target_requested_calls": 0, "total": 128}
+{"completed": 96, "event": "p4_evaluation_progress", "target_requested_calls": 0, "total": 128}
+{"completed": 128, "event": "p4_evaluation_progress", "target_requested_calls": 0, "total": 128}
+Frag: 0.33188461722839313
+SNN: 0.4642857015132904
+{"environment_transitions": 128, "event": "p4_training_iteration", "iteration": 1, "mode": "preflight", "requested_calls": 30, "seed": 20260910, "unique_calls": 30}
+{"environment_transitions": 256, "event": "p4_training_iteration", "iteration": 2, "mode": "preflight", "requested_calls": 63, "seed": 20260910, "unique_calls": 63}
+{"environment_transitions": 384, "event": "p4_training_iteration", "iteration": 3, "mode": "preflight", "requested_calls": 95, "seed": 20260910, "unique_calls": 95}
+{"environment_transitions": 512, "event": "p4_training_iteration", "iteration": 4, "mode": "preflight", "requested_calls": 122, "seed": 20260910, "unique_calls": 122}
+{"environment_transitions": 640, "event": "p4_training_iteration", "iteration": 5, "mode": "preflight", "requested_calls": 144, "seed": 20260910, "unique_calls": 144}
+{"environment_transitions": 768, "event": "p4_training_iteration", "iteration": 6, "mode": "preflight", "requested_calls": 163, "seed": 20260910, "unique_calls": 163}
+{"environment_transitions": 896, "event": "p4_training_iteration", "iteration": 7, "mode": "preflight", "requested_calls": 189, "seed": 20260910, "unique_calls": 189}
+{"environment_transitions": 1024, "event": "p4_training_iteration", "iteration": 8, "mode": "preflight", "requested_calls": 231, "seed": 20260910, "unique_calls": 231}
+{"environment_transitions": 1152, "event": "p4_training_iteration", "iteration": 9, "mode": "preflight", "requested_calls": 271, "seed": 20260910, "unique_calls": 271}
+{"completed": 1, "event": "p4_evaluation_progress", "target_requested_calls": 256, "total": 128}
+{"completed": 32, "event": "p4_evaluation_progress", "target_requested_calls": 256, "total": 128}
+{"completed": 64, "event": "p4_evaluation_progress", "target_requested_calls": 256, "total": 128}
+{"completed": 96, "event": "p4_evaluation_progress", "target_requested_calls": 256, "total": 128}
+{"completed": 128, "event": "p4_evaluation_progress", "target_requested_calls": 256, "total": 128}
+Frag: 0.1483553867453834
+SNN: 0.2599628297612071
+{"environment_transitions": 1280, "event": "p4_training_iteration", "iteration": 10, "mode": "preflight", "requested_calls": 314, "seed": 20260910, "unique_calls": 314}
+{"environment_transitions": 1408, "event": "p4_training_iteration", "iteration": 11, "mode": "preflight", "requested_calls": 355, "seed": 20260910, "unique_calls": 355}
+{"environment_transitions": 1536, "event": "p4_training_iteration", "iteration": 12, "mode": "preflight", "requested_calls": 390, "seed": 20260910, "unique_calls": 390}
+{"completed": 1, "event": "p4_evaluation_progress", "target_requested_calls": 512, "total": 128}
+{"completed": 32, "event": "p4_evaluation_progress", "target_requested_calls": 512, "total": 128}
+{"completed": 64, "event": "p4_evaluation_progress", "target_requested_calls": 512, "total": 128}
+{"completed": 96, "event": "p4_evaluation_progress", "target_requested_calls": 512, "total": 128}
+{"completed": 128, "event": "p4_evaluation_progress", "target_requested_calls": 512, "total": 128}
+Frag: 0.30376393618575404
+SNN: 0.3819457439240068
+{"artifact_manifest": "/home/wch/workspaces/DAPiGen-reproduction/runs/p4a-native-ppo-0c33bce/preflight-seed-20260910-r2/ARTIFACT_SHA256SUMS.txt", "event": "p4_run_complete", "mode": "preflight", "requested_calls": 390, "seed": 20260910, "status": "passed"}
+{
+  "accepted": true,
+  "checks": {
+    "accepted_environment": true,
+    "accepted_evaluator": true,
+    "accepted_objective": true,
+    "accepted_observation_dimension": true,
+    "accepted_p1_commit": true,
+    "accepted_stage0_source_unchanged": true,
+    "accepted_task_configuration": true,
+    "checkpoint_roundtrip": true,
+    "checkpoint_targets_complete": true,
+    "clean_git": true,
+    "evaluation_metrics_complete": true,
+    "external_api_not_invoked": true,
+    "finite_exact_gae_updates": true,
+    "policy_changed": true,
+    "policy_version_matches_iterations": true,
+    "required_host": true,
+    "sealed_test_not_accessed": true,
+    "slurm_execution": true,
+    "standard_five_step_task": true,
+    "training_budget_lower_bound": true,
+    "training_budget_upper_bound": true,
+    "training_evaluator_valid": true,
+    "training_source_isolated": true
+  },
+  "mode": "preflight",
+  "protocol_id": "dapigen-p4a-native-ppo-standard-v1",
+  "protocol_sha256": "7bdc2a4fc35aa14a6f2c52f3d34b6945718ef826d7145de030f729ac54685f33",
+  "report": "/home/wch/workspaces/DAPiGen-reproduction/runs/p4a-native-ppo-0c33bce/preflight-seed-20260910-r2/run_report.json",
+  "report_status": "passed",
+  "seed": 20260910
+}
+p4_native_ppo_preflight_complete
