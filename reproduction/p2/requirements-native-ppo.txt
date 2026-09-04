@@ -1,0 +1,2 @@
+farama-notifications==0.0.4
+gymnasium==0.29.1

@@ -11,14 +11,15 @@
 
 set -euo pipefail
 
-if [[ "$#" -ne 3 ]]; then
-    echo "usage: $0 REPO_ROOT PYTHON_BIN OUTPUT_DIR" >&2
+if [[ "$#" -ne 4 ]]; then
+    echo "usage: $0 REPO_ROOT PYTHON_BIN PYTHON_PACKAGE_ROOT OUTPUT_DIR" >&2
     exit 2
 fi
 
 repo_root="$1"
 python_bin="$2"
-output_dir="$3"
+python_package_root="$3"
+output_dir="$4"
 config="$repo_root/reproduction/p2/configs/ppo_engine_smoke_v1.json"
 accepted_manifest="$repo_root/reproduction/results/stage0-v23-p1-373b329-20260904/models/formal_contract/environment_manifest.json"
 
@@ -28,7 +29,8 @@ export DGLBACKEND=pytorch
 export MKL_NUM_THREADS=1
 export OMP_NUM_THREADS=1
 export OPENBLAS_NUM_THREADS=1
-export PYTHONPATH="$repo_root"
+test -d "$python_package_root/gymnasium"
+export PYTHONPATH="$python_package_root:$repo_root"
 export PYTHONUNBUFFERED=1
 export PYTHONDONTWRITEBYTECODE=1
 export TOKENIZERS_PARALLELISM=false
@@ -36,6 +38,7 @@ export TOKENIZERS_PARALLELISM=false
 echo "job_id=${SLURM_JOB_ID} host=$(hostname) cpus=${SLURM_CPUS_PER_TASK}"
 echo "repo_root=$repo_root"
 echo "python_bin=$python_bin"
+echo "python_package_root=$python_package_root"
 nvidia-smi --query-gpu=index,name,uuid,memory.total --format=csv,noheader
 test -z "$(git -C "$repo_root" status --porcelain)"
 
