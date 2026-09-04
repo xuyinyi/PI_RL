@@ -2,7 +2,7 @@
 
 Status date: 2026-09-04
 
-Plan status: **active development; P2-A engineering profiling passed, while algorithm-training and scientific gates remain closed unless explicitly opened below**
+Plan status: **active development; the P2 native PPO/GAE path passed its governed smoke, while counterfactual, production-training and scientific gates remain closed**
 
 ## 1. Authority and scope
 
@@ -157,8 +157,8 @@ checks. Median throughput scaled from 7.329 masks/s at one worker to 33.807
 masks/s at eight workers (4.613x speedup; 0.577 efficiency); the minimum
 adjacent ratio was 1.159. This is a mask-only admission using a stub encoder
 outside the timed region. The v1 single-engine / credit-estimator interface and
-13-item test matrix are now frozen; their contract-validator layer passed, while
-all six integrated I-series tests remain pending. The real-observation /
+13-item test matrix are now frozen; their contract-validator layer passed and
+initially left all six integrated I-series tests pending. The real-observation /
 evaluator-ledger characterization also passed at clean commit
 `7e3ec9d4436f94af40f6204788ac8dec9dd9466e` in Slurm Job 4665: model/stack
 construction took 4.535 s, the first 100-transition pass achieved 6.751
@@ -167,8 +167,13 @@ produced 31 successful terminals with matching trajectory, observation and
 evaluation digests. The first pass recorded 62 requested / 31 unique / 31
 backend / 31 cache-hit calls; replay recorded 62 / 0 / 0 / 62. This is a
 single-worker pre-training characterization, not a throughput admission. The
-unified PPO engine is not yet implemented, no training budget is frozen, and no
-PPO was launched.
+common native PPO engine and environment-return GAE provider subsequently passed
+at clean commit `6a4bd2c21b657c9f1b9c734028322cf66af6367f` in Slurm Job 4671.
+The job passed 26 tests and executed two distinct 64-transition PPO iterations
+on the accepted real polyBERT/QSPR stack. Its checkpoint/resume replay matched
+all 13 declared identities, while the GAE provider made no evaluator call.
+P2-I01, I05 and I06 are accepted for their engine/PPO scope. Policy-CC,
+MCC-PPO and I02-I04 remain pending; no production training budget is frozen.
 
 ### Gate P3: estimator and active-query validation
 
@@ -285,7 +290,7 @@ Current status: **not started**.
 | Historical SciCF gates | archived no-go | No SciCF performance, pairwise-refinement, or PPO-integration claim |
 | Stage 0 v2.3 environment | P1 engineering acceptance passed at clean commit `373b3291` | Reconstructed-asset compatibility scope; not author-original model or scientific validation |
 | MCC-PPO reference files | received and hash-identified | Toy/reference validation only; not a unified runnable project |
-| Unified Stage 0 + PPO engine | P2-A mask admission, P2-B contract freeze and P2-C single-worker full-stack characterization passed; engine implementation not started | Pre-implementation engineering evidence only; no engine or training claim |
+| Unified Stage 0 + PPO engine | P2-A/P2-C profiles and native PPO/GAE smoke passed; counterfactual estimators pending | PPO engineering smoke only; no production-training or performance claim |
 | PPO / Policy-CC / MCC-PPO pilot | closed | No performance claim |
 | Formal comparison | closed | No method claim |
 | Independent validation | not started | No physical-property or experimental claim |
@@ -295,14 +300,14 @@ Current status: **not started**.
 1. **Complete:** preserve the reference-artifact intake and Stage-0 v2.2/v2.3 development evidence.
 2. **Complete:** preserve the clean P1 run coordinate and its synchronized, hash-verified evidence.
 3. **Complete for mask scope:** profile accepted-mask throughput with 1, 2, 4 and 8 workers; retain both the failed development diagnostic and the corrected formal run.
-4. **Complete for contract scope:** freeze the single `PPOEngine` / `CreditEstimator` seam and its 13-item matrix; validator tests pass, while six integrated tests remain pending implementation.
+4. **Complete for contract scope:** freeze the single `PPOEngine` / `CreditEstimator` seam and its 13-item matrix; validator tests pass, while I02-I04 remain pending implementation.
 5. **Complete for single-worker characterization:** profile real polyBERT observation encoding and evaluator-ledger overhead; parallel scaling and budget selection remain open.
-6. **Next:** implement the common PPO engine skeleton and PPO/GAE credit provider, then close identical-path, ledger-exhaustion and checkpoint tests before any training run.
-7. Integrate Policy-CC (`eta = 0`) only after the common PPO path passes; integrate MCC-PPO last.
+6. **Complete for PPO/GAE scope:** implement the common engine and GAE provider; engine-path, ledger-exhaustion and exact checkpoint/resume checks passed in Job 4671.
+7. **Next:** integrate Policy-CC (`eta = 0`) and close I02-I04 without changing the common PPO optimizer path; integrate MCC-PPO last.
 8. Complete P3 estimator validation and P4 baseline evidence.
 9. Draft and freeze the P5 pilot protocol before running it.
 
-The next planned activity is **the common PPO engine skeleton plus the PPO/GAE
-credit provider**, followed by integrated identical-path, ledger-exhaustion and
-checkpoint tests. No PPO training, external API experiment, formal comparison
-or scientific claim promotion is opened by the P2-B/P2-C engineering results.
+The next planned activity is **the Policy-CC `eta = 0` provider and remaining
+I02-I04 estimator tests** on the unchanged common engine. The 128-transition
+native PPO smoke does not authorize a production baseline, external API
+experiment, formal comparison or scientific claim promotion.

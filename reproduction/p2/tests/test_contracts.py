@@ -106,7 +106,12 @@ class P2ContractTests(unittest.TestCase):
         self.assertEqual(len(ids), len(set(ids)))
         self.assertEqual(
             {row["level"] for row in payload["tests"]},
-            {"contract_validator", "integrated_pending"},
+            {
+                "contract_validator",
+                "integrated_pending",
+                "integrated_engine_passed",
+                "integrated_ppo_passed",
+            },
         )
 
     def test_three_methods_share_everything_outside_credit_seam(self):

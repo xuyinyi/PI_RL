@@ -1,0 +1,25 @@
+Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.
+/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/site-packages/dgl/heterograph.py:92: DGLWarning: Recommend creating graphs by `dgl.graph(data)` instead of `dgl.DGLGraph(data)`.
+  dgl_warning(
+/home/wch/workspaces/DAPiGen-reproduction/p2-native-ppo-363fec3-clean/reproduction/p2/engine.py:639: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /opt/conda/conda-bld/pytorch_1702400431970/work/torch/csrc/utils/tensor_numpy.cpp:206.)
+  "returns": torch.as_tensor(
+Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.
+Traceback (most recent call last):
+  File "reproduction/p2/scripts/run_ppo_engine_smoke.py", line 396, in <module>
+    main()
+  File "reproduction/p2/scripts/run_ppo_engine_smoke.py", line 266, in main
+    restored_engine.load_checkpoint(checkpoint_path)
+  File "/home/wch/workspaces/DAPiGen-reproduction/p2-native-ppo-363fec3-clean/reproduction/p2/engine.py", line 945, in load_checkpoint
+    self.load_state_dict(payload)
+  File "/home/wch/workspaces/DAPiGen-reproduction/p2-native-ppo-363fec3-clean/reproduction/p2/engine.py", line 915, in load_state_dict
+    torch.cuda.set_rng_state_all(cuda_states)
+  File "/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/site-packages/torch/cuda/random.py", line 84, in set_rng_state_all
+    set_rng_state(state, i)
+  File "/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/site-packages/torch/cuda/random.py", line 75, in set_rng_state
+    _lazy_call(cb)
+  File "/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/site-packages/torch/cuda/__init__.py", line 229, in _lazy_call
+    callable()
+  File "/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/site-packages/torch/cuda/random.py", line 73, in cb
+    default_generator.set_state(new_state_copy)
+TypeError: RNG state must be a torch.ByteTensor
+srun: error: yanlih100n1: task 0: Exited with exit code 1

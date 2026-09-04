@@ -1,0 +1,15 @@
+job_id=4668 host=yanlih100n1 cpus=2
+python_bin=/home/wch/workspaces/DAPiGen-reproduction/stage0-v22-dev-20260904/test-venv/bin/python
+target_dir=/home/wch/workspaces/DAPiGen-reproduction/dependencies/p2-gymnasium-0.29.1-py38-363fec3
+Collecting farama-notifications==0.0.4
+  Using cached Farama_Notifications-0.0.4-py3-none-any.whl (2.5 kB)
+Collecting gymnasium==0.29.1
+  Using cached gymnasium-0.29.1-py3-none-any.whl (953 kB)
+Collecting importlib-metadata==8.5.0
+  Downloading importlib_metadata-8.5.0-py3-none-any.whl (26 kB)
+Collecting zipp==3.20.2
+  Downloading zipp-3.20.2-py3-none-any.whl (9.2 kB)
+Installing collected packages: farama-notifications, zipp, importlib-metadata, gymnasium
+Successfully installed farama-notifications-0.0.4 gymnasium-0.29.1 importlib-metadata-8.5.0 zipp-3.20.2
+gymnasium=0.29.1
+p2_gymnasium_setup_complete

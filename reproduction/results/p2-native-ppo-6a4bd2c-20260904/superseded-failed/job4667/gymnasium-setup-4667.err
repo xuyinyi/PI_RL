@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/home/wch/workspaces/DAPiGen-reproduction/dependencies/p2-gymnasium-0.29.1-py38-5091695/gymnasium/__init__.py", line 12, in <module>
+    from gymnasium.envs.registration import (
+  File "/home/wch/workspaces/DAPiGen-reproduction/dependencies/p2-gymnasium-0.29.1-py38-5091695/gymnasium/envs/__init__.py", line 4, in <module>
+    from gymnasium.envs.registration import (
+  File "/home/wch/workspaces/DAPiGen-reproduction/dependencies/p2-gymnasium-0.29.1-py38-5091695/gymnasium/envs/registration.py", line 24, in <module>
+    import importlib_metadata as metadata  # type: ignore
+ModuleNotFoundError: No module named 'importlib_metadata'

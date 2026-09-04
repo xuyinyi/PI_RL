@@ -1,6 +1,6 @@
 # P2 single-engine / credit-estimator contract v1
 
-Status: **frozen and validator-tested; integrated engine acceptance pending**
+Status: **frozen; PPO/GAE engine path accepted, counterfactual paths pending**
 
 ## Scope
 

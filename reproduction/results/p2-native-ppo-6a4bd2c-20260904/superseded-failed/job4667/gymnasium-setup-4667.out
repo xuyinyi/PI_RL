@@ -1,0 +1,10 @@
+job_id=4667 host=yanlih100n1 cpus=2
+python_bin=/home/wch/workspaces/DAPiGen-reproduction/stage0-v22-dev-20260904/test-venv/bin/python
+target_dir=/home/wch/workspaces/DAPiGen-reproduction/dependencies/p2-gymnasium-0.29.1-py38-5091695
+Collecting farama-notifications==0.0.4
+  Downloading Farama_Notifications-0.0.4-py3-none-any.whl (2.5 kB)
+Collecting gymnasium==0.29.1
+  Downloading gymnasium-0.29.1-py3-none-any.whl (953 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 953.9/953.9 kB 331.5 kB/s eta 0:00:00
+Installing collected packages: farama-notifications, gymnasium
+Successfully installed farama-notifications-0.0.4 gymnasium-0.29.1

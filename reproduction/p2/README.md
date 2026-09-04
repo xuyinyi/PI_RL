@@ -63,7 +63,9 @@ The contract-validator layer fixes the single-PPO-engine seam, actor-credit /
 critic-return separation, frozen-policy binding, pre-reserved query budget,
 method-specific evaluator sources and post-update pending-label commit. These
 guards do not implement or accept the PPO engine. The six integrated I-series
-tests remain pending until the engine and estimators exist.
+tests were initially pending until the engine and estimators existed; the
+PPO/GAE implementation below now closes I01, I05 and I06 for their declared
+engine-side scope.
 
 The contract-validator tests passed locally and as part of the 15-test P2 suite
 on Slurm Job 4665. This freezes the seam for implementation; it does not mark
@@ -91,3 +93,27 @@ remains a single-worker characterization with no throughput acceptance
 threshold; it cannot freeze parallelism or the training budget and invokes
 neither PPO nor a credit estimator. Synchronized evidence is under
 `../results/p2-full-stack-7e3ec9d-20260904/`.
+
+## P2-D: native PPO / GAE implementation
+
+`PPO_ENGINE_IMPLEMENTATION_V1.md` describes the implemented common engine,
+environment-return GAE provider, requested-call reservation manager and atomic
+checkpoint contents. The engine uses the accepted Stage-0 Gymnasium observation
+and factorized masks; it does not duplicate chemistry, reward or evaluator
+logic.
+
+### P2-D result (2026-09-04)
+
+The governed PPO/GAE smoke passed at clean commit
+`6a4bd2c21b657c9f1b9c734028322cf66af6367f` in Slurm Job 4671. All 26 tests
+passed before two distinct 64-transition PPO iterations ran on the real
+polyBERT/QSPR stack. The first and second iterations recorded 12 and 24
+successful terminal evaluator calls, respectively, all under `ppo/on_policy`.
+The GAE credit provider made zero evaluator calls.
+
+Restoring the iteration-1 checkpoint into a newly built stack reproduced the
+second iteration's rollout, GAE, critic returns, actor credit, receipt, metrics,
+policy and evaluator ledger exactly across all 13 checks. This accepts the
+PPO/GAE path plus the engine-side portions of I01, I05 and I06. Policy-CC,
+MCC-PPO, I02-I04, parallel training and production-budget selection remain
+open. Evidence is under `../results/p2-native-ppo-6a4bd2c-20260904/`.

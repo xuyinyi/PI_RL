@@ -1,0 +1,158 @@
+job_id=4671 host=yanlih100n1 cpus=8
+repo_root=/home/wch/workspaces/DAPiGen-reproduction/p2-native-ppo-6a4bd2c-clean
+python_bin=/home/wch/workspaces/DAPiGen-reproduction/stage0-v22-dev-20260904/test-venv/bin/python
+python_package_root=/home/wch/workspaces/DAPiGen-reproduction/dependencies/p2-gymnasium-0.29.1-py38-363fec3
+0, NVIDIA H100 80GB HBM3, GPU-03068b81-fa6b-f9df-55b0-9dceed2a481c, 81559 MiB
+1, NVIDIA H100 80GB HBM3, GPU-bec01859-a9c2-4efd-1084-09c6ce93403d, 81559 MiB
+2, NVIDIA H100 80GB HBM3, GPU-555c9266-e44c-11f2-5f85-e4fa2c75275e, 81559 MiB
+3, NVIDIA H100 80GB HBM3, GPU-c587808a-0204-5c97-2ae1-0adaa8130295, 81559 MiB
+4, NVIDIA H100 80GB HBM3, GPU-053e7d1b-f234-548d-79fd-732cfef5e3dc, 81559 MiB
+5, NVIDIA H100 80GB HBM3, GPU-710449b3-bffc-9940-dcfc-1d7806b27077, 81559 MiB
+6, NVIDIA H100 80GB HBM3, GPU-c3870331-bbb2-2215-7757-9f8d19a6c703, 81559 MiB
+7, NVIDIA H100 80GB HBM3, GPU-29796cff-eba6-cbda-3a58-df073afd6aa0, 81559 MiB
+dependency_probe gymnasium=0.29.1 torch=2.1.2
+..........................                                               [100%]
+26 passed in 3.81s
+{
+  "exact_resume_checks": {
+    "actor_credit_equal": true,
+    "batch_id_equal": true,
+    "checkpoint_ledger_equal_after_load": true,
+    "contract_equal": true,
+    "critic_returns_equal": true,
+    "evaluator_ledger_equal": true,
+    "gae_equal": true,
+    "policy_state_equal": true,
+    "policy_version_equal": true,
+    "receipt_equal": true,
+    "rollout_digest_equal": true,
+    "specification_equal": true,
+    "update_metrics_equal": true
+  },
+  "final_evaluator_ledger": {
+    "allowed_sources": [
+      "evaluation",
+      "ppo/on_policy"
+    ],
+    "backend_by_source": {
+      "ppo/on_policy": 36
+    },
+    "backend_calls": 36,
+    "budget_protocol_version": "terminal-requested-unique-backend-v2",
+    "cache_entries": 36,
+    "cache_hit_rate": 0.0,
+    "cache_hits": 0,
+    "cache_scope": "p2_native_ppo_smoke_v1",
+    "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "invalid_results": 0,
+    "maximum_requested_calls": 256,
+    "maximum_unique_calls": 256,
+    "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+    "remaining_requested_calls": 220,
+    "remaining_unique_calls": 220,
+    "requested_by_source": {
+      "ppo/on_policy": 36
+    },
+    "requested_calls": 36,
+    "unique_by_source": {
+      "ppo/on_policy": 36
+    },
+    "unique_calls": 36
+  },
+  "final_policy_sha256": "70fb8ee4d08cf719ebebdd761b92ca27de975892e6947e3ab8e5d1cd424d16cf",
+  "first_iteration": {
+    "actor_advantages_sha256": "dba6c892b21eb3a2690a70b58b5b8e979d7657108fd34dd752ebbf4c1b407c26",
+    "batch_id": "p2b-000000-8e87d8c06b783b10",
+    "credit_evaluator_delta": {
+      "backend_calls": 0,
+      "cache_hits": 0,
+      "requested_by_source": {},
+      "requested_calls": 0,
+      "unique_calls": 0
+    },
+    "critic_returns_sha256": "41423a64ffe08a326eeac48f61a58a6f5ac1cff20c2e55ae8749965a3dc10907",
+    "gae_sha256": "dba6c892b21eb3a2690a70b58b5b8e979d7657108fd34dd752ebbf4c1b407c26",
+    "reward_sum": 3.5523000000000002,
+    "rollout_digest": "663739f4c4147ec68d11661e10a119f3eb75bd6671b1fc338c52dfbff44af364",
+    "rollout_evaluator_delta": {
+      "backend_calls": 12,
+      "cache_hits": 0,
+      "requested_by_source": {
+        "ppo/on_policy": 12
+      },
+      "requested_calls": 12,
+      "unique_calls": 12
+    },
+    "successful_terminal_count": 12,
+    "terminated_count": 26,
+    "transition_count": 64,
+    "truncated_count": 0,
+    "update_metrics": {
+      "actor_loss": -0.01906445063650608,
+      "approximate_kl": 0.002081548795104027,
+      "clip_fraction": 0.0,
+      "entropy": 8.930195331573486,
+      "optimizer_steps": 4.0,
+      "stopped_for_target_kl": 0.0,
+      "value_loss": 0.2131776325404644
+    },
+    "update_receipt": {
+      "actor_advantages_sha256": "dba6c892b21eb3a2690a70b58b5b8e979d7657108fd34dd752ebbf4c1b407c26",
+      "critic_returns_sha256": "41423a64ffe08a326eeac48f61a58a6f5ac1cff20c2e55ae8749965a3dc10907",
+      "engine_contract_id": "dapigen-p2-single-ppo-engine-v1",
+      "optimizer_step_completed": true,
+      "policy_version_after": 1,
+      "policy_version_before": 0,
+      "source_batch_id": "p2b-000000-8e87d8c06b783b10"
+    }
+  },
+  "output": "/home/wch/workspaces/DAPiGen-reproduction/runs/p2-native-ppo-6a4bd2c/smoke/ppo_engine_smoke_report.json",
+  "restored_second_iteration": {
+    "actor_advantages_sha256": "0384d7be659267158186938fc06d44c26457255f112b0dc168aabb0d633a1270",
+    "batch_id": "p2b-000001-4c3412ff8ba55d16",
+    "credit_evaluator_delta": {
+      "backend_calls": 0,
+      "cache_hits": 0,
+      "requested_by_source": {},
+      "requested_calls": 0,
+      "unique_calls": 0
+    },
+    "critic_returns_sha256": "579eeb77ddb607379b285a11069aada3cd94736194993179f1cd719b6c6eb2d2",
+    "gae_sha256": "0384d7be659267158186938fc06d44c26457255f112b0dc168aabb0d633a1270",
+    "reward_sum": 5.039399999999999,
+    "rollout_digest": "6eb1fff1a2db08713e77ec4bf5877b77bdaab513bf925c850e4e6d417f2d2c92",
+    "rollout_evaluator_delta": {
+      "backend_calls": 24,
+      "cache_hits": 0,
+      "requested_by_source": {
+        "ppo/on_policy": 24
+      },
+      "requested_calls": 24,
+      "unique_calls": 24
+    },
+    "successful_terminal_count": 24,
+    "terminated_count": 36,
+    "transition_count": 64,
+    "truncated_count": 0,
+    "update_metrics": {
+      "actor_loss": -0.017071612179279327,
+      "approximate_kl": 0.0020755399018526077,
+      "clip_fraction": 0.0,
+      "entropy": 10.003419160842896,
+      "optimizer_steps": 4.0,
+      "stopped_for_target_kl": 0.0,
+      "value_loss": 0.055709063075482845
+    },
+    "update_receipt": {
+      "actor_advantages_sha256": "0384d7be659267158186938fc06d44c26457255f112b0dc168aabb0d633a1270",
+      "critic_returns_sha256": "579eeb77ddb607379b285a11069aada3cd94736194993179f1cd719b6c6eb2d2",
+      "engine_contract_id": "dapigen-p2-single-ppo-engine-v1",
+      "optimizer_step_completed": true,
+      "policy_version_after": 2,
+      "policy_version_before": 1,
+      "source_batch_id": "p2b-000001-4c3412ff8ba55d16"
+    }
+  },
+  "status": "passed"
+}
+p2_native_ppo_engine_smoke_complete

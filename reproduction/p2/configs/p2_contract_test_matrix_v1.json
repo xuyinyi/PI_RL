@@ -43,7 +43,7 @@
     },
     {
       "id": "P2-I01",
-      "level": "integrated_pending",
+      "level": "integrated_engine_passed",
       "requirement": "PPO, Policy-CC and MCC-PPO execute an identical task and identical PPO call path."
     },
     {
@@ -63,12 +63,12 @@
     },
     {
       "id": "P2-I05",
-      "level": "integrated_pending",
+      "level": "integrated_engine_passed",
       "requirement": "Concurrent requested, unique, backend, cache and source accounting is exact at budget exhaustion."
     },
     {
       "id": "P2-I06",
-      "level": "integrated_pending",
+      "level": "integrated_ppo_passed",
       "requirement": "Checkpoint/resume preserves policy, optimizers, replay, pending labels, evaluator ledger, RNG and contract identities."
     }
   ]

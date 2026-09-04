@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+srun: error: yanlih100n1: task 0: Exited with exit code 1
+ModuleNotFoundError: No module named 'gymnasium'
