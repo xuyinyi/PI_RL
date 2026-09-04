@@ -2,6 +2,9 @@ import threading
 import unittest
 from concurrent.futures import ThreadPoolExecutor
 
+from RL_PPO.envs.evaluator import BudgetedCachingTerminalEvaluator
+from RL_PPO.envs.sources import PPO_ON_POLICY
+from RL_PPO.envs.types import TerminalEvaluation
 from reproduction.p2.budget import (
     RequestedCallBudgetManager,
     evaluator_ledger_delta,
@@ -63,6 +66,56 @@ class RequestedBudgetTests(unittest.TestCase):
         with self.assertRaisesRegex(ContractViolation, "unavailable"):
             manager.reserve(1)
         self.assertEqual(manager.state_dict()["outstanding_requested_calls"], 0)
+
+    def test_concurrent_reservations_match_real_stage0_evaluator_ledger(self):
+        class Backend:
+            evaluator_version = "budget-test-v1"
+            objective_contract = "objective-test-v1"
+
+            def evaluate_batch(self, smiles):
+                return [
+                    TerminalEvaluation(
+                        objective=float(index + 1),
+                        canonical_smiles=value,
+                        evaluator_version=self.evaluator_version,
+                    )
+                    for index, value in enumerate(smiles)
+                ]
+
+        evaluator = BudgetedCachingTerminalEvaluator(
+            Backend(),
+            maximum_requested_calls=4,
+            maximum_unique_calls=4,
+            allowed_sources=(PPO_ON_POLICY,),
+            cache_scope="p2-budget-integration-test",
+        )
+        manager = RequestedCallBudgetManager(evaluator.ledger)
+        barrier = threading.Barrier(6)
+
+        def worker():
+            barrier.wait()
+            try:
+                token = manager.reserve(2)
+            except ContractViolation:
+                token = None
+            barrier.wait()
+            if token is None:
+                return False
+            evaluator.evaluate_batch(("PI-A", "PI-B"), source=PPO_ON_POLICY)
+            manager.reconcile(token, 2)
+            return True
+
+        with ThreadPoolExecutor(max_workers=6) as executor:
+            accepted = list(executor.map(lambda _: worker(), range(6)))
+        ledger = evaluator.ledger()
+        self.assertEqual(sum(accepted), 2)
+        self.assertEqual(ledger["requested_calls"], 4)
+        self.assertEqual(ledger["unique_calls"], 2)
+        self.assertEqual(ledger["backend_calls"], 2)
+        self.assertEqual(ledger["cache_hits"], 2)
+        self.assertEqual(ledger["requested_by_source"], {PPO_ON_POLICY: 4})
+        self.assertEqual(ledger["unique_by_source"], {PPO_ON_POLICY: 2})
+        self.assertEqual(ledger["backend_by_source"], {PPO_ON_POLICY: 2})
 
     def test_ledger_delta_is_source_exact_and_rejects_rollback(self):
         before = {
