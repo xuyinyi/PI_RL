@@ -1,0 +1,18 @@
+{
+  "base_seed": 20260904,
+  "benchmark_name": "stage0-v23-accepted-mask-throughput-v1",
+  "expected_accepted_environment_id": "dapigen:8004c1fa2055a186b4a4f3ed",
+  "mask_mode": "closure_exact_cached",
+  "minimum_adjacent_throughput_ratio": 0.85,
+  "minimum_max_worker_efficiency": 0.25,
+  "minimum_max_worker_speedup": 1.5,
+  "repetitions": 3,
+  "schema_version": 1,
+  "transitions_per_worker": 250,
+  "worker_counts": [
+    1,
+    2,
+    4,
+    8
+  ]
+}
