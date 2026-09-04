@@ -1,6 +1,6 @@
 # P2 full-stack performance profile v1
 
-Status: **frozen profiling protocol; formal governed run pending**
+Status: **frozen protocol; governed characterization completed at `7e3ec9d`**
 
 ## Purpose
 
@@ -46,3 +46,17 @@ No minimum throughput is declared. The output is a characterization used to
 design the unified engine and its later multi-worker benchmark. It cannot freeze
 worker count or training budget because it profiles one worker and excludes PPO
 and the credit estimator.
+
+## Governed result
+
+Slurm Job 4665 completed in 24 s after 15/15 P2 tests passed. Model/stack build
+took 4.535 s. The first measured pass processed 100 transitions in 14.812 s
+(6.751 transitions/s); exact cache replay took 0.461 s (216.812 transitions/s).
+Both passes produced the same 31 terminal molecules and identical trajectory,
+observation and evaluation digests.
+
+The first pass recorded 62 requested, 31 unique, 31 backend and 31 cached calls.
+Replay recorded 62 requested, zero unique, zero backend and 62 cached calls.
+The final ledger contained 124 requested calls, 31 unique/backend calls and 93
+cache hits, with zero invalid results. Full evidence is under
+`../results/p2-full-stack-7e3ec9d-20260904/`.

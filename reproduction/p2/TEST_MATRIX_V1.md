@@ -1,6 +1,6 @@
 # P2 unified-engine test matrix v1
 
-Status: **frozen; contract-validator layer implemented, integrated layer pending**
+Status: **frozen; contract-validator layer passed, integrated layer pending**
 
 The machine-readable source is `configs/p2_contract_test_matrix_v1.json`.
 
@@ -23,3 +23,7 @@ The machine-readable source is `configs/p2_contract_test_matrix_v1.json`.
 The C-series tests accept the interface guards only. Gate P2 remains open until
 all I-series tests run against the integrated implementation on the governed
 compute coordinate.
+
+The complete P2 suite passed 15/15 tests before the governed full-stack profile
+in Slurm Job 4665. This executes the C-series guards but does not change any
+I-series item from pending.

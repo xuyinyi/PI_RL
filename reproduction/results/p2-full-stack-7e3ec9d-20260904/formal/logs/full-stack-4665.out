@@ -1,0 +1,64 @@
+job_id=4665 host=yanlih100n1 cpus=8
+repo_root=/home/wch/workspaces/DAPiGen-reproduction/p2-full-stack-7e3ec9d-clean
+python_bin=/home/wch/workspaces/DAPiGen-reproduction/stage0-v22-dev-20260904/test-venv/bin/python
+0, NVIDIA H100 80GB HBM3, GPU-03068b81-fa6b-f9df-55b0-9dceed2a481c, 81559 MiB
+1, NVIDIA H100 80GB HBM3, GPU-bec01859-a9c2-4efd-1084-09c6ce93403d, 81559 MiB
+2, NVIDIA H100 80GB HBM3, GPU-555c9266-e44c-11f2-5f85-e4fa2c75275e, 81559 MiB
+3, NVIDIA H100 80GB HBM3, GPU-c587808a-0204-5c97-2ae1-0adaa8130295, 81559 MiB
+4, NVIDIA H100 80GB HBM3, GPU-053e7d1b-f234-548d-79fd-732cfef5e3dc, 81559 MiB
+5, NVIDIA H100 80GB HBM3, GPU-710449b3-bffc-9940-dcfc-1d7806b27077, 81559 MiB
+6, NVIDIA H100 80GB HBM3, GPU-c3870331-bbb2-2215-7757-9f8d19a6c703, 81559 MiB
+7, NVIDIA H100 80GB HBM3, GPU-29796cff-eba6-cbda-3a58-df073afd6aa0, 81559 MiB
+...............                                                          [100%]
+15 passed in 2.13s
+{
+  "cache_replay": {
+    "ledger_delta": {
+      "backend_by_source": {},
+      "backend_calls": 0,
+      "cache_hits": 62,
+      "invalid_results": 0,
+      "requested_by_source": {
+        "environment_regression": 31,
+        "evaluation": 31
+      },
+      "requested_calls": 62,
+      "unique_by_source": {},
+      "unique_calls": 0
+    },
+    "successful_terminal_count": 31,
+    "transitions_per_second": 216.81158547520647
+  },
+  "classification": {
+    "functional_failures": [],
+    "parallel_scaling_profiled": false,
+    "performance_admission": "not_defined_characterization_only",
+    "status": "passed",
+    "worker_count": 1
+  },
+  "first_pass": {
+    "ledger_delta": {
+      "backend_by_source": {
+        "environment_regression": 31
+      },
+      "backend_calls": 31,
+      "cache_hits": 31,
+      "invalid_results": 0,
+      "requested_by_source": {
+        "environment_regression": 31,
+        "evaluation": 31
+      },
+      "requested_calls": 62,
+      "unique_by_source": {
+        "environment_regression": 31
+      },
+      "unique_calls": 31
+    },
+    "successful_terminal_count": 31,
+    "transitions_per_second": 6.75130256986244
+  },
+  "model_build_seconds": 4.534892816096544,
+  "output": "/home/wch/workspaces/DAPiGen-reproduction/runs/p2-full-stack-7e3ec9d/profile/stage0_full_stack_profile.json",
+  "status": "passed"
+}
+stage0_v23_p2_full_stack_profile_complete

@@ -65,6 +65,10 @@ method-specific evaluator sources and post-update pending-label commit. These
 guards do not implement or accept the PPO engine. The six integrated I-series
 tests remain pending until the engine and estimators exist.
 
+The contract-validator tests passed locally and as part of the 15-test P2 suite
+on Slurm Job 4665. This freezes the seam for implementation; it does not mark
+the six integrated I-series tests as passed.
+
 ## P2-C: real-observation / evaluator-ledger profile
 
 `FULL_STACK_PROFILE_V1.md` freezes a single-worker, two-pass characterization
@@ -72,7 +76,18 @@ using the accepted custom chemistry, real persistent polyBERT observations and
 persistent QSPR evaluator ledger. The cache replay must reproduce trajectory,
 observation and evaluation digests without another backend call.
 
-This profile measures the pre-training stack only. It has no throughput
-acceptance threshold, does not profile parallel scaling, and invokes neither
-PPO nor a credit estimator. A formal governed run is required before recording
-performance results.
+### P2-C result (2026-09-04)
+
+The governed characterization passed at clean commit
+`7e3ec9d4436f94af40f6204788ac8dec9dd9466e` in Slurm Job 4665. Model/stack
+construction took 4.535 s. The first 100-transition pass achieved 6.751
+transitions/s; exact cache replay achieved 216.812 transitions/s. Both passes
+produced 31 successful terminal molecules and identical trajectory, observation
+and evaluation digests.
+
+The final shared ledger recorded 124 requested calls, 31 unique/backend calls,
+93 cache hits and zero invalid results. Replay made no backend call. The result
+remains a single-worker characterization with no throughput acceptance
+threshold; it cannot freeze parallelism or the training budget and invokes
+neither PPO nor a credit estimator. Synchronized evidence is under
+`../results/p2-full-stack-7e3ec9d-20260904/`.

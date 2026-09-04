@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "reproduction/p2/scripts/profile_stage0_full_stack.py", line 510, in <module>
+    main()
+  File "reproduction/p2/scripts/profile_stage0_full_stack.py", line 381, in main
+    torch.cuda.reset_peak_memory_stats(torch.device(args.device))
+  File "/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/site-packages/torch/cuda/memory.py", line 307, in reset_peak_memory_stats
+    return torch._C._cuda_resetPeakMemoryStats(device)
+RuntimeError: Invalid device argument 0: did you call init?
+srun: error: yanlih100n1: task 0: Exited with exit code 1
