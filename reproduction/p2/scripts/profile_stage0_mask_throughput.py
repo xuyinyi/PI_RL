@@ -180,6 +180,18 @@ def build_profile_core(root: Path, task_config_payload: Mapping[str, Any]):
     d_blocks, _ = load_block_catalog(
         str(block_dir / "blocks_dianhydride.csv"), chemistry=chemistry
     )
+    a_blocks, _ = load_block_catalog(
+        str(block_dir / "blocks_diamine.csv"), chemistry=chemistry
+    )
+    return BranchableDAPiGenCore(
+        dianhydride_blocks=d_blocks,
+        diamine_blocks=a_blocks,
+        initial_dianhydride_smiles="[16*]c1ccc2c(c1)C(=O)OC2=O",
+        initial_diamine_smiles="[16*]c1ccc(N)cc1",
+        chemistry=chemistry,
+        encoder=MaskProfileEncoder(),
+        config=DAPiGenEnvConfig.from_mapping(task_config_payload),
+    )
 
 
 def numeric_deltas(before: Mapping[str, Any], after: Mapping[str, Any]):
@@ -201,18 +213,6 @@ def numeric_deltas(before: Mapping[str, Any], after: Mapping[str, Any]):
         ):
             result[key] = right - left
     return result
-    a_blocks, _ = load_block_catalog(
-        str(block_dir / "blocks_diamine.csv"), chemistry=chemistry
-    )
-    return BranchableDAPiGenCore(
-        dianhydride_blocks=d_blocks,
-        diamine_blocks=a_blocks,
-        initial_dianhydride_smiles="[16*]c1ccc2c(c1)C(=O)OC2=O",
-        initial_diamine_smiles="[16*]c1ccc(N)cc1",
-        chemistry=chemistry,
-        encoder=MaskProfileEncoder(),
-        config=DAPiGenEnvConfig.from_mapping(task_config_payload),
-    )
 
 
 def generate_workload_states(

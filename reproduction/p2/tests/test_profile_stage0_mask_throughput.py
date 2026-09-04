@@ -1,12 +1,17 @@
+import json
 from pathlib import Path
 
 from reproduction.p2.scripts.profile_stage0_mask_throughput import (
+    build_profile_core,
     classify_profile,
     determinism_violations,
     load_profile_config,
     numeric_deltas,
     summarize_scaling,
 )
+
+
+REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
 
 
 def _worker(index, state_digest="state", mask_digest="mask"):
@@ -104,3 +109,16 @@ def test_numeric_deltas_keep_nested_counters_and_ignore_booleans():
         {"calls": 2, "ready": False, "nested": {"hits": 4}},
         {"calls": 7, "ready": True, "nested": {"hits": 10}},
     ) == {"calls": 5, "nested": {"hits": 6}}
+
+
+def test_profile_core_builder_returns_accepted_mask_core():
+    config = json.loads(
+        (
+            REPOSITORY_ROOT
+            / "reproduction/stage0/configs/stage0_environment.json"
+        ).read_text()
+    )
+    core = build_profile_core(REPOSITORY_ROOT, config)
+    assert core is not None
+    assert core.config.mask_mode == "closure_exact_cached"
+    assert "dapigen_custom" in core.specification()["chemistry_backend"]
