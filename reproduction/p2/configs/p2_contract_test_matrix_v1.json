@@ -1,0 +1,75 @@
+{
+  "contract_ids": {
+    "credit_estimator": "dapigen-p2-credit-estimator-v1",
+    "ppo_engine": "dapigen-p2-single-ppo-engine-v1"
+  },
+  "matrix_name": "dapigen-p2-unified-engine-contract-tests-v1",
+  "schema_version": 1,
+  "tests": [
+    {
+      "id": "P2-C01",
+      "level": "contract_validator",
+      "requirement": "Exactly three method contracts share environment, task, budget, evaluator, PPO engine and PPO hyperparameters."
+    },
+    {
+      "id": "P2-C02",
+      "level": "contract_validator",
+      "requirement": "PPO actor advantages equal common-engine GAE and PPO performs no credit query."
+    },
+    {
+      "id": "P2-C03",
+      "level": "contract_validator",
+      "requirement": "Every credit estimate is finite and bound to the rollout batch and frozen policy version."
+    },
+    {
+      "id": "P2-C04",
+      "level": "contract_validator",
+      "requirement": "The completion-model version cannot change during current-iteration credit estimation."
+    },
+    {
+      "id": "P2-C05",
+      "level": "contract_validator",
+      "requirement": "Counterfactual evaluator deltas use only registered method-specific sources and do not exceed pre-reserved requested calls."
+    },
+    {
+      "id": "P2-C06",
+      "level": "contract_validator",
+      "requirement": "The actor uses validated credit while the critic digest remains bound to environment returns."
+    },
+    {
+      "id": "P2-C07",
+      "level": "contract_validator",
+      "requirement": "Pending labels commit only after a completed PPO update advances policy_version."
+    },
+    {
+      "id": "P2-I01",
+      "level": "integrated_pending",
+      "requirement": "PPO, Policy-CC and MCC-PPO execute an identical task and identical PPO call path."
+    },
+    {
+      "id": "P2-I02",
+      "level": "integrated_pending",
+      "requirement": "No-intervention and eta=0 configurations are equivalent to their declared parent paths."
+    },
+    {
+      "id": "P2-I03",
+      "level": "integrated_pending",
+      "requirement": "Identity intervention yields zero paired return difference under matched replay."
+    },
+    {
+      "id": "P2-I04",
+      "level": "integrated_pending",
+      "requirement": "No newly queried label affects same-iteration selection, control variate, fusion or actor update."
+    },
+    {
+      "id": "P2-I05",
+      "level": "integrated_pending",
+      "requirement": "Concurrent requested, unique, backend, cache and source accounting is exact at budget exhaustion."
+    },
+    {
+      "id": "P2-I06",
+      "level": "integrated_pending",
+      "requirement": "Checkpoint/resume preserves policy, optimizers, replay, pending labels, evaluator ledger, RNG and contract identities."
+    }
+  ]
+}

@@ -51,3 +51,16 @@ profiling remains required before worker-count and budget selection.
 
 The synchronized evidence, including the superseded failed Job 4662 diagnostic,
 is under `../results/p2-mask-profile-d06365e-20260904/`.
+
+## P2-B: single-engine contract freeze
+
+The v1 interface freeze is defined by
+`PPO_ENGINE_CREDIT_CONTRACT_V1.md`, executable guards in `contracts.py`, and the
+frozen matrix in `TEST_MATRIX_V1.md` /
+`configs/p2_contract_test_matrix_v1.json`.
+
+The contract-validator layer fixes the single-PPO-engine seam, actor-credit /
+critic-return separation, frozen-policy binding, pre-reserved query budget,
+method-specific evaluator sources and post-update pending-label commit. These
+guards do not implement or accept the PPO engine. The six integrated I-series
+tests remain pending until the engine and estimators exist.
