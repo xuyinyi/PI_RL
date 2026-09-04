@@ -1,0 +1,99 @@
+{
+  "checks": [
+    "real RDKit BRICS assembly",
+    "real DAPiGen PI reaction chain",
+    "state/action/seed replay",
+    "no global Python or NumPy RNG consumption",
+    "terminal-only evaluation",
+    "requested/unique/cache budget accounting",
+    "evaluator cache and ledger checkpoint restoration",
+    "successful terminal snapshot restoration"
+  ],
+  "core_diagnostics": {
+    "candidate_cache_entries": 2,
+    "candidate_cache_hits": 4,
+    "candidate_cache_misses": 2,
+    "chemistry": {
+      "assembly_backend_dapigen_custom-sha256-e9f66fcccf1fe399": 2,
+      "assembly_products": 2,
+      "assembly_requests": 2,
+      "terminal_products": 3,
+      "terminal_reaction_requests": 3
+    },
+    "encoder": {
+      "encoder_version": "morgan-r2-b256",
+      "output_dim": 256
+    },
+    "mask_cache_entries": 1,
+    "mask_cache_hits": 4,
+    "mask_cache_misses": 1,
+    "observation_cache_entries": 2,
+    "observation_cache_hits": 4,
+    "observation_cache_misses": 2
+  },
+  "environment": {
+    "chemistry_backend": "dapigen-legacy-chemistry-deterministic-v2:dapigen_custom-sha256-e9f66fcccf1fe399:rdkit-2022.09.5",
+    "config": {
+      "attachment_label_max": 16,
+      "complete_block_policy": "never",
+      "environment_version": "dapigen-stage0-v2.2",
+      "failure_reward": 0.0,
+      "horizon_semantics": "failure_terminal",
+      "include_terminal_candidates_in_info": false,
+      "invalid_action_handling": "raise",
+      "mask_mode": "exact_cached",
+      "max_atoms": 100,
+      "max_steps": 2,
+      "minimum_diamine_growth_steps": 0,
+      "minimum_dianhydride_growth_steps": 0,
+      "observation_mode": "augmented_v3",
+      "product_selection": "seeded_uniform"
+    },
+    "diamine_catalog_sha256": "22cc6167832035b9190bfced07bf3c0d27af077d53d24516a0a444aacf6dd8b3",
+    "diamine_noop_id": 1,
+    "dianhydride_catalog_sha256": "27abef252dd855bddd5b3e163a0125b751bc8a25588fa578ac1ce31315a6ecb7",
+    "dianhydride_noop_id": 1,
+    "encoder_version": "morgan-r2-b256",
+    "environment_id": "dapigen:a1e130e41038d65f5df408cd",
+    "environment_version": "dapigen-stage0-v2.2",
+    "initial_diamine_smiles": "[16*]c1ccc(N)cc1",
+    "initial_dianhydride_smiles": "[16*]c1ccc2c(c1)C(=O)OC2=O",
+    "number_of_diamine_actions": 2,
+    "number_of_dianhydride_actions": 2,
+    "observation_dimension": 558,
+    "product_selection_estimand": "common-uniform-quantile-over-sorted-unique-products-v1",
+    "state_schema_version": 3
+  },
+  "oracle_ledger": {
+    "allowed_sources": [
+      "environment_regression"
+    ],
+    "backend_by_source": {
+      "environment_regression": 1
+    },
+    "backend_calls": 1,
+    "budget_protocol_version": "terminal-requested-unique-backend-v2",
+    "cache_entries": 1,
+    "cache_hit_rate": 0.5,
+    "cache_hits": 1,
+    "cache_scope": "validation_run",
+    "evaluator_version": "stage0-deterministic-test-v1",
+    "invalid_results": 0,
+    "maximum_requested_calls": 2,
+    "maximum_unique_calls": 1,
+    "objective_contract": "synthetic-validation-only-v1",
+    "remaining_requested_calls": 0,
+    "remaining_unique_calls": 0,
+    "requested_by_source": {
+      "environment_regression": 2
+    },
+    "requested_calls": 2,
+    "unique_by_source": {
+      "environment_regression": 1
+    },
+    "unique_calls": 1
+  },
+  "reward": 0.769,
+  "status": "passed",
+  "terminal_smiles": "Cc1ccc(-c2ccc(N3C(=O)c4ccc(-c5ccc6c(c5)C(=O)N(C)C6=O)cc4C3=O)cc2)cc1"
+}

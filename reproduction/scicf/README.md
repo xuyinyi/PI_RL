@@ -1,5 +1,10 @@
 # SciCF-PPO development boundary
 
+> **Historical track notice (2026-09-04):** The evidence and boundaries in
+> this directory are retained unchanged, but SciCF is no longer the active
+> forward roadmap. See `reproduction/PROJECT_PLAN.md` for the separately gated
+> Stage 0 / PPO / Policy-CC / MCC-PPO plan.
+
 SciCF-PPO is being added as a feature-gated extension of the frozen
 `dapigen-ppo-compat-baseline-v1` baseline. The upstream PPO clipped objective,
 DAPiGen observation/action spaces, and scientific reward implementation remain

@@ -1,0 +1,212 @@
+job_id=4649 host=yanlih100n1 cpus=8
+repo_root=/home/wch/workspaces/DAPiGen-reproduction/stage0-v22-dev-20260904
+python_bin=/home/wch/workspaces/DAPiGen-reproduction/stage0-v22-dev-20260904/test-venv/bin/python
+0, NVIDIA H100 80GB HBM3, GPU-03068b81-fa6b-f9df-55b0-9dceed2a481c, 81559 MiB
+1, NVIDIA H100 80GB HBM3, GPU-bec01859-a9c2-4efd-1084-09c6ce93403d, 81559 MiB
+2, NVIDIA H100 80GB HBM3, GPU-555c9266-e44c-11f2-5f85-e4fa2c75275e, 81559 MiB
+3, NVIDIA H100 80GB HBM3, GPU-c587808a-0204-5c97-2ae1-0adaa8130295, 81559 MiB
+4, NVIDIA H100 80GB HBM3, GPU-053e7d1b-f234-548d-79fd-732cfef5e3dc, 81559 MiB
+5, NVIDIA H100 80GB HBM3, GPU-710449b3-bffc-9940-dcfc-1d7806b27077, 81559 MiB
+6, NVIDIA H100 80GB HBM3, GPU-c3870331-bbb2-2215-7757-9f8d19a6c703, 81559 MiB
+7, NVIDIA H100 80GB HBM3, GPU-29796cff-eba6-cbda-3a58-df073afd6aa0, 81559 MiB
+{
+  "absolute_tolerance": 1e-06,
+  "checkpoint_fingerprint": "6bdd24f951dd90d3031e749ef0130752811bfefe6c850af82b805cf015ea195f",
+  "encoder_version": "polybert-sha256:6bdd24f951dd90d3031e749e",
+  "panel_size": 5,
+  "polybert_path": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v22-dev-20260904/RL_PPO/models",
+  "relative_tolerance": 1e-06,
+  "rows": [
+    {
+      "dimension": 600,
+      "maximum_absolute_difference": 0.0,
+      "normalized_smiles": "[*]c1ccc2c(c1)C(=O)OC2=O",
+      "passed": true,
+      "persistent_repeatable": true,
+      "raw_smiles": "[16*]c1ccc2c(c1)C(=O)OC2=O",
+      "released_repeatable": true,
+      "released_vs_persistent": true
+    },
+    {
+      "dimension": 600,
+      "maximum_absolute_difference": 0.0,
+      "normalized_smiles": "[*]c1ccc(N)cc1",
+      "passed": true,
+      "persistent_repeatable": true,
+      "raw_smiles": "[16*]c1ccc(N)cc1",
+      "released_repeatable": true,
+      "released_vs_persistent": true
+    },
+    {
+      "dimension": 600,
+      "maximum_absolute_difference": 0.0,
+      "normalized_smiles": "[*]c1ccc([*])cc1",
+      "passed": true,
+      "persistent_repeatable": true,
+      "raw_smiles": "[16*]c1ccc([16*])cc1",
+      "released_repeatable": true,
+      "released_vs_persistent": true
+    },
+    {
+      "dimension": 600,
+      "maximum_absolute_difference": 0.0,
+      "normalized_smiles": "[*]C([*])(C)C",
+      "passed": true,
+      "persistent_repeatable": true,
+      "raw_smiles": "[8*]C([8*])(C)C",
+      "released_repeatable": true,
+      "released_vs_persistent": true
+    },
+    {
+      "dimension": 600,
+      "maximum_absolute_difference": 0.0,
+      "normalized_smiles": "[*]O[*]",
+      "passed": true,
+      "persistent_repeatable": true,
+      "raw_smiles": "[3*]O[3*]",
+      "released_repeatable": true,
+      "released_vs_persistent": true
+    }
+  ],
+  "status": "passed"
+}
+{
+  "csv": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v22-dev-20260904/stage0_audit/final-models-contractfix/evaluator_parity/evaluator_parity.csv",
+  "dapigen_root": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v22-dev-20260904",
+  "evaluated_sample_size": 100,
+  "input_csv": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v22-dev-20260904/raw_data/PI.csv",
+  "invalid_input_count": 0,
+  "legacy_evaluator_version": "dapigen-benchmark-legacy-v1",
+  "mismatch_count": 0,
+  "mismatches": [],
+  "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+  "persistent_evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+  "requested_sample_size": 100,
+  "seed": 20260903,
+  "smiles_column": "smile",
+  "status": "passed",
+  "tolerance": 0.0
+}
+{
+  "duplicates": 8,
+  "evaluator_versions": [
+    "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0"
+  ],
+  "ledger": {
+    "allowed_sources": [
+      "environment_regression"
+    ],
+    "backend_by_source": {
+      "environment_regression": 1
+    },
+    "backend_calls": 1,
+    "budget_protocol_version": "terminal-requested-unique-backend-v2",
+    "cache_entries": 1,
+    "cache_hit_rate": 0.8888888888888888,
+    "cache_hits": 8,
+    "cache_scope": "ray_concurrency_validation",
+    "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "invalid_results": 0,
+    "maximum_requested_calls": 9,
+    "maximum_unique_calls": 1,
+    "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+    "remaining_requested_calls": 0,
+    "remaining_unique_calls": 0,
+    "requested_by_source": {
+      "environment_regression": 9
+    },
+    "requested_calls": 9,
+    "unique_by_source": {
+      "environment_regression": 1
+    },
+    "unique_calls": 1
+  },
+  "ledger_after_restore": {
+    "allowed_sources": [
+      "environment_regression"
+    ],
+    "backend_by_source": {
+      "environment_regression": 1
+    },
+    "backend_calls": 1,
+    "budget_protocol_version": "terminal-requested-unique-backend-v2",
+    "cache_entries": 1,
+    "cache_hit_rate": 0.875,
+    "cache_hits": 7,
+    "cache_scope": "ray_concurrency_validation",
+    "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "invalid_results": 0,
+    "maximum_requested_calls": 9,
+    "maximum_unique_calls": 1,
+    "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+    "remaining_requested_calls": 1,
+    "remaining_unique_calls": 0,
+    "requested_by_source": {
+      "environment_regression": 8
+    },
+    "requested_calls": 8,
+    "unique_by_source": {
+      "environment_regression": 1
+    },
+    "unique_calls": 1
+  },
+  "ledger_before_restore": {
+    "allowed_sources": [
+      "environment_regression"
+    ],
+    "backend_by_source": {
+      "environment_regression": 1
+    },
+    "backend_calls": 1,
+    "budget_protocol_version": "terminal-requested-unique-backend-v2",
+    "cache_entries": 1,
+    "cache_hit_rate": 0.875,
+    "cache_hits": 7,
+    "cache_scope": "ray_concurrency_validation",
+    "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "invalid_results": 0,
+    "maximum_requested_calls": 9,
+    "maximum_unique_calls": 1,
+    "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+    "remaining_requested_calls": 1,
+    "remaining_unique_calls": 0,
+    "requested_by_source": {
+      "environment_regression": 8
+    },
+    "requested_calls": 8,
+    "unique_by_source": {
+      "environment_regression": 1
+    },
+    "unique_calls": 1
+  },
+  "molecule": "Cc1ccc(-c2ccc(N3C(=O)c4ccc(NC(=O)c5ccc(C(=O)Nc6ccc7c(c6)C(=O)N(C)C7=O)cc5)cc4C3=O)cc2C(F)(F)F)c(C(F)(F)F)c1",
+  "objectives": [
+    0.0354,
+    0.0354,
+    0.0354,
+    0.0354,
+    0.0354,
+    0.0354,
+    0.0354,
+    0.0354
+  ],
+  "post_restore_objective": 0.0354,
+  "status": "passed"
+}
+{
+  "budget_contract_id": "4ae7ef868f971ebf57292346fe2af2fb42ab03cd928d998451ade6d01b04c587",
+  "environment_id": "dapigen:823784dc7e495332b89d305a",
+  "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+  "manifest": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v22-dev-20260904/stage0_audit/final-models-contractfix/development_contract/environment_manifest.json",
+  "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+  "runtime_contract_id": "ea5a805dd837627305ee51cdddad8b37c55cb24adea73f97829126368348d25f",
+  "task_contract_id": "0eeeeda87fe8a5b56d4a245c9d5713b94ffd8b2d92aa1f1370beab429eae86bb"
+}
+stage0_v22_model_validation_complete

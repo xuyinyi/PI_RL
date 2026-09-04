@@ -1,0 +1,9 @@
+Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.
+Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.
+/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/site-packages/dgl/heterograph.py:92: DGLWarning: Recommend creating graphs by `dgl.graph(data)` instead of `dgl.DGLGraph(data)`.
+  dgl_warning(
+/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/site-packages/dgl/heterograph.py:92: DGLWarning: Recommend creating graphs by `dgl.graph(data)` instead of `dgl.DGLGraph(data)`.
+  dgl_warning(
+[2m[36m(_Stage0EvaluatorActor pid=1382831)[0m /home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/site-packages/dgl/heterograph.py:92: DGLWarning: Recommend creating graphs by `dgl.graph(data)` instead of `dgl.DGLGraph(data)`.
+[2m[36m(_Stage0EvaluatorActor pid=1382831)[0m   dgl_warning(
+Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.

@@ -1,0 +1,61 @@
+{
+  "absolute_tolerance": 1e-06,
+  "checkpoint_fingerprint": "6bdd24f951dd90d3031e749ef0130752811bfefe6c850af82b805cf015ea195f",
+  "encoder_version": "polybert-sha256:6bdd24f951dd90d3031e749e",
+  "panel_size": 5,
+  "polybert_path": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v22-dev-20260904/RL_PPO/models",
+  "relative_tolerance": 1e-06,
+  "rows": [
+    {
+      "dimension": 600,
+      "maximum_absolute_difference": 0.0,
+      "normalized_smiles": "[*]c1ccc2c(c1)C(=O)OC2=O",
+      "passed": true,
+      "persistent_repeatable": true,
+      "raw_smiles": "[16*]c1ccc2c(c1)C(=O)OC2=O",
+      "released_repeatable": true,
+      "released_vs_persistent": true
+    },
+    {
+      "dimension": 600,
+      "maximum_absolute_difference": 0.0,
+      "normalized_smiles": "[*]c1ccc(N)cc1",
+      "passed": true,
+      "persistent_repeatable": true,
+      "raw_smiles": "[16*]c1ccc(N)cc1",
+      "released_repeatable": true,
+      "released_vs_persistent": true
+    },
+    {
+      "dimension": 600,
+      "maximum_absolute_difference": 0.0,
+      "normalized_smiles": "[*]c1ccc([*])cc1",
+      "passed": true,
+      "persistent_repeatable": true,
+      "raw_smiles": "[16*]c1ccc([16*])cc1",
+      "released_repeatable": true,
+      "released_vs_persistent": true
+    },
+    {
+      "dimension": 600,
+      "maximum_absolute_difference": 0.0,
+      "normalized_smiles": "[*]C([*])(C)C",
+      "passed": true,
+      "persistent_repeatable": true,
+      "raw_smiles": "[8*]C([8*])(C)C",
+      "released_repeatable": true,
+      "released_vs_persistent": true
+    },
+    {
+      "dimension": 600,
+      "maximum_absolute_difference": 0.0,
+      "normalized_smiles": "[*]O[*]",
+      "passed": true,
+      "persistent_repeatable": true,
+      "raw_smiles": "[3*]O[3*]",
+      "released_repeatable": true,
+      "released_vs_persistent": true
+    }
+  ],
+  "status": "passed"
+}

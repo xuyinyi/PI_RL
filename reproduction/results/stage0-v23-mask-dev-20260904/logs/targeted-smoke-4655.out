@@ -1,0 +1,342 @@
+job_id=4655 host=yanlih100n1 cpus=8
+repo_root=/home/wch/workspaces/DAPiGen-reproduction/stage0-v23-mask-dev-20260904
+python_bin=/home/wch/workspaces/DAPiGen-reproduction/stage0-v22-dev-20260904/test-venv/bin/python
+reachable_states=5
+............................................                             [100%]
+44 passed in 1.99s
+{
+  "catalog_loader": {
+    "diamine": {
+      "canonical_duplicates_removed": 0,
+      "invalid_rows_removed": 0,
+      "raw_rows": 1004,
+      "retained_actions": 1004
+    },
+    "dianhydride": {
+      "canonical_duplicates_removed": 0,
+      "invalid_rows_removed": 0,
+      "raw_rows": 576,
+      "retained_actions": 576
+    }
+  },
+  "environment": {
+    "chemistry_backend": "dapigen-legacy-chemistry-deterministic-v2:dapigen_custom-sha256-e9f66fcccf1fe399:rdkit-2022.09.5",
+    "config": {
+      "attachment_label_max": 16,
+      "complete_block_policy": "pristine_only",
+      "environment_version": "dapigen-stage0-v2.3",
+      "failure_reward": 0.0,
+      "horizon_semantics": "failure_terminal",
+      "include_terminal_candidates_in_info": false,
+      "invalid_action_handling": "raise",
+      "mask_mode": "closure_exact_cached",
+      "max_atoms": 60,
+      "max_steps": 5,
+      "minimum_diamine_growth_steps": 0,
+      "minimum_dianhydride_growth_steps": 0,
+      "observation_mode": "augmented_v3",
+      "product_selection": "seeded_uniform"
+    },
+    "diamine_catalog_sha256": "0a91e1b7084692136139379b69a06301ed510750dc8f32220cee0cba6a49100a",
+    "diamine_noop_id": 1004,
+    "dianhydride_catalog_sha256": "0a021f30b960a251b763ef6c0e0133e4f6d1214c1fa91da272a2cb241693b934",
+    "dianhydride_noop_id": 576,
+    "encoder_version": "morgan-r2-b256",
+    "environment_id": "dapigen:12d2fd24d3287d89f0c4606c",
+    "environment_version": "dapigen-stage0-v2.3",
+    "initial_diamine_smiles": "[16*]c1ccc(N)cc1",
+    "initial_dianhydride_smiles": "[16*]c1ccc2c(c1)C(=O)OC2=O",
+    "number_of_diamine_actions": 1005,
+    "number_of_dianhydride_actions": 577,
+    "observation_dimension": 558,
+    "product_selection_estimand": "common-uniform-quantile-over-sorted-unique-products-v1",
+    "state_schema_version": 3
+  },
+  "initial_valid_actions": {
+    "diamine": 771,
+    "dianhydride": 426
+  },
+  "mask_build_seconds": 50.62145662307739,
+  "output": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v23-mask-dev-20260904/stage0_audit/targeted-smoke-5/catalog_mask_audit.json",
+  "reachable_mask_audit": {
+    "distinct_state_count": 4,
+    "episodes_started": 2,
+    "exact_reference_equivalent_seconds": 48.76256178691983,
+    "examples": [
+      {
+        "episode_index": 0,
+        "false_negative_action_ids": [],
+        "false_positive_action_ids": [
+          10,
+          11,
+          33,
+          39,
+          42,
+          43,
+          61,
+          78,
+          93,
+          95,
+          104,
+          138,
+          140,
+          141,
+          144,
+          147,
+          149,
+          157,
+          173,
+          174
+        ],
+        "mask": "compatibility",
+        "side": "dianhydride",
+        "state_id": "6ea9415de5ceb117de651316",
+        "step_index": 0
+      },
+      {
+        "episode_index": 0,
+        "false_negative_action_ids": [],
+        "false_positive_action_ids": [
+          11,
+          12,
+          21,
+          26,
+          28,
+          30,
+          36,
+          38,
+          39,
+          41,
+          43,
+          44,
+          47,
+          48,
+          50,
+          52,
+          53,
+          56,
+          57,
+          58
+        ],
+        "mask": "compatibility",
+        "side": "diamine",
+        "state_id": "6ea9415de5ceb117de651316",
+        "step_index": 0
+      },
+      {
+        "episode_index": 0,
+        "false_negative_action_ids": [],
+        "false_positive_action_ids": [
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          22,
+          23,
+          24,
+          27,
+          43,
+          64,
+          69,
+          70,
+          73,
+          74,
+          96,
+          100
+        ],
+        "mask": "compatibility",
+        "side": "dianhydride",
+        "state_id": "3a70a9fbdd9801713ba29053",
+        "step_index": 1
+      },
+      {
+        "episode_index": 0,
+        "false_negative_action_ids": [],
+        "false_positive_action_ids": [
+          21,
+          26,
+          36,
+          39,
+          50,
+          52,
+          57,
+          59,
+          63,
+          70,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          97,
+          103,
+          104
+        ],
+        "mask": "compatibility",
+        "side": "diamine",
+        "state_id": "3a70a9fbdd9801713ba29053",
+        "step_index": 1
+      },
+      {
+        "episode_index": 0,
+        "false_negative_action_ids": [],
+        "false_positive_action_ids": [
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          22,
+          23,
+          24,
+          27,
+          43,
+          64,
+          69,
+          70,
+          73,
+          74,
+          96,
+          100
+        ],
+        "mask": "compatibility",
+        "side": "dianhydride",
+        "state_id": "141864a01be822867e4af182",
+        "step_index": 2
+      },
+      {
+        "episode_index": 1,
+        "false_negative_action_ids": [],
+        "false_positive_action_ids": [
+          10,
+          11,
+          33,
+          39,
+          42,
+          43,
+          61,
+          78,
+          93,
+          95,
+          104,
+          138,
+          140,
+          141,
+          144,
+          147,
+          149,
+          157,
+          173,
+          174
+        ],
+        "mask": "compatibility",
+        "side": "dianhydride",
+        "state_id": "6ea9415de5ceb117de651316",
+        "step_index": 0
+      },
+      {
+        "episode_index": 1,
+        "false_negative_action_ids": [],
+        "false_positive_action_ids": [
+          11,
+          12,
+          21,
+          26,
+          28,
+          30,
+          36,
+          38,
+          39,
+          41,
+          43,
+          44,
+          47,
+          48,
+          50,
+          52,
+          53,
+          56,
+          57,
+          58
+        ],
+        "mask": "compatibility",
+        "side": "diamine",
+        "state_id": "6ea9415de5ceb117de651316",
+        "step_index": 0
+      }
+    ],
+    "false_positive_reduction": {
+      "diamine": {
+        "fraction_removed": 1.0,
+        "removed": 422
+      },
+      "dianhydride": {
+        "fraction_removed": 1.0,
+        "removed": 260
+      }
+    },
+    "label_compatibility_totals": {
+      "diamine": {
+        "allowed": 2226,
+        "exact_allowed": 1804,
+        "false_negative": 0,
+        "false_negative_rate_among_exact": 0.0,
+        "false_positive": 422,
+        "false_positive_rate_among_allowed": 0.18957771787960467
+      },
+      "dianhydride": {
+        "allowed": 1740,
+        "exact_allowed": 1480,
+        "false_negative": 0,
+        "false_negative_rate_among_exact": 0.0,
+        "false_positive": 260,
+        "false_positive_rate_among_allowed": 0.14942528735632185
+      }
+    },
+    "mask_build_seconds": {
+      "closure_exact_cached": 0.25593649968504906,
+      "compatibility": 0.006284557282924652,
+      "exact_cached_incremental_after_refined": 48.50662528723478
+    },
+    "overlap_dead_end_states": 0,
+    "productive_transitions": 5,
+    "rollout_seed": 20260904,
+    "status": "passed",
+    "step_index_frequency": {
+      "0": 2,
+      "1": 1,
+      "2": 1,
+      "3": 1
+    },
+    "totals": {
+      "diamine": {
+        "allowed": 1804,
+        "exact_allowed": 1804,
+        "false_negative": 0,
+        "false_negative_rate_among_exact": 0.0,
+        "false_positive": 0,
+        "false_positive_rate_among_allowed": 0.0
+      },
+      "dianhydride": {
+        "allowed": 1480,
+        "exact_allowed": 1480,
+        "false_negative": 0,
+        "false_negative_rate_among_exact": 0.0,
+        "false_positive": 0,
+        "false_positive_rate_among_allowed": 0.0
+      }
+    },
+    "visited_states": 5
+  },
+  "status": "passed"
+}
+stage0_v23_core_validation_complete

@@ -2,6 +2,13 @@
 
 Status date: 2026-09-03
 
+> **Historical track notice (2026-09-04):** This status is preserved as the
+> immutable record of the SciCF acquisition programme and its no-go decisions.
+> It is no longer the active implementation roadmap. The separately gated
+> Stage 0 / PPO / Policy-CC / MCC-PPO route is defined in
+> `reproduction/PROJECT_PLAN.md`. Nothing in the new plan promotes, reopens, or
+> relabels the SciCF sealed-test, pairwise-refinement, or PPO-integration gates.
+
 ## Baseline and framework
 
 | Spec task | Status | Evidence or boundary |

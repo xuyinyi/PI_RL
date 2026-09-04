@@ -1,0 +1,16 @@
+{
+  "max_atoms": 60,
+  "max_steps": 5,
+  "mask_mode": "exact_cached",
+  "complete_block_policy": "pristine_only",
+  "minimum_dianhydride_growth_steps": 0,
+  "minimum_diamine_growth_steps": 0,
+  "product_selection": "canonical_first",
+  "observation_mode": "augmented_v3",
+  "horizon_semantics": "failure_terminal",
+  "invalid_action_handling": "raise",
+  "failure_reward": 0.0,
+  "attachment_label_max": 16,
+  "include_terminal_candidates_in_info": true,
+  "environment_version": "dapigen-stage0-exact-mask-audit-v2.3"
+}

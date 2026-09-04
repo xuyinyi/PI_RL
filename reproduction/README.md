@@ -1,5 +1,10 @@
 # DAPiGen original PPO reproduction on n001
 
+> **Active forward plan (2026-09-04):** see `PROJECT_PLAN.md`. The new route is
+> Stage 0 acceptance followed by a unified PPO / Policy-CC / MCC-PPO comparison.
+> Historical reproduction and SciCF evidence below remains unchanged and must
+> not be interpreted as acceptance of the new environment or algorithm.
+
 This directory records a fail-closed reproduction of the public DAPiGen PPO
 implementation. It does not treat an import smoke test, a reconstructed reward
 model, or a started PPO job as reproduction of the paper's results.
@@ -38,6 +43,8 @@ common paper-metric evaluator and matched multi-seed experiments are complete.
 - Full reconstructed-asset PPO baseline: **completed through Slurm** (job `4562`; exit `0:0`, 100 iterations, 99,000 environment steps).
 - Baseline checkpoints/evaluations: **complete** (epochs `0,10,...,100`; 10,000 generated samples per checkpoint).
 - Frozen compatibility-baseline record: **complete**; see `baseline-freeze.md`.
+- Stage-0 v2.3 mask-refinement development acceptance: **passed**; clean Git
+  coordinate remains required for formal Gate P1 (see `stage0/VALIDATION_V2.3.md`).
 - Paper result reproduction: **not established**.
 
 ## Network helper on n001

@@ -1,0 +1,16 @@
+{
+  "max_atoms": 60,
+  "max_steps": 6,
+  "mask_mode": "all",
+  "complete_block_policy": "legacy_replace",
+  "minimum_dianhydride_growth_steps": 0,
+  "minimum_diamine_growth_steps": 0,
+  "product_selection": "seeded_uniform",
+  "observation_mode": "legacy_polybert",
+  "horizon_semantics": "failure_terminal",
+  "invalid_action_handling": "terminate",
+  "failure_reward": 0.0,
+  "attachment_label_max": 16,
+  "include_terminal_candidates_in_info": false,
+  "environment_version": "dapigen-stage0-legacy-effective-regression-v2.3"
+}
