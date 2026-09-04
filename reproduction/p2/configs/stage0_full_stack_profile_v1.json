@@ -1,0 +1,14 @@
+{
+  "base_seed": 20260904,
+  "benchmark_name": "stage0-v23-real-observation-ledger-profile-v1",
+  "duplicate_each_success_for_cache_measurement": true,
+  "expected_accepted_environment_id": "dapigen:8004c1fa2055a186b4a4f3ed",
+  "expected_evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+  "expected_objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+  "expected_observation_dimension": 1246,
+  "maximum_requested_calls": 1000,
+  "maximum_unique_calls": 1000,
+  "minimum_successful_terminals": 10,
+  "schema_version": 1,
+  "transition_count": 100
+}

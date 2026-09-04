@@ -64,3 +64,15 @@ critic-return separation, frozen-policy binding, pre-reserved query budget,
 method-specific evaluator sources and post-update pending-label commit. These
 guards do not implement or accept the PPO engine. The six integrated I-series
 tests remain pending until the engine and estimators exist.
+
+## P2-C: real-observation / evaluator-ledger profile
+
+`FULL_STACK_PROFILE_V1.md` freezes a single-worker, two-pass characterization
+using the accepted custom chemistry, real persistent polyBERT observations and
+persistent QSPR evaluator ledger. The cache replay must reproduce trajectory,
+observation and evaluation digests without another backend call.
+
+This profile measures the pre-training stack only. It has no throughput
+acceptance threshold, does not profile parallel scaling, and invokes neither
+PPO nor a credit estimator. A formal governed run is required before recording
+performance results.
