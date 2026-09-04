@@ -375,10 +375,6 @@ def main() -> None:
     from RL_PPO.envs.factory import build_stage0_components
     from RL_PPO.envs.sources import ENVIRONMENT_REGRESSION, EVALUATION
 
-    if str(args.device).startswith("cuda"):
-        import torch
-
-        torch.cuda.reset_peak_memory_stats(torch.device(args.device))
     build_started = time.perf_counter()
     components = build_stage0_components(
         dapigen_root=str(root),
