@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "protocol_id": "dapigen-p4a-native-ppo-standard-v1",
+  "classification": "p4a_native_standard_baseline",
+  "frozen_before_results": true,
+  "provenance": {
+    "require_clean_git": true,
+    "require_slurm": true,
+    "required_host": "yanlih100n1"
+  },
+  "accepted_binding": {
+    "accepted_manifest": "reproduction/results/stage0-v23-p1-373b329-20260904/models/formal_contract/environment_manifest.json",
+    "environment_id": "dapigen:8004c1fa2055a186b4a4f3ed",
+    "accepted_p1_commit": "373b3291ac04dbf654c134bee2ca61a0c86d1a68",
+    "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+    "observation_dimension": 1246
+  },
+  "data_boundary": {
+    "allowed_inputs": [
+      "accepted P1 Stage-0 manifest",
+      "accepted building-block catalogs",
+      "accepted polyBERT and QSPR assets",
+      "raw_data/PI.csv as metric reference only"
+    ],
+    "sealed_test_access_authorized": false,
+    "external_api_authorized": false,
+    "hyperparameter_retuning_after_preflight": false
+  },
+  "task": {
+    "variant": "stage0_standard_five_step",
+    "configuration": {
+      "max_atoms": 60,
+      "max_steps": 5,
+      "mask_mode": "closure_exact_cached",
+      "complete_block_policy": "pristine_only",
+      "minimum_dianhydride_growth_steps": 0,
+      "minimum_diamine_growth_steps": 0,
+      "product_selection": "seeded_uniform",
+      "observation_mode": "augmented_v3",
+      "horizon_semantics": "failure_terminal",
+      "invalid_action_handling": "raise",
+      "failure_reward": 0.0,
+      "attachment_label_max": 16,
+      "include_terminal_candidates_in_info": false,
+      "environment_version": "dapigen-stage0-standard-v2.3"
+    }
+  },
+  "ppo": {
+    "rollout_steps": 128,
+    "gamma": 1.0,
+    "gae_lambda": 0.95,
+    "update_epochs": 4,
+    "minibatch_size": 64,
+    "clip_ratio": 0.2,
+    "value_clip": 0.2,
+    "value_loss_coefficient": 0.5,
+    "entropy_coefficient": 0.01,
+    "maximum_gradient_norm": 0.5,
+    "target_kl": 0.02,
+    "normalize_actor_advantages": true,
+    "learning_rate": 0.0003,
+    "adam_epsilon": 1e-8,
+    "hidden_sizes": [256, 256],
+    "deterministic_torch": true,
+    "device": "cuda:0"
+  },
+  "preflight": {
+    "seed": 20260910,
+    "maximum_training_requested_calls": 512,
+    "maximum_training_unique_calls": 512,
+    "minimum_training_requested_calls": 385,
+    "maximum_iterations": 64,
+    "checkpoint_requested_calls": [0, 256, 512],
+    "evaluation": {
+      "samples": 128,
+      "progress_every": 32,
+      "max_episode_steps": 5,
+      "explore": false,
+      "compute_paper_metrics": true,
+      "reference_csv": "raw_data/PI.csv",
+      "reference_column": "smile",
+      "minimum_valid_samples": 2
+    }
+  },
+  "formal": {
+    "seeds": [20260911, 20260912, 20260913, 20260914, 20260915],
+    "maximum_training_requested_calls": 10000,
+    "maximum_training_unique_calls": 10000,
+    "minimum_training_requested_calls": 9873,
+    "maximum_iterations": 800,
+    "checkpoint_requested_calls": [0, 2500, 5000, 7500, 10000],
+    "evaluation": {
+      "samples": 1000,
+      "progress_every": 100,
+      "max_episode_steps": 5,
+      "explore": false,
+      "compute_paper_metrics": true,
+      "reference_csv": "raw_data/PI.csv",
+      "reference_column": "smile",
+      "minimum_valid_samples": 2
+    }
+  },
+  "resources": {
+    "cpus": 8,
+    "gpus": 1,
+    "memory_gib": 96,
+    "walltime": "12:00:00"
+  },
+  "reporting": {
+    "primary_budget_axis": "training_requested_evaluator_calls",
+    "secondary_budget_axes": [
+      "training_unique_evaluator_calls",
+      "training_backend_evaluator_calls",
+      "environment_transitions",
+      "wall_time_seconds",
+      "gpu_memory_bytes"
+    ],
+    "required_metrics": [
+      "validity",
+      "uniqueness",
+      "mean_reward",
+      "max_reward",
+      "novelty",
+      "diversity",
+      "frag",
+      "snn"
+    ],
+    "claim_boundary": "P4-A baseline engineering evidence only; not complete P4, an algorithm comparison, optimization superiority, or scientific validation"
+  }
+}
+

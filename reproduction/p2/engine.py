@@ -465,6 +465,25 @@ class PPOEngine:
         )
         return (d_action, a_action), log_probability, value
 
+    def deterministic_action(self, observation) -> Tuple[int, int]:
+        """Return the masked greedy action without mutating training state.
+
+        P4 baseline evaluation uses the live policy at an atomic iteration
+        boundary.  Keeping deterministic evaluation here avoids a second
+        policy implementation and, unlike rollout sampling, does not consume
+        the engine RNG or create a frozen-policy handle.
+        """
+
+        if self._frozen_handle is not None:
+            raise ContractViolation(
+                "Deterministic evaluation is allowed only at an iteration boundary."
+            )
+        vector, d_mask, a_mask = self._split_observation(observation)
+        d_probabilities, a_probabilities, _value = self._policy_outputs(
+            self.model, vector, d_mask, a_mask
+        )
+        return int(np.argmax(d_probabilities)), int(np.argmax(a_probabilities))
+
     def _value(self, model, observation) -> float:
         observation_tensor = torch.as_tensor(
             observation, dtype=torch.float32, device=self.device

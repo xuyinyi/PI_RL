@@ -264,6 +264,21 @@ def test_ppo_iteration_uses_exact_gae_and_environment_critic_returns():
         assert transition.diamine_mask[transition.diamine_action]
 
 
+def test_deterministic_action_is_legal_and_does_not_mutate_engine_state():
+    engine = _engine(seed=21)
+    observation, _info = engine.environment.reset(seed=20260910)
+    policy_before = engine.policy_state_sha256
+    rng_before = copy.deepcopy(engine._rng.bit_generator.state)
+    first = engine.deterministic_action(observation)
+    second = engine.deterministic_action(observation)
+    _vector, dianhydride_mask, diamine_mask = engine._split_observation(observation)
+    assert first == second
+    assert dianhydride_mask[first[0]]
+    assert diamine_mask[first[1]]
+    assert engine.policy_state_sha256 == policy_before
+    assert engine._rng.bit_generator.state == rng_before
+
+
 def test_identical_engine_path_is_method_invariant_when_credit_is_identical():
     results = {}
     for method in (PPO, POLICY_CC, MCC_PPO):
