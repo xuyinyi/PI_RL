@@ -637,10 +637,14 @@ class PPOEngine:
                 device=self.device,
             ),
             "returns": torch.as_tensor(
-                rollout.critic_returns, dtype=torch.float32, device=self.device
+                np.asarray(rollout.critic_returns, dtype=np.float32).copy(),
+                dtype=torch.float32,
+                device=self.device,
             ),
             "advantages": torch.as_tensor(
-                credit.actor_advantages, dtype=torch.float32, device=self.device
+                np.asarray(credit.actor_advantages, dtype=np.float32).copy(),
+                dtype=torch.float32,
+                device=self.device,
             ),
         }
 
@@ -912,7 +916,7 @@ class PPOEngine:
         if cuda_states:
             if not torch.cuda.is_available() or len(cuda_states) != torch.cuda.device_count():
                 raise ContractViolation("PPO checkpoint CUDA RNG topology mismatch.")
-            torch.cuda.set_rng_state_all(cuda_states)
+            torch.cuda.set_rng_state_all([value.cpu() for value in cuda_states])
         self._rollout_sequence = int(payload["rollout_sequence"])
         self._transition_sequence = int(payload["transition_sequence"])
         self._episode_sequence = int(payload["episode_sequence"])
