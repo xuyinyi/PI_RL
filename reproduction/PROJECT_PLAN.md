@@ -2,7 +2,7 @@
 
 Status date: 2026-09-04
 
-Plan status: **active planning baseline; implementation and scientific gates remain closed unless explicitly opened below**
+Plan status: **active development; P2-A engineering profiling passed, while algorithm-training and scientific gates remain closed unless explicitly opened below**
 
 ## 1. Authority and scope
 
@@ -149,7 +149,15 @@ Required tests:
 
 Stop condition: if methods differ outside the declared credit-provider seam, comparative training is not authorized.
 
-Current status: **not started**. The received MCC files are a reference implementation and are not integrated with Stage 0.
+Current status: **in progress**. P2-A accepted-mask throughput profiling passed
+at clean profile commit `d06365e4485baddcdad65386c69cc47056bf94be`, bound to
+the P1 coordinate without Stage-0 source changes. Slurm Job 4663 passed five
+profiler tests and all functional, determinism, specification and throughput
+checks. Median throughput scaled from 7.329 masks/s at one worker to 33.807
+masks/s at eight workers (4.613x speedup; 0.577 efficiency); the minimum
+adjacent ratio was 1.159. This is a mask-only admission using a stub encoder
+outside the timed region. The unified PPO engine and credit-provider seam are
+not yet implemented, no training budget is frozen, and no PPO was launched.
 
 ### Gate P3: estimator and active-query validation
 
@@ -266,22 +274,23 @@ Current status: **not started**.
 | Historical SciCF gates | archived no-go | No SciCF performance, pairwise-refinement, or PPO-integration claim |
 | Stage 0 v2.3 environment | P1 engineering acceptance passed at clean commit `373b3291` | Reconstructed-asset compatibility scope; not author-original model or scientific validation |
 | MCC-PPO reference files | received and hash-identified | Toy/reference validation only; not a unified runnable project |
-| Unified Stage 0 + PPO engine | not started | No implementation claim |
+| Unified Stage 0 + PPO engine | P2-A mask profiling passed; engine implementation not started | Mask-only throughput admission; no engine or training claim |
 | PPO / Policy-CC / MCC-PPO pilot | closed | No performance claim |
 | Formal comparison | closed | No method claim |
 | Independent validation | not started | No physical-property or experimental claim |
 
 ## 9. Immediate work order
 
-1. Preserve the completed reference-artifact intake and Stage-0 v2.2/v2.3 development evidence.
-2. Preserve the clean P1 run coordinate and its synchronized, hash-verified evidence.
-3. Profile accepted-mask throughput under the planned multi-worker P2 engine before freezing training budgets.
-4. Design the single PPOEngine/CreditEstimator seam and its test matrix.
-5. Integrate PPO first, then Policy-CC (`eta = 0`), then MCC-PPO.
-6. Complete P3 estimator validation and P4 baseline evidence.
-7. Draft and freeze the P5 pilot protocol before running it.
+1. **Complete:** preserve the reference-artifact intake and Stage-0 v2.2/v2.3 development evidence.
+2. **Complete:** preserve the clean P1 run coordinate and its synchronized, hash-verified evidence.
+3. **Complete for mask scope:** profile accepted-mask throughput with 1, 2, 4 and 8 workers; retain both the failed development diagnostic and the corrected formal run.
+4. **Next:** specify the single `PPOEngine` / `CreditEstimator` seam and freeze its identical-path, leakage, accounting and checkpoint test matrix before trainer implementation.
+5. Add full-stack profiling with real observation encoding and evaluator-ledger overhead before worker-count and training-budget selection.
+6. Integrate PPO first, then Policy-CC (`eta = 0`), then MCC-PPO.
+7. Complete P3 estimator validation and P4 baseline evidence.
+8. Draft and freeze the P5 pilot protocol before running it.
 
-The next planned activity is **P2 multi-worker accepted-mask throughput
-profiling, followed by the single PPOEngine/CreditEstimator seam design**. No
-PPO training, external API experiment, formal comparison or scientific claim
-promotion is opened by P1 acceptance.
+The next planned activity is **the single `PPOEngine` / `CreditEstimator` seam
+contract and its test matrix**, followed by full-stack throughput profiling
+before budget selection. No PPO training, external API experiment, formal
+comparison or scientific claim promotion is opened by P2-A acceptance.

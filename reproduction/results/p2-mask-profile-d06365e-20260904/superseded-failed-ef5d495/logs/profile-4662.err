@@ -1,0 +1,27 @@
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/concurrent/futures/process.py", line 239, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File "/home/wch/workspaces/DAPiGen-reproduction/p2-mask-profile-ef5d495-clean/reproduction/p2/scripts/profile_stage0_mask_throughput.py", line 285, in _profile_worker
+    states, workload = generate_workload_states(
+  File "/home/wch/workspaces/DAPiGen-reproduction/p2-mask-profile-ef5d495-clean/reproduction/p2/scripts/profile_stage0_mask_throughput.py", line 226, in generate_workload_states
+    current = core.initial(seed=derive_seed(worker_seed, "episode", episode_index))
+AttributeError: 'NoneType' object has no attribute 'initial'
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+srun: error: yanlih100n1: task 0: Exited with exit code 1
+  File "reproduction/p2/scripts/profile_stage0_mask_throughput.py", line 651, in <module>
+    main()
+  File "reproduction/p2/scripts/profile_stage0_mask_throughput.py", line 589, in main
+    results = [future.result() for future in futures]
+  File "reproduction/p2/scripts/profile_stage0_mask_throughput.py", line 589, in <listcomp>
+    results = [future.result() for future in futures]
+  File "/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/concurrent/futures/_base.py", line 444, in result
+    return self.__get_result()
+  File "/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/concurrent/futures/_base.py", line 389, in __get_result
+    raise self._exception
+AttributeError: 'NoneType' object has no attribute 'initial'

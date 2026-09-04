@@ -32,3 +32,22 @@ training-performance claims.
 The frozen configuration is
 `configs/stage0_mask_throughput_v1.json`. No PPO, terminal evaluator or external
 API is invoked by this profile.
+
+### P2-A result (2026-09-04)
+
+P2-A passed on Slurm Job 4663 at clean profile commit
+`d06365e4485baddcdad65386c69cc47056bf94be`, bound to accepted P1 commit
+`373b3291ac04dbf654c134bee2ca61a0c86d1a68`. Median aggregate throughput was
+7.329, 14.738, 29.174 and 33.807 masks/s for 1, 2, 4 and 8 workers,
+respectively. The eight-worker speedup was 4.613x, parallel efficiency was
+0.577, and the minimum adjacent throughput ratio was 1.159. All functional,
+determinism, specification and throughput failure lists were empty.
+
+This admits the accepted mask to the next P2 design step only. It does not
+accept the complete P2 engine or freeze a training budget: the timed operation
+excluded polyBERT observation encoding, the terminal evaluator, PPO and the
+credit estimator. The 4-to-8-worker increment was only 1.159x, so full-stack
+profiling remains required before worker-count and budget selection.
+
+The synchronized evidence, including the superseded failed Job 4662 diagnostic,
+is under `../results/p2-mask-profile-d06365e-20260904/`.

@@ -1,0 +1,109 @@
+job_id=4663 host=yanlih100n1 cpus=8
+repo_root=/home/wch/workspaces/DAPiGen-reproduction/p2-mask-profile-d06365e-clean
+python_bin=/home/wch/workspaces/DAPiGen-reproduction/stage0-v22-dev-20260904/test-venv/bin/python
+.....                                                                    [100%]
+5 passed in 2.11s
+workers=1 repetition=0 masks_per_second=7.212757
+workers=1 repetition=1 masks_per_second=7.346802
+workers=1 repetition=2 masks_per_second=7.329156
+workers=2 repetition=0 masks_per_second=14.737913
+workers=2 repetition=1 masks_per_second=14.699551
+workers=2 repetition=2 masks_per_second=14.744604
+workers=4 repetition=0 masks_per_second=28.880621
+workers=4 repetition=1 masks_per_second=29.463898
+workers=4 repetition=2 masks_per_second=29.173854
+workers=8 repetition=0 masks_per_second=33.874310
+workers=8 repetition=1 masks_per_second=33.457106
+workers=8 repetition=2 masks_per_second=33.806831
+{
+  "classification": {
+    "determinism_violations": [],
+    "functional_failures": [],
+    "maximum_worker_count": 8,
+    "maximum_worker_median_efficiency": 0.5765812600032802,
+    "maximum_worker_median_speedup": 4.612650080026242,
+    "minimum_adjacent_throughput_ratio": 1.1588058071216163,
+    "status": "passed",
+    "throughput_failures": []
+  },
+  "output": "/home/wch/workspaces/DAPiGen-reproduction/runs/p2-mask-profile-d06365e/profile/stage0_mask_throughput.json",
+  "scaling": {
+    "adjacent_throughput_ratios": [
+      {
+        "current_worker_count": 2,
+        "previous_worker_count": 1,
+        "throughput_ratio": 2.0108608984141805
+      },
+      {
+        "current_worker_count": 4,
+        "previous_worker_count": 2,
+        "throughput_ratio": 1.9795105362774303
+      },
+      {
+        "current_worker_count": 8,
+        "previous_worker_count": 4,
+        "throughput_ratio": 1.1588058071216163
+      }
+    ],
+    "by_worker_count": {
+      "1": {
+        "aggregate_masks_per_second": [
+          7.212756739079538,
+          7.346802253451872,
+          7.329155847646757
+        ],
+        "maximum_aggregate_masks_per_second": 7.346802253451872,
+        "median_aggregate_masks_per_second": 7.329155847646757,
+        "median_parallel_efficiency": 1.0,
+        "median_speedup_vs_one_worker": 1.0,
+        "minimum_aggregate_masks_per_second": 7.212756739079538,
+        "repetitions": 3,
+        "worker_count": 1
+      },
+      "2": {
+        "aggregate_masks_per_second": [
+          14.737912912416503,
+          14.699550948934885,
+          14.744603793587824
+        ],
+        "maximum_aggregate_masks_per_second": 14.744603793587824,
+        "median_aggregate_masks_per_second": 14.737912912416503,
+        "median_parallel_efficiency": 1.0054304492070902,
+        "median_speedup_vs_one_worker": 2.0108608984141805,
+        "minimum_aggregate_masks_per_second": 14.699550948934885,
+        "repetitions": 3,
+        "worker_count": 2
+      },
+      "4": {
+        "aggregate_masks_per_second": [
+          28.880621366125876,
+          29.463897665869645,
+          29.17385389286766
+        ],
+        "maximum_aggregate_masks_per_second": 29.463897665869645,
+        "median_aggregate_masks_per_second": 29.17385389286766,
+        "median_parallel_efficiency": 0.9951300838497925,
+        "median_speedup_vs_one_worker": 3.98052033539917,
+        "minimum_aggregate_masks_per_second": 28.880621366125876,
+        "repetitions": 3,
+        "worker_count": 4
+      },
+      "8": {
+        "aggregate_masks_per_second": [
+          33.874309706410905,
+          33.45710629405021,
+          33.806831307172615
+        ],
+        "maximum_aggregate_masks_per_second": 33.874309706410905,
+        "median_aggregate_masks_per_second": 33.806831307172615,
+        "median_parallel_efficiency": 0.5765812600032802,
+        "median_speedup_vs_one_worker": 4.612650080026242,
+        "minimum_aggregate_masks_per_second": 33.45710629405021,
+        "repetitions": 3,
+        "worker_count": 8
+      }
+    }
+  },
+  "status": "passed"
+}
+stage0_v23_p2_throughput_profile_complete

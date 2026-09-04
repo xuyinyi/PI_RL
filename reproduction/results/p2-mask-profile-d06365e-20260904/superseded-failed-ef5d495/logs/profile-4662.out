@@ -1,0 +1,5 @@
+job_id=4662 host=yanlih100n1 cpus=8
+repo_root=/home/wch/workspaces/DAPiGen-reproduction/p2-mask-profile-ef5d495-clean
+python_bin=/home/wch/workspaces/DAPiGen-reproduction/stage0-v22-dev-20260904/test-venv/bin/python
+....                                                                     [100%]
+4 passed in 0.02s
