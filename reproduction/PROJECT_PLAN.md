@@ -1,8 +1,10 @@
 # Active project plan: terminal-evaluable counterfactual credit for DAPiGen
 
-Status date: 2026-09-04
+Status date: 2026-09-06
 
-Plan status: **architecture-first LLM-SciCF engineering smoke passed; module hardening is next, while historical negative gates and all scientific claim gates remain closed**
+Plan status: **architecture smoke and acquisition/verifier hardening passed;
+pairwise-stability development is next, while formal training, historical
+sealed tests, and all scientific claim gates remain closed**
 
 ## 2026-09-06 architecture-first amendment
 
@@ -29,6 +31,21 @@ The first coordinate passed in n001 Slurm Job 4684 at clean commit
 `d05a05c556958a798c3f4eab217eed587ed0309b`. It exercised the complete path
 with one `K=1` request/verification/refinement cycle. This closes only the
 architecture-reachability smoke; it does not admit multi-iteration training.
+
+The second coordinate,
+`dapigen-scicf-acquisition-verifier-dev-v1`, passed in n001 Slurm Job 4685 at
+clean commit `d58b3f9d2d5eaa6060e39c93d3149f84e559120e`. Four outcome-blind
+trajectory pools compared DeepSeek, Random, frozen-policy probability, and a
+Morgan-distance chemistry heuristic on identical 24-candidate pools at maximum
+`B=4`. All 96 candidates were evaluated with matched `K=2` continuations for
+development-only scoring; the policy was not updated. The verifier yielded 25
+sign-consistent pairs (13 positive, 12 negative). DeepSeek exceeded Random on
+the pre-declared mean NDCG and effective-BestGain checks and had three of four
+paired NDCG non-losses, so pairwise-stability development is admitted. This is
+not a claim that DeepSeek is best: its mean NDCG (0.2777) remained below the
+chemistry heuristic (0.3423), and four pools cannot establish effectiveness or
+generality. Evidence is under
+`reproduction/results/scicf-acquisition-verifier-dev-20260906/`.
 
 ## 1. Authority and scope
 

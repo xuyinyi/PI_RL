@@ -1,0 +1,45 @@
+{
+  "api_key_logged": false,
+  "completion_tokens": 137,
+  "pool_id": "fb8690e1d4e89c608333f085ab3268bece5abb18b2ba6c0f95150c5a3e43d563",
+  "pool_index": 0,
+  "prompt_sha256": "c9d6d60877f6e8d55d5536e569d16eec9d47c3c681a11f16b78a7092d201c667",
+  "prompt_tokens": 7694,
+  "provider": {
+    "endpoint_sha256": "948f1ecb6b48f91adc4e110d0351cd172b16450e9936d358992e0dfad7b863f3",
+    "include_seed": false,
+    "json_mode": true,
+    "max_tokens_field": "max_tokens",
+    "model_id": "deepseek-v4-flash",
+    "model_revision": "DeepSeek-V4-Flash-0731-api-snapshot-2026-09-03",
+    "provider_id": "deepseek-official",
+    "thinking": "disabled",
+    "type": "openai-compatible-api"
+  },
+  "provider_response_id": "f2f30ce8-0950-4a3a-a7fd-7b0c4d74f4db",
+  "provider_response_sha256": "881cddabc5e6d7c81b51d261ac68a2347f4539d6f0035a1e956f8fe299928b87",
+  "raw_response": "{\"ranked_intervention_ids\":[\"cf-9557ea2f69f13c44\",\"cf-99d35f71593a5176\",\"cf-1323c49fbc5faa4e\",\"cf-b8446eb5b12c600f\"],\"reasoning\":\"These interventions replace the bulky, flexible dianhydride with rigid, aromatic or alicyclic dianhydrides that are complete and likely to enhance thermal/mechanical properties while maintaining reasonable synthetic accessibility. They are scientifically promising alternatives to the factual flexible dianhydride at timestep 0.\",\"abstain\":false,\"confidence\":0.7}",
+  "request_id": "dapigen-scicf-acquisition-verifier-dev-v1-pool-00-job-4685",
+  "system_fingerprint": "a26a7955944dc5c60445bff77fac9c8e",
+  "total_tokens": 7831,
+  "transport_retries_used": 0,
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": 0.7,
+    "ranked_intervention_ids": [
+      "cf-9557ea2f69f13c44",
+      "cf-99d35f71593a5176",
+      "cf-1323c49fbc5faa4e",
+      "cf-b8446eb5b12c600f"
+    ],
+    "reasoning": "These interventions replace the bulky, flexible dianhydride with rigid, aromatic or alicyclic dianhydrides that are complete and likely to enhance thermal/mechanical properties while maintaining reasonable synthetic accessibility. They are scientifically promising alternatives to the factual flexible dianhydride at timestep 0.",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-9557ea2f69f13c44",
+      "cf-99d35f71593a5176",
+      "cf-1323c49fbc5faa4e",
+      "cf-b8446eb5b12c600f"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+job_id=4685 host=yanlih100n1 cpus=8 protocol=dapigen-scicf-acquisition-verifier-dev-v1
+repo_root=/home/wch/workspaces/DAPiGen-reproduction/scicf-acquisition-verifier-dev-v1 output_dir=/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-acquisition-verifier-dev-d58b3f9 provider=private-api
+0, NVIDIA H100 80GB HBM3, GPU-03068b81-fa6b-f9df-55b0-9dceed2a481c, 81559 MiB
+1, NVIDIA H100 80GB HBM3, GPU-bec01859-a9c2-4efd-1084-09c6ce93403d, 81559 MiB
+2, NVIDIA H100 80GB HBM3, GPU-555c9266-e44c-11f2-5f85-e4fa2c75275e, 81559 MiB
+3, NVIDIA H100 80GB HBM3, GPU-c587808a-0204-5c97-2ae1-0adaa8130295, 81559 MiB
+4, NVIDIA H100 80GB HBM3, GPU-053e7d1b-f234-548d-79fd-732cfef5e3dc, 81559 MiB
+5, NVIDIA H100 80GB HBM3, GPU-710449b3-bffc-9940-dcfc-1d7806b27077, 81559 MiB
+6, NVIDIA H100 80GB HBM3, GPU-c3870331-bbb2-2215-7757-9f8d19a6c703, 81559 MiB
+7, NVIDIA H100 80GB HBM3, GPU-29796cff-eba6-cbda-3a58-df073afd6aa0, 81559 MiB
+...................................                                      [100%]
+35 passed in 4.02s
+{"acquisition_failures": [], "execution_status": "passed", "integrity_failures": [], "module_decision": "go_pairwise_stability_development", "output": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-acquisition-verifier-dev-d58b3f9", "verifier_failures": []}
+scicf_acquisition_verifier_development_complete

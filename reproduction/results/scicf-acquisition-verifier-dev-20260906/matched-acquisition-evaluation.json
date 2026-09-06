@@ -1,0 +1,506 @@
+[
+  {
+    "oracle_gain_top4": [
+      "cf-1323c49fbc5faa4e",
+      "cf-151ad17b5f3db53b",
+      "cf-9557ea2f69f13c44",
+      "cf-b8446eb5b12c600f"
+    ],
+    "pool_id": "fb8690e1d4e89c608333f085ab3268bece5abb18b2ba6c0f95150c5a3e43d563",
+    "pool_index": 0,
+    "strategies": {
+      "chemistry_heuristic": {
+        "accepted_selected_count": 1,
+        "metrics": {
+          "budget": 4,
+          "budget_utilization": 1.0,
+          "effective_best_gain_at_b": 0.41900000000000004,
+          "hit_rate_at_b": 0.25,
+          "ndcg_at_b": 0.3696260677413085,
+          "positive_precision_selected": 0.25,
+          "regret_at_b": 0.0,
+          "selected_best_gain_at_b": 0.41900000000000004,
+          "selected_count": 4
+        },
+        "selected_ids": [
+          "cf-df565c30c246f853",
+          "cf-5e0e4ee4617deb00",
+          "cf-1323c49fbc5faa4e",
+          "cf-22123b673632ba35"
+        ],
+        "stable_positive_hit_rate_at_b": 0.25,
+        "stable_positive_selected_count": 1
+      },
+      "deepseek_llm": {
+        "accepted_selected_count": 3,
+        "metrics": {
+          "budget": 4,
+          "budget_utilization": 1.0,
+          "effective_best_gain_at_b": 0.41900000000000004,
+          "hit_rate_at_b": 0.75,
+          "ndcg_at_b": 0.4567471072488837,
+          "positive_precision_selected": 0.75,
+          "regret_at_b": 0.0,
+          "selected_best_gain_at_b": 0.41900000000000004,
+          "selected_count": 4
+        },
+        "selected_ids": [
+          "cf-9557ea2f69f13c44",
+          "cf-99d35f71593a5176",
+          "cf-1323c49fbc5faa4e",
+          "cf-b8446eb5b12c600f"
+        ],
+        "stable_positive_hit_rate_at_b": 0.75,
+        "stable_positive_selected_count": 3
+      },
+      "policy_probability": {
+        "accepted_selected_count": 0,
+        "metrics": {
+          "budget": 4,
+          "budget_utilization": 1.0,
+          "effective_best_gain_at_b": 0.0,
+          "hit_rate_at_b": 0.0,
+          "ndcg_at_b": 0.0,
+          "positive_precision_selected": 0.0,
+          "regret_at_b": 0.41900000000000004,
+          "selected_best_gain_at_b": 0.0,
+          "selected_count": 4
+        },
+        "selected_ids": [
+          "cf-b3fa5fbcfb5973d5",
+          "cf-aa522e92ca71f650",
+          "cf-df565c30c246f853",
+          "cf-74782fb19037f217"
+        ],
+        "stable_positive_hit_rate_at_b": 0.0,
+        "stable_positive_selected_count": 0
+      },
+      "random": {
+        "accepted_selected_count": 1,
+        "metrics": {
+          "budget": 4,
+          "budget_utilization": 1.0,
+          "effective_best_gain_at_b": 0.00455,
+          "hit_rate_at_b": 0.25,
+          "ndcg_at_b": 0.0034646066426228927,
+          "positive_precision_selected": 0.25,
+          "regret_at_b": 0.41445000000000004,
+          "selected_best_gain_at_b": 0.00455,
+          "selected_count": 4
+        },
+        "selected_ids": [
+          "cf-4a419e7fd3b0d513",
+          "cf-80fa3e4c763be41f",
+          "cf-b8446eb5b12c600f",
+          "cf-e94a10fd54ab8d6f"
+        ],
+        "stable_positive_hit_rate_at_b": 0.25,
+        "stable_positive_selected_count": 1
+      }
+    },
+    "verified_gains": {
+      "cf-1323c49fbc5faa4e": 0.41900000000000004,
+      "cf-151ad17b5f3db53b": 0.20895,
+      "cf-22123b673632ba35": 0.0,
+      "cf-2bd3a842e13351fe": 0.0,
+      "cf-382cef6389bced23": 0.0,
+      "cf-4a419e7fd3b0d513": 0.0,
+      "cf-5e0e4ee4617deb00": 0.0,
+      "cf-700414581753ab5c": 0.0,
+      "cf-74782fb19037f217": 0.0,
+      "cf-80fa3e4c763be41f": 0.0,
+      "cf-8dd112f0babddd3c": 0.0,
+      "cf-903d59caa79fff17": 0.0,
+      "cf-9557ea2f69f13c44": 0.054299999999999994,
+      "cf-988b4defa698adc2": 0.0,
+      "cf-99d35f71593a5176": 0.0,
+      "cf-aa522e92ca71f650": 0.0,
+      "cf-b3fa5fbcfb5973d5": 0.0,
+      "cf-b8446eb5b12c600f": 0.00455,
+      "cf-cbafe577bb4aa6e4": 0.0,
+      "cf-db1181243b2564d3": 0.0,
+      "cf-df565c30c246f853": 0.0,
+      "cf-e2a3208711cf3126": 0.0,
+      "cf-e94a10fd54ab8d6f": 0.0,
+      "cf-fc611e9704715279": 0.0
+    }
+  },
+  {
+    "oracle_gain_top4": [
+      "cf-e8492eab448658fa",
+      "cf-4dd78290323ca7e7",
+      "cf-57e41557b731a247",
+      "cf-fcd536d614991a22"
+    ],
+    "pool_id": "5b0f8da810f83eb413c9620480f51a322ccbfbfcd9ff3ffd0dbeeb644a3a8b8f",
+    "pool_index": 1,
+    "strategies": {
+      "chemistry_heuristic": {
+        "accepted_selected_count": 0,
+        "metrics": {
+          "budget": 4,
+          "budget_utilization": 1.0,
+          "effective_best_gain_at_b": 0.0928,
+          "hit_rate_at_b": 0.25,
+          "ndcg_at_b": 0.11452399123769025,
+          "positive_precision_selected": 0.25,
+          "regret_at_b": 0.1041,
+          "selected_best_gain_at_b": 0.0928,
+          "selected_count": 4
+        },
+        "selected_ids": [
+          "cf-cf9879a1e051e50c",
+          "cf-7c7975da8aff373b",
+          "cf-391752e7cae1d7a5",
+          "cf-57e41557b731a247"
+        ],
+        "stable_positive_hit_rate_at_b": 0.0,
+        "stable_positive_selected_count": 0
+      },
+      "deepseek_llm": {
+        "accepted_selected_count": 0,
+        "metrics": {
+          "budget": 4,
+          "budget_utilization": 1.0,
+          "effective_best_gain_at_b": 0.1526,
+          "hit_rate_at_b": 0.25,
+          "ndcg_at_b": 0.44656035513556236,
+          "positive_precision_selected": 0.25,
+          "regret_at_b": 0.04429999999999998,
+          "selected_best_gain_at_b": 0.1526,
+          "selected_count": 4
+        },
+        "selected_ids": [
+          "cf-4dd78290323ca7e7",
+          "cf-391752e7cae1d7a5",
+          "cf-7c7975da8aff373b",
+          "cf-73d5fb32c659e1d6"
+        ],
+        "stable_positive_hit_rate_at_b": 0.0,
+        "stable_positive_selected_count": 0
+      },
+      "policy_probability": {
+        "accepted_selected_count": 0,
+        "metrics": {
+          "budget": 4,
+          "budget_utilization": 1.0,
+          "effective_best_gain_at_b": 0.0,
+          "hit_rate_at_b": 0.0,
+          "ndcg_at_b": 0.0,
+          "positive_precision_selected": 0.0,
+          "regret_at_b": 0.1969,
+          "selected_best_gain_at_b": 0.0,
+          "selected_count": 4
+        },
+        "selected_ids": [
+          "cf-9ed53d082d70054f",
+          "cf-fcd536d614991a22",
+          "cf-662091be6525bfac",
+          "cf-e9cf9bad9d26c177"
+        ],
+        "stable_positive_hit_rate_at_b": 0.0,
+        "stable_positive_selected_count": 0
+      },
+      "random": {
+        "accepted_selected_count": 0,
+        "metrics": {
+          "budget": 4,
+          "budget_utilization": 1.0,
+          "effective_best_gain_at_b": 0.0,
+          "hit_rate_at_b": 0.0,
+          "ndcg_at_b": 0.0,
+          "positive_precision_selected": 0.0,
+          "regret_at_b": 0.1969,
+          "selected_best_gain_at_b": 0.0,
+          "selected_count": 4
+        },
+        "selected_ids": [
+          "cf-26993bd8f212edc0",
+          "cf-73d5fb32c659e1d6",
+          "cf-7c7975da8aff373b",
+          "cf-fcd536d614991a22"
+        ],
+        "stable_positive_hit_rate_at_b": 0.0,
+        "stable_positive_selected_count": 0
+      }
+    },
+    "verified_gains": {
+      "cf-26993bd8f212edc0": 0.0,
+      "cf-3813031a9b4ba1f0": 0.0,
+      "cf-391752e7cae1d7a5": 0.0,
+      "cf-3af0c95740690826": 0.0,
+      "cf-48f93c0939c8525f": 0.0,
+      "cf-4dd78290323ca7e7": 0.1526,
+      "cf-57e41557b731a247": 0.0928,
+      "cf-57fa418c679d99c0": 0.0,
+      "cf-5ae6307994f8d5c7": 0.0,
+      "cf-662091be6525bfac": 0.0,
+      "cf-72e70fe8f8088765": 0.0,
+      "cf-73d5fb32c659e1d6": 0.0,
+      "cf-786b3e05d200411f": 0.0,
+      "cf-7c7975da8aff373b": 0.0,
+      "cf-9beb929dacab461a": 0.0,
+      "cf-9ed53d082d70054f": 0.0,
+      "cf-a5e97a4270fdc531": 0.0,
+      "cf-c381ea1afd01eb94": 0.0,
+      "cf-cf9879a1e051e50c": 0.0,
+      "cf-d3d5c134342e7882": 0.0,
+      "cf-da1b145ab33ab93d": 0.0,
+      "cf-e8492eab448658fa": 0.1969,
+      "cf-e9cf9bad9d26c177": 0.0,
+      "cf-fcd536d614991a22": 0.0
+    }
+  },
+  {
+    "oracle_gain_top4": [
+      "cf-0db85f2db06fa462",
+      "cf-61293b063c18024a",
+      "cf-99640ee012035f5f",
+      "cf-6bde5d6667e49fbf"
+    ],
+    "pool_id": "df62c7531de358982f9437afb5047fae936fde7947c128c323a0dc7578cac3d5",
+    "pool_index": 2,
+    "strategies": {
+      "chemistry_heuristic": {
+        "accepted_selected_count": 2,
+        "metrics": {
+          "budget": 4,
+          "budget_utilization": 1.0,
+          "effective_best_gain_at_b": 0.00135,
+          "hit_rate_at_b": 0.25,
+          "ndcg_at_b": 0.0018319675380132946,
+          "positive_precision_selected": 0.25,
+          "regret_at_b": 0.29955,
+          "selected_best_gain_at_b": 0.00135,
+          "selected_count": 4
+        },
+        "selected_ids": [
+          "cf-f2583005c207ed77",
+          "cf-6bde5d6667e49fbf",
+          "cf-44b148ad186519e3",
+          "cf-28cb02a6fd81c2ae"
+        ],
+        "stable_positive_hit_rate_at_b": 0.25,
+        "stable_positive_selected_count": 1
+      },
+      "deepseek_llm": {
+        "accepted_selected_count": 1,
+        "metrics": {
+          "budget": 4,
+          "budget_utilization": 1.0,
+          "effective_best_gain_at_b": 0.00135,
+          "hit_rate_at_b": 0.25,
+          "ndcg_at_b": 0.0012505123895451148,
+          "positive_precision_selected": 0.25,
+          "regret_at_b": 0.29955,
+          "selected_best_gain_at_b": 0.00135,
+          "selected_count": 4
+        },
+        "selected_ids": [
+          "cf-1d44c0c651b3d38b",
+          "cf-f96e20bd30043102",
+          "cf-f2583005c207ed77",
+          "cf-6bde5d6667e49fbf"
+        ],
+        "stable_positive_hit_rate_at_b": 0.25,
+        "stable_positive_selected_count": 1
+      },
+      "policy_probability": {
+        "accepted_selected_count": 2,
+        "metrics": {
+          "budget": 4,
+          "budget_utilization": 1.0,
+          "effective_best_gain_at_b": 0.17895,
+          "hit_rate_at_b": 0.25,
+          "ndcg_at_b": 0.20479272632652257,
+          "positive_precision_selected": 0.25,
+          "regret_at_b": 0.12195,
+          "selected_best_gain_at_b": 0.17895,
+          "selected_count": 4
+        },
+        "selected_ids": [
+          "cf-7df6eeb03cf8350d",
+          "cf-5c65bef40c15c888",
+          "cf-61293b063c18024a",
+          "cf-a4ad2ffe7be8619a"
+        ],
+        "stable_positive_hit_rate_at_b": 0.25,
+        "stable_positive_selected_count": 1
+      },
+      "random": {
+        "accepted_selected_count": 2,
+        "metrics": {
+          "budget": 4,
+          "budget_utilization": 1.0,
+          "effective_best_gain_at_b": 0.3009,
+          "hit_rate_at_b": 0.5,
+          "ndcg_at_b": 0.36147266001670303,
+          "positive_precision_selected": 0.5,
+          "regret_at_b": 0.0,
+          "selected_best_gain_at_b": 0.3009,
+          "selected_count": 4
+        },
+        "selected_ids": [
+          "cf-bbc05baaf6b28c7e",
+          "cf-6bde5d6667e49fbf",
+          "cf-0db85f2db06fa462",
+          "cf-a1455e893f872929"
+        ],
+        "stable_positive_hit_rate_at_b": 0.5,
+        "stable_positive_selected_count": 2
+      }
+    },
+    "verified_gains": {
+      "cf-0d887f18d30f4f3e": 0.0,
+      "cf-0db85f2db06fa462": 0.3009,
+      "cf-1d44c0c651b3d38b": -0.09735,
+      "cf-28cb02a6fd81c2ae": -0.1567,
+      "cf-2df5a2ee66b06ba7": -0.1368,
+      "cf-3392f23df5d49ead": -0.2734,
+      "cf-34d96d56a1087d44": 0.0,
+      "cf-44b148ad186519e3": -0.17704999999999999,
+      "cf-531ca625272827a8": -0.09634999999999999,
+      "cf-5c65bef40c15c888": -0.12405,
+      "cf-61293b063c18024a": 0.17895,
+      "cf-6bde5d6667e49fbf": 0.00135,
+      "cf-6e0bff4a9b9543ac": -0.11130000000000004,
+      "cf-7df6eeb03cf8350d": -0.07164999999999999,
+      "cf-99640ee012035f5f": 0.019449999999999967,
+      "cf-9f061a0f8890566e": -0.2819,
+      "cf-a1455e893f872929": 0.0,
+      "cf-a4ad2ffe7be8619a": 0.0,
+      "cf-b97bbe4ce73371ac": 0.0,
+      "cf-bbc05baaf6b28c7e": -0.12775,
+      "cf-be55ae620011ba4e": -0.1347,
+      "cf-f2583005c207ed77": -0.11325,
+      "cf-f7b8fcd0b5efdc71": -0.2649,
+      "cf-f96e20bd30043102": -0.1519
+    }
+  },
+  {
+    "oracle_gain_top4": [
+      "cf-6cdfefc3c7f2d88b",
+      "cf-46e47caabb19f472",
+      "cf-88c78d9e920eaa0d",
+      "cf-e4d00a88fd6caf20"
+    ],
+    "pool_id": "2f6a7a4a3e270e1cade7d8cf1bf581b330191b8ab90fb97532621a7be37c11c8",
+    "pool_index": 3,
+    "strategies": {
+      "chemistry_heuristic": {
+        "accepted_selected_count": 3,
+        "metrics": {
+          "budget": 4,
+          "budget_utilization": 1.0,
+          "effective_best_gain_at_b": 0.3294,
+          "hit_rate_at_b": 0.75,
+          "ndcg_at_b": 0.8831215410057549,
+          "positive_precision_selected": 0.75,
+          "regret_at_b": 0.0,
+          "selected_best_gain_at_b": 0.3294,
+          "selected_count": 4
+        },
+        "selected_ids": [
+          "cf-6cdfefc3c7f2d88b",
+          "cf-46e47caabb19f472",
+          "cf-e4d00a88fd6caf20",
+          "cf-8f0b3dc63ce6c868"
+        ],
+        "stable_positive_hit_rate_at_b": 0.75,
+        "stable_positive_selected_count": 3
+      },
+      "deepseek_llm": {
+        "accepted_selected_count": 1,
+        "metrics": {
+          "budget": 4,
+          "budget_utilization": 1.0,
+          "effective_best_gain_at_b": 0.3294,
+          "hit_rate_at_b": 0.25,
+          "ndcg_at_b": 0.20613848978339913,
+          "positive_precision_selected": 0.25,
+          "regret_at_b": 0.0,
+          "selected_best_gain_at_b": 0.3294,
+          "selected_count": 4
+        },
+        "selected_ids": [
+          "cf-8f0b3dc63ce6c868",
+          "cf-67961fc775131081",
+          "cf-55a4d8ed2fca51d3",
+          "cf-6cdfefc3c7f2d88b"
+        ],
+        "stable_positive_hit_rate_at_b": 0.25,
+        "stable_positive_selected_count": 1
+      },
+      "policy_probability": {
+        "accepted_selected_count": 1,
+        "metrics": {
+          "budget": 4,
+          "budget_utilization": 1.0,
+          "effective_best_gain_at_b": 0.020349999999999993,
+          "hit_rate_at_b": 0.25,
+          "ndcg_at_b": 0.02650895931506912,
+          "positive_precision_selected": 0.25,
+          "regret_at_b": 0.30905000000000005,
+          "selected_best_gain_at_b": 0.020349999999999993,
+          "selected_count": 4
+        },
+        "selected_ids": [
+          "cf-07efab39a0ad4087",
+          "cf-afefe5152478f935",
+          "cf-0b5f436a70a86cd9",
+          "cf-764a6879bc035b4e"
+        ],
+        "stable_positive_hit_rate_at_b": 0.0,
+        "stable_positive_selected_count": 0
+      },
+      "random": {
+        "accepted_selected_count": 1,
+        "metrics": {
+          "budget": 4,
+          "budget_utilization": 1.0,
+          "effective_best_gain_at_b": 0.0,
+          "hit_rate_at_b": 0.0,
+          "ndcg_at_b": 0.0,
+          "positive_precision_selected": 0.0,
+          "regret_at_b": 0.3294,
+          "selected_best_gain_at_b": 0.0,
+          "selected_count": 4
+        },
+        "selected_ids": [
+          "cf-afefe5152478f935",
+          "cf-e5fcc84540219361",
+          "cf-49e3831609604111",
+          "cf-e22c9b2efa05e942"
+        ],
+        "stable_positive_hit_rate_at_b": 0.0,
+        "stable_positive_selected_count": 0
+      }
+    },
+    "verified_gains": {
+      "cf-026dcd9dce02a4fc": 0.0,
+      "cf-052d88e141be8b60": -0.10155,
+      "cf-06d8440b14fc26c3": -0.13125,
+      "cf-07efab39a0ad4087": 0.020349999999999993,
+      "cf-0b5f436a70a86cd9": -0.12234999999999999,
+      "cf-32a6b10cf5d30085": 0.0,
+      "cf-447b719ad2029253": 0.0,
+      "cf-46e47caabb19f472": 0.3151,
+      "cf-49e3831609604111": 0.0,
+      "cf-55a4d8ed2fca51d3": -0.0069,
+      "cf-67961fc775131081": 0.0,
+      "cf-6cdfefc3c7f2d88b": 0.3294,
+      "cf-764a6879bc035b4e": -0.012150000000000001,
+      "cf-88c78d9e920eaa0d": 0.1924,
+      "cf-8f0b3dc63ce6c868": -0.01235,
+      "cf-91bc5fe324532ee2": 0.0308,
+      "cf-ac56e26eeb29bdd1": 0.0264,
+      "cf-afefe5152478f935": 0.0,
+      "cf-bbd6afc5d4d01f8b": 0.04310000000000001,
+      "cf-ca84e27d7a9a815a": 0.1561,
+      "cf-d9aa624751b15426": -0.1622,
+      "cf-e22c9b2efa05e942": -0.1318,
+      "cf-e4d00a88fd6caf20": 0.17055,
+      "cf-e5fcc84540219361": -0.01
+    }
+  }
+]

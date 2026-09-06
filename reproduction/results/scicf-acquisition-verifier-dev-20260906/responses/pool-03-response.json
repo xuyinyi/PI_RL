@@ -1,0 +1,45 @@
+{
+  "api_key_logged": false,
+  "completion_tokens": 123,
+  "pool_id": "2f6a7a4a3e270e1cade7d8cf1bf581b330191b8ab90fb97532621a7be37c11c8",
+  "pool_index": 3,
+  "prompt_sha256": "88ec8e82497515974a7e334a53e1f2c8691774ec296a1214878d3d64eeace24f",
+  "prompt_tokens": 7779,
+  "provider": {
+    "endpoint_sha256": "948f1ecb6b48f91adc4e110d0351cd172b16450e9936d358992e0dfad7b863f3",
+    "include_seed": false,
+    "json_mode": true,
+    "max_tokens_field": "max_tokens",
+    "model_id": "deepseek-v4-flash",
+    "model_revision": "DeepSeek-V4-Flash-0731-api-snapshot-2026-09-03",
+    "provider_id": "deepseek-official",
+    "thinking": "disabled",
+    "type": "openai-compatible-api"
+  },
+  "provider_response_id": "0042790d-0b14-47e0-88c3-11d8d61ca004",
+  "provider_response_sha256": "76f2c53da3f18494e67bc4f4e70df96b9e1c86c01b016a5937ab076467771361",
+  "raw_response": "{\"ranked_intervention_ids\":[\"cf-8f0b3dc63ce6c868\",\"cf-67961fc775131081\",\"cf-55a4d8ed2fca51d3\",\"cf-6cdfefc3c7f2d88b\"],\"reasoning\":\"Selected interventions replace incomplete or flexible building blocks with rigid, aromatic, or fluorinated alternatives that may improve thermal/mechanical properties while maintaining synthetic accessibility. Prioritized early-stage replacements to maximize impact on the final polymer structure.\",\"abstain\":false,\"confidence\":0.6}",
+  "request_id": "dapigen-scicf-acquisition-verifier-dev-v1-pool-03-job-4685",
+  "system_fingerprint": "a26a7955944dc5c60445bff77fac9c8e",
+  "total_tokens": 7902,
+  "transport_retries_used": 0,
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": 0.6,
+    "ranked_intervention_ids": [
+      "cf-8f0b3dc63ce6c868",
+      "cf-67961fc775131081",
+      "cf-55a4d8ed2fca51d3",
+      "cf-6cdfefc3c7f2d88b"
+    ],
+    "reasoning": "Selected interventions replace incomplete or flexible building blocks with rigid, aromatic, or fluorinated alternatives that may improve thermal/mechanical properties while maintaining synthetic accessibility. Prioritized early-stage replacements to maximize impact on the final polymer structure.",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-8f0b3dc63ce6c868",
+      "cf-67961fc775131081",
+      "cf-55a4d8ed2fca51d3",
+      "cf-6cdfefc3c7f2d88b"
+    ]
+  }
+}

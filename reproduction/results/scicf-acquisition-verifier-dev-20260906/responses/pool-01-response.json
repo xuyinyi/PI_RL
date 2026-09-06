@@ -1,0 +1,45 @@
+{
+  "api_key_logged": false,
+  "completion_tokens": 115,
+  "pool_id": "5b0f8da810f83eb413c9620480f51a322ccbfbfcd9ff3ffd0dbeeb644a3a8b8f",
+  "pool_index": 1,
+  "prompt_sha256": "7c9ddd90adabca114f44c7108a63898853d8c738fd003a40beb6a40285fd15b8",
+  "prompt_tokens": 7736,
+  "provider": {
+    "endpoint_sha256": "948f1ecb6b48f91adc4e110d0351cd172b16450e9936d358992e0dfad7b863f3",
+    "include_seed": false,
+    "json_mode": true,
+    "max_tokens_field": "max_tokens",
+    "model_id": "deepseek-v4-flash",
+    "model_revision": "DeepSeek-V4-Flash-0731-api-snapshot-2026-09-03",
+    "provider_id": "deepseek-official",
+    "thinking": "disabled",
+    "type": "openai-compatible-api"
+  },
+  "provider_response_id": "adb4b844-ed9e-4339-b09e-3d71ebdc4854",
+  "provider_response_sha256": "9dc258ba65fcdd55e6d451c570cbc3830815c435c7e1cb29c50393cc68bab4b7",
+  "raw_response": "{\"ranked_intervention_ids\":[\"cf-4dd78290323ca7e7\",\"cf-391752e7cae1d7a5\",\"cf-7c7975da8aff373b\",\"cf-73d5fb32c659e1d6\"],\"abstain\":false,\"reasoning\":\"Selected interventions that introduce rigid, aromatic, or sulfone-containing diamine/dianhydride building blocks to potentially improve thermal/mechanical properties while maintaining reasonable synthetic accessibility, prioritizing complete building blocks at early timesteps.\"}",
+  "request_id": "dapigen-scicf-acquisition-verifier-dev-v1-pool-01-job-4685",
+  "system_fingerprint": "a26a7955944dc5c60445bff77fac9c8e",
+  "total_tokens": 7851,
+  "transport_retries_used": 0,
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": null,
+    "ranked_intervention_ids": [
+      "cf-4dd78290323ca7e7",
+      "cf-391752e7cae1d7a5",
+      "cf-7c7975da8aff373b",
+      "cf-73d5fb32c659e1d6"
+    ],
+    "reasoning": "Selected interventions that introduce rigid, aromatic, or sulfone-containing diamine/dianhydride building blocks to potentially improve thermal/mechanical properties while maintaining reasonable synthetic accessibility, prioritizing complete building blocks at early timesteps.",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-4dd78290323ca7e7",
+      "cf-391752e7cae1d7a5",
+      "cf-7c7975da8aff373b",
+      "cf-73d5fb32c659e1d6"
+    ]
+  }
+}

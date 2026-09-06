@@ -1,6 +1,15 @@
 # LLM-SciCF acquisition and verifier development gate v1
 
-Status: **pre-declared; development-only; no formal training or claim authority**.
+Status: **passed in n001 Slurm Job 4685 at commit `d58b3f9`; development-only;
+no formal training or claim authority**.
+
+The pre-declared decision was `go_pairwise_stability_development`: integrity
+closed, 25/96 candidates produced sign-consistent `K=2` pairs (13 positive and
+12 negative), and DeepSeek exceeded Random on the declared four-pool mean NDCG
+and effective-BestGain checks. This is only an entry decision for the next
+development module. In particular, the chemistry heuristic had higher mean
+NDCG than DeepSeek, the sample contains only four pools, and no uncertainty or
+held-out-structure claim is available.
 
 ## Question
 

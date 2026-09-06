@@ -1,0 +1,45 @@
+{
+  "api_key_logged": false,
+  "completion_tokens": 131,
+  "pool_id": "df62c7531de358982f9437afb5047fae936fde7947c128c323a0dc7578cac3d5",
+  "pool_index": 2,
+  "prompt_sha256": "54ad504363c0040a1f7a9665575e31ed9fd00cc2b2d95e2c8189991ce2b571b0",
+  "prompt_tokens": 7629,
+  "provider": {
+    "endpoint_sha256": "948f1ecb6b48f91adc4e110d0351cd172b16450e9936d358992e0dfad7b863f3",
+    "include_seed": false,
+    "json_mode": true,
+    "max_tokens_field": "max_tokens",
+    "model_id": "deepseek-v4-flash",
+    "model_revision": "DeepSeek-V4-Flash-0731-api-snapshot-2026-09-03",
+    "provider_id": "deepseek-official",
+    "thinking": "disabled",
+    "type": "openai-compatible-api"
+  },
+  "provider_response_id": "7550288a-1da5-4378-b628-9fa612405589",
+  "provider_response_sha256": "812495027d1ce4222e07134d4c13d9c43e002fd74172da65f7dac9e3d1113011",
+  "raw_response": "{\"ranked_intervention_ids\":[\"cf-1d44c0c651b3d38b\",\"cf-f96e20bd30043102\",\"cf-f2583005c207ed77\",\"cf-6bde5d6667e49fbf\"],\"abstain\":false,\"reasoning\":\"Selected interventions at the earliest timestep (0) that replace the factual dianhydride or diamine with complete, synthetically accessible alternatives. These provide the most informative counterfactuals for evaluating the impact of core monomer structure on the multi-objective polymer properties, while respecting the budget of four oracle calls.\"}",
+  "request_id": "dapigen-scicf-acquisition-verifier-dev-v1-pool-02-job-4685",
+  "system_fingerprint": "a26a7955944dc5c60445bff77fac9c8e",
+  "total_tokens": 7760,
+  "transport_retries_used": 0,
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": null,
+    "ranked_intervention_ids": [
+      "cf-1d44c0c651b3d38b",
+      "cf-f96e20bd30043102",
+      "cf-f2583005c207ed77",
+      "cf-6bde5d6667e49fbf"
+    ],
+    "reasoning": "Selected interventions at the earliest timestep (0) that replace the factual dianhydride or diamine with complete, synthetically accessible alternatives. These provide the most informative counterfactuals for evaluating the impact of core monomer structure on the multi-objective polymer properties, while respecting the budget of four oracle calls.",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-1d44c0c651b3d38b",
+      "cf-f96e20bd30043102",
+      "cf-f2583005c207ed77",
+      "cf-6bde5d6667e49fbf"
+    ]
+  }
+}

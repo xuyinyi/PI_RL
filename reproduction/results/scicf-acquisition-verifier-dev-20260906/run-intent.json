@@ -1,0 +1,36 @@
+{
+  "accepted_manifest_sha256": "8d4eaa0f72d042384a1eaaa87ae8b9c8728cef490482ead8ea8e350c6cbe8165",
+  "api_key_logged": false,
+  "claim_boundary": {
+    "baseline_mutation_authorized": false,
+    "formal_training_authorized": false,
+    "gate_1b3_status": "retained_as_failed_non_blocking_diagnostic",
+    "pairwise_update_authorized": false,
+    "scientific_claim_authorized": false,
+    "sealed_test_access_authorized": false
+  },
+  "classification": "development_module_hardening_only",
+  "config_sha256": "dd2f8d676d23d4d63584b7dc515e76bcbea084d3e79b032938cd244d7832c3bc",
+  "credential_file_path_logged": false,
+  "external_api_request_limit": 4,
+  "protocol_id": "dapigen-scicf-acquisition-verifier-dev-v1",
+  "provider": {
+    "endpoint_sha256": "948f1ecb6b48f91adc4e110d0351cd172b16450e9936d358992e0dfad7b863f3",
+    "include_seed": false,
+    "json_mode": true,
+    "max_tokens_field": "max_tokens",
+    "model_id": "deepseek-v4-flash",
+    "model_revision": "DeepSeek-V4-Flash-0731-api-snapshot-2026-09-03",
+    "provider_id": "deepseek-official",
+    "thinking": "disabled",
+    "type": "openai-compatible-api"
+  },
+  "slurm_job_id": "4685",
+  "source": {
+    "branch": "codex/scicf-acquisition-verifier-dev-v1",
+    "commit": "d58b3f9d2d5eaa6060e39c93d3149f84e559120e",
+    "dirty": false,
+    "tags": []
+  },
+  "status": "declared-before-first-api-request-and-before-development-labels"
+}
