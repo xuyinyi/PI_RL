@@ -50,6 +50,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--dapigen-root", type=Path, required=True)
     parser.add_argument("--config", type=Path, required=True)
     parser.add_argument("--accepted-manifest", type=Path, required=True)
+    parser.add_argument("--polybert-path", type=Path, required=True)
     parser.add_argument("--credentials-file", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     return parser.parse_args()
@@ -116,6 +117,7 @@ def build_runtime(
     accepted_manifest: Mapping[str, Any],
     binding: Mapping[str, Any],
     config: Mapping[str, Any],
+    polybert_path: Path,
 ):
     from RL_PPO.envs.config import DAPiGenEnvConfig
     from RL_PPO.envs.factory import build_stage0_components
@@ -125,7 +127,7 @@ def build_runtime(
     allowed_sources = tuple(METHOD_EVALUATOR_SOURCES[SCICF_PPO])
     components = build_stage0_components(
         dapigen_root=str(root),
-        polybert_path=str(root / "RL_PPO" / "models"),
+        polybert_path=str(polybert_path),
         config=DAPiGenEnvConfig.from_mapping(binding["accepted_task_config"]),
         device=ppo_config.device,
         maximum_requested_calls=int(config["budget"]["maximum_requested_calls"]),
@@ -262,8 +264,11 @@ def main() -> None:
     )
 
     started = time.perf_counter()
+    polybert_path = args.polybert_path.resolve()
+    if not polybert_path.is_dir():
+        raise FileNotFoundError("polyBERT path is not a local directory")
     components, engine, specification, run_contract = build_runtime(
-        root, accepted_manifest, binding, config
+        root, accepted_manifest, binding, config, polybert_path
     )
     behavior_policy = FrozenPolicySampler(engine.model, config["ppo"]["device"])
     initial_policy_sha256 = engine.policy_state_sha256

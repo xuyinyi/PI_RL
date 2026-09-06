@@ -11,16 +11,17 @@
 
 set -euo pipefail
 
-if [[ "$#" -ne 5 ]]; then
-    echo "usage: $0 REPO_ROOT PYTHON_BIN PYTHON_PACKAGE_ROOT PRIVATE_CREDENTIALS_FILE OUTPUT_DIR" >&2
+if [[ "$#" -ne 6 ]]; then
+    echo "usage: $0 REPO_ROOT PYTHON_BIN PYTHON_PACKAGE_ROOT POLYBERT_PATH PRIVATE_CREDENTIALS_FILE OUTPUT_DIR" >&2
     exit 2
 fi
 
 repo_root="$1"
 python_bin="$2"
 python_package_root="$3"
-credentials_file="$4"
-output_dir="$5"
+polybert_path="$4"
+credentials_file="$5"
+output_dir="$6"
 config="$repo_root/reproduction/scicf/online/configs/architecture_smoke_v1.json"
 accepted_manifest="$repo_root/reproduction/results/stage0-v23-p1-373b329-20260904/models/formal_contract/environment_manifest.json"
 
@@ -38,6 +39,7 @@ echo "job_id=${SLURM_JOB_ID} host=$(hostname) cpus=${SLURM_CPUS_PER_TASK} protoc
 echo "repo_root=$repo_root output_dir=$output_dir provider=private-api"
 nvidia-smi --query-gpu=index,name,uuid,memory.total --format=csv,noheader
 test -d "$python_package_root/gymnasium"
+test -d "$polybert_path"
 test -f "$credentials_file"
 test "$(stat -c %a "$credentials_file")" = "600"
 test -z "$(git -C "$repo_root" status --porcelain)"
@@ -49,6 +51,7 @@ srun --cpu-bind=cores "$python_bin" -m reproduction.scicf.online.run_smoke \
     --dapigen-root "$repo_root" \
     --config "$config" \
     --accepted-manifest "$accepted_manifest" \
+    --polybert-path "$polybert_path" \
     --credentials-file "$credentials_file" \
     --output-dir "$output_dir"
 

@@ -444,13 +444,19 @@ def verify_selected_candidates(
 
 def _masked_log_probabilities(model, candidate: OnlineCandidate, device):
     observation = torch.as_tensor(
-        candidate.observation, dtype=torch.float32, device=device
+        np.asarray(candidate.observation, dtype=np.float32).copy(),
+        dtype=torch.float32,
+        device=device,
     ).reshape(1, -1)
     d_mask = torch.as_tensor(
-        candidate.dianhydride_mask, dtype=torch.bool, device=device
+        np.asarray(candidate.dianhydride_mask, dtype=bool).copy(),
+        dtype=torch.bool,
+        device=device,
     ).reshape(1, -1)
     a_mask = torch.as_tensor(
-        candidate.diamine_mask, dtype=torch.bool, device=device
+        np.asarray(candidate.diamine_mask, dtype=bool).copy(),
+        dtype=torch.bool,
+        device=device,
     ).reshape(1, -1)
     d_logits, a_logits, _value = model(observation)
     minimum = torch.finfo(d_logits.dtype).min
