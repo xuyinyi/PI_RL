@@ -1,9 +1,11 @@
 # SciCF-PPO development boundary
 
-> **Historical track notice (2026-09-04):** The evidence and boundaries in
-> this directory are retained unchanged, but SciCF is no longer the active
-> forward roadmap. See `reproduction/PROJECT_PLAN.md` for the separately gated
-> Stage 0 / PPO / Policy-CC / MCC-PPO plan.
+> **Architecture-first amendment (2026-09-06):** Historical SciCF evidence and
+> no-go decisions remain unchanged. A new, versioned online architecture smoke
+> is active under `reproduction/scicf/online/`; it is engineering-only and does
+> not reopen the sealed test or authorize performance claims. See
+> `reproduction/PROJECT_PLAN.md` and
+> `reproduction/scicf/online/ARCHITECTURE_SMOKE_V1.md`.
 
 SciCF-PPO is being added as a feature-gated extension of the frozen
 `dapigen-ppo-compat-baseline-v1` baseline. The upstream PPO clipped objective,

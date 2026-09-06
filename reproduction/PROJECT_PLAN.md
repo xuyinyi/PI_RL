@@ -2,7 +2,28 @@
 
 Status date: 2026-09-04
 
-Plan status: **active development; the frozen P4-A native-standard PPO preflight passed and its five-seed formal array is running, while counterfactual and scientific gates remain closed**
+Plan status: **architecture-first LLM-SciCF engineering smoke authorized; historical negative gates and all scientific claim gates remain closed**
+
+## 2026-09-06 architecture-first amendment
+
+The user selected a bounded online-engineering route: first make the complete
+LLM-SciCF architecture executable, then harden and evaluate each module. This
+changes the immediate engineering order without converting any earlier no-go
+into a go decision.
+
+The first implementation coordinate is
+`dapigen-scicf-online-architecture-smoke-v1`. It runs one standard PPO update,
+one blinded DeepSeek acquisition request over a 24-candidate cross-timestep
+pool, selected-only matched factual/counterfactual Oracle verification, and at
+most one KL-protected component-local pairwise update. It is an engineering
+smoke only: no baseline is overwritten, no sealed test is opened, and no
+algorithm-effectiveness or scientific claim may be made from it.
+
+After this smoke, the module order is: acquisition context/schema, candidate
+coverage, matched verifier and budget accounting, pairwise stability,
+multi-iteration PPO integration, matched Random/heuristic controls, and only
+then a frozen multi-seed experiment. The earlier Gate 1B.3 result remains a
+failed, non-blocking descriptor diagnostic.
 
 ## 1. Authority and scope
 

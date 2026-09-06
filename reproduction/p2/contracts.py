@@ -34,6 +34,12 @@ PPO = "ppo"
 POLICY_CC = "policy_cc"
 MCC_PPO = "mcc_ppo"
 METHODS = (PPO, POLICY_CC, MCC_PPO)
+SCICF_PPO = "scicf_ppo"
+SCICF_PPO_ON_POLICY = "scicf_ppo/on_policy"
+SCICF_PPO_FACTUAL = "scicf_ppo/factual"
+SCICF_PPO_COUNTERFACTUAL = "scicf_ppo/counterfactual"
+EXPERIMENTAL_METHODS = (SCICF_PPO,)
+SUPPORTED_METHODS = METHODS + EXPERIMENTAL_METHODS
 
 METHOD_EVALUATOR_SOURCES = {
     PPO: frozenset((PPO_ON_POLICY, EVALUATION)),
@@ -53,18 +59,28 @@ METHOD_EVALUATOR_SOURCES = {
             EVALUATION,
         )
     ),
+    SCICF_PPO: frozenset(
+        (
+            SCICF_PPO_ON_POLICY,
+            SCICF_PPO_FACTUAL,
+            SCICF_PPO_COUNTERFACTUAL,
+            EVALUATION,
+        )
+    ),
 }
 
 METHOD_QUERY_SOURCES = {
     PPO: frozenset(),
     POLICY_CC: frozenset((POLICY_CC_FACTUAL, POLICY_CC_COUNTERFACTUAL)),
     MCC_PPO: frozenset((MCC_PPO_FACTUAL, MCC_PPO_COUNTERFACTUAL)),
+    SCICF_PPO: frozenset((SCICF_PPO_FACTUAL, SCICF_PPO_COUNTERFACTUAL)),
 }
 
 METHOD_ON_POLICY_SOURCE = {
     PPO: PPO_ON_POLICY,
     POLICY_CC: POLICY_CC_ON_POLICY,
     MCC_PPO: MCC_PPO_ON_POLICY,
+    SCICF_PPO: SCICF_PPO_ON_POLICY,
 }
 
 
@@ -97,7 +113,7 @@ def _validate_identifier(value: str, name: str) -> str:
 def _validate_method(method: str) -> str:
     if not isinstance(method, str):
         raise ContractViolation("P2 method must be a string identifier.")
-    if method not in METHODS:
+    if method not in SUPPORTED_METHODS:
         raise ContractViolation("Unsupported P2 method: %s" % method)
     return method
 
