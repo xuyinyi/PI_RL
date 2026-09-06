@@ -12,6 +12,9 @@ import numpy as np
 ONLINE_PROTOCOL_ID = "dapigen-scicf-online-architecture-smoke-v1"
 ACQUISITION_VERIFIER_PROTOCOL_ID = "dapigen-scicf-acquisition-verifier-dev-v1"
 PAIRWISE_STABILITY_PROTOCOL_ID = "dapigen-scicf-pairwise-stability-dev-v1"
+SINGLE_ITERATION_INTEGRATION_PROTOCOL_ID = (
+    "dapigen-scicf-single-iteration-integration-smoke-v1"
+)
 ONLINE_PROMPT_VERSION = "scicf-dapigen-online-acquisition-blinded-v1"
 ONLINE_PRESENTATION_PROTOCOL = "opaque-id-sha256-shuffle-v1"
 
