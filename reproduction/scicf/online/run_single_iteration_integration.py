@@ -405,6 +405,16 @@ def main() -> None:
         integrity_failures.append("llm_prompt_information_leakage")
     if any(len(item.paired_seeds) != 2 for item in verifications):
         integrity_failures.append("matched_replicate_count_mismatch")
+    if len(verifications) != len(selected_ids):
+        integrity_failures.append("selected_verification_count_mismatch")
+    if any(
+        len(item.factual_terminal_records)
+        != int(config["verification"]["replicates"])
+        or len(item.counterfactual_terminal_records)
+        != int(config["verification"]["replicates"])
+        for item in verifications
+    ):
+        integrity_failures.append("verification_branch_record_count_mismatch")
     if ppo_result.credit.actor_advantages_sha256 != ppo_result.rollout.gae_sha256:
         integrity_failures.append("ppo_actor_credit_not_exact_gae")
     if (
@@ -425,15 +435,30 @@ def main() -> None:
         {"scicf_ppo/factual", "scicf_ppo/counterfactual"}
     ):
         integrity_failures.append("unexpected_verification_evaluator_source")
-    if verification_delta.requested_calls != maximum_verification_calls:
-        integrity_failures.append("verification_requested_call_count_mismatch")
-    expected_calls_per_source = len(selected_ids) * int(
-        config["verification"]["replicates"]
+    expected_factual_evaluator_calls = sum(
+        record.get("terminal_evaluation") is not None
+        for item in verifications
+        for record in item.factual_terminal_records
     )
-    if selected_ids and dict(verification_delta.requested_by_source) != {
-        "scicf_ppo/counterfactual": expected_calls_per_source,
-        "scicf_ppo/factual": expected_calls_per_source,
-    }:
+    expected_counterfactual_evaluator_calls = sum(
+        record.get("terminal_evaluation") is not None
+        for item in verifications
+        for record in item.counterfactual_terminal_records
+    )
+    expected_evaluator_calls = (
+        expected_factual_evaluator_calls + expected_counterfactual_evaluator_calls
+    )
+    if verification_delta.requested_calls != expected_evaluator_calls:
+        integrity_failures.append("verification_requested_call_count_mismatch")
+    expected_source_calls = {
+        source: count
+        for source, count in (
+            ("scicf_ppo/counterfactual", expected_counterfactual_evaluator_calls),
+            ("scicf_ppo/factual", expected_factual_evaluator_calls),
+        )
+        if count
+    }
+    if dict(verification_delta.requested_by_source) != expected_source_calls:
         integrity_failures.append("verification_source_call_count_mismatch")
     if int(final_ledger.get("invalid_results", 0)) != 0:
         integrity_failures.append("invalid_evaluator_result_recorded")
@@ -551,6 +576,12 @@ def main() -> None:
                 item.accepted and item.mean_delta < 0.0 for item in verifications
             ),
             "maximum_branch_count": maximum_verification_calls,
+            "completed_branch_count": sum(
+                len(item.factual_terminal_records)
+                + len(item.counterfactual_terminal_records)
+                for item in verifications
+            ),
+            "terminal_evaluation_branch_count": expected_evaluator_calls,
             "ledger_delta": asdict(verification_delta),
             "labels_generated_after_standard_ppo_update": True,
         },

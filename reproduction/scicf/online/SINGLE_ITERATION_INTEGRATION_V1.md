@@ -48,7 +48,10 @@ freeze pi_old
   `0.01`, non-target-factor KL at most `0.005`, and absolute critic-output drift
   at most `0.01`; value-head parameters remain unchanged.
 - Evaluator sources, requested/unique/backend/cache counters, policy versions,
-  source hashes, and the final checkpoint all close.
+  source hashes, and the final checkpoint all close. Every matched environment
+  branch must have a terminal record; only branches with a terminal molecular
+  evaluation are expected to increment the QSPR evaluator ledger, because
+  structurally invalid branches terminate before that evaluator is called.
 
 ## Stop and claim boundary
 
