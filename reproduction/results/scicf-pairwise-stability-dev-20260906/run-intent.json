@@ -1,0 +1,31 @@
+{
+  "accepted_manifest_sha256": "8d4eaa0f72d042384a1eaaa87ae8b9c8728cef490482ead8ea8e350c6cbe8165",
+  "claim_boundary": {
+    "baseline_mutation_authorized": false,
+    "formal_training_authorized": false,
+    "fresh_counterfactual_labels_authorized": false,
+    "fresh_llm_requests_authorized": false,
+    "multi_iteration_ppo_authorized": false,
+    "next_scope_if_passed": "single_iteration_integration_smoke_only",
+    "scientific_claim_authorized": false,
+    "sealed_test_access_authorized": false
+  },
+  "classification": "pairwise_optimizer_stability_development_only",
+  "config_sha256": "2df937efea5956631825f4c10e3c9906143bf09d0524b559f457c5f97ba790e7",
+  "external_api_request_limit": 0,
+  "fresh_counterfactual_oracle_call_limit": 0,
+  "input_hashes": {
+    "matched_evaluation": "039e933f4844fc3aa17ffce7f8859aaf51cb5bd3b9558f336bc8260e1e7e5e23",
+    "module_report": "f052a6343a275230bde3045717a6f5cadc6f0c3dbb33827a9595c830a0380d7d",
+    "oracle_verification": "c20ef67372bbd0d8511390d963bbf38d2ceb1b1bfef9755e125fcf7eeeddb862"
+  },
+  "protocol_id": "dapigen-scicf-pairwise-stability-dev-v1",
+  "slurm_job_id": "4686",
+  "source": {
+    "branch": "codex/scicf-pairwise-stability-dev-v1",
+    "commit": "06ec14f3a6c136cdb9895ff31bcc1b475acc3b61",
+    "dirty": false,
+    "tags": []
+  },
+  "status": "declared-before-policy-reconstruction-and-before-update-probes"
+}

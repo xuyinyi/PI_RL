@@ -2,9 +2,10 @@
 
 Status date: 2026-09-06
 
-Plan status: **architecture smoke and acquisition/verifier hardening passed;
-pairwise-stability development is next, while formal training, historical
-sealed tests, and all scientific claim gates remain closed**
+Plan status: **architecture, acquisition/verifier, and pairwise-stability
+development gates passed; a single-iteration integration smoke is next, while
+formal or multi-iteration training, historical sealed tests, and all scientific
+claim gates remain closed**
 
 ## 2026-09-06 architecture-first amendment
 
@@ -46,6 +47,22 @@ not a claim that DeepSeek is best: its mean NDCG (0.2777) remained below the
 chemistry heuristic (0.3423), and four pools cannot establish effectiveness or
 generality. Evidence is under
 `reproduction/results/scicf-acquisition-verifier-dev-20260906/`.
+
+The third coordinate, `dapigen-scicf-pairwise-stability-dev-v1`, passed in n001
+Slurm Job 4686 at clean commit
+`06ec14f3a6c136cdb9895ff31bcc1b475acc3b61`. It hash-reconstructed the same
+rollout, 96 candidate IDs, initial policy, and 25 accepted `K=2` pairs from Job
+4685, then ran six one-step update scenarios twice each from the same restored
+initial state. All six replica groups were exact, every training subset improved
+its signed margin, and all five held-out folds had positive mean-margin change.
+Maximum joint KL across all 96 candidate states was `4.94e-7`; the value-head
+parameters were unchanged, while shared-trunk critic predictions moved by at
+most `0.00412`, below the frozen `0.01` bound. No LLM or fresh counterfactual
+label call occurred and no PPO optimizer step was taken. This admits only a
+separately frozen single-iteration integration smoke. Full-corpus pairwise
+accuracy remained below `0.5` after one step (`0.48`), so no learning-quality
+or effectiveness claim follows. Evidence is under
+`reproduction/results/scicf-pairwise-stability-dev-20260906/`.
 
 ## 1. Authority and scope
 

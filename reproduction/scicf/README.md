@@ -2,12 +2,14 @@
 
 > **Architecture-first amendment (2026-09-06):** Historical SciCF evidence and
 > no-go decisions remain unchanged. The online architecture smoke and the
-> acquisition/verifier development gate passed under `reproduction/scicf/online/`.
+> acquisition/verifier and pairwise-stability development gates passed under
+> `reproduction/scicf/online/`.
 > These are engineering and development evidence only; they do not reopen the
 > sealed test or authorize performance claims. The next admitted scope is only
-> pairwise-optimizer stability development. See `reproduction/PROJECT_PLAN.md`,
+> a single-iteration integration smoke. See `reproduction/PROJECT_PLAN.md`,
 > `reproduction/scicf/online/ARCHITECTURE_SMOKE_V1.md`, and
-> `reproduction/scicf/online/ACQUISITION_VERIFIER_DEV_V1.md`.
+> `reproduction/scicf/online/ACQUISITION_VERIFIER_DEV_V1.md`, and
+> `reproduction/scicf/online/PAIRWISE_STABILITY_DEV_V1.md`.
 
 SciCF-PPO is being added as a feature-gated extension of the frozen
 `dapigen-ppo-compat-baseline-v1` baseline. The upstream PPO clipped objective,

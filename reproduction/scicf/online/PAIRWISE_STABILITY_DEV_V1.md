@@ -1,7 +1,14 @@
 # LLM-SciCF pairwise stability development gate v1
 
-Status: **frozen and authorized for one development execution; no formal or
+Status: **passed in n001 Slurm Job 4686 at commit `06ec14f`; no formal or
 multi-iteration PPO training**.
+
+All six scenario pairs reproduced exact post-update hashes, all five held-out
+folds improved their mean signed margin, and the maximum full-support joint KL
+was `4.94e-7`. The pre-declared decision is
+`go_single_iteration_integration_smoke`. The full-corpus preference accuracy
+rose only from `0.40` to `0.48`, so this is a numerical stability result, not
+evidence that the learned preference model is already accurate.
 
 ## Question
 

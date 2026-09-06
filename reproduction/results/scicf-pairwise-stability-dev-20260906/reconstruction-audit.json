@@ -1,0 +1,91 @@
+{
+  "accepted_pair_count": 25,
+  "candidate_count": 96,
+  "chosen_episode_ids": [
+    26,
+    52,
+    13,
+    22
+  ],
+  "folds": [
+    [
+      "cf-06d8440b14fc26c3",
+      "cf-0b5f436a70a86cd9",
+      "cf-6cdfefc3c7f2d88b",
+      "cf-7df6eeb03cf8350d",
+      "cf-91bc5fe324532ee2",
+      "cf-b8446eb5b12c600f"
+    ],
+    [
+      "cf-052d88e141be8b60",
+      "cf-2df5a2ee66b06ba7",
+      "cf-61293b063c18024a",
+      "cf-6bde5d6667e49fbf",
+      "cf-99640ee012035f5f",
+      "cf-be55ae620011ba4e"
+    ],
+    [
+      "cf-44b148ad186519e3",
+      "cf-46e47caabb19f472",
+      "cf-88c78d9e920eaa0d",
+      "cf-9557ea2f69f13c44",
+      "cf-e22c9b2efa05e942"
+    ],
+    [
+      "cf-1323c49fbc5faa4e",
+      "cf-3392f23df5d49ead",
+      "cf-d9aa624751b15426",
+      "cf-e4d00a88fd6caf20"
+    ],
+    [
+      "cf-0db85f2db06fa462",
+      "cf-9f061a0f8890566e",
+      "cf-ac56e26eeb29bdd1",
+      "cf-f7b8fcd0b5efdc71"
+    ]
+  ],
+  "fresh_counterfactual_labels_generated": false,
+  "initial_policy_sha256": "38ee9386cfe69e424782e1ba0af8d78ec083f52cbb6a2a492d29c9c9ffa0f8c6",
+  "negative_pair_count": 12,
+  "pools": [
+    {
+      "candidate_count": 24,
+      "candidate_ids_sha256": "1bb8018840678d545b0c01fca837e4c3c92a8d05fa9d8f4cb1cdd5782e799f78",
+      "episode_id": 26,
+      "pool_id": "fb8690e1d4e89c608333f085ab3268bece5abb18b2ba6c0f95150c5a3e43d563",
+      "pool_index": 0
+    },
+    {
+      "candidate_count": 24,
+      "candidate_ids_sha256": "44d647a8a03a5622d0b20197bc5c1d08bb7283796ca1abfe49c0cfd2eae5b70a",
+      "episode_id": 52,
+      "pool_id": "5b0f8da810f83eb413c9620480f51a322ccbfbfcd9ff3ffd0dbeeb644a3a8b8f",
+      "pool_index": 1
+    },
+    {
+      "candidate_count": 24,
+      "candidate_ids_sha256": "fa665f974ebd5b61abd4b4f0ff46e87175c42a5291af0360f5ae5a8750b2383e",
+      "episode_id": 13,
+      "pool_id": "df62c7531de358982f9437afb5047fae936fde7947c128c323a0dc7578cac3d5",
+      "pool_index": 2
+    },
+    {
+      "candidate_count": 24,
+      "candidate_ids_sha256": "749ff52bff327c3b07267902eb8151fcb1bc7541e101f1664bcabc844f977453",
+      "episode_id": 22,
+      "pool_id": "2f6a7a4a3e270e1cade7d8cf1bf581b330191b8ab90fb97532621a7be37c11c8",
+      "pool_index": 3
+    }
+  ],
+  "positive_pair_count": 13,
+  "reconstruction_evaluator_delta": {
+    "backend_calls": 25,
+    "cache_hits": 0,
+    "requested_by_source": {
+      "scicf_ppo/on_policy": 25
+    },
+    "requested_calls": 25,
+    "unique_calls": 25
+  },
+  "rollout_digest": "a96137e28dfcca071510b85f09073c40c0b3c859b3807fefea11aa083b30afdd"
+}
