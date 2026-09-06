@@ -1,6 +1,6 @@
 # LLM-SciCF online architecture smoke v1
 
-Status: authorized engineering route; claim-ineligible.
+Status: **passed in n001 Slurm Job 4684 at commit `d05a05c`; claim-ineligible**.
 
 ## Purpose
 
@@ -57,3 +57,10 @@ This protocol neither relabels it nor opens its sealed test. A successful smoke
 authorizes only module-by-module hardening. Formal training, matched baselines,
 multi-seed comparisons, performance claims and scientific claims require new
 protocols and explicit gates.
+
+The successful run used 24 candidates across timesteps 0, 1 and 2, one
+DeepSeek request, four selected candidates, four non-zero `K=1` verified pairs,
+and one accepted pairwise update with mean joint KL
+`5.792708179797046e-07`. These are path-execution facts, not an acquisition or
+learning-effect result. Evidence is archived under
+`reproduction/results/scicf-online-architecture-smoke-20260906/`.

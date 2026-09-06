@@ -1,0 +1,18 @@
+Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.
+/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/site-packages/dgl/heterograph.py:92: DGLWarning: Recommend creating graphs by `dgl.graph(data)` instead of `dgl.DGLGraph(data)`.
+  dgl_warning(
+/home/wch/workspaces/DAPiGen-reproduction/scicf-online-smoke-v1/reproduction/scicf/online/pipeline.py:102: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /opt/conda/conda-bld/pytorch_1702400431970/work/torch/csrc/utils/tensor_numpy.cpp:206.)
+  vector = torch.as_tensor(
+Traceback (most recent call last):
+  File "/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/wch/workspaces/DAPiGen-reproduction/scicf-online-smoke-v1/reproduction/scicf/online/run_smoke.py", line 468, in <module>
+    main()
+  File "/home/wch/workspaces/DAPiGen-reproduction/scicf-online-smoke-v1/reproduction/scicf/online/run_smoke.py", line 279, in main
+    candidates, trajectory_context = build_online_candidate_pool(
+  File "/home/wch/workspaces/DAPiGen-reproduction/scicf-online-smoke-v1/reproduction/scicf/online/pipeline.py", line 283, in build_online_candidate_pool
+    raise RuntimeError("online candidate pool lacks cross-timestep coverage")
+RuntimeError: online candidate pool lacks cross-timestep coverage
+srun: error: yanlih100n1: task 0: Exited with exit code 1

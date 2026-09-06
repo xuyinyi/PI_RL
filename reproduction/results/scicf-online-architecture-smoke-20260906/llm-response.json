@@ -1,0 +1,43 @@
+{
+  "api_key_logged": false,
+  "completion_tokens": 140,
+  "prompt_sha256": "bb49eb2a227c0adde44bcca9ba1848f0b36062253552115b5ae99f83676f4ba4",
+  "prompt_tokens": 7839,
+  "provider": {
+    "endpoint_sha256": "948f1ecb6b48f91adc4e110d0351cd172b16450e9936d358992e0dfad7b863f3",
+    "include_seed": false,
+    "json_mode": true,
+    "max_tokens_field": "max_tokens",
+    "model_id": "deepseek-v4-flash",
+    "model_revision": "DeepSeek-V4-Flash-0731-api-snapshot-2026-09-03",
+    "provider_id": "deepseek-official",
+    "thinking": "disabled",
+    "type": "openai-compatible-api"
+  },
+  "provider_response_id": "41e3272b-5611-4fd3-9d27-e57b0fa3fbaf",
+  "provider_response_sha256": "df6269f88fc8f9a7139c9f876b534c5ba10795d94803fcc088311967afa89ea2",
+  "raw_response": "{\"ranked_intervention_ids\":[\"cf-539aa46adc13e859\",\"cf-948ff6fda98e9cd8\",\"cf-21da79c025f64cdc\",\"cf-47a8bc57c9b90676\"],\"abstain\":false,\"confidence\":0.7,\"reasoning\":\"Prioritize early-stage interventions (timestep 0) that replace the diamine with complete, rigid, aromatic alternatives (e.g., naphthalene-based) to enhance thermal/mechanical properties while maintaining synthetic accessibility. Also consider a dianhydride alternative with a rigid, conjugated core to improve overall performance.\"}",
+  "request_id": "dapigen-scicf-online-architecture-smoke-v1-job-4684",
+  "system_fingerprint": "a26a7955944dc5c60445bff77fac9c8e",
+  "total_tokens": 7979,
+  "transport_retries_used": 0,
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": 0.7,
+    "ranked_intervention_ids": [
+      "cf-539aa46adc13e859",
+      "cf-948ff6fda98e9cd8",
+      "cf-21da79c025f64cdc",
+      "cf-47a8bc57c9b90676"
+    ],
+    "reasoning": "Prioritize early-stage interventions (timestep 0) that replace the diamine with complete, rigid, aromatic alternatives (e.g., naphthalene-based) to enhance thermal/mechanical properties while maintaining synthetic accessibility. Also consider a dianhydride alternative with a rigid, conjugated core to improve overall performance.",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-539aa46adc13e859",
+      "cf-948ff6fda98e9cd8",
+      "cf-21da79c025f64cdc",
+      "cf-47a8bc57c9b90676"
+    ]
+  }
+}

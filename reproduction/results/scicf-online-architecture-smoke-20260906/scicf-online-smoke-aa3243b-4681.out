@@ -1,0 +1,18 @@
+job_id=4681 host=yanlih100n1 cpus=8 protocol=dapigen-scicf-online-architecture-smoke-v1
+repo_root=/home/wch/workspaces/DAPiGen-reproduction/scicf-online-smoke-v1 output_dir=/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-online-architecture-aa3243b provider=private-api
+0, NVIDIA H100 80GB HBM3, GPU-03068b81-fa6b-f9df-55b0-9dceed2a481c, 81559 MiB
+1, NVIDIA H100 80GB HBM3, GPU-bec01859-a9c2-4efd-1084-09c6ce93403d, 81559 MiB
+2, NVIDIA H100 80GB HBM3, GPU-555c9266-e44c-11f2-5f85-e4fa2c75275e, 81559 MiB
+3, NVIDIA H100 80GB HBM3, GPU-c587808a-0204-5c97-2ae1-0adaa8130295, 81559 MiB
+4, NVIDIA H100 80GB HBM3, GPU-053e7d1b-f234-548d-79fd-732cfef5e3dc, 81559 MiB
+5, NVIDIA H100 80GB HBM3, GPU-710449b3-bffc-9940-dcfc-1d7806b27077, 81559 MiB
+6, NVIDIA H100 80GB HBM3, GPU-c3870331-bbb2-2215-7757-9f8d19a6c703, 81559 MiB
+7, NVIDIA H100 80GB HBM3, GPU-29796cff-eba6-cbda-3a58-df073afd6aa0, 81559 MiB
+.................................                                        [100%]
+=============================== warnings summary ===============================
+reproduction/tests/test_scicf_online.py::test_verified_pair_refinement_is_separate_and_changes_policy_once
+  /home/wch/workspaces/DAPiGen-reproduction/scicf-online-smoke-v1/reproduction/scicf/online/pipeline.py:446: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /opt/conda/conda-bld/pytorch_1702400431970/work/torch/csrc/utils/tensor_numpy.cpp:206.)
+    observation = torch.as_tensor(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+33 passed, 1 warning in 4.03s

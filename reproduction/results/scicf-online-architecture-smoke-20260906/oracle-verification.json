@@ -1,0 +1,328 @@
+{
+  "ledger_delta": {
+    "backend_calls": 5,
+    "cache_hits": 0,
+    "requested_by_source": {
+      "scicf_ppo/counterfactual": 4,
+      "scicf_ppo/factual": 1
+    },
+    "requested_calls": 5,
+    "unique_calls": 5
+  },
+  "records": [
+    {
+      "accepted": true,
+      "candidate_id": "cf-539aa46adc13e859",
+      "counterfactual_returns": [
+        0.4493
+      ],
+      "counterfactual_terminal_records": [
+        {
+          "actions": [
+            [
+              191,
+              121
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.4493,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1cc2c(N3C(=O)c4ccc(C5(C)CC(C)(C)c6cc7c(cc65)C(=O)N(C)C7=O)cc4C3=O)cccc2c(C)c1C",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.4493,
+            "properties": {
+              "cte": 41.93,
+              "sa_score": 3.55,
+              "strength": 137.77,
+              "tg": 413.21,
+              "transmittance": 79.37
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1cc2c(N3C(=O)c4ccc(C5(C)CC(C)(C)c6cc7c(cc65)C(=O)N(C)C7=O)cc4C3=O)cccc2c(C)c1C",
+          "termination_reason": "success"
+        }
+      ],
+      "deltas": [
+        0.4493
+      ],
+      "factual_returns": [
+        0.0
+      ],
+      "factual_terminal_records": [
+        {
+          "actions": [
+            [
+              191,
+              584
+            ],
+            [
+              576,
+              466
+            ],
+            [
+              576,
+              839
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "mean_delta": 0.4493,
+      "paired_seeds": [
+        1517593195336409822
+      ],
+      "preferred": "counterfactual",
+      "rejection_reason": null
+    },
+    {
+      "accepted": true,
+      "candidate_id": "cf-948ff6fda98e9cd8",
+      "counterfactual_returns": [
+        0.418
+      ],
+      "counterfactual_terminal_records": [
+        {
+          "actions": [
+            [
+              191,
+              992
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.418,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1cc(-c2ccc(N3C(=O)c4ccc(C5(C)CC(C)(C)c6cc7c(cc65)C(=O)N(C)C7=O)cc4C3=O)cc2)c2ccccc2c1C",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.418,
+            "properties": {
+              "cte": 38.94,
+              "sa_score": 3.53,
+              "strength": 142.6,
+              "tg": 352.38,
+              "transmittance": 75.62
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1cc(-c2ccc(N3C(=O)c4ccc(C5(C)CC(C)(C)c6cc7c(cc65)C(=O)N(C)C7=O)cc4C3=O)cc2)c2ccccc2c1C",
+          "termination_reason": "success"
+        }
+      ],
+      "deltas": [
+        0.418
+      ],
+      "factual_returns": [
+        0.0
+      ],
+      "factual_terminal_records": [
+        {
+          "actions": [
+            [
+              191,
+              584
+            ],
+            [
+              576,
+              281
+            ],
+            [
+              576,
+              514
+            ],
+            [
+              576,
+              280
+            ]
+          ],
+          "environment_transitions": 4,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "mean_delta": 0.418,
+      "paired_seeds": [
+        997757434938442305
+      ],
+      "preferred": "counterfactual",
+      "rejection_reason": null
+    },
+    {
+      "accepted": true,
+      "candidate_id": "cf-21da79c025f64cdc",
+      "counterfactual_returns": [
+        0.4457
+      ],
+      "counterfactual_terminal_records": [
+        {
+          "actions": [
+            [
+              191,
+              472
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.4457,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc(F)cc1-c1ccc(N2C(=O)c3ccc(C4(C)CC(C)(C)c5cc6c(cc54)C(=O)N(C)C6=O)cc3C2=O)cc1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.4457,
+            "properties": {
+              "cte": 21.21,
+              "sa_score": 3.41,
+              "strength": 142.6,
+              "tg": 339.14,
+              "transmittance": 74.3
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc(F)cc1-c1ccc(N2C(=O)c3ccc(C4(C)CC(C)(C)c5cc6c(cc54)C(=O)N(C)C6=O)cc3C2=O)cc1",
+          "termination_reason": "success"
+        }
+      ],
+      "deltas": [
+        0.4457
+      ],
+      "factual_returns": [
+        0.0
+      ],
+      "factual_terminal_records": [
+        {
+          "actions": [
+            [
+              191,
+              584
+            ],
+            [
+              576,
+              856
+            ],
+            [
+              576,
+              861
+            ],
+            [
+              576,
+              343
+            ]
+          ],
+          "environment_transitions": 4,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "mean_delta": 0.4457,
+      "paired_seeds": [
+        8559487406227811333
+      ],
+      "preferred": "counterfactual",
+      "rejection_reason": null
+    },
+    {
+      "accepted": true,
+      "candidate_id": "cf-47a8bc57c9b90676",
+      "counterfactual_returns": [
+        0.0244
+      ],
+      "counterfactual_terminal_records": [
+        {
+          "actions": [
+            [
+              511,
+              584
+            ],
+            [
+              576,
+              319
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0244,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc(-c2c(C)ccc(C)c2-c2cc(F)c(-n3c(=O)c4cc5c(=O)n(C)c(=O)c5c(C5=CCC=CC=C5)c4c3=O)c(F)c2)cc1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.0244,
+            "properties": {
+              "cte": 25.29,
+              "sa_score": 3.45,
+              "strength": 106.6,
+              "tg": 415.26,
+              "transmittance": 4.06
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc(-c2c(C)ccc(C)c2-c2cc(F)c(-n3c(=O)c4cc5c(=O)n(C)c(=O)c5c(C5=CCC=CC=C5)c4c3=O)c(F)c2)cc1",
+          "termination_reason": "success"
+        }
+      ],
+      "deltas": [
+        -0.4176
+      ],
+      "factual_returns": [
+        0.442
+      ],
+      "factual_terminal_records": [
+        {
+          "actions": [
+            [
+              191,
+              584
+            ],
+            [
+              576,
+              319
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.442,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc(-c2c(C)ccc(C)c2-c2cc(F)c(N3C(=O)c4cc5c(cc4C3=O)C(C)(c3ccc4c(c3)C(=O)N(C)C4=O)CC5(C)C)c(F)c2)cc1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.442,
+            "properties": {
+              "cte": 28.59,
+              "sa_score": 3.81,
+              "strength": 120.82,
+              "tg": 387.64,
+              "transmittance": 78.35
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc(-c2c(C)ccc(C)c2-c2cc(F)c(N3C(=O)c4cc5c(cc4C3=O)C(C)(c3ccc4c(c3)C(=O)N(C)C4=O)CC5(C)C)c(F)c2)cc1",
+          "termination_reason": "success"
+        }
+      ],
+      "mean_delta": -0.4176,
+      "paired_seeds": [
+        8393664680180946864
+      ],
+      "preferred": "factual",
+      "rejection_reason": null
+    }
+  ],
+  "replicates": 1,
+  "selected_ids": [
+    "cf-539aa46adc13e859",
+    "cf-948ff6fda98e9cd8",
+    "cf-21da79c025f64cdc",
+    "cf-47a8bc57c9b90676"
+  ],
+  "unselected_candidates_verified": false
+}

@@ -2,7 +2,7 @@
 
 Status date: 2026-09-04
 
-Plan status: **architecture-first LLM-SciCF engineering smoke authorized; historical negative gates and all scientific claim gates remain closed**
+Plan status: **architecture-first LLM-SciCF engineering smoke passed; module hardening is next, while historical negative gates and all scientific claim gates remain closed**
 
 ## 2026-09-06 architecture-first amendment
 
@@ -24,6 +24,11 @@ coverage, matched verifier and budget accounting, pairwise stability,
 multi-iteration PPO integration, matched Random/heuristic controls, and only
 then a frozen multi-seed experiment. The earlier Gate 1B.3 result remains a
 failed, non-blocking descriptor diagnostic.
+
+The first coordinate passed in n001 Slurm Job 4684 at clean commit
+`d05a05c556958a798c3f4eab217eed587ed0309b`. It exercised the complete path
+with one `K=1` request/verification/refinement cycle. This closes only the
+architecture-reachability smoke; it does not admit multi-iteration training.
 
 ## 1. Authority and scope
 
