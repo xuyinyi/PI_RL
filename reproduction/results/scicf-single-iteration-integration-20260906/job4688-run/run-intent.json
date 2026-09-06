@@ -1,0 +1,41 @@
+{
+  "accepted_manifest_sha256": "8d4eaa0f72d042384a1eaaa87ae8b9c8728cef490482ead8ea8e350c6cbe8165",
+  "claim_boundary": {
+    "algorithm_effectiveness_established": false,
+    "baseline_mutation_authorized": false,
+    "formal_training_authorized": false,
+    "multi_iteration_training_authorized": false,
+    "next_scope_if_passed": "bounded_short_horizon_multi_iteration_engineering_smoke_only",
+    "scientific_claim_authorized": false,
+    "sealed_test_access_authorized": false
+  },
+  "classification": "single_iteration_engineering_integration_smoke_only",
+  "config_sha256": "bcd1bc0a78bee4bf49b36a46407a24d2f8e1ac6629aca756895c3eb002c138e8",
+  "credentials": {
+    "api_key_logged": false,
+    "path_logged": false,
+    "private_file_used": true
+  },
+  "external_api_request_limit": 2,
+  "prerequisite_sha256": "ae818935097b644f4c6421e99ff4eaa3cd98f2b9447253f321d2e8a08f99a0b1",
+  "protocol_id": "dapigen-scicf-single-iteration-integration-smoke-v1",
+  "provider": {
+    "endpoint_sha256": "948f1ecb6b48f91adc4e110d0351cd172b16450e9936d358992e0dfad7b863f3",
+    "include_seed": false,
+    "json_mode": true,
+    "max_tokens_field": "max_tokens",
+    "model_id": "deepseek-v4-flash",
+    "model_revision": "DeepSeek-V4-Flash-0731-api-snapshot-2026-09-03",
+    "provider_id": "deepseek-official",
+    "thinking": "disabled",
+    "type": "openai-compatible-api"
+  },
+  "slurm_job_id": "4688",
+  "source": {
+    "branch": "codex/scicf-single-iteration-integration-v1-ledgerfix",
+    "commit": "b61d9e5c81dbef5108a2d796e0acd7ecf3a7640b",
+    "dirty": false,
+    "tags": []
+  },
+  "status": "declared-before-rollout-and-before-first-api-request"
+}

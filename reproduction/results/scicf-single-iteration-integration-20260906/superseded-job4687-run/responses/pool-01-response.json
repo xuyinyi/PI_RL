@@ -1,0 +1,44 @@
+{
+  "api_key_logged": false,
+  "completion_tokens": 140,
+  "pool_index": 1,
+  "prompt_sha256": "141e07a44b87459f0a22e3f666d85d403e4d453b592d483fb453e4f78724d4b9",
+  "prompt_tokens": 7749,
+  "provider": {
+    "endpoint_sha256": "948f1ecb6b48f91adc4e110d0351cd172b16450e9936d358992e0dfad7b863f3",
+    "include_seed": false,
+    "json_mode": true,
+    "max_tokens_field": "max_tokens",
+    "model_id": "deepseek-v4-flash",
+    "model_revision": "DeepSeek-V4-Flash-0731-api-snapshot-2026-09-03",
+    "provider_id": "deepseek-official",
+    "thinking": "disabled",
+    "type": "openai-compatible-api"
+  },
+  "provider_response_id": "d1b16c5f-e384-4de2-b028-8d78cf531e69",
+  "provider_response_sha256": "8d5fa7e7e84aad616f40cc5bd41ef9373ff77f176f1673adf390f1201206e395",
+  "raw_response": "{\"ranked_intervention_ids\":[\"cf-f09f1a7317dae1b9\",\"cf-7d291125cb068e61\",\"cf-7252e9af2361087b\",\"cf-31d9901e59463e0b\"],\"abstain\":false,\"reasoning\":\"Selected interventions replace the fluorinated diamine with alternatives that maintain or increase fluorination and rigidity, potentially improving thermal and optical properties while preserving synthetic accessibility. The first two are compact and highly fluorinated, likely enhancing Tg and transmittance. The third extends fluorination for stronger effects, and the fourth introduces aromatic fluorinated motifs for rigidity and optical benefits.\"}",
+  "request_id": "dapigen-scicf-single-iteration-integration-smoke-v1-pool-01-job-4687",
+  "system_fingerprint": "a26a7955944dc5c60445bff77fac9c8e",
+  "total_tokens": 7889,
+  "transport_retries_used": 0,
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": null,
+    "ranked_intervention_ids": [
+      "cf-f09f1a7317dae1b9",
+      "cf-7d291125cb068e61",
+      "cf-7252e9af2361087b",
+      "cf-31d9901e59463e0b"
+    ],
+    "reasoning": "Selected interventions replace the fluorinated diamine with alternatives that maintain or increase fluorination and rigidity, potentially improving thermal and optical properties while preserving synthetic accessibility. The first two are compact and highly fluorinated, likely enhancing Tg and transmittance. The third extends fluorination for stronger effects, and the fourth introduces aromatic fluorinated motifs for rigidity and optical benefits.",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-f09f1a7317dae1b9",
+      "cf-7d291125cb068e61",
+      "cf-7252e9af2361087b",
+      "cf-31d9901e59463e0b"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "classification": "curated_execution_archive_not_runtime_report",
+  "protocol_id": "dapigen-scicf-single-iteration-integration-smoke-v1",
+  "decision": "no_go_bounded_short_horizon_multi_iteration_engineering_smoke",
+  "next_scope_authorized": false,
+  "attempts": [
+    {
+      "slurm_job_id": "4687",
+      "source_commit": "64b086142a6a971b80c8de3675b1d200e6b7413d",
+      "slurm_state": "FAILED",
+      "exit_code": "1:0",
+      "classification": "superseded_code_diagnostic",
+      "reason": "invalid exact evaluator-call assertion for structurally invalid pre-QSPR branches",
+      "runtime_report_sha256": "e5e95dcc233c0b157e5e71e3b254ae563f757bb5b870673eafa952a26ae8c819",
+      "checkpoint_sha256": "bf27a826ff59b12289bd9adc132268803fed874142099d66e89aa0e375408223"
+    },
+    {
+      "slurm_job_id": "4688",
+      "source_commit": "b61d9e5c81dbef5108a2d796e0acd7ecf3a7640b",
+      "slurm_state": "FAILED",
+      "exit_code": "1:0",
+      "classification": "final_frozen_attempt",
+      "reason": "DeepSeek response invented out-of-pool candidate id cf-281",
+      "stderr_sha256": "3e5c34da0d4449f1b7b7de771760a49ca76348c678348f00e7276a89fb9d8946",
+      "raw_invalid_response_retained": false,
+      "oracle_verification_started": false,
+      "checkpoint_written": false
+    }
+  ],
+  "claim_boundary": {
+    "rerun_authorized": false,
+    "multi_iteration_training_authorized": false,
+    "formal_training_authorized": false,
+    "sealed_test_access_authorized": false,
+    "algorithm_effectiveness_established": false,
+    "scientific_claim_authorized": false
+  }
+}

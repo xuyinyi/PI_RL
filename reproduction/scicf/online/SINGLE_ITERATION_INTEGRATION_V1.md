@@ -1,7 +1,7 @@
 # LLM-SciCF single-iteration integration smoke v1
 
-Status: **frozen and authorized for one engineering execution; no formal or
-multi-iteration training**.
+Status: **executed with a no-go; no rerun, formal training, or multi-iteration
+training is authorized**.
 
 ## Question
 
@@ -61,3 +61,14 @@ as evidence and is not tuned away in this run. Passing opens only a separately
 frozen short-horizon multi-iteration engineering smoke; it does not authorize
 formal training, sealed-test access, algorithm-effectiveness claims, or
 scientific claims.
+
+## Execution outcome
+
+Slurm Job 4687 completed the numerical path but exposed an erroneous ledger
+assertion that treated structurally invalid, pre-QSPR terminal branches as
+missing evaluator calls. The corrected clean coordinate
+`b61d9e5c81dbef5108a2d796e0acd7ecf3a7640b` was executed in Slurm Job 4688.
+That job failed closed on the first DeepSeek response because it invented the
+out-of-pool candidate ID `cf-281`. The gate is therefore a no-go, and the next
+scope remains closed. Evidence is retained under
+`reproduction/results/scicf-single-iteration-integration-20260906/`.

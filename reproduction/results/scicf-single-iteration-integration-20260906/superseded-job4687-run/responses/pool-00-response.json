@@ -1,0 +1,44 @@
+{
+  "api_key_logged": false,
+  "completion_tokens": 145,
+  "pool_index": 0,
+  "prompt_sha256": "61a87cca1535f785bef90e4d29c93802b2817e0c4cee482c05c11f398319129c",
+  "prompt_tokens": 7732,
+  "provider": {
+    "endpoint_sha256": "948f1ecb6b48f91adc4e110d0351cd172b16450e9936d358992e0dfad7b863f3",
+    "include_seed": false,
+    "json_mode": true,
+    "max_tokens_field": "max_tokens",
+    "model_id": "deepseek-v4-flash",
+    "model_revision": "DeepSeek-V4-Flash-0731-api-snapshot-2026-09-03",
+    "provider_id": "deepseek-official",
+    "thinking": "disabled",
+    "type": "openai-compatible-api"
+  },
+  "provider_response_id": "79c2f136-b9d8-40a7-a958-cf344a6fff25",
+  "provider_response_sha256": "1cca3a9455bd74af30ecc225bb4015d7d4626c2da03e315721e9186959ff4a39",
+  "raw_response": "{\"ranked_intervention_ids\":[\"cf-85d775bcf7b7c736\",\"cf-6db1eee0d0d65fac\",\"cf-eb2c755c0867c3a8\",\"cf-6ff223aff62da0b8\"],\"abstain\":false,\"reasoning\":\"Selected interventions replace the small fluorinated dianhydride fragment with larger, rigid, aromatic dianhydrides at the initial step, potentially improving thermal/mechanical properties while maintaining synthetic accessibility. These alternatives are complete for the dianhydride side, avoiding attachment mismatches, and are expected to yield more informative counterfactuals for the multi-objective polymer design.\"}",
+  "request_id": "dapigen-scicf-single-iteration-integration-smoke-v1-pool-00-job-4687",
+  "system_fingerprint": "a26a7955944dc5c60445bff77fac9c8e",
+  "total_tokens": 7877,
+  "transport_retries_used": 0,
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": null,
+    "ranked_intervention_ids": [
+      "cf-85d775bcf7b7c736",
+      "cf-6db1eee0d0d65fac",
+      "cf-eb2c755c0867c3a8",
+      "cf-6ff223aff62da0b8"
+    ],
+    "reasoning": "Selected interventions replace the small fluorinated dianhydride fragment with larger, rigid, aromatic dianhydrides at the initial step, potentially improving thermal/mechanical properties while maintaining synthetic accessibility. These alternatives are complete for the dianhydride side, avoiding attachment mismatches, and are expected to yield more informative counterfactuals for the multi-objective polymer design.",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-85d775bcf7b7c736",
+      "cf-6db1eee0d0d65fac",
+      "cf-eb2c755c0867c3a8",
+      "cf-6ff223aff62da0b8"
+    ]
+  }
+}

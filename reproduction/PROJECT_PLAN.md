@@ -3,9 +3,9 @@
 Status date: 2026-09-06
 
 Plan status: **architecture, acquisition/verifier, and pairwise-stability
-development gates passed; a single-iteration integration smoke is next, while
-formal or multi-iteration training, historical sealed tests, and all scientific
-claim gates remain closed**
+development gates passed; the single-iteration integration smoke returned a
+no-go on LLM response-schema validity, so reruns, multi-iteration training,
+historical sealed tests, and all scientific claim gates remain closed**
 
 ## 2026-09-06 architecture-first amendment
 
@@ -63,6 +63,21 @@ separately frozen single-iteration integration smoke. Full-corpus pairwise
 accuracy remained below `0.5` after one step (`0.48`), so no learning-quality
 or effectiveness claim follows. Evidence is under
 `reproduction/results/scicf-pairwise-stability-dev-20260906/`.
+
+The fourth coordinate,
+`dapigen-scicf-single-iteration-integration-smoke-v1`, did not pass. Slurm Job
+4687 at commit `64b086142a6a971b80c8de3675b1d200e6b7413d` completed the full PPO,
+two-request acquisition, `K=2` verification, pairwise update, and checkpoint
+path, but an incorrect exact-evaluator-call assertion misclassified valid
+pre-QSPR structural terminations as missing ledger calls. The assertion was
+corrected at clean commit `b61d9e5c81dbef5108a2d796e0acd7ecf3a7640b`
+without changing the experiment seed, candidate construction, model, or gate
+thresholds. The corrected Slurm Job 4688 then failed closed before Oracle
+verification because DeepSeek invented the out-of-pool ID `cf-281`. The result
+is a no-go; neither an automatic rerun nor the short-horizon multi-iteration
+smoke is admitted. Any further work requires a separately frozen API response-
+schema robustness gate with invalid-response retention. Evidence is under
+`reproduction/results/scicf-single-iteration-integration-20260906/`.
 
 ## 1. Authority and scope
 

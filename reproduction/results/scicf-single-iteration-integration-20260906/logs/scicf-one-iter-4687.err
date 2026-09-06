@@ -1,0 +1,4 @@
+Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.
+/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/site-packages/dgl/heterograph.py:92: DGLWarning: Recommend creating graphs by `dgl.graph(data)` instead of `dgl.DGLGraph(data)`.
+  dgl_warning(
+srun: error: yanlih100n1: task 0: Exited with exit code 1
