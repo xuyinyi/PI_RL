@@ -27,6 +27,9 @@ properties.
   file; no local model.
 - One deterministic pool of 24 legal, opaque-ID candidates spanning at least
   two timesteps.
+- The factual source episode is the first complete multi-step episode,
+  preferring a successful one only to maximize architecture-path reachability;
+  this smoke selection rule is not valid for estimating algorithm performance.
 - Zero to four LLM selections. Abstention is represented explicitly and never
   padded with arbitrary candidates.
 - Only selected candidates are verified; development uses one matched

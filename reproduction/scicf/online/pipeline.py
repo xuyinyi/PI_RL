@@ -100,17 +100,17 @@ class FrozenPolicySampler:
         self, observation: Any, dianhydride_mask: Any, diamine_mask: Any
     ) -> Tuple[np.ndarray, np.ndarray]:
         vector = torch.as_tensor(
-            np.asarray(observation, dtype=np.float32),
+            np.asarray(observation, dtype=np.float32).copy(),
             dtype=torch.float32,
             device=self.device,
         ).reshape(1, -1)
         d_mask = torch.as_tensor(
-            np.asarray(dianhydride_mask, dtype=bool),
+            np.asarray(dianhydride_mask, dtype=bool).copy(),
             dtype=torch.bool,
             device=self.device,
         ).reshape(1, -1)
         a_mask = torch.as_tensor(
-            np.asarray(diamine_mask, dtype=bool),
+            np.asarray(diamine_mask, dtype=bool).copy(),
             dtype=torch.bool,
             device=self.device,
         ).reshape(1, -1)
@@ -194,15 +194,21 @@ def build_online_candidate_pool(
     for transition in rollout.transitions:
         episodes[int(transition.episode_id)].append(transition)
     selected = None
+    complete_fallback = None
     for episode_id in sorted(episodes):
         rows = sorted(episodes[episode_id], key=lambda item: int(item.timestep))
         complete = bool(rows and rows[0].timestep == 0 and (rows[-1].terminated or rows[-1].truncated))
         successful = bool(rows and "terminal_evaluation" in dict(rows[-1].info))
-        if complete and successful:
+        cross_timestep = len({int(item.timestep) for item in rows}) >= 2
+        if complete and cross_timestep and complete_fallback is None:
+            complete_fallback = rows
+        if complete and cross_timestep and successful:
             selected = rows
             break
     if selected is None:
-        raise RuntimeError("online smoke found no complete successful factual episode")
+        selected = complete_fallback
+    if selected is None:
+        raise RuntimeError("online smoke found no complete cross-timestep factual episode")
 
     groups = defaultdict(list)
     for transition in selected:
@@ -311,7 +317,7 @@ def build_online_candidate_pool(
             for item in selected
         ],
         "terminal_reward_or_properties_included": False,
-        "episode_selection_rule": "first-complete-successful-episode-for-architecture-reachability",
+        "episode_selection_rule": "first-cross-timestep-successful-episode-else-first-cross-timestep-complete-episode",
     }
     return tuple(pool), trajectory_context
 
