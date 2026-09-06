@@ -24,8 +24,10 @@ from reproduction.scicf.online.contracts import (
 from reproduction.scicf.online.pipeline import (
     SciCFGAECreditEstimator,
     build_online_candidate_pool,
+    eligible_online_episode_ids,
     refine_verified_pairs,
 )
+from reproduction.scicf.acquisition.metrics import acquisition_metrics_with_abstention
 from reproduction.scicf.online.prompt import (
     build_online_acquisition_request,
     validate_online_ranked_response,
@@ -226,6 +228,66 @@ def test_candidate_pool_is_opaque_legal_and_cross_timestep():
             for left, right in zip(item.factual_action, item.alternative_action)
         )
         assert changed == 1
+
+
+def test_episode_selection_can_be_outcome_blind_and_explicit():
+    transitions = []
+    for episode, successful in ((0, False), (1, True)):
+        for step in (0, 1):
+            transitions.append(
+                SimpleNamespace(
+                    transition_id="e%d-t%d" % (episode, step),
+                    episode_id=episode,
+                    timestep=step,
+                    state_snapshot_before=_state(step),
+                    observation=np.asarray([step, 0.0, 1.0]),
+                    dianhydride_mask=np.asarray([True, True, True, True, True]),
+                    diamine_mask=np.asarray([True, True, True, True, True]),
+                    dianhydride_action=0,
+                    diamine_action=0,
+                    terminated=step == 1,
+                    truncated=False,
+                    info=(
+                        {"terminal_evaluation": {"objective": 0.5}}
+                        if step == 1 and successful
+                        else {}
+                    ),
+                )
+            )
+    rollout = SimpleNamespace(transitions=tuple(transitions))
+    assert eligible_online_episode_ids(rollout) == (1, 0)
+    assert eligible_online_episode_ids(rollout, prefer_successful=False) == (0, 1)
+    core = SimpleNamespace(
+        dianhydride_noop_id=4,
+        diamine_noop_id=4,
+        dianhydride_metadata=tuple(_metadata(index) for index in range(4)),
+        diamine_metadata=tuple(_metadata(index) for index in range(4)),
+    )
+    _pool, context = build_online_candidate_pool(
+        rollout=rollout,
+        core=core,
+        behavior_policy=_UniformPolicy(),
+        pool_size=8,
+        seed=12,
+        episode_id=0,
+    )
+    assert context["episode_id"] == 0
+    assert context["episode_selection_rule"] == (
+        "explicit-predeclared-episode-id-without-outcome-filtering"
+    )
+
+
+def test_acquisition_metrics_preserve_abstention_without_padding():
+    gains = {"a": 0.8, "b": 0.2, "c": -0.4, "d": -0.8}
+    abstained = acquisition_metrics_with_abstention(gains, (), 2)
+    assert abstained["selected_count"] == 0
+    assert abstained["budget_utilization"] == 0.0
+    assert abstained["effective_best_gain_at_b"] == 0.0
+    assert abstained["regret_at_b"] == 0.8
+    partial = acquisition_metrics_with_abstention(gains, ("b",), 2)
+    assert partial["selected_count"] == 1
+    assert partial["hit_rate_at_b"] == 0.5
+    assert partial["effective_best_gain_at_b"] == 0.2
 
 
 class _Engine:

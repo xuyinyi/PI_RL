@@ -8,7 +8,7 @@ import json
 import math
 from collections import defaultdict
 from dataclasses import asdict
-from typing import Any, Dict, Mapping, Sequence, Tuple
+from typing import Any, Dict, Mapping, Optional, Sequence, Tuple
 
 import numpy as np
 import torch
@@ -180,6 +180,39 @@ def _candidate_identity(payload: Mapping[str, Any]) -> str:
     return "cf-" + digest[:16]
 
 
+def eligible_online_episode_ids(rollout, *, prefer_successful: bool = True) -> Tuple[int, ...]:
+    """Return complete multi-step episode ids without exposing outcome values.
+
+    The architecture smoke keeps its original successful-first reachability rule.
+    Development comparisons can set ``prefer_successful=False`` so pool selection
+    never inspects terminal success.
+    """
+
+    episodes = defaultdict(list)
+    for transition in rollout.transitions:
+        episodes[int(transition.episode_id)].append(transition)
+    successful = []
+    other = []
+    for episode_id in sorted(episodes):
+        rows = sorted(episodes[episode_id], key=lambda item: int(item.timestep))
+        complete = bool(
+            rows
+            and int(rows[0].timestep) == 0
+            and (rows[-1].terminated or rows[-1].truncated)
+        )
+        cross_timestep = len({int(item.timestep) for item in rows}) >= 2
+        if not (complete and cross_timestep):
+            continue
+        if prefer_successful:
+            is_successful = bool("terminal_evaluation" in dict(rows[-1].info))
+            (successful if is_successful else other).append(int(episode_id))
+        else:
+            other.append(int(episode_id))
+    if prefer_successful:
+        return tuple(successful + other)
+    return tuple(sorted(successful + other))
+
+
 def build_online_candidate_pool(
     *,
     rollout,
@@ -187,28 +220,31 @@ def build_online_candidate_pool(
     behavior_policy: FrozenPolicySampler,
     pool_size: int,
     seed: int,
+    episode_id: Optional[int] = None,
 ) -> Tuple[Sequence[OnlineCandidate], Mapping[str, Any]]:
-    """Build one deterministic cross-timestep pool from a successful episode."""
+    """Build one deterministic cross-timestep pool from an eligible episode."""
 
     episodes = defaultdict(list)
     for transition in rollout.transitions:
         episodes[int(transition.episode_id)].append(transition)
-    selected = None
-    complete_fallback = None
-    for episode_id in sorted(episodes):
-        rows = sorted(episodes[episode_id], key=lambda item: int(item.timestep))
-        complete = bool(rows and rows[0].timestep == 0 and (rows[-1].terminated or rows[-1].truncated))
-        successful = bool(rows and "terminal_evaluation" in dict(rows[-1].info))
-        cross_timestep = len({int(item.timestep) for item in rows}) >= 2
-        if complete and cross_timestep and complete_fallback is None:
-            complete_fallback = rows
-        if complete and cross_timestep and successful:
-            selected = rows
-            break
-    if selected is None:
-        selected = complete_fallback
-    if selected is None:
+    eligible = eligible_online_episode_ids(
+        rollout, prefer_successful=episode_id is None
+    )
+    if not eligible:
         raise RuntimeError("online smoke found no complete cross-timestep factual episode")
+    if episode_id is None:
+        selected_episode_id = int(eligible[0])
+        selection_rule = (
+            "first-cross-timestep-successful-episode-else-first-cross-timestep-complete-episode"
+        )
+    else:
+        selected_episode_id = int(episode_id)
+        if selected_episode_id not in set(eligible):
+            raise RuntimeError("requested episode is not complete and cross-timestep")
+        selection_rule = "explicit-predeclared-episode-id-without-outcome-filtering"
+    selected = sorted(
+        episodes[selected_episode_id], key=lambda item: int(item.timestep)
+    )
 
     groups = defaultdict(list)
     for transition in selected:
@@ -317,7 +353,7 @@ def build_online_candidate_pool(
             for item in selected
         ],
         "terminal_reward_or_properties_included": False,
-        "episode_selection_rule": "first-cross-timestep-successful-episode-else-first-cross-timestep-complete-episode",
+        "episode_selection_rule": selection_rule,
     }
     return tuple(pool), trajectory_context
 

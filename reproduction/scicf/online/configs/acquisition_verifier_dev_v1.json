@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "protocol_id": "dapigen-scicf-acquisition-verifier-dev-v1",
+  "classification": "development_module_hardening_only",
+  "required_host": "yanlih100n1",
+  "base_seed": 20260906,
+  "accepted_binding": {
+    "environment_id": "dapigen:8004c1fa2055a186b4a4f3ed",
+    "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+    "observation_dimension": 1246
+  },
+  "budget": {
+    "maximum_requested_calls": 640,
+    "maximum_unique_calls": 640,
+    "cache_scope": "scicf_acquisition_verifier_dev_v1"
+  },
+  "acquisition": {
+    "external_api_authorized": true,
+    "strategies": [
+      "deepseek_llm",
+      "random",
+      "policy_probability",
+      "chemistry_heuristic"
+    ],
+    "request_count": 4,
+    "pool_count": 4,
+    "pool_size": 24,
+    "maximum_selected": 4,
+    "max_output_tokens": 512,
+    "timeout_seconds": 120.0,
+    "transport_retries": 1
+  },
+  "verification": {
+    "replicates": 2,
+    "candidate_scope": "all_candidates_for_evaluation_only",
+    "labels_used_for_training": false
+  },
+  "ppo": {
+    "rollout_steps": 128,
+    "gamma": 1.0,
+    "gae_lambda": 0.95,
+    "update_epochs": 2,
+    "minibatch_size": 32,
+    "clip_ratio": 0.2,
+    "value_clip": 0.2,
+    "value_loss_coefficient": 0.5,
+    "entropy_coefficient": 0.01,
+    "maximum_gradient_norm": 0.5,
+    "target_kl": 0.02,
+    "normalize_actor_advantages": true,
+    "learning_rate": 0.0003,
+    "adam_epsilon": 1e-08,
+    "hidden_sizes": [128, 128],
+    "seed": 20260906,
+    "deterministic_torch": true,
+    "device": "cuda:0"
+  },
+  "decision_gate": {
+    "delta_tolerance": 1e-08,
+    "comparison_tolerance": 1e-12,
+    "minimum_accepted_pairs": 16,
+    "minimum_positive_pairs": 4,
+    "minimum_negative_pairs": 4,
+    "minimum_paired_ndcg_nonlosses": 2,
+    "minimum_mean_llm_minus_random_ndcg": 0.0,
+    "minimum_mean_llm_minus_random_effective_best_gain": 0.0
+  },
+  "claim_boundary": {
+    "scientific_claim_authorized": false,
+    "formal_training_authorized": false,
+    "sealed_test_access_authorized": false,
+    "baseline_mutation_authorized": false,
+    "pairwise_update_authorized": false,
+    "gate_1b3_status": "retained_as_failed_non_blocking_diagnostic"
+  }
+}

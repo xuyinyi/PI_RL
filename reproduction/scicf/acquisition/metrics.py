@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import math
-from typing import Dict, Mapping, Sequence
+from typing import Any, Dict, Mapping, Sequence
 
 
 METRIC_DEFINITIONS = {
@@ -53,5 +53,58 @@ def acquisition_metrics(
         "hit_rate_at_b": sum(gain > 0.0 for gain in selected_gains) / float(budget),
         "best_gain_at_b": selected_best,
         "regret_at_b": global_best - selected_best,
+        "ndcg_at_b": _dcg(relevances) / ideal_dcg if ideal_dcg > 0.0 else 0.0,
+    }
+
+
+def acquisition_metrics_with_abstention(
+    verified_gains: Mapping[str, float],
+    ranked_selected_ids: Sequence[str],
+    budget: int,
+) -> Dict[str, Any]:
+    """Score a maximum-budget ranking while preserving explicit abstention.
+
+    Missing budget slots count as misses for HitRate@B and as zero relevance for
+    NDCG@B.  The effective best gain includes the zero-gain option of applying no
+    intervention, which makes a complete abstention well defined.
+    """
+
+    if budget < 1:
+        raise ValueError("budget must be positive")
+    if not verified_gains:
+        raise ValueError("verified gain table cannot be empty")
+    if len(ranked_selected_ids) > budget:
+        raise ValueError("ranked selections exceed the requested budget")
+    selected_ids = tuple(ranked_selected_ids)
+    if len(selected_ids) != len(set(selected_ids)):
+        raise ValueError("ranked selections contain duplicate IDs")
+    unknown = sorted(set(selected_ids) - set(verified_gains))
+    if unknown:
+        raise ValueError("selected IDs are missing verified gains: {}".format(unknown))
+    gains = {identifier: float(gain) for identifier, gain in verified_gains.items()}
+    if any(not math.isfinite(gain) for gain in gains.values()):
+        raise ValueError("verified gains must be finite")
+
+    selected_gains = [gains[identifier] for identifier in selected_ids]
+    selected_best = max(selected_gains) if selected_gains else None
+    effective_best = max(0.0, selected_best if selected_best is not None else 0.0)
+    oracle_best = max(0.0, max(gains.values()))
+    relevances = [max(gain, 0.0) for gain in selected_gains]
+    ideal_relevances = sorted(
+        (max(gain, 0.0) for gain in gains.values()), reverse=True
+    )[:budget]
+    ideal_dcg = _dcg(ideal_relevances)
+    positives = sum(gain > 0.0 for gain in selected_gains)
+    return {
+        "selected_count": len(selected_ids),
+        "budget": int(budget),
+        "budget_utilization": len(selected_ids) / float(budget),
+        "hit_rate_at_b": positives / float(budget),
+        "positive_precision_selected": (
+            positives / float(len(selected_ids)) if selected_ids else 0.0
+        ),
+        "selected_best_gain_at_b": selected_best,
+        "effective_best_gain_at_b": effective_best,
+        "regret_at_b": oracle_best - effective_best,
         "ndcg_at_b": _dcg(relevances) / ideal_dcg if ideal_dcg > 0.0 else 0.0,
     }
