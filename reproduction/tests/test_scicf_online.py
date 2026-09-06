@@ -1,3 +1,4 @@
+import copy
 import json
 from types import SimpleNamespace
 
@@ -31,6 +32,10 @@ from reproduction.scicf.acquisition.metrics import acquisition_metrics_with_abst
 from reproduction.scicf.online.prompt import (
     build_online_acquisition_request,
     validate_online_ranked_response,
+)
+from reproduction.scicf.online.stability import (
+    factorized_policy_drift,
+    pairwise_preference_metrics,
 )
 
 
@@ -331,3 +336,38 @@ def test_verified_pair_refinement_is_separate_and_changes_policy_once():
     assert receipt["llm_confidence_used_for_weight"] is False
     assert engine.policy_version == 2
     assert engine.policy_state_sha256 != before
+
+
+def test_pairwise_stability_metrics_are_finite_and_identity_drift_is_zero():
+    torch.manual_seed(9)
+    model = FactorizedActorCritic(3, 3, 3, (8,))
+    candidate = _candidate()
+    verification = OnlineVerification(
+        candidate_id=candidate.candidate_id,
+        paired_seeds=(11, 12),
+        factual_returns=(0.2, 0.3),
+        counterfactual_returns=(0.8, 0.7),
+        deltas=(0.6, 0.4),
+        accepted=True,
+        preferred="counterfactual",
+        rejection_reason=None,
+        factual_terminal_records=({}, {}),
+        counterfactual_terminal_records=({}, {}),
+    )
+    metrics = pairwise_preference_metrics(
+        model=model,
+        candidates_by_id={candidate.candidate_id: candidate},
+        verifications=(verification,),
+        device=torch.device("cpu"),
+    )
+    assert metrics["pair_count"] == 1
+    assert np.isfinite(metrics["mean_signed_margin"])
+    drift = factorized_policy_drift(
+        before_model=model,
+        after_model=copy.deepcopy(model),
+        candidates=(candidate,),
+        device=torch.device("cpu"),
+    )
+    assert drift["maximum_joint_kl"] == 0.0
+    assert drift["maximum_non_target_factor_kl"] == 0.0
+    assert drift["maximum_absolute_value_drift"] == 0.0
