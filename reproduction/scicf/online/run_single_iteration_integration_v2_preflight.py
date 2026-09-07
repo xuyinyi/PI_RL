@@ -225,6 +225,7 @@ def main() -> None:
     terminal_evaluator = components.evaluator.evaluator
     runtime_evaluator_hashes = _runtime_evaluator_hashes(terminal_evaluator)
     initial_ledger = components.evaluator.ledger()
+    encoder_diagnostics = components.core.encoder.diagnostics()
     runtime = {
         "constructed": True,
         "components_class": type(components).__name__,
@@ -235,8 +236,13 @@ def main() -> None:
         "evaluator_asset_path": str(terminal_evaluator.model_dir.resolve()),
         "evaluator_required_file_sha256": runtime_evaluator_hashes,
         "initial_evaluator_ledger": initial_ledger,
+        "encoder_diagnostics": encoder_diagnostics,
         "local_models_loaded": True,
-        "model_inference_executed": False,
+        "polybert_initial_embedding_inference_executed": int(
+            encoder_diagnostics["cache_misses"]
+        )
+        > 0,
+        "afp_property_inference_executed": False,
     }
     prepared = _prepared()
     first_ids = prepared[0]["request"]["candidate_ids"]
@@ -370,6 +376,14 @@ def main() -> None:
             int(initial_ledger[name]) == 0
             for name in ("requested_calls", "unique_calls", "backend_calls")
         ),
+        "runtime_polybert_initial_embedding_executed": runtime[
+            "polybert_initial_embedding_inference_executed"
+        ]
+        is True,
+        "runtime_afp_property_inference_not_executed": runtime[
+            "afp_property_inference_executed"
+        ]
+        is False,
         "success_all_pools_validated": success["all_pool_decisions_validated"] is True,
         "success_oracle_would_be_authorized": success["oracle_selection_authorized"] is True,
         "success_attempt_bound": success["semantic_attempt_count"] == 3,
@@ -445,7 +459,10 @@ def main() -> None:
         "ppo_executed": False,
         "oracle_executed": False,
         "local_models_loaded": True,
-        "local_model_inference_executed": False,
+        "polybert_initial_embedding_inference_executed": runtime[
+            "polybert_initial_embedding_inference_executed"
+        ],
+        "afp_property_inference_executed": False,
         "sealed_test_accessed": False,
         "elapsed_seconds": time.perf_counter() - started,
         "resources": {
