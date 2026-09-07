@@ -1,0 +1,34 @@
+Traceback (most recent call last):
+  File "/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/site-packages/transformers/configuration_utils.py", line 601, in _get_config_dict
+    resolved_config_file = cached_path(
+  File "/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/site-packages/transformers/utils/hub.py", line 299, in cached_path
+    raise EnvironmentError(f"file {url_or_filename} not found")
+OSError: file /home/wch/workspaces/DAPiGen-reproduction/scicf-single-iteration-integration-v2-runner-dev/QSPR/polyBERT/config.json not found
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/wch/workspaces/DAPiGen-reproduction/scicf-single-iteration-integration-v2-runner-dev/reproduction/scicf/online/run_single_iteration_integration_v2.py", line 1076, in <module>
+    main()
+  File "/home/wch/workspaces/DAPiGen-reproduction/scicf-single-iteration-integration-v2-runner-dev/reproduction/scicf/online/run_single_iteration_integration_v2.py", line 644, in main
+    components, engine, specification, run_contract = build_runtime(
+  File "/home/wch/workspaces/DAPiGen-reproduction/scicf-single-iteration-integration-v2-runner-dev/reproduction/scicf/online/run_smoke.py", line 128, in build_runtime
+    components = build_stage0_components(
+  File "/home/wch/workspaces/DAPiGen-reproduction/scicf-single-iteration-integration-v2-runner-dev/RL_PPO/envs/factory.py", line 237, in build_stage0_components
+    encoder = PersistentPolyBERTEncoder(
+  File "/home/wch/workspaces/DAPiGen-reproduction/scicf-single-iteration-integration-v2-runner-dev/RL_PPO/envs/embedding.py", line 138, in __init__
+    self.tokenizer = AutoTokenizer.from_pretrained(model_path)
+  File "/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/site-packages/transformers/models/auto/tokenization_auto.py", line 535, in from_pretrained
+    config = AutoConfig.from_pretrained(
+  File "/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/site-packages/transformers/models/auto/configuration_auto.py", line 705, in from_pretrained
+    config_dict, _ = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/site-packages/transformers/configuration_utils.py", line 553, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/lib/python3.8/site-packages/transformers/configuration_utils.py", line 641, in _get_config_dict
+    raise EnvironmentError(
+OSError: Can't load config for '/home/wch/workspaces/DAPiGen-reproduction/scicf-single-iteration-integration-v2-runner-dev/QSPR/polyBERT'. If you were trying to load it from 'https://huggingface.co/models', make sure you don't have a local directory with the same name. Otherwise, make sure '/home/wch/workspaces/DAPiGen-reproduction/scicf-single-iteration-integration-v2-runner-dev/QSPR/polyBERT' is the correct path to a directory containing a config.json file
+srun: error: yanlih100n1: task 0: Exited with exit code 1

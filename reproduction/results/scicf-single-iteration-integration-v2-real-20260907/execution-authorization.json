@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "authorization_id": "user-authorized-scicf-integration-v2-one-run-20260907",
+  "protocol_id": "dapigen-scicf-single-iteration-integration-smoke-v2",
+  "protocol_sha256": "f05df22b15c069f43b6e9cc5013550a97b6c46f79db059e3674f5395de8c3955",
+  "implementation_commit": "05c92e587b9e50c1f23b83f271c95243724da33c",
+  "authorized_output_directory": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-single-iteration-integration-v2-real-05c92e5-20260907",
+  "maximum_slurm_runs": 1,
+  "authorized_operations": {
+    "credentials_loading_authorized": true,
+    "external_api_requests_authorized": true,
+    "single_iteration_ppo_authorized": true,
+    "oracle_execution_authorized": true,
+    "single_iteration_integration_rerun_authorized": true,
+    "automatic_rerun_authorized": false,
+    "multi_iteration_training_authorized": false,
+    "formal_training_authorized": false,
+    "sealed_test_access_authorized": false,
+    "baseline_mutation_authorized": false,
+    "algorithm_effectiveness_claim_authorized": false,
+    "scientific_claim_authorized": false
+  }
+}

@@ -10,16 +10,21 @@
 > These are engineering and development evidence only; they do not reopen the
 > sealed test or authorize performance claims. Only a separate integration-v2
 > protocol is frozen and its authorization-gated runner passed a mock-only n001
-> Slurm preflight. The real single-iteration execution still requires a separate
-> exact-scope authorization; no real API/PPO rerun, Oracle call, automatic
-> rerun, or multi-iteration scope is authorized. See
+> Slurm preflight. The separately authorized real attempt was submitted once as
+> Job 4693 but failed before PPO because its selected polyBERT path was a source
+> package without model configuration or weights. No API transmission, PPO
+> iteration, Oracle call, or pairwise update occurred, and the consumed
+> authorization was not reused. A new asset-completeness preflight and fresh
+> exact-scope authorization are required before any further real attempt;
+> automatic rerun and multi-iteration scope remain closed. See
 > `reproduction/PROJECT_PLAN.md`,
 > `reproduction/scicf/online/ARCHITECTURE_SMOKE_V1.md`, and
 > `reproduction/scicf/online/ACQUISITION_VERIFIER_DEV_V1.md`, and
 > `reproduction/scicf/online/PAIRWISE_STABILITY_DEV_V1.md`, and
 > `reproduction/scicf/online/SINGLE_ITERATION_INTEGRATION_V1.md`, and
 > `reproduction/scicf/online/SCHEMA_ROBUSTNESS_DEV_V1.md`, and
-> `reproduction/scicf/online/SINGLE_ITERATION_INTEGRATION_V2_PROTOCOL.md`.
+> `reproduction/scicf/online/SINGLE_ITERATION_INTEGRATION_V2_PROTOCOL.md`, and
+> `reproduction/results/scicf-single-iteration-integration-v2-real-20260907/`.
 
 SciCF-PPO is being added as a feature-gated extension of the frozen
 `dapigen-ppo-compat-baseline-v1` baseline. The upstream PPO clipped objective,

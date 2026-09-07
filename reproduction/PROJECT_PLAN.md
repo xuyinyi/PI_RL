@@ -3,10 +3,10 @@
 Status date: 2026-09-07
 
 Plan status: **the separate integration-v2 protocol is frozen and its
-authorization-gated runner passed mock-only n001 Slurm preflight; the real
-single-iteration run still requires separate authorization, while automatic
-reruns, multi-iteration training, historical sealed tests, and all scientific
-claim gates remain closed**
+authorization-gated runner passed mock-only n001 Slurm preflight; the one
+authorized real-run attempt failed before PPO on an incomplete polyBERT path
+and was not rerun, while automatic reruns, multi-iteration training, historical
+sealed tests, and all scientific claim gates remain closed**
 
 ## 2026-09-06 architecture-first amendment
 
@@ -115,6 +115,17 @@ single-run real-execution authorization; it does not provide that authorization
 or open multi-iteration training. See
 `reproduction/scicf/online/SINGLE_ITERATION_INTEGRATION_V2_PROTOCOL.md` and
 `reproduction/results/scicf-single-iteration-integration-v2-preflight-20260907/`.
+
+The separately authorized real-run attempt was submitted exactly once as n001
+Slurm Job 4693. Its 52-test step passed, but the runner failed before PPO while
+loading a submitted `QSPR/polyBERT` directory that contains source code rather
+than the required Hugging Face model files. The credential configuration was
+parsed, but no external API transmission, PPO iteration, candidate-pool build,
+Oracle evaluation, or pairwise update occurred. The one-run authorization is
+consumed and no automatic rerun was made. A future attempt requires a new
+model-asset completeness and hash-binding implementation, a new n001 Slurm
+mock/preflight, and a fresh exact one-run authorization. Evidence is under
+`reproduction/results/scicf-single-iteration-integration-v2-real-20260907/`.
 
 ## 1. Authority and scope
 

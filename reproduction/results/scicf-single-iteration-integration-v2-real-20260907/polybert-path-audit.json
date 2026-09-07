@@ -1,0 +1,43 @@
+{
+  "audit_date": "2026-09-07",
+  "host": "yanlih100n1",
+  "failed_submitted_path": {
+    "path": "/home/wch/workspaces/DAPiGen-reproduction/scicf-single-iteration-integration-v2-runner-dev/QSPR/polyBERT",
+    "classification": "DAPiGen polyBERT source package, not a Hugging Face model directory",
+    "directory_exists": true,
+    "required_files": {
+      "config.json": "missing",
+      "tokenizer_config.json": "missing",
+      "tokenizer.json": "missing",
+      "special_tokens_map.json": "missing",
+      "pytorch_model.bin": "missing",
+      "model.safetensors": "missing"
+    }
+  },
+  "verified_model_ready_candidate": {
+    "path": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v23-mask-dev-20260904/RL_PPO/models",
+    "classification": "reconstructed AFP compatibility polyBERT asset accepted by the existing Stage0 asset gate",
+    "directory_mode": "755",
+    "owner_group": "wch:wch",
+    "noncache_file_count": 14,
+    "noncache_sha256_manifest_sha256": "30108fb589d941ab445f3560e27d41290e00fa13a213f0c071414bbe936571d6",
+    "required_file_sha256": {
+      "config.json": "ad391d9de8f9eff355554a7bb4635714250e1079f51b6b973f46d8b008be559a",
+      "tokenizer_config.json": "a7fe4028e90570619c41417ade2b7135b2ff56fb93a33fbac14ff42cc22de7d0",
+      "tokenizer.json": "89891f8a97ba93608626d704722a8243fb64c700f4e9b09edcebe794680d3c78",
+      "special_tokens_map.json": "311de3f4eed9d76a43bf0d71f10e62e086ca65ccce9f15d5da0d2098bf519ecc",
+      "spm.model": "2285839ce5a54c35acd7a59c38e531c243a5c46476e1ba11080bf11d303618d5",
+      "pytorch_model.bin": "469d1928fe140f3d8d93f69e69a11aebf540e7a2043b38a9a6758cf0bb640a9c",
+      "model.safetensors": "21cfab4a3b0599852fb8ef529a67e41632246b9256ed834938ba9b46cb24148f"
+    },
+    "existing_encoder_version": "polybert-sha256:6bdd24f951dd90d3031e749e",
+    "existing_asset_gate_ready": true,
+    "upstream_polybert_identity_verified": false
+  },
+  "diagnosis": "The Slurm submission guard checked only that the supplied path was a directory. It did not check that required tokenizer, configuration, and weight files were present and non-empty.",
+  "execution_boundary": {
+    "new_run_started": false,
+    "files_copied_or_linked_on_server": false,
+    "submitted_worktree_modified": false
+  }
+}

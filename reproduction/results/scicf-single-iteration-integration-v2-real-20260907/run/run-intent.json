@@ -1,0 +1,21 @@
+{
+  "accepted_manifest_sha256": "8d4eaa0f72d042384a1eaaa87ae8b9c8728cef490482ead8ea8e350c6cbe8165",
+  "api_key_logged": false,
+  "authorization_id": "user-authorized-scicf-integration-v2-one-run-20260907",
+  "authorization_sha256": "9366af4f16457c4aac6d0832a72bfd0a4d9d79c229cf35c683764d7e1c568c95",
+  "automatic_rerun_authorized": false,
+  "credentials_loaded_at_intent_time": false,
+  "credentials_path_logged": false,
+  "multi_iteration_training_authorized": false,
+  "protocol_id": "dapigen-scicf-single-iteration-integration-smoke-v2",
+  "protocol_sha256": "f05df22b15c069f43b6e9cc5013550a97b6c46f79db059e3674f5395de8c3955",
+  "schema_version": 1,
+  "slurm_job_id": "4693",
+  "source": {
+    "branch": "codex/scicf-single-iteration-integration-v2-runner-dev",
+    "commit": "05c92e587b9e50c1f23b83f271c95243724da33c",
+    "dirty": false,
+    "tags": []
+  },
+  "status": "declared_after_authorization_and_binding_before_credentials"
+}
