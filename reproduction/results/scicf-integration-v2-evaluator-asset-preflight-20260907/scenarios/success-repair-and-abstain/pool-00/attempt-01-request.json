@@ -1,0 +1,29 @@
+{
+  "api_key_exposed": false,
+  "attempt_index": 1,
+  "attempt_kind": "schema_repair",
+  "candidate_ids_sha256": "056998760bcd3a83e7d8886c53a23b8139114cffc216b2bb5dab124d2f9892a2",
+  "maximum_budget": 4,
+  "messages": [
+    {
+      "content": "Return one blinded JSON ranking.",
+      "role": "system"
+    },
+    {
+      "content": "{\"candidate_ids\": [\"cf-preflight-00-00\", \"cf-preflight-00-01\", \"cf-preflight-00-02\", \"cf-preflight-00-03\", \"cf-preflight-00-04\", \"cf-preflight-00-05\", \"cf-preflight-00-06\", \"cf-preflight-00-07\", \"cf-preflight-00-08\", \"cf-preflight-00-09\", \"cf-preflight-00-10\", \"cf-preflight-00-11\", \"cf-preflight-00-12\", \"cf-preflight-00-13\", \"cf-preflight-00-14\", \"cf-preflight-00-15\", \"cf-preflight-00-16\", \"cf-preflight-00-17\", \"cf-preflight-00-18\", \"cf-preflight-00-19\", \"cf-preflight-00-20\", \"cf-preflight-00-21\", \"cf-preflight-00-22\", \"cf-preflight-00-23\"], \"maximum_oracle_budget\": 4, \"policy_score_included\": false, \"terminal_reward_or_properties_included\": false}",
+      "role": "user"
+    },
+    {
+      "content": "{\"allowed_candidate_ids_in_blinded_order\":[\"cf-preflight-00-23\",\"cf-preflight-00-22\",\"cf-preflight-00-21\",\"cf-preflight-00-20\",\"cf-preflight-00-19\",\"cf-preflight-00-18\",\"cf-preflight-00-17\",\"cf-preflight-00-16\",\"cf-preflight-00-15\",\"cf-preflight-00-14\",\"cf-preflight-00-13\",\"cf-preflight-00-12\",\"cf-preflight-00-11\",\"cf-preflight-00-10\",\"cf-preflight-00-09\",\"cf-preflight-00-08\",\"cf-preflight-00-07\",\"cf-preflight-00-06\",\"cf-preflight-00-05\",\"cf-preflight-00-04\",\"cf-preflight-00-03\",\"cf-preflight-00-02\",\"cf-preflight-00-01\",\"cf-preflight-00-00\"],\"constraints\":[\"return one JSON object and no markdown\",\"do not invent, shorten, expand, or modify candidate IDs\",\"do not add fields outside ranked_intervention_ids, abstain, reasoning, confidence\",\"do not provide reward values or policy scores\"],\"maximum_oracle_budget\":4,\"previous_response_text_sha256\":\"387c608d905a38ee16fb9bd69a73da028f5d371b085ae0bff894eac586ad975e\",\"repair_protocol\":\"scicf-online-ranked-response-repair-v1\",\"required_output\":{\"abstain\":\"true requires an empty ranked_intervention_ids list; false requires one to maximum_oracle_budget IDs\",\"confidence\":\"optional number in [0,1]; advisory only\",\"ranked_intervention_ids\":\"zero to maximum_oracle_budget unique IDs copied exactly from allowed_candidate_ids_in_blinded_order\",\"reasoning\":\"optional brief string; advisory only\"},\"task\":\"repair_response_schema_only\",\"validation_error_code\":\"ranked_response_schema_invalid\"}",
+      "role": "user"
+    }
+  ],
+  "messages_sha256": "068fe2c6bf95d3a00e26e0ce1d50d6ae5571fdf43a06894d24b38064f8bb6cbc",
+  "original_prompt_sha256": "62b2138603776905101c661d524c79ec239f4393d5ed926c53ff6c0c46ebedfc",
+  "policy_score_exposed": false,
+  "protocol_id": "dapigen-scicf-llm-schema-robustness-dev-v1",
+  "raw_invalid_response_replayed_to_model": false,
+  "request_id": "integration-v2-preflight-pool-00",
+  "reward_truth_exposed": false,
+  "schema_version": 1
+}

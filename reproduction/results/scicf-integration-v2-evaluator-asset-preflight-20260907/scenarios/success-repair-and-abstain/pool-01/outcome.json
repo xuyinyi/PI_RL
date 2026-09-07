@@ -1,0 +1,35 @@
+{
+  "attempt_count": 1,
+  "attempts": [
+    {
+      "attempt_index": 0,
+      "attempt_kind": "initial",
+      "raw_capture_file": "attempt-00-raw-response.json",
+      "raw_capture_sha256": "7dd5299be2f16d6006c19b3895fc63bfee45cdd18e5b0f94c901a70926d02ea2",
+      "request_file": "attempt-00-request.json",
+      "request_sha256": "7ee77a714103b3f8678523a82eea7df1420ccadc560504051de2903be69c6c51",
+      "status": "validated",
+      "validation_error_code": null,
+      "validation_file": "attempt-00-validation.json",
+      "validation_sha256": "61fcf775ee4730d4d46770764f898ed1dfa6bf5431000e9fa2b558aa61eab791"
+    }
+  ],
+  "maximum_http_transmissions": 4,
+  "maximum_schema_attempts": 2,
+  "oracle_selection_authorized": true,
+  "raw_capture_complete": true,
+  "request_id": "integration-v2-preflight-pool-01",
+  "schema_version": 1,
+  "selected_intervention_ids": [],
+  "semantic_repair_count": 0,
+  "status": "validated",
+  "validated": {
+    "abstain": true,
+    "advisory_only": true,
+    "confidence": null,
+    "ranked_intervention_ids": [],
+    "reasoning": "",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": []
+  }
+}

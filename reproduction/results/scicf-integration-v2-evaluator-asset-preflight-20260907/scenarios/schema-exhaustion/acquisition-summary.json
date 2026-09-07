@@ -1,0 +1,40 @@
+{
+  "all_pool_decisions_validated": false,
+  "http_transmissions_observed": 2,
+  "http_transmissions_observed_is_exact": true,
+  "http_transmissions_upper_bound_for_started_decisions": 2,
+  "http_transmissions_used": 2,
+  "maximum_http_transmissions_total": 8,
+  "oracle_selection_authorized": false,
+  "pool_decision_count_expected": 2,
+  "pool_decision_count_started": 1,
+  "pool_outcomes": [
+    {
+      "attempt_count": 2,
+      "oracle_selection_authorized": false,
+      "outcome_sha256": "765923b6b4b7276e1b5ad410f987c66d2bde29f689b8a7577e29c6f4b987c442",
+      "pool_index": 0,
+      "request_id": "integration-v2-preflight-pool-00",
+      "selected_intervention_ids": [],
+      "semantic_repair_count": 1,
+      "status": "fail_closed_schema_exhausted",
+      "usage": {
+        "completion_tokens": 16,
+        "http_transmissions_observed": 2,
+        "prompt_tokens": 40,
+        "returned_content_count": 2,
+        "token_accounting_complete": true
+      }
+    }
+  ],
+  "reported_tokens": {
+    "completion": 16,
+    "prompt": 40
+  },
+  "returned_content_count": 2,
+  "selected_intervention_ids": [],
+  "semantic_attempt_count": 2,
+  "semantic_repair_count": 1,
+  "status": "fail_closed",
+  "token_accounting_complete": true
+}

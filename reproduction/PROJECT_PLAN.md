@@ -2,12 +2,12 @@
 
 Status date: 2026-09-07
 
-Plan status: **the separate integration-v2 protocol is frozen; polyBERT asset
-binding passed its mock preflight and the newly authorized real attempt passed
-that boundary, but then failed before PPO because the implementation worktree
-lacked ignored AFP evaluator assets; the attempt was not rerun, and automatic
-reruns, multi-iteration training, historical sealed tests, and all scientific
-claim gates remain closed**
+Plan status: **the separate integration-v2 protocol is frozen; after the latest
+real attempt failed before PPO on implicitly resolved AFP assets, the runner now
+explicitly routes and hash-binds all 13 evaluator assets and has passed a
+complete-runtime, no-credential n001 Slurm preflight; no new real-run
+authorization has been created, and automatic reruns, multi-iteration training,
+historical sealed tests, and all scientific claim gates remain closed**
 
 ## 2026-09-06 architecture-first amendment
 
@@ -155,6 +155,23 @@ evaluator-asset routing/binding repair, a no-credential n001 Slurm preflight
 that constructs the complete Stage0 runtime, and only then a fresh one-run
 authorization. Evidence is under
 `reproduction/results/scicf-single-iteration-integration-v2-real-modelbound-20260907/`.
+
+The evaluator-asset repair and exact inference-accounting report were frozen at
+clean commit `39cd7fb33c1c88397e78808860d766c9876c12df`. Authorization schema
+version 3 now
+binds the exact AFP evaluator directory, binding hash, and canonical fingerprint
+over four weights, four scalers, four settings files, and `fpscores.pkl.gz`.
+Only `RL_PPO/envs/evaluator.py` differs from the accepted Stage0 source: it adds
+an optional explicit model-directory route while preserving the legacy default.
+n001 Slurm Job 4697 passed 31 server tests and all 33 preflight checks, loaded
+polyBERT plus the four AFP models, and constructed the complete Stage0 and PPO
+runtime with an empty evaluator ledger. The preflight accepted no credential
+file and executed zero API requests, PPO iterations, Oracle evaluations, or AFP
+property predictions. Stage0 construction performed exactly two local polyBERT
+initial-embedding cache misses. This admits only requesting a fresh exact
+one-run execution authorization; no authorization or real run was created.
+Evidence is under
+`reproduction/results/scicf-integration-v2-evaluator-asset-preflight-20260907/`.
 
 ## 1. Authority and scope
 

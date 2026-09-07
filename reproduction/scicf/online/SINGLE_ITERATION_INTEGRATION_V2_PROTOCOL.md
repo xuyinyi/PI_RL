@@ -1,7 +1,8 @@
 # LLM-SciCF single-iteration integration-v2 protocol freeze
 
-Status: **protocol frozen; the model-bound real attempt failed before PPO on
-missing evaluator assets, and no further real execution is authorized**.
+Status: **protocol frozen; explicit AFP evaluator-asset routing and the
+complete-runtime no-credential preflight passed, but no further real execution
+is authorized**.
 
 ## Purpose
 
@@ -123,6 +124,20 @@ checkout. A future implementation must explicitly route and hash-bind the
 accepted evaluator assets before credential loading, and its no-credential
 Slurm preflight must construct the complete Stage0 runtime. Job 4695's consumed
 authorization does not cover that repair or another run.
+
+The separately authorized repair and reporting fix at clean commit `39cd7fb`
+added an optional explicit evaluator model-directory route and an exact
+compatibility-only binding for all 13 required evaluator files. Authorization
+schema version 3
+binds the resolved directory, binding hash, and canonical asset fingerprint in
+addition to the polyBERT identity. n001 Slurm Job 4697 passed 31 server tests
+and 33 preflight checks, loaded both model families, and constructed the full
+Stage0/PPO runtime with a zero-call evaluator ledger. The job accepted no
+credential-file argument and performed no API request, PPO iteration, Oracle
+evaluation, or AFP property inference. Stage0 construction executed two local
+polyBERT initial embeddings. Its decision is only
+`go_request_separate_real_single_iteration_execution_authorization`; no
+authorization or real run was created.
 
 ## Immutable numerical and scientific boundary
 

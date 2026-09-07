@@ -1,0 +1,12 @@
+{
+  "attempt_index": 0,
+  "raw_capture_file": "attempt-00-raw-response.json",
+  "raw_capture_sha256": "6c85e6605dc2a9dbe431d24df1bc4ea8f45303630fb7d65d263e07586e8514f6",
+  "raw_was_captured_before_validation": true,
+  "request_id": "integration-v2-preflight-pool-00",
+  "schema_version": 1,
+  "status": "invalid",
+  "validated": null,
+  "validation_error": "LLM invented intervention ids: ['cf-x']",
+  "validation_error_code": "ranked_response_schema_invalid"
+}

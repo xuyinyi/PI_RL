@@ -1,0 +1,26 @@
+{
+  "attempt_index": 1,
+  "raw_capture_file": "attempt-01-raw-response.json",
+  "raw_capture_sha256": "fe7984d3ed99a72fa5e9c8d012f0ba88d3e18bad4c90bbef7fb59a0d17385d4c",
+  "raw_was_captured_before_validation": true,
+  "request_id": "integration-v2-preflight-pool-00",
+  "schema_version": 1,
+  "status": "validated",
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": null,
+    "ranked_intervention_ids": [
+      "cf-preflight-00-02",
+      "cf-preflight-00-09"
+    ],
+    "reasoning": "",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-preflight-00-02",
+      "cf-preflight-00-09"
+    ]
+  },
+  "validation_error": null,
+  "validation_error_code": null
+}

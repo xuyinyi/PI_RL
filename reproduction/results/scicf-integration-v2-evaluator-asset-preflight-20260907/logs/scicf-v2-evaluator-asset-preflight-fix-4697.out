@@ -1,0 +1,14 @@
+job_id=4697 host=yanlih100n1 cpus=8 protocol=dapigen-scicf-single-iteration-integration-smoke-v2
+scope=complete-runtime-no-credential-preflight external_api=disabled credentials=disabled ppo=disabled oracle=disabled
+0, NVIDIA H100 80GB HBM3, GPU-03068b81-fa6b-f9df-55b0-9dceed2a481c, 81559 MiB
+1, NVIDIA H100 80GB HBM3, GPU-bec01859-a9c2-4efd-1084-09c6ce93403d, 81559 MiB
+2, NVIDIA H100 80GB HBM3, GPU-555c9266-e44c-11f2-5f85-e4fa2c75275e, 81559 MiB
+3, NVIDIA H100 80GB HBM3, GPU-c587808a-0204-5c97-2ae1-0adaa8130295, 81559 MiB
+4, NVIDIA H100 80GB HBM3, GPU-053e7d1b-f234-548d-79fd-732cfef5e3dc, 81559 MiB
+5, NVIDIA H100 80GB HBM3, GPU-710449b3-bffc-9940-dcfc-1d7806b27077, 81559 MiB
+6, NVIDIA H100 80GB HBM3, GPU-c3870331-bbb2-2215-7757-9f8d19a6c703, 81559 MiB
+7, NVIDIA H100 80GB HBM3, GPU-29796cff-eba6-cbda-3a58-df073afd6aa0, 81559 MiB
+...............................                                          [100%]
+31 passed in 2.33s
+{"execution_status": "passed", "failures": [], "module_decision": "go_request_separate_real_single_iteration_execution_authorization", "output": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-integration-v2-evaluator-asset-preflight-39cd7fb-20260907"}
+scicf_single_iteration_v2_complete_runtime_no_credential_preflight_complete
