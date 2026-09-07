@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "protocol_id": "dapigen-scicf-soft-pair-resilience-dev-v1",
+  "classification": "mock_only_soft_pair_and_optional_llm_resilience_development",
+  "status": "frozen_for_no_credential_slurm_preflight",
+  "source_evidence": {
+    "job_id": "4713",
+    "report": "reproduction/results/scicf-single-iteration-integration-v2-real-schema3-job4713-20260907/run/integration-v2-report.json",
+    "report_sha256": "1e650475e261e1100ef2270d1efaf1090aba68bd62e1bc5524c42bd21b15922b",
+    "decision": "no_go_multi_iteration_protocol_freeze",
+    "accepted_pair_count": 0
+  },
+  "soft_pair_aggregation": {
+    "replicates": 5,
+    "practical_delta_tolerance": 0.005,
+    "beta_prior_alpha": 0.5,
+    "magnitude_scale": 0.05,
+    "maximum_training_weight": 2.0,
+    "minimum_training_weight": 0.05,
+    "minimum_effective_pair_mass": 0.5,
+    "minimum_weighted_candidate_count": 2,
+    "maximum_single_pair_mass_fraction": 0.75
+  },
+  "pairwise_refinement": {
+    "learning_rate": 0.00001,
+    "maximum_gradient_norm": 0.5,
+    "target_kl": 0.01,
+    "maximum_weight": 2.0,
+    "delta_tolerance": 0.005
+  },
+  "primary_transaction": {
+    "standard_ppo_is_primary": true,
+    "checkpoint_before_llm": true,
+    "llm_is_optional_auxiliary": true,
+    "recoverable_llm_failure_cannot_rollback_ppo": true,
+    "degraded_iteration_label": "ppo_only_degraded",
+    "successful_auxiliary_label": "ppo_plus_scicf_soft_pair",
+    "silent_fallback_forbidden": true
+  },
+  "llm_resilience": {
+    "maximum_consecutive_llm_failures": 2,
+    "circuit_cooldown_iterations": 3,
+    "primary_ppo_checkpoint_required": true,
+    "abstention_is_recoverable": true,
+    "no_pair_mass_is_recoverable": true,
+    "recoverable_failure_codes": [
+      "provider_timeout",
+      "provider_rate_limited",
+      "provider_unavailable",
+      "transport_exhausted",
+      "schema_exhausted"
+    ]
+  },
+  "integrity_boundary": {
+    "authorization_failure_is_fatal": true,
+    "asset_binding_failure_is_fatal": true,
+    "budget_overrun_is_fatal": true,
+    "information_leakage_is_fatal": true,
+    "unvalidated_llm_output_is_fatal": true,
+    "unexpected_programming_error_is_fatal": true,
+    "llm_confidence_may_weight_loss": false,
+    "oracle_empirical_confidence_may_weight_loss": true,
+    "counterfactual_actions_enter_ppo_clipping": false
+  },
+  "future_live_budget_ceiling": {
+    "maximum_selected_candidates_per_iteration": 8,
+    "maximum_matched_replicates_per_candidate": 5,
+    "maximum_verification_branches_per_iteration": 80,
+    "maximum_pairwise_optimizer_steps_per_iteration": 1
+  },
+  "preflight": {
+    "required_host": "yanlih100n1",
+    "require_slurm": true,
+    "require_clean_git": true,
+    "credentials_permitted": false,
+    "external_api_permitted": false,
+    "ppo_permitted": false,
+    "oracle_permitted": false,
+    "local_model_permitted": false,
+    "sealed_test_permitted": false
+  },
+  "authorization_state": {
+    "real_llm_call_authorized": false,
+    "real_ppo_authorized": false,
+    "real_oracle_authorized": false,
+    "single_iteration_v3_authorized": false,
+    "multi_iteration_training_authorized": false,
+    "formal_training_authorized": false,
+    "sealed_test_access_authorized": false,
+    "algorithm_effectiveness_claim_authorized": false,
+    "scientific_claim_authorized": false
+  }
+}
