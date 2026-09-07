@@ -2,12 +2,11 @@
 
 Status date: 2026-09-07
 
-Plan status: **the separately authorized schema-3 integration-v2 run completed
-the full single-iteration path in n001 Slurm Job 4713, but produced zero
-sign-consistent verified pairs and therefore returned
-`no_go_multi_iteration_protocol_freeze`; the one-run authorization is consumed,
-and automatic reruns, multi-iteration training, historical sealed tests, and
-all scientific claim gates remain closed**
+Plan status: **the schema-3 integration-v2 run remains a no-go after zero strict
+pairs; a new K=5 soft-pair and optional-LLM resilience component coordinate has
+passed mock-only n001 Slurm preflight, but no v3 real runner, real execution, or
+multi-iteration training is authorized, and historical sealed tests and all
+scientific claim gates remain closed**
 
 ## 2026-09-06 architecture-first amendment
 
@@ -188,6 +187,23 @@ pairwise optimizer correctly took zero steps. The authoritative decision is
 runner completed normally with no integrity failures. No automatic rerun was
 submitted and no next scope is authorized. Evidence is under
 `reproduction/results/scicf-single-iteration-integration-v2-real-schema3-job4713-20260907/`.
+
+The follow-up component coordinate,
+`dapigen-scicf-soft-pair-resilience-dev-v1`, was implemented at clean commit
+`7d005b07df0cb3022ead92efedd13d3aec04fc3c`. It replaces the future strict
+K=2 auxiliary-label rule with exactly five matched continuations and a
+continuous weight based on Jeffreys-shrunk sign support, non-tie fraction, and
+median effect magnitude. Standard PPO is defined as the primary transaction
+and must be checkpointed before the optional LLM stage. Bounded provider/schema
+failures, valid abstention, circuit-open cooldown, and insufficient effective
+pair mass yield an explicit `ppo_only_degraded` iteration and cannot roll back
+PPO. Integrity errors remain fatal, and silent fallback under the SciCF label is
+forbidden. CPU-only n001 Slurm Job 4714 passed 18 server tests and all 20
+mock checks with zero credentials, external API requests, PPO iterations,
+Oracle calls, local models, or sealed-test accesses. This admits only separately
+gated v3 runner development and a later no-credential full-runtime preflight;
+it does not authorize a real run or multi-iteration training. Evidence is under
+`reproduction/results/scicf-soft-pair-resilience-preflight-20260907/`.
 
 ## 1. Authority and scope
 

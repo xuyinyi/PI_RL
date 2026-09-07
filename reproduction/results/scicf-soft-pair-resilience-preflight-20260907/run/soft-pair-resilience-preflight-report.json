@@ -1,0 +1,607 @@
+{
+  "checks": {
+    "all_ties_abstain": true,
+    "balanced_direction_abstains": true,
+    "circuit_opens": true,
+    "circuit_recovers": true,
+    "credentials_not_loaded": true,
+    "effective_mass_gate_passes": true,
+    "exact_k5": true,
+    "external_api_not_invoked": true,
+    "five_votes_outweigh_four": true,
+    "four_votes_outweigh_three": true,
+    "no_mass_gate_skips": true,
+    "no_mass_is_explicit_degradation": true,
+    "oracle_not_run": true,
+    "positive_with_two_ties_retained": true,
+    "ppo_not_run": true,
+    "provider_timeout_keeps_training": true,
+    "schema_exhaustion_keeps_training": true,
+    "sealed_test_not_accessed": true,
+    "silent_fallback_forbidden": true,
+    "three_of_five_is_low_nonzero_weight": true
+  },
+  "classification": "mock_only_soft_pair_and_optional_llm_resilience_development",
+  "config_sha256": "97ed1bcf468293faa5c9e0eafb2dfde819061c201996ccbbcaf6b66bacce7173",
+  "credential_file_argument_accepted": false,
+  "credentials_loaded": false,
+  "decision": "pass_components_only_no_real_run_authorized",
+  "effective_mass_gate": {
+    "config": {
+      "beta_prior_alpha": 0.5,
+      "magnitude_scale": 0.05,
+      "maximum_single_pair_mass_fraction": 0.75,
+      "maximum_training_weight": 2.0,
+      "minimum_effective_pair_mass": 0.5,
+      "minimum_training_weight": 0.05,
+      "minimum_weighted_candidate_count": 2,
+      "practical_delta_tolerance": 0.005,
+      "replicates": 5
+    },
+    "continue_primary_training": true,
+    "effective_pair_mass": 1.4466666666666665,
+    "eligible_for_optional_update": true,
+    "failures": [],
+    "maximum_single_pair_mass_fraction": 0.576036866359447,
+    "total_training_weight": 2.893333333333333,
+    "weighted_candidate_count": 4
+  },
+  "examples": [
+    {
+      "accepted": true,
+      "candidate_id": "cf-0000000000000001",
+      "counterfactual_returns": [
+        0.6,
+        0.58,
+        0.56,
+        0.54,
+        0.52
+      ],
+      "counterfactual_terminal_records": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "deltas": [
+        0.1,
+        0.08,
+        0.06,
+        0.04,
+        0.02
+      ],
+      "factual_returns": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "factual_terminal_records": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "mean_delta": 0.06,
+      "paired_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "preferred": "counterfactual",
+      "rejection_reason": null,
+      "soft_aggregation": {
+        "magnitude_confidence": 1.0,
+        "median_delta": 0.06,
+        "negative_count": 0,
+        "nonzero_fraction": 1.0,
+        "positive_count": 5,
+        "posterior_positive_probability": 0.9166666666666666,
+        "preferred": "counterfactual",
+        "sign_confidence": 0.8333333333333333,
+        "status": "weighted_preference",
+        "tie_count": 0,
+        "training_weight": 1.6666666666666665
+      },
+      "strict_all_nonzero_same_sign": true
+    },
+    {
+      "accepted": false,
+      "candidate_id": "cf-0000000000000002",
+      "counterfactual_returns": [
+        0.58,
+        0.56,
+        0.54,
+        0.52,
+        0.49
+      ],
+      "counterfactual_terminal_records": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "deltas": [
+        0.08,
+        0.06,
+        0.04,
+        0.02,
+        -0.01
+      ],
+      "factual_returns": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "factual_terminal_records": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "mean_delta": 0.038,
+      "paired_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "preferred": null,
+      "rejection_reason": "strict_rule_rejected",
+      "soft_aggregation": {
+        "magnitude_confidence": 0.7999999999999999,
+        "median_delta": 0.04,
+        "negative_count": 1,
+        "nonzero_fraction": 1.0,
+        "positive_count": 4,
+        "posterior_positive_probability": 0.75,
+        "preferred": "counterfactual",
+        "sign_confidence": 0.5,
+        "status": "weighted_preference",
+        "tie_count": 0,
+        "training_weight": 0.7999999999999999
+      },
+      "strict_all_nonzero_same_sign": false
+    },
+    {
+      "accepted": false,
+      "candidate_id": "cf-0000000000000003",
+      "counterfactual_returns": [
+        0.53,
+        0.52,
+        0.51,
+        0.49,
+        0.48
+      ],
+      "counterfactual_terminal_records": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "deltas": [
+        0.03,
+        0.02,
+        0.01,
+        -0.01,
+        -0.02
+      ],
+      "factual_returns": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "factual_terminal_records": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "mean_delta": 0.006,
+      "paired_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "preferred": null,
+      "rejection_reason": "strict_rule_rejected",
+      "soft_aggregation": {
+        "magnitude_confidence": 0.19999999999999998,
+        "median_delta": 0.01,
+        "negative_count": 2,
+        "nonzero_fraction": 1.0,
+        "positive_count": 3,
+        "posterior_positive_probability": 0.5833333333333334,
+        "preferred": "counterfactual",
+        "sign_confidence": 0.16666666666666674,
+        "status": "weighted_preference",
+        "tie_count": 0,
+        "training_weight": 0.0666666666666667
+      },
+      "strict_all_nonzero_same_sign": false
+    },
+    {
+      "accepted": false,
+      "candidate_id": "cf-0000000000000004",
+      "counterfactual_returns": [
+        0.54,
+        0.53,
+        0.52,
+        0.5,
+        0.5
+      ],
+      "counterfactual_terminal_records": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "deltas": [
+        0.04,
+        0.03,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "factual_returns": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "factual_terminal_records": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "mean_delta": 0.018000000000000002,
+      "paired_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "preferred": null,
+      "rejection_reason": "strict_rule_rejected",
+      "soft_aggregation": {
+        "magnitude_confidence": 0.39999999999999997,
+        "median_delta": 0.02,
+        "negative_count": 0,
+        "nonzero_fraction": 0.6,
+        "positive_count": 3,
+        "posterior_positive_probability": 0.875,
+        "preferred": "counterfactual",
+        "sign_confidence": 0.75,
+        "status": "weighted_preference",
+        "tie_count": 2,
+        "training_weight": 0.35999999999999993
+      },
+      "strict_all_nonzero_same_sign": false
+    },
+    {
+      "accepted": false,
+      "candidate_id": "cf-0000000000000005",
+      "counterfactual_returns": [
+        0.54,
+        0.53,
+        0.48,
+        0.49,
+        0.5
+      ],
+      "counterfactual_terminal_records": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "deltas": [
+        0.04,
+        0.03,
+        -0.02,
+        -0.01,
+        0.0
+      ],
+      "factual_returns": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "factual_terminal_records": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "mean_delta": 0.008,
+      "paired_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "preferred": null,
+      "rejection_reason": "strict_rule_rejected",
+      "soft_aggregation": {
+        "magnitude_confidence": 0.0,
+        "median_delta": 0.0,
+        "negative_count": 2,
+        "nonzero_fraction": 0.8,
+        "positive_count": 2,
+        "posterior_positive_probability": 0.5,
+        "preferred": null,
+        "sign_confidence": 0.0,
+        "status": "abstained_direction_tie",
+        "tie_count": 1,
+        "training_weight": 0.0
+      },
+      "strict_all_nonzero_same_sign": false
+    },
+    {
+      "accepted": false,
+      "candidate_id": "cf-0000000000000006",
+      "counterfactual_returns": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "counterfactual_terminal_records": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "deltas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "factual_returns": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "factual_terminal_records": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "mean_delta": 0.0,
+      "paired_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "preferred": null,
+      "rejection_reason": "strict_rule_rejected",
+      "soft_aggregation": {
+        "magnitude_confidence": 0.0,
+        "median_delta": 0.0,
+        "negative_count": 0,
+        "nonzero_fraction": 0.0,
+        "positive_count": 0,
+        "posterior_positive_probability": 0.5,
+        "preferred": null,
+        "sign_confidence": 0.0,
+        "status": "abstained_all_ties",
+        "tie_count": 5,
+        "training_weight": 0.0
+      },
+      "strict_all_nonzero_same_sign": false
+    }
+  ],
+  "external_api_invoked": false,
+  "failed_checks": [],
+  "host": "yanlih100n1",
+  "local_model_invoked": false,
+  "multi_iteration_training_authorized": false,
+  "oracle_calls": 0,
+  "platform": "Linux-4.18.0-553.63.1.el8_10.x86_64-x86_64-with-glibc2.17",
+  "ppo_iterations": 0,
+  "protocol_id": "dapigen-scicf-soft-pair-resilience-dev-v1",
+  "real_run_authorized": false,
+  "resilience_receipts": {
+    "circuit_open": {
+      "auxiliary_status": "skipped_circuit_open",
+      "circuit_breaker": {
+        "config": {
+          "abstention_is_recoverable": true,
+          "circuit_cooldown_iterations": 3,
+          "maximum_consecutive_llm_failures": 2,
+          "no_pair_mass_is_recoverable": true,
+          "primary_ppo_checkpoint_required": true
+        },
+        "consecutive_llm_failures": 2,
+        "open_until_iteration": 6,
+        "schema_version": 1
+      },
+      "continue_training": true,
+      "iteration": 3,
+      "method_observed": "ppo_only_degraded",
+      "primary_ppo_status": "committed_before_llm",
+      "reason": "bounded_provider_cooldown",
+      "scicf_applied": false,
+      "silent_fallback_used": false
+    },
+    "no_mass": {
+      "acquisition_payload": {
+        "ids": [
+          "cf-a"
+        ]
+      },
+      "auxiliary_status": "skipped_after_verification",
+      "circuit_breaker": {
+        "config": {
+          "abstention_is_recoverable": true,
+          "circuit_cooldown_iterations": 3,
+          "maximum_consecutive_llm_failures": 2,
+          "no_pair_mass_is_recoverable": true,
+          "primary_ppo_checkpoint_required": true
+        },
+        "consecutive_llm_failures": 0,
+        "open_until_iteration": 0,
+        "schema_version": 1
+      },
+      "continue_training": true,
+      "iteration": 6,
+      "method_observed": "ppo_only_degraded",
+      "primary_ppo_status": "committed_before_llm",
+      "reason": "skipped_insufficient_soft_pair_mass",
+      "refinement": {
+        "continue_primary_training": true,
+        "status": "skipped_insufficient_soft_pair_mass"
+      },
+      "scicf_applied": false,
+      "silent_fallback_used": false
+    },
+    "recovered": {
+      "acquisition_payload": {
+        "ids": [
+          "cf-a"
+        ]
+      },
+      "auxiliary_status": "ready_for_oracle_verification",
+      "circuit_breaker": {
+        "config": {
+          "abstention_is_recoverable": true,
+          "circuit_cooldown_iterations": 3,
+          "maximum_consecutive_llm_failures": 2,
+          "no_pair_mass_is_recoverable": true,
+          "primary_ppo_checkpoint_required": true
+        },
+        "consecutive_llm_failures": 0,
+        "open_until_iteration": 0,
+        "schema_version": 1
+      },
+      "continue_training": true,
+      "iteration": 6,
+      "method_observed": "scicf_auxiliary_pending",
+      "primary_ppo_status": "committed_before_llm",
+      "scicf_applied": false,
+      "silent_fallback_used": false
+    },
+    "schema": {
+      "auxiliary_status": "skipped_recoverable_llm_failure",
+      "circuit_breaker": {
+        "config": {
+          "abstention_is_recoverable": true,
+          "circuit_cooldown_iterations": 3,
+          "maximum_consecutive_llm_failures": 2,
+          "no_pair_mass_is_recoverable": true,
+          "primary_ppo_checkpoint_required": true
+        },
+        "consecutive_llm_failures": 2,
+        "open_until_iteration": 6,
+        "schema_version": 1
+      },
+      "continue_training": true,
+      "iteration": 2,
+      "method_observed": "ppo_only_degraded",
+      "primary_ppo_status": "committed_before_llm",
+      "reason": "schema_exhausted",
+      "scicf_applied": false,
+      "silent_fallback_used": false
+    },
+    "timeout": {
+      "auxiliary_status": "skipped_recoverable_llm_failure",
+      "circuit_breaker": {
+        "config": {
+          "abstention_is_recoverable": true,
+          "circuit_cooldown_iterations": 3,
+          "maximum_consecutive_llm_failures": 2,
+          "no_pair_mass_is_recoverable": true,
+          "primary_ppo_checkpoint_required": true
+        },
+        "consecutive_llm_failures": 1,
+        "open_until_iteration": 0,
+        "schema_version": 1
+      },
+      "continue_training": true,
+      "iteration": 1,
+      "method_observed": "ppo_only_degraded",
+      "primary_ppo_status": "committed_before_llm",
+      "reason": "provider_timeout",
+      "scicf_applied": false,
+      "silent_fallback_used": false
+    }
+  },
+  "schema_version": 1,
+  "sealed_test_accessed": false,
+  "slurm_job_id": "4714",
+  "soft_pair_config": {
+    "beta_prior_alpha": 0.5,
+    "magnitude_scale": 0.05,
+    "maximum_single_pair_mass_fraction": 0.75,
+    "maximum_training_weight": 2.0,
+    "minimum_effective_pair_mass": 0.5,
+    "minimum_training_weight": 0.05,
+    "minimum_weighted_candidate_count": 2,
+    "practical_delta_tolerance": 0.005,
+    "replicates": 5
+  },
+  "source": {
+    "branch": "HEAD",
+    "commit": "7d005b07df0cb3022ead92efedd13d3aec04fc3c",
+    "dirty": false,
+    "tags": []
+  },
+  "zero_mass_gate": {
+    "config": {
+      "beta_prior_alpha": 0.5,
+      "magnitude_scale": 0.05,
+      "maximum_single_pair_mass_fraction": 0.75,
+      "maximum_training_weight": 2.0,
+      "minimum_effective_pair_mass": 0.5,
+      "minimum_training_weight": 0.05,
+      "minimum_weighted_candidate_count": 2,
+      "practical_delta_tolerance": 0.005,
+      "replicates": 5
+    },
+    "continue_primary_training": true,
+    "effective_pair_mass": 0.0,
+    "eligible_for_optional_update": false,
+    "failures": [
+      "insufficient_weighted_candidate_count",
+      "insufficient_effective_pair_mass"
+    ],
+    "maximum_single_pair_mass_fraction": 0.0,
+    "total_training_weight": 0.0,
+    "weighted_candidate_count": 0
+  }
+}

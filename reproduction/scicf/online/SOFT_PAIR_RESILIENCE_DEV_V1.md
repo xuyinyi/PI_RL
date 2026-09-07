@@ -1,7 +1,8 @@
 # SciCF K=5 soft-pair and optional-LLM resilience development v1
 
-Status: **frozen for no-credential mock/preflight only; no real execution or
-multi-iteration training is authorized**.
+Status: **the no-credential mock/component preflight passed in n001 Slurm Job
+4714 at clean commit `7d005b0`; no real execution or multi-iteration training
+is authorized**.
 
 ## Motivation
 
@@ -98,3 +99,17 @@ real single-iteration run, multi-iteration training, formal training, or
 scientific claim. A server preflight can validate only synthetic soft-weight and
 resilience scenarios. Real integration requires a separately implemented and
 authorized runner with the existing polyBERT and AFP bindings.
+
+## Accepted component preflight
+
+CPU-only n001 Slurm Job 4714 passed 18 server tests and all 20 preflight checks.
+It verified weighted 5:0, 4:1, 3:2, positive-plus-ties, direction-tie, and
+all-tie scenarios; an eligible distributed-mass case; a zero-mass auxiliary
+skip; a real small-tensor weighted policy update; PPO-checkpoint existence and
+hash validation; provider-timeout and schema-exhaustion degradation; circuit
+open/cooldown/recovery; and explicit no-silent-fallback labelling.
+
+The job loaded no credentials and executed zero API calls, PPO iterations,
+Oracle calls, local models, or sealed tests. Its decision is
+`pass_components_only_no_real_run_authorized`. See
+`../../results/scicf-soft-pair-resilience-preflight-20260907/`.

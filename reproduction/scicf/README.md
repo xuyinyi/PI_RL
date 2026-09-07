@@ -52,6 +52,18 @@
 > `reproduction/results/scicf-integration-v2-evaluator-asset-preflight-20260907/`,
 > and
 > `reproduction/results/scicf-single-iteration-integration-v2-real-schema3-job4713-20260907/`.
+> A follow-up K=5 soft-pair and optional-LLM resilience coordinate then passed
+> its mock-only component preflight in n001 Slurm Job 4714 at clean commit
+> `7d005b0`. Future candidate evidence receives a continuous Oracle-derived
+> weight rather than an all-or-nothing K=2 label. Standard PPO must be durably
+> checkpointed before the optional LLM stage; bounded provider/schema failures,
+> abstention, circuit cooldown, and insufficient pair mass become explicit
+> `ppo_only_degraded` iterations instead of terminating training. Integrity
+> errors remain fatal and silent fallback under the SciCF label is forbidden.
+> This component pass authorizes no real v3 execution or multi-iteration
+> training. See
+> `reproduction/scicf/online/SOFT_PAIR_RESILIENCE_DEV_V1.md` and
+> `reproduction/results/scicf-soft-pair-resilience-preflight-20260907/`.
 
 SciCF-PPO is being added as a feature-gated extension of the frozen
 `dapigen-ppo-compat-baseline-v1` baseline. The upstream PPO clipped objective,

@@ -1,0 +1,6 @@
+job_id=4714 host=yanlih100n1 protocol=dapigen-scicf-soft-pair-resilience-dev-v1
+scope=mock_only credentials=forbidden external_api=forbidden ppo=forbidden oracle=forbidden
+..................                                                       [100%]
+18 passed in 3.76s
+{"decision": "pass_components_only_no_real_run_authorized", "failures": []}
+scicf_soft_pair_resilience_preflight_complete
