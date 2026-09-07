@@ -9,13 +9,15 @@
 > development gate passed.
 > These are engineering and development evidence only; they do not reopen the
 > sealed test or authorize performance claims. Only a separate integration-v2
-> protocol freeze is admitted; no real API/PPO rerun or multi-iteration scope is
+> protocol is now frozen but remains unimplemented and unexecuted; no server
+> preflight, real API/PPO rerun, Oracle call, or multi-iteration scope is
 > authorized. See `reproduction/PROJECT_PLAN.md`,
 > `reproduction/scicf/online/ARCHITECTURE_SMOKE_V1.md`, and
 > `reproduction/scicf/online/ACQUISITION_VERIFIER_DEV_V1.md`, and
 > `reproduction/scicf/online/PAIRWISE_STABILITY_DEV_V1.md`, and
 > `reproduction/scicf/online/SINGLE_ITERATION_INTEGRATION_V1.md`, and
-> `reproduction/scicf/online/SCHEMA_ROBUSTNESS_DEV_V1.md`.
+> `reproduction/scicf/online/SCHEMA_ROBUSTNESS_DEV_V1.md`, and
+> `reproduction/scicf/online/SINGLE_ITERATION_INTEGRATION_V2_PROTOCOL.md`.
 
 SciCF-PPO is being added as a feature-gated extension of the frozen
 `dapigen-ppo-compat-baseline-v1` baseline. The upstream PPO clipped objective,

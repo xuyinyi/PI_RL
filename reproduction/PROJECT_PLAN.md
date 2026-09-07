@@ -3,9 +3,10 @@
 Status date: 2026-09-07
 
 Plan status: **the LLM response-schema robustness development gate passed after
-the single-iteration integration no-go; only a separate integration-v2 protocol
-freeze is admitted, while real API/PPO reruns, multi-iteration training,
-historical sealed tests, and all scientific claim gates remain closed**
+the single-iteration integration no-go, and the separate integration-v2
+protocol is now frozen but unimplemented and unexecuted; real API/PPO reruns,
+multi-iteration training, historical sealed tests, and all scientific claim
+gates remain closed**
 
 ## 2026-09-06 architecture-first amendment
 
@@ -92,6 +93,18 @@ admits only a separately frozen integration-v2 protocol design; it does not
 authorize a DeepSeek call, integration rerun, or multi-iteration training.
 Evidence is under
 `reproduction/results/scicf-schema-robustness-dev-20260907/`.
+
+The sixth coordinate is the unexecuted protocol
+`dapigen-scicf-single-iteration-integration-smoke-v2`. It freezes v1's seed,
+PPO, candidate construction, two 24-candidate pools, `B=4`, selected-only `K=2`
+verification, pairwise update, and thresholds. The only permitted implementation
+delta is to route both DeepSeek decisions through the accepted bounded response
+guard and to emit a terminal fail-closed report if either guard is exhausted.
+The protocol distinguishes two pool decisions, at most four schema attempts,
+and at most eight HTTP transmissions. This protocol freeze authorizes no
+implementation, server preflight, credential load, DeepSeek request, PPO,
+Oracle verification, rerun, or multi-iteration training. See
+`reproduction/scicf/online/SINGLE_ITERATION_INTEGRATION_V2_PROTOCOL.md`.
 
 ## 1. Authority and scope
 
