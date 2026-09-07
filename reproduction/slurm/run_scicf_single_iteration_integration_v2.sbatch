@@ -40,6 +40,10 @@ echo "scope=single-authorized-integration-v2 automatic_rerun=disabled multi_iter
 nvidia-smi --query-gpu=index,name,uuid,memory.total --format=csv,noheader
 test -d "$python_package_root/gymnasium"
 test -d "$polybert_path"
+while read -r expected relative; do
+    test -n "$expected"
+    test -s "$polybert_path/$relative"
+done < "$repo_root/reproduction/polybert-e7dce434.sha256"
 test -f "$protocol"
 test -f "$credentials_file"
 test -f "$execution_authorization"

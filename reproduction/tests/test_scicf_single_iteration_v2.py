@@ -6,7 +6,12 @@ from pathlib import Path
 
 import pytest
 
+from RL_PPO.envs.embedding import _checkpoint_fingerprint
 from reproduction.scicf.llm.api_client import APITransportError, ChatCompletion
+from reproduction.scicf.online.model_asset import (
+    load_polybert_asset_binding,
+    validate_polybert_asset,
+)
 from reproduction.scicf.online.run_single_iteration_integration_v2 import (
     AUTHORIZATION_OPERATIONS,
     load_execution_authorization,
@@ -98,23 +103,35 @@ def _prepared():
 def test_frozen_v2_protocol_and_all_bound_inputs_validate():
     protocol = load_protocol(PROTOCOL)
     bindings = verify_protocol_bindings(ROOT, protocol)
+    model_binding = load_polybert_asset_binding(ROOT)
     assert protocol["status"] == "frozen_unimplemented_unexecuted"
     assert bindings["v1_archive"]["decision"].startswith("no_go_")
     assert bindings["schema_report"]["external_api_request_count"] == 0
     assert protocol["authorization_state"]["external_api_requests_authorized"] is False
     assert protocol["authorization_state"]["multi_iteration_training_authorized"] is False
+    assert model_binding["checkpoint_fingerprint"] == (
+        "6bdd24f951dd90d3031e749ef0130752811bfefe6c850af82b805cf015ea195f"
+    )
+    assert len(model_binding["required_file_sha256"]) == 14
 
 
 def test_execution_requires_exact_single_run_authorization(tmp_path):
     protocol_sha256 = hashlib.sha256(PROTOCOL.read_bytes()).hexdigest()
     output = tmp_path / "authorized-output"
+    polybert_path = tmp_path / "polybert"
+    polybert_path.mkdir()
+    binding_sha256 = "b" * 64
+    checkpoint_fingerprint = "c" * 64
     manifest = {
-        "schema_version": 1,
+        "schema_version": 2,
         "authorization_id": "unit-test-only",
         "protocol_id": "dapigen-scicf-single-iteration-integration-smoke-v2",
         "protocol_sha256": protocol_sha256,
         "implementation_commit": "abc123",
         "authorized_output_directory": str(output),
+        "authorized_polybert_path": str(polybert_path),
+        "polybert_asset_binding_sha256": binding_sha256,
+        "polybert_checkpoint_fingerprint": checkpoint_fingerprint,
         "maximum_slurm_runs": 1,
         "authorized_operations": dict(AUTHORIZATION_OPERATIONS),
     }
@@ -125,9 +142,40 @@ def test_execution_requires_exact_single_run_authorization(tmp_path):
         protocol_sha256=protocol_sha256,
         implementation_commit="abc123",
         output_dir=output,
+        polybert_path=polybert_path,
+        polybert_asset_binding_sha256=binding_sha256,
+        polybert_checkpoint_fingerprint=checkpoint_fingerprint,
     )
     assert loaded["authorization_id"] == "unit-test-only"
 
+    manifest["polybert_checkpoint_fingerprint"] = "d" * 64
+    path.write_text(json.dumps(manifest), encoding="utf-8")
+    with pytest.raises(ValueError, match="fingerprint mismatch"):
+        load_execution_authorization(
+            path,
+            protocol_sha256=protocol_sha256,
+            implementation_commit="abc123",
+            output_dir=output,
+            polybert_path=polybert_path,
+            polybert_asset_binding_sha256=binding_sha256,
+            polybert_checkpoint_fingerprint=checkpoint_fingerprint,
+        )
+
+    manifest["polybert_checkpoint_fingerprint"] = checkpoint_fingerprint
+    manifest["authorized_polybert_path"] = str(tmp_path / "different-polybert")
+    path.write_text(json.dumps(manifest), encoding="utf-8")
+    with pytest.raises(ValueError, match="path mismatch"):
+        load_execution_authorization(
+            path,
+            protocol_sha256=protocol_sha256,
+            implementation_commit="abc123",
+            output_dir=output,
+            polybert_path=polybert_path,
+            polybert_asset_binding_sha256=binding_sha256,
+            polybert_checkpoint_fingerprint=checkpoint_fingerprint,
+        )
+
+    manifest["authorized_polybert_path"] = str(polybert_path)
     manifest["authorized_operations"]["multi_iteration_training_authorized"] = True
     path.write_text(json.dumps(manifest), encoding="utf-8")
     with pytest.raises(ValueError, match="exact bounded scope"):
@@ -136,7 +184,52 @@ def test_execution_requires_exact_single_run_authorization(tmp_path):
             protocol_sha256=protocol_sha256,
             implementation_commit="abc123",
             output_dir=output,
+            polybert_path=polybert_path,
+            polybert_asset_binding_sha256=binding_sha256,
+            polybert_checkpoint_fingerprint=checkpoint_fingerprint,
         )
+
+
+def _synthetic_polybert_binding(model_path):
+    required_hashes = {}
+    for name, content in (
+        ("config.json", b"{}"),
+        ("tokenizer.json", b"tokenizer"),
+    ):
+        path = model_path / name
+        path.write_bytes(content)
+        required_hashes[name] = hashlib.sha256(content).hexdigest()
+    fingerprint = _checkpoint_fingerprint(str(model_path))
+    return {
+        "asset_binding_id": "synthetic-test-binding",
+        "binding_sha256": "a" * 64,
+        "checkpoint_fingerprint": fingerprint,
+        "encoder_version": "polybert-sha256:%s" % fingerprint[:24],
+        "required_file_sha256": required_hashes,
+    }
+
+
+def test_polybert_asset_requires_files_and_full_checkpoint_fingerprint(tmp_path):
+    model_path = tmp_path / "model"
+    model_path.mkdir()
+    binding = _synthetic_polybert_binding(model_path)
+    receipt = validate_polybert_asset(model_path, binding)
+    assert receipt["checkpoint_fingerprint"] == binding["checkpoint_fingerprint"]
+    assert receipt["required_file_count"] == 2
+    assert receipt["validated_before_credentials"] is True
+
+    (model_path / "tokenizer.json").unlink()
+    with pytest.raises(FileNotFoundError):
+        validate_polybert_asset(model_path, binding)
+
+
+def test_polybert_asset_rejects_unmanifested_full_tree_change(tmp_path):
+    model_path = tmp_path / "model"
+    model_path.mkdir()
+    binding = _synthetic_polybert_binding(model_path)
+    (model_path / "download.metadata").write_text("changed", encoding="utf-8")
+    with pytest.raises(RuntimeError, match="checkpoint fingerprint mismatch"):
+        validate_polybert_asset(model_path, binding)
 
 
 def test_guarded_two_pool_path_repairs_then_accepts_abstention(tmp_path):

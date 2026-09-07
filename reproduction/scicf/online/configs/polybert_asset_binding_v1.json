@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "asset_binding_id": "dapigen-polybert-reconstructed-compatibility-e7dce434-fulltree-v1",
+  "classification": "reconstructed_afp_compatibility_polybert_asset_only",
+  "checkpoint_fingerprint": "6bdd24f951dd90d3031e749ef0130752811bfefe6c850af82b805cf015ea195f",
+  "encoder_version": "polybert-sha256:6bdd24f951dd90d3031e749e",
+  "required_file_manifest": {
+    "path": "reproduction/polybert-e7dce434.sha256",
+    "sha256": "eebd70ce0c7254a9cfddbffd538fef95d5100f238e9b16d8ac2613f90dbaa5ce"
+  },
+  "accepted_asset_gate": {
+    "path": "reproduction/results/stage0-v23-mask-dev-20260904/final-mask-100/reconstructed_asset_gate.json",
+    "sha256": "9988ac5d66a68902d2ffa822428dd16bbb32eac709a7d4dfe0d9894ad958d6e9"
+  },
+  "accepted_fingerprint_report": {
+    "path": "reproduction/results/stage0-v23-mask-dev-20260904/final-models/polybert_parity.json",
+    "sha256": "90198e8113c108833f959648127266a4c08cf6d64d24e099ad361185d405c064"
+  },
+  "upstream_polybert_identity_verified": false
+}

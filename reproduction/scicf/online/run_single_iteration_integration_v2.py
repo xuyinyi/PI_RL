@@ -32,6 +32,7 @@ from .contracts import (
     PairwiseRefinementConfig,
     SchemaRecoveryConfig,
 )
+from .model_asset import load_polybert_asset_binding, validate_polybert_asset
 from .pipeline import (
     FrozenPolicySampler,
     build_online_candidate_pool,
@@ -220,6 +221,9 @@ def load_execution_authorization(
     protocol_sha256: str,
     implementation_commit: str,
     output_dir: Path,
+    polybert_path: Path,
+    polybert_asset_binding_sha256: str,
+    polybert_checkpoint_fingerprint: str,
 ) -> Mapping[str, Any]:
     payload = json.loads(path.read_text(encoding="utf-8"))
     required = {
@@ -229,6 +233,9 @@ def load_execution_authorization(
         "protocol_sha256",
         "implementation_commit",
         "authorized_output_directory",
+        "authorized_polybert_path",
+        "polybert_asset_binding_sha256",
+        "polybert_checkpoint_fingerprint",
         "maximum_slurm_runs",
         "authorized_operations",
     }
@@ -237,7 +244,7 @@ def load_execution_authorization(
             "execution authorization keys differ; missing=%s extra=%s"
             % (sorted(required - set(payload)), sorted(set(payload) - required))
         )
-    if payload["schema_version"] != 1:
+    if payload["schema_version"] != 2:
         raise ValueError("unsupported execution authorization schema")
     if not isinstance(payload["authorization_id"], str) or not payload["authorization_id"]:
         raise ValueError("execution authorization_id must be non-empty")
@@ -249,6 +256,12 @@ def load_execution_authorization(
         raise ValueError("execution authorization implementation commit mismatch")
     if Path(payload["authorized_output_directory"]).resolve() != output_dir.resolve():
         raise ValueError("execution authorization output directory mismatch")
+    if Path(payload["authorized_polybert_path"]).resolve() != polybert_path.resolve():
+        raise ValueError("execution authorization polyBERT path mismatch")
+    if payload["polybert_asset_binding_sha256"] != polybert_asset_binding_sha256:
+        raise ValueError("execution authorization polyBERT binding hash mismatch")
+    if payload["polybert_checkpoint_fingerprint"] != polybert_checkpoint_fingerprint:
+        raise ValueError("execution authorization polyBERT fingerprint mismatch")
     if payload["maximum_slurm_runs"] != 1:
         raise ValueError("execution authorization must permit exactly one Slurm run")
     if payload["authorized_operations"] != AUTHORIZATION_OPERATIONS:
@@ -593,12 +606,6 @@ def main() -> None:
     if source.get("dirty") is not False:
         raise RuntimeError("integration-v2 requires a clean Git worktree")
     protocol_sha256 = _sha256_path(protocol_path)
-    authorization = load_execution_authorization(
-        authorization_path,
-        protocol_sha256=protocol_sha256,
-        implementation_commit=source["commit"],
-        output_dir=output_dir,
-    )
     bindings = verify_protocol_bindings(root, protocol)
     accepted_manifest_path = bindings["accepted_manifest_path"]
     accepted_manifest = bindings["accepted_manifest"]
@@ -609,12 +616,29 @@ def main() -> None:
         raise RuntimeError("accepted Stage-0 source changed before integration-v2")
     if output_dir.exists():
         raise FileExistsError("integration-v2 output already exists")
+    polybert_binding = load_polybert_asset_binding(root)
+    polybert_path = args.polybert_path.resolve(strict=True)
+    model_asset = validate_polybert_asset(polybert_path, polybert_binding)
+    if (
+        accepted_manifest["environment"].get("encoder_version")
+        != model_asset["encoder_version"]
+    ):
+        raise RuntimeError("polyBERT asset differs from accepted Stage-0 encoder")
+    authorization = load_execution_authorization(
+        authorization_path,
+        protocol_sha256=protocol_sha256,
+        implementation_commit=source["commit"],
+        output_dir=output_dir,
+        polybert_path=polybert_path,
+        polybert_asset_binding_sha256=model_asset["asset_binding_sha256"],
+        polybert_checkpoint_fingerprint=model_asset["checkpoint_fingerprint"],
+    )
     output_dir.mkdir(parents=True)
     write_json(
         output_dir / "run-intent.json",
         {
             "schema_version": 1,
-            "status": "declared_after_authorization_and_binding_before_credentials",
+            "status": "declared_after_authorization_and_model_binding_before_credentials",
             "protocol_id": SINGLE_ITERATION_INTEGRATION_V2_PROTOCOL_ID,
             "slurm_job_id": os.environ["SLURM_JOB_ID"],
             "source": source,
@@ -622,6 +646,7 @@ def main() -> None:
             "authorization_id": authorization["authorization_id"],
             "authorization_sha256": _sha256_path(authorization_path),
             "accepted_manifest_sha256": _sha256_path(accepted_manifest_path),
+            "polybert_asset": model_asset,
             "credentials_loaded_at_intent_time": False,
             "credentials_path_logged": False,
             "api_key_logged": False,
@@ -637,12 +662,14 @@ def main() -> None:
         output_dir / "provider-public-identity.json",
         {"provider": provider, "api_key_logged": False, "credentials_path_logged": False},
     )
-    polybert_path = args.polybert_path.resolve()
-    if not polybert_path.is_dir():
-        raise FileNotFoundError("polyBERT path is not a directory")
     started = time.perf_counter()
     components, engine, specification, run_contract = build_runtime(
-        root, accepted_manifest, binding, protocol, polybert_path
+        root,
+        accepted_manifest,
+        binding,
+        protocol,
+        polybert_path,
+        polybert_checkpoint_fingerprint=model_asset["checkpoint_fingerprint"],
     )
     initial_policy_sha256 = engine.policy_state_sha256
     behavior_policy = FrozenPolicySampler(engine.model, protocol["ppo"]["device"])

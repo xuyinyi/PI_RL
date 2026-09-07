@@ -18,6 +18,7 @@ from reproduction.framework.io import git_identity, write_json
 from reproduction.scicf.llm.api_client import APITransportError, ChatCompletion
 
 from .contracts import SINGLE_ITERATION_INTEGRATION_V2_PROTOCOL_ID
+from .model_asset import load_polybert_asset_binding, validate_polybert_asset
 from .run_single_iteration_integration_v2 import (
     AUTHORIZATION_OPERATIONS,
     load_execution_authorization,
@@ -31,6 +32,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo-root", type=Path, required=True)
     parser.add_argument("--protocol", type=Path, required=True)
+    parser.add_argument("--polybert-path", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     return parser.parse_args()
 
@@ -140,6 +142,15 @@ def main() -> None:
     if source.get("dirty") is not False:
         raise RuntimeError("integration-v2 preflight requires a clean worktree")
     bindings = verify_protocol_bindings(root, protocol)
+    polybert_binding = load_polybert_asset_binding(root)
+    model_asset = validate_polybert_asset(
+        args.polybert_path.resolve(strict=True), polybert_binding
+    )
+    if (
+        bindings["accepted_manifest"]["environment"].get("encoder_version")
+        != model_asset["encoder_version"]
+    ):
+        raise RuntimeError("polyBERT asset differs from accepted Stage-0 encoder")
     output_dir.mkdir(parents=True)
     write_json(
         output_dir / "run-intent.json",
@@ -197,12 +208,15 @@ def main() -> None:
     )
 
     closed_authorization = {
-        "schema_version": 1,
+        "schema_version": 2,
         "authorization_id": "closed-preflight-fixture",
         "protocol_id": SINGLE_ITERATION_INTEGRATION_V2_PROTOCOL_ID,
         "protocol_sha256": _sha256_path(protocol_path),
         "implementation_commit": source["commit"],
         "authorized_output_directory": str(output_dir / "never-run"),
+        "authorized_polybert_path": model_asset["model_path"],
+        "polybert_asset_binding_sha256": model_asset["asset_binding_sha256"],
+        "polybert_checkpoint_fingerprint": model_asset["checkpoint_fingerprint"],
         "maximum_slurm_runs": 1,
         "authorized_operations": {
             name: False for name in AUTHORIZATION_OPERATIONS
@@ -217,6 +231,9 @@ def main() -> None:
             protocol_sha256=_sha256_path(protocol_path),
             implementation_commit=source["commit"],
             output_dir=output_dir / "never-run",
+            polybert_path=Path(model_asset["model_path"]),
+            polybert_asset_binding_sha256=model_asset["asset_binding_sha256"],
+            polybert_checkpoint_fingerprint=model_asset["checkpoint_fingerprint"],
         )
     except ValueError:
         authorization_rejected = True
@@ -224,6 +241,7 @@ def main() -> None:
     runner_path = root / "reproduction/scicf/online/run_single_iteration_integration_v2.py"
     runner_source = runner_path.read_text(encoding="utf-8")
     authorization_index = runner_source.index("authorization = load_execution_authorization(")
+    model_asset_index = runner_source.index("model_asset = validate_polybert_asset(")
     credentials_index = runner_source.index("settings = APISettings.from_private_file(")
     checks = {
         "protocol_identity": protocol["protocol_id"]
@@ -235,6 +253,14 @@ def main() -> None:
         "closed_authorization_rejected": authorization_rejected,
         "authorization_checked_before_credentials": authorization_index
         < credentials_index,
+        "model_asset_checked_before_credentials": model_asset_index
+        < credentials_index,
+        "model_asset_bound_to_accepted_encoder": model_asset["encoder_version"]
+        == bindings["accepted_manifest"]["environment"]["encoder_version"],
+        "model_asset_full_fingerprint_bound": model_asset["checkpoint_fingerprint"]
+        == polybert_binding["checkpoint_fingerprint"],
+        "model_asset_required_files_bound": model_asset["required_file_sha256"]
+        == polybert_binding["required_file_sha256"],
         "success_all_pools_validated": success["all_pool_decisions_validated"] is True,
         "success_oracle_would_be_authorized": success["oracle_selection_authorized"] is True,
         "success_attempt_bound": success["semantic_attempt_count"] == 3,
@@ -291,6 +317,7 @@ def main() -> None:
         "source": source,
         "protocol_sha256": _sha256_path(protocol_path),
         "runner_sha256": _sha256_path(runner_path),
+        "model_asset": model_asset,
         "checks": checks,
         "scenarios": {
             "success_repair_and_abstain": success,

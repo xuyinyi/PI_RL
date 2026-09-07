@@ -14,7 +14,7 @@ import sys
 import time
 from dataclasses import asdict
 from pathlib import Path
-from typing import Any, Dict, Mapping
+from typing import Any, Dict, Mapping, Optional
 
 from reproduction.framework.io import git_identity, write_json
 from reproduction.p2.budget import RequestedCallBudgetManager, evaluator_ledger_delta
@@ -118,6 +118,7 @@ def build_runtime(
     binding: Mapping[str, Any],
     config: Mapping[str, Any],
     polybert_path: Path,
+    polybert_checkpoint_fingerprint: Optional[str] = None,
 ):
     from RL_PPO.envs.config import DAPiGenEnvConfig
     from RL_PPO.envs.factory import build_stage0_components
@@ -137,6 +138,7 @@ def build_runtime(
         evaluator_fail_fast=True,
         allowed_evaluator_sources=allowed_sources,
         cache_scope=str(config["budget"]["cache_scope"]),
+        polybert_checkpoint_fingerprint=polybert_checkpoint_fingerprint,
         allow_rdkit_brics_fallback=False,
     )
     specification = components.core.specification()
