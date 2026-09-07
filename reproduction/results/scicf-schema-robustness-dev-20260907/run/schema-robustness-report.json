@@ -1,0 +1,252 @@
+{
+  "classification": {
+    "algorithm_effectiveness_established": false,
+    "failed_scenarios": [],
+    "multi_iteration_training_authorized": false,
+    "next_scope_authorized": true,
+    "scientific_claim_authorized": false,
+    "scope": "mock-only-llm-response-schema-robustness-development",
+    "single_iteration_integration_rerun_authorized": false
+  },
+  "config": {
+    "base_seed": 20260907,
+    "claim_boundary": {
+      "algorithm_effectiveness_established": false,
+      "external_api_requests_authorized": false,
+      "multi_iteration_training_authorized": false,
+      "next_scope_if_passed": "separate_single_iteration_integration_v2_protocol_freeze_only",
+      "oracle_execution_authorized": false,
+      "ppo_execution_authorized": false,
+      "scientific_claim_authorized": false,
+      "sealed_test_access_authorized": false,
+      "single_iteration_integration_rerun_authorized": false
+    },
+    "classification": "llm_response_schema_engineering_development_only",
+    "development_scenarios": [
+      "valid_first_attempt",
+      "invented_id_then_valid_repair",
+      "malformed_json_then_valid_repair",
+      "over_budget_then_abstain_repair",
+      "two_invalid_attempts_fail_closed"
+    ],
+    "incident_binding": {
+      "archive_decision": "reproduction/results/scicf-single-iteration-integration-20260906/archive-decision.json",
+      "archive_decision_sha256": "9769a0188417c5e08d6a16bd20a9e53db23fa68684f2474f24a89af6f1ebe2d0",
+      "failed_slurm_job_id": "4688",
+      "failed_source_commit": "b61d9e5c81dbef5108a2d796e0acd7ecf3a7640b",
+      "failed_stderr": "reproduction/results/scicf-single-iteration-integration-20260906/logs/scicf-one-iter-ledgerfix-4688.err",
+      "failed_stderr_sha256": "3e5c34da0d4449f1b7b7de771760a49ca76348c678348f00e7276a89fb9d8946",
+      "observed_schema_error": "out_of_pool_candidate_id"
+    },
+    "limits": {
+      "max_output_tokens": 512,
+      "maximum_http_transmissions": 4,
+      "maximum_schema_attempts": 2,
+      "maximum_semantic_repairs": 1,
+      "timeout_seconds": 120.0,
+      "transport_retries_per_attempt": 1
+    },
+    "protocol_id": "dapigen-scicf-llm-schema-robustness-dev-v1",
+    "repair_contract": {
+      "allow_abstention": true,
+      "allow_cached_response_substitution": false,
+      "allow_fallback_selection": false,
+      "allow_partial_selection": true,
+      "allow_policy_scores": false,
+      "allow_reward_truth": false,
+      "preserve_exact_candidate_allowlist": true,
+      "preserve_original_maximum_budget": true,
+      "replay_invalid_raw_text_to_model": false,
+      "reuse_original_blinded_messages": true
+    },
+    "required_host": "yanlih100n1",
+    "retention": {
+      "persist_api_key": false,
+      "persist_credentials_path": false,
+      "persist_invalid_raw_content": true,
+      "persist_provider_public_identity": true,
+      "persist_raw_content_before_validation": true,
+      "persist_request_before_provider_call": true,
+      "persist_validation_receipt": true
+    },
+    "schema_version": 1
+  },
+  "credentials_loaded": false,
+  "elapsed_seconds": 0.03011864796280861,
+  "execution_status": "passed",
+  "external_api_request_count": 0,
+  "guard_config": {
+    "max_output_tokens": 512,
+    "maximum_http_transmissions": 4,
+    "maximum_schema_attempts": 2,
+    "maximum_semantic_repairs": 1,
+    "timeout_seconds": 120.0,
+    "transport_retries_per_attempt": 1
+  },
+  "host": "yanlih100n1",
+  "incident_binding": {
+    "archive_decision": "/home/wch/workspaces/DAPiGen-reproduction/scicf-schema-robustness-dev-v1/reproduction/results/scicf-single-iteration-integration-20260906/archive-decision.json",
+    "archive_decision_sha256": "9769a0188417c5e08d6a16bd20a9e53db23fa68684f2474f24a89af6f1ebe2d0",
+    "failed_stderr": "/home/wch/workspaces/DAPiGen-reproduction/scicf-schema-robustness-dev-v1/reproduction/results/scicf-single-iteration-integration-20260906/logs/scicf-one-iter-ledgerfix-4688.err",
+    "failed_stderr_sha256": "3e5c34da0d4449f1b7b7de771760a49ca76348c678348f00e7276a89fb9d8946"
+  },
+  "local_model_invoked": false,
+  "mock_completion_count": 9,
+  "module_decision": "go_separate_single_iteration_integration_v2_protocol_freeze",
+  "oracle_executed": false,
+  "platform": "Linux-4.18.0-553.63.1.el8_10.x86_64-x86_64-with-glibc2.17",
+  "ppo_executed": false,
+  "protocol_id": "dapigen-scicf-llm-schema-robustness-dev-v1",
+  "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "resources": {
+    "peak_rss_mib": 54.66796875
+  },
+  "scenario_count": 5,
+  "scenarios": [
+    {
+      "attempt_count": 1,
+      "checks": {
+        "attempt_count_matches": true,
+        "attempt_limit_respected": true,
+        "client_call_count_matches": true,
+        "no_api_key_logged_00": true,
+        "raw_before_validation_00": true,
+        "raw_capture_count_matches": true,
+        "request_receipt_count_matches": true,
+        "semantic_repair_limit_respected": true,
+        "status_matches": true,
+        "validated_selection_authorized": true,
+        "validation_count_matches": true
+      },
+      "outcome_sha256": "c3216bc85b72819b6e8d47aa5e7d487cfa3a1421f48941b53fb2f96a1a1877ae",
+      "passed": true,
+      "scenario": "valid_first_attempt",
+      "semantic_repair_count": 0,
+      "status": "validated"
+    },
+    {
+      "attempt_count": 2,
+      "checks": {
+        "attempt_count_matches": true,
+        "attempt_limit_respected": true,
+        "client_call_count_matches": true,
+        "invalid_raw_not_replayed": true,
+        "no_api_key_logged_00": true,
+        "no_api_key_logged_01": true,
+        "raw_before_validation_00": true,
+        "raw_before_validation_01": true,
+        "raw_capture_count_matches": true,
+        "repair_allowlist_exact": true,
+        "repair_budget_unchanged": true,
+        "repair_leakage_flags_false": true,
+        "repair_reuses_original_messages": true,
+        "request_receipt_count_matches": true,
+        "semantic_repair_limit_respected": true,
+        "status_matches": true,
+        "validated_selection_authorized": true,
+        "validation_count_matches": true
+      },
+      "outcome_sha256": "de70d44594ab56571c6406c0359e5dd854b358df5c2af059bcabb39e8e03eb5f",
+      "passed": true,
+      "scenario": "invented_id_then_valid_repair",
+      "semantic_repair_count": 1,
+      "status": "validated"
+    },
+    {
+      "attempt_count": 2,
+      "checks": {
+        "attempt_count_matches": true,
+        "attempt_limit_respected": true,
+        "client_call_count_matches": true,
+        "invalid_raw_not_replayed": true,
+        "no_api_key_logged_00": true,
+        "no_api_key_logged_01": true,
+        "raw_before_validation_00": true,
+        "raw_before_validation_01": true,
+        "raw_capture_count_matches": true,
+        "repair_allowlist_exact": true,
+        "repair_budget_unchanged": true,
+        "repair_leakage_flags_false": true,
+        "repair_reuses_original_messages": true,
+        "request_receipt_count_matches": true,
+        "semantic_repair_limit_respected": true,
+        "status_matches": true,
+        "validated_selection_authorized": true,
+        "validation_count_matches": true
+      },
+      "outcome_sha256": "5fff2308303dddfc9eecafea54a0540590ec413ebc1c0d6bfa4f93d145beb8da",
+      "passed": true,
+      "scenario": "malformed_json_then_valid_repair",
+      "semantic_repair_count": 1,
+      "status": "validated"
+    },
+    {
+      "attempt_count": 2,
+      "checks": {
+        "attempt_count_matches": true,
+        "attempt_limit_respected": true,
+        "client_call_count_matches": true,
+        "invalid_raw_not_replayed": true,
+        "no_api_key_logged_00": true,
+        "no_api_key_logged_01": true,
+        "raw_before_validation_00": true,
+        "raw_before_validation_01": true,
+        "raw_capture_count_matches": true,
+        "repair_allowlist_exact": true,
+        "repair_budget_unchanged": true,
+        "repair_leakage_flags_false": true,
+        "repair_reuses_original_messages": true,
+        "request_receipt_count_matches": true,
+        "semantic_repair_limit_respected": true,
+        "status_matches": true,
+        "validated_selection_authorized": true,
+        "validation_count_matches": true
+      },
+      "outcome_sha256": "ce402a7e52bcccf5604111da7827e4fcfa9123f4a63462dda06c903d9a2970db",
+      "passed": true,
+      "scenario": "over_budget_then_abstain_repair",
+      "semantic_repair_count": 1,
+      "status": "validated"
+    },
+    {
+      "attempt_count": 2,
+      "checks": {
+        "attempt_count_matches": true,
+        "attempt_limit_respected": true,
+        "client_call_count_matches": true,
+        "exhaustion_empty": true,
+        "invalid_raw_not_replayed": true,
+        "no_api_key_logged_00": true,
+        "no_api_key_logged_01": true,
+        "no_cache_substitution": true,
+        "no_fallback": true,
+        "oracle_closed": true,
+        "raw_before_validation_00": true,
+        "raw_before_validation_01": true,
+        "raw_capture_count_matches": true,
+        "repair_allowlist_exact": true,
+        "repair_budget_unchanged": true,
+        "repair_leakage_flags_false": true,
+        "repair_reuses_original_messages": true,
+        "request_receipt_count_matches": true,
+        "semantic_repair_limit_respected": true,
+        "status_matches": true,
+        "validation_count_matches": true
+      },
+      "outcome_sha256": "705f46b51e502689276476782c740be3594529f4dbc8330ed3dce84c662fb014",
+      "passed": true,
+      "scenario": "two_invalid_attempts_fail_closed",
+      "semantic_repair_count": 1,
+      "status": "fail_closed_schema_exhausted"
+    }
+  ],
+  "schema_version": 1,
+  "sealed_test_accessed": false,
+  "slurm_job_id": "4689",
+  "source": {
+    "branch": "codex/scicf-schema-robustness-dev-v1",
+    "commit": "5387611e1ba088b8dafd0c50a80751059e8fdfed",
+    "dirty": false,
+    "tags": []
+  }
+}

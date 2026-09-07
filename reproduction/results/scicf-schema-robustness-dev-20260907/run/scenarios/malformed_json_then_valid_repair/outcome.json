@@ -1,0 +1,53 @@
+{
+  "attempt_count": 2,
+  "attempts": [
+    {
+      "attempt_index": 0,
+      "attempt_kind": "initial",
+      "raw_capture_file": "attempt-00-raw-response.json",
+      "raw_capture_sha256": "bb76b4fd760392adfff663fc6e88aefae5ac1cbaef98ee23c74bc33b5ff743a7",
+      "request_file": "attempt-00-request.json",
+      "request_sha256": "870662ea234ec140c37b767d93921123e5a4c6a999b2a0ecab7792d59386bed6",
+      "status": "invalid",
+      "validation_error_code": "json_object_extraction_failed",
+      "validation_file": "attempt-00-validation.json",
+      "validation_sha256": "3e8411cdb83bbf6c5ba7259eaf796478be2601a13b58053bd83c61c3e43f876a"
+    },
+    {
+      "attempt_index": 1,
+      "attempt_kind": "schema_repair",
+      "raw_capture_file": "attempt-01-raw-response.json",
+      "raw_capture_sha256": "7f1043eeceba1f8d75c5efac3860dd29409d8c598bc27a1e717e38656e44824f",
+      "request_file": "attempt-01-request.json",
+      "request_sha256": "23c69c0e009a6dacacf24ad56a7f79ae6b26d59d39640f5d3c9e2d16f254914e",
+      "status": "validated",
+      "validation_error_code": null,
+      "validation_file": "attempt-01-validation.json",
+      "validation_sha256": "5d42fc399003f6d428b61458ed7e49ae7805b0e03e03cdaab757a3029137f5a2"
+    }
+  ],
+  "maximum_http_transmissions": 4,
+  "maximum_schema_attempts": 2,
+  "oracle_selection_authorized": true,
+  "raw_capture_complete": true,
+  "request_id": "schema-dev-malformed_json_then_valid_repair",
+  "schema_version": 1,
+  "selected_intervention_ids": [
+    "cf-0000000000000002"
+  ],
+  "semantic_repair_count": 1,
+  "status": "validated",
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": null,
+    "ranked_intervention_ids": [
+      "cf-0000000000000002"
+    ],
+    "reasoning": "mock schema fixture",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-0000000000000002"
+    ]
+  }
+}

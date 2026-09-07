@@ -1,7 +1,7 @@
 # LLM-SciCF response-schema robustness development v1
 
-Status: **frozen for one mock-only Slurm development evaluation; external API,
-PPO, Oracle, integration rerun, and multi-iteration training are disabled**.
+Status: **mock-only development evaluation passed; external API, PPO, Oracle,
+integration rerun, and multi-iteration training remain disabled**.
 
 ## Question
 
@@ -57,3 +57,13 @@ Passing admits only a separately frozen design for a future single-iteration
 integration-v2 rerun. It does not authorize that rerun itself, DeepSeek calls,
 PPO, Oracle verification, multi-iteration training, sealed-test access,
 algorithm-effectiveness claims, or scientific claims.
+
+## Execution outcome
+
+The frozen coordinate `5387611e1ba088b8dafd0c50a80751059e8fdfed`
+completed on n001 in Slurm Job 4689 with 19 tests passed and all five scenarios
+passing. Nine scripted in-memory completions were used; external API request
+count, credential loads, PPO execution, Oracle execution, local-model use, and
+sealed-test access were all zero or false. The next admitted action is only a
+separate integration-v2 protocol freeze, not its execution. Evidence is under
+`reproduction/results/scicf-schema-robustness-dev-20260907/`.

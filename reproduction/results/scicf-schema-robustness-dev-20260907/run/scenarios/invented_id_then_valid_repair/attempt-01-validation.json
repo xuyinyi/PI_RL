@@ -1,0 +1,24 @@
+{
+  "attempt_index": 1,
+  "raw_capture_file": "attempt-01-raw-response.json",
+  "raw_capture_sha256": "67aa62463c29ed4c1e560989becb436791afa7c6c5366708228873725a5cf720",
+  "raw_was_captured_before_validation": true,
+  "request_id": "schema-dev-invented_id_then_valid_repair",
+  "schema_version": 1,
+  "status": "validated",
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": null,
+    "ranked_intervention_ids": [
+      "cf-0000000000000002"
+    ],
+    "reasoning": "mock schema fixture",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-0000000000000002"
+    ]
+  },
+  "validation_error": null,
+  "validation_error_code": null
+}

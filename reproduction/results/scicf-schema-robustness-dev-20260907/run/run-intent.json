@@ -1,0 +1,31 @@
+{
+  "claim_boundary": {
+    "algorithm_effectiveness_established": false,
+    "external_api_requests_authorized": false,
+    "multi_iteration_training_authorized": false,
+    "next_scope_if_passed": "separate_single_iteration_integration_v2_protocol_freeze_only",
+    "oracle_execution_authorized": false,
+    "ppo_execution_authorized": false,
+    "scientific_claim_authorized": false,
+    "sealed_test_access_authorized": false,
+    "single_iteration_integration_rerun_authorized": false
+  },
+  "classification": "llm_response_schema_engineering_development_only",
+  "config_sha256": "b762805eecdcbc72a85a392021ba8a08d8ee6af24adb742f89512b07cf227d40",
+  "credentials_loaded": false,
+  "external_api_requests_authorized": false,
+  "incident_archive_sha256": "9769a0188417c5e08d6a16bd20a9e53db23fa68684f2474f24a89af6f1ebe2d0",
+  "incident_stderr_sha256": "3e5c34da0d4449f1b7b7de771760a49ca76348c678348f00e7276a89fb9d8946",
+  "oracle_execution_authorized": false,
+  "ppo_execution_authorized": false,
+  "protocol_id": "dapigen-scicf-llm-schema-robustness-dev-v1",
+  "schema_version": 1,
+  "slurm_job_id": "4689",
+  "source": {
+    "branch": "codex/scicf-schema-robustness-dev-v1",
+    "commit": "5387611e1ba088b8dafd0c50a80751059e8fdfed",
+    "dirty": false,
+    "tags": []
+  },
+  "status": "declared-before-mock-scenarios"
+}

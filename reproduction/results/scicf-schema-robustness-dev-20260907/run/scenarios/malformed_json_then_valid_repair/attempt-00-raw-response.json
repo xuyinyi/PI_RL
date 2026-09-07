@@ -1,0 +1,24 @@
+{
+  "api_key_logged": false,
+  "attempt_index": 0,
+  "attempt_kind": "initial",
+  "capture_status": "captured_before_validation",
+  "completion_tokens": 20,
+  "prompt_tokens": 100,
+  "protocol_id": "dapigen-scicf-llm-schema-robustness-dev-v1",
+  "provider": {
+    "external_api": false,
+    "model_id": "schema-fixture-v1",
+    "provider_id": "mock-only-no-network",
+    "type": "scripted-in-memory-completion-source"
+  },
+  "provider_response_id": "mock-response-00",
+  "provider_response_sha256": "3705bac98ee03f6ab67b983e6e222a751f93db33fed3c21725703119f9285140",
+  "raw_response": "not a JSON object",
+  "raw_response_text_sha256": "d8b5121b5484b3e289d3b17440609f9fd061cc1a052fa37007eeec790bcf7d00",
+  "request_id": "schema-dev-malformed_json_then_valid_repair",
+  "schema_version": 1,
+  "system_fingerprint": "mock-schema-robustness-v1",
+  "total_tokens": 120,
+  "transport_retries_used": 0
+}

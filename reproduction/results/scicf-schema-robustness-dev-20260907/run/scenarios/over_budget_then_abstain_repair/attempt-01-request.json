@@ -1,0 +1,29 @@
+{
+  "api_key_exposed": false,
+  "attempt_index": 1,
+  "attempt_kind": "schema_repair",
+  "candidate_ids_sha256": "554e32dd07e4d49efe993081032c609d3ae4596072b8b240e47c4df6a58727a9",
+  "maximum_budget": 2,
+  "messages": [
+    {
+      "content": "Return one blinded ranked-intervention JSON object.",
+      "role": "system"
+    },
+    {
+      "content": "{\"candidate_ids\": [\"cf-0000000000000001\", \"cf-0000000000000002\", \"cf-0000000000000003\", \"cf-0000000000000004\"], \"maximum_oracle_budget\": 2, \"policy_score_included\": false, \"terminal_reward_or_properties_included\": false}",
+      "role": "user"
+    },
+    {
+      "content": "{\"allowed_candidate_ids_in_blinded_order\":[\"cf-0000000000000004\",\"cf-0000000000000003\",\"cf-0000000000000002\",\"cf-0000000000000001\"],\"constraints\":[\"return one JSON object and no markdown\",\"do not invent, shorten, expand, or modify candidate IDs\",\"do not add fields outside ranked_intervention_ids, abstain, reasoning, confidence\",\"do not provide reward values or policy scores\"],\"maximum_oracle_budget\":2,\"previous_response_text_sha256\":\"e349718b1b226bad27012d4c99a6af0eea62e96f5aaa179c31f410cfa9b248a8\",\"repair_protocol\":\"scicf-online-ranked-response-repair-v1\",\"required_output\":{\"abstain\":\"true requires an empty ranked_intervention_ids list; false requires one to maximum_oracle_budget IDs\",\"confidence\":\"optional number in [0,1]; advisory only\",\"ranked_intervention_ids\":\"zero to maximum_oracle_budget unique IDs copied exactly from allowed_candidate_ids_in_blinded_order\",\"reasoning\":\"optional brief string; advisory only\"},\"task\":\"repair_response_schema_only\",\"validation_error_code\":\"ranked_response_schema_invalid\"}",
+      "role": "user"
+    }
+  ],
+  "messages_sha256": "3474be72f27370aeacbe228c8f69a2300d71d394355161e97099266487893465",
+  "original_prompt_sha256": "5f4cd9299f4e42e06095b4397e9042607ca6de499355106294b0a7eb4b4724d6",
+  "policy_score_exposed": false,
+  "protocol_id": "dapigen-scicf-llm-schema-robustness-dev-v1",
+  "raw_invalid_response_replayed_to_model": false,
+  "request_id": "schema-dev-over_budget_then_abstain_repair",
+  "reward_truth_exposed": false,
+  "schema_version": 1
+}

@@ -1,0 +1,24 @@
+{
+  "api_key_logged": false,
+  "attempt_index": 1,
+  "attempt_kind": "schema_repair",
+  "capture_status": "captured_before_validation",
+  "completion_tokens": 21,
+  "prompt_tokens": 101,
+  "protocol_id": "dapigen-scicf-llm-schema-robustness-dev-v1",
+  "provider": {
+    "external_api": false,
+    "model_id": "schema-fixture-v1",
+    "provider_id": "mock-only-no-network",
+    "type": "scripted-in-memory-completion-source"
+  },
+  "provider_response_id": "mock-response-01",
+  "provider_response_sha256": "22a973f35cee15c22c687cef9a19e29f326bb04d80d3704f6c097edaafeaad7e",
+  "raw_response": "{\"abstain\": true, \"ranked_intervention_ids\": [], \"reasoning\": \"mock schema fixture\"}",
+  "raw_response_text_sha256": "2156eb50d0a88b7c463941b286d8c5843218ed4973fd6e5d922b4241b3b723e1",
+  "request_id": "schema-dev-over_budget_then_abstain_repair",
+  "schema_version": 1,
+  "system_fingerprint": "mock-schema-robustness-v1",
+  "total_tokens": 122,
+  "transport_retries_used": 0
+}

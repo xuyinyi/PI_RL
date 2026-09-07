@@ -1,0 +1,12 @@
+{
+  "attempt_index": 1,
+  "raw_capture_file": "attempt-01-raw-response.json",
+  "raw_capture_sha256": "6e2c85e38666aa75493bdf7b7694d5ed40914a41cb2fbe9e43b98b0c5995a06f",
+  "raw_was_captured_before_validation": true,
+  "request_id": "schema-dev-two_invalid_attempts_fail_closed",
+  "schema_version": 1,
+  "status": "invalid",
+  "validated": null,
+  "validation_error": "LLM invented intervention ids: ['cf-282']",
+  "validation_error_code": "ranked_response_schema_invalid"
+}

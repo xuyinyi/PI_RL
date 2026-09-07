@@ -1,0 +1,6 @@
+job_id=4689 host=yanlih100n1 cpus=2 protocol=dapigen-scicf-llm-schema-robustness-dev-v1
+repo_root=/home/wch/workspaces/DAPiGen-reproduction/scicf-schema-robustness-dev-v1 output_dir=/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-schema-robustness-5387611 external_api=disabled ppo=disabled oracle=disabled
+...................                                                      [100%]
+19 passed in 4.33s
+{"execution_status": "passed", "failed_scenarios": [], "module_decision": "go_separate_single_iteration_integration_v2_protocol_freeze", "output": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-schema-robustness-5387611"}
+scicf_schema_robustness_development_complete

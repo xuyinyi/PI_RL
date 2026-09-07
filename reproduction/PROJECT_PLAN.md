@@ -1,10 +1,10 @@
 # Active project plan: terminal-evaluable counterfactual credit for DAPiGen
 
-Status date: 2026-09-06
+Status date: 2026-09-07
 
-Plan status: **architecture, acquisition/verifier, and pairwise-stability
-development gates passed; the single-iteration integration smoke returned a
-no-go on LLM response-schema validity, so reruns, multi-iteration training,
+Plan status: **the LLM response-schema robustness development gate passed after
+the single-iteration integration no-go; only a separate integration-v2 protocol
+freeze is admitted, while real API/PPO reruns, multi-iteration training,
 historical sealed tests, and all scientific claim gates remain closed**
 
 ## 2026-09-06 architecture-first amendment
@@ -78,6 +78,20 @@ is a no-go; neither an automatic rerun nor the short-horizon multi-iteration
 smoke is admitted. Any further work requires a separately frozen API response-
 schema robustness gate with invalid-response retention. Evidence is under
 `reproduction/results/scicf-single-iteration-integration-20260906/`.
+
+The fifth coordinate, `dapigen-scicf-llm-schema-robustness-dev-v1`, passed in
+n001 Slurm Job 4689 at clean commit
+`5387611e1ba088b8dafd0c50a80751059e8fdfed`. Nineteen server tests and five
+mock-only scenarios verified pre-call request receipts, raw-response persistence
+before parsing, one-repair/two-attempt bounds, exact candidate allowlist and
+budget preservation, valid partial selection and abstention, and empty
+fail-closed exhaustion without fallback or cache substitution. The run used
+nine scripted in-memory completions and zero external API calls, credential
+loads, PPO steps, Oracle calls, local models, or sealed-test accesses. Passing
+admits only a separately frozen integration-v2 protocol design; it does not
+authorize a DeepSeek call, integration rerun, or multi-iteration training.
+Evidence is under
+`reproduction/results/scicf-schema-robustness-dev-20260907/`.
 
 ## 1. Authority and scope
 

@@ -1,0 +1,41 @@
+{
+  "attempt_count": 1,
+  "attempts": [
+    {
+      "attempt_index": 0,
+      "attempt_kind": "initial",
+      "raw_capture_file": "attempt-00-raw-response.json",
+      "raw_capture_sha256": "fa335a7254ca43cb2137d9e0d02f5660304c6804d6f9b619264043e802cf3090",
+      "request_file": "attempt-00-request.json",
+      "request_sha256": "4c80f2da876808952d1f53b76ef38126e20062469f65b0d93c97c5e7c3c2ff34",
+      "status": "validated",
+      "validation_error_code": null,
+      "validation_file": "attempt-00-validation.json",
+      "validation_sha256": "502e32edb25ac06e2bfe20e93a15f1502049aec922fa7d67c3286fa1f1ac2727"
+    }
+  ],
+  "maximum_http_transmissions": 4,
+  "maximum_schema_attempts": 2,
+  "oracle_selection_authorized": true,
+  "raw_capture_complete": true,
+  "request_id": "schema-dev-valid_first_attempt",
+  "schema_version": 1,
+  "selected_intervention_ids": [
+    "cf-0000000000000002"
+  ],
+  "semantic_repair_count": 0,
+  "status": "validated",
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": null,
+    "ranked_intervention_ids": [
+      "cf-0000000000000002"
+    ],
+    "reasoning": "mock schema fixture",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-0000000000000002"
+    ]
+  }
+}

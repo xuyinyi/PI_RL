@@ -1,0 +1,12 @@
+{
+  "attempt_index": 0,
+  "raw_capture_file": "attempt-00-raw-response.json",
+  "raw_capture_sha256": "2dc6caded866562a91fcff69bbb5e04c4a7a7b9426a5003642e7547852df69b2",
+  "raw_was_captured_before_validation": true,
+  "request_id": "schema-dev-over_budget_then_abstain_repair",
+  "schema_version": 1,
+  "status": "invalid",
+  "validated": null,
+  "validation_error": "a non-abstaining ranking must contain 1..budget ids",
+  "validation_error_code": "ranked_response_schema_invalid"
+}

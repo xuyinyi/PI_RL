@@ -1,0 +1,12 @@
+{
+  "attempt_index": 0,
+  "raw_capture_file": "attempt-00-raw-response.json",
+  "raw_capture_sha256": "bb76b4fd760392adfff663fc6e88aefae5ac1cbaef98ee23c74bc33b5ff743a7",
+  "raw_was_captured_before_validation": true,
+  "request_id": "schema-dev-malformed_json_then_valid_repair",
+  "schema_version": 1,
+  "status": "invalid",
+  "validated": null,
+  "validation_error": "model output contains no valid JSON object",
+  "validation_error_code": "json_object_extraction_failed"
+}

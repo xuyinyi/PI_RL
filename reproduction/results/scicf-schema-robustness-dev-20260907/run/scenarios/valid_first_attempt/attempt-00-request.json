@@ -1,0 +1,25 @@
+{
+  "api_key_exposed": false,
+  "attempt_index": 0,
+  "attempt_kind": "initial",
+  "candidate_ids_sha256": "554e32dd07e4d49efe993081032c609d3ae4596072b8b240e47c4df6a58727a9",
+  "maximum_budget": 2,
+  "messages": [
+    {
+      "content": "Return one blinded ranked-intervention JSON object.",
+      "role": "system"
+    },
+    {
+      "content": "{\"candidate_ids\": [\"cf-0000000000000001\", \"cf-0000000000000002\", \"cf-0000000000000003\", \"cf-0000000000000004\"], \"maximum_oracle_budget\": 2, \"policy_score_included\": false, \"terminal_reward_or_properties_included\": false}",
+      "role": "user"
+    }
+  ],
+  "messages_sha256": "5f4cd9299f4e42e06095b4397e9042607ca6de499355106294b0a7eb4b4724d6",
+  "original_prompt_sha256": "5f4cd9299f4e42e06095b4397e9042607ca6de499355106294b0a7eb4b4724d6",
+  "policy_score_exposed": false,
+  "protocol_id": "dapigen-scicf-llm-schema-robustness-dev-v1",
+  "raw_invalid_response_replayed_to_model": false,
+  "request_id": "schema-dev-valid_first_attempt",
+  "reward_truth_exposed": false,
+  "schema_version": 1
+}
