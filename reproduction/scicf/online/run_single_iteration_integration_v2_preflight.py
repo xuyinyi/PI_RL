@@ -15,9 +15,17 @@ import time
 from pathlib import Path
 
 from reproduction.framework.io import git_identity, write_json
+from reproduction.p2.scripts.profile_stage0_mask_throughput import (
+    verify_accepted_binding,
+)
 from reproduction.scicf.llm.api_client import APITransportError, ChatCompletion
 
 from .contracts import SINGLE_ITERATION_INTEGRATION_V2_PROTOCOL_ID
+from .evaluator_asset import (
+    load_evaluator_asset_binding,
+    validate_evaluator_asset,
+    verify_evaluator_route_source_delta,
+)
 from .model_asset import load_polybert_asset_binding, validate_polybert_asset
 from .run_single_iteration_integration_v2 import (
     AUTHORIZATION_OPERATIONS,
@@ -26,6 +34,7 @@ from .run_single_iteration_integration_v2 import (
     run_guarded_pool_decisions,
     verify_protocol_bindings,
 )
+from .run_smoke import build_runtime
 
 
 def parse_args() -> argparse.Namespace:
@@ -33,6 +42,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--repo-root", type=Path, required=True)
     parser.add_argument("--protocol", type=Path, required=True)
     parser.add_argument("--polybert-path", type=Path, required=True)
+    parser.add_argument("--evaluator-asset-path", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     return parser.parse_args()
 
@@ -126,6 +136,21 @@ def _prepared():
     ]
 
 
+def _runtime_evaluator_hashes(terminal_evaluator):
+    hashes = {}
+    for output_name, dataset_name, model_id in terminal_evaluator.PROPERTY_SPECS:
+        record = terminal_evaluator.model_manifest[output_name]
+        model_stem = "Ensemble_%s_AFP_%d" % (dataset_name, int(model_id))
+        settings_stem = model_stem.rsplit("_%d" % int(model_id), 1)[0]
+        hashes[model_stem + ".pt"] = record["model_sha256"]
+        hashes[dataset_name + "_scaler.pkl"] = record["scaler_sha256"]
+        hashes[settings_stem + "_settings.csv"] = record["settings_sha256"]
+    hashes["fpscores.pkl.gz"] = terminal_evaluator.model_manifest["sa"][
+        "fpscores_sha256"
+    ]
+    return hashes
+
+
 def main() -> None:
     args = parse_args()
     root = args.repo_root.resolve()
@@ -142,6 +167,10 @@ def main() -> None:
     if source.get("dirty") is not False:
         raise RuntimeError("integration-v2 preflight requires a clean worktree")
     bindings = verify_protocol_bindings(root, protocol)
+    accepted_manifest = bindings["accepted_manifest"]
+    accepted_binding = verify_accepted_binding(
+        root, accepted_manifest, protocol["accepted_binding"]["environment_id"]
+    )
     polybert_binding = load_polybert_asset_binding(root)
     model_asset = validate_polybert_asset(
         args.polybert_path.resolve(strict=True), polybert_binding
@@ -151,6 +180,17 @@ def main() -> None:
         != model_asset["encoder_version"]
     ):
         raise RuntimeError("polyBERT asset differs from accepted Stage-0 encoder")
+    evaluator_binding = load_evaluator_asset_binding(root)
+    evaluator_asset = validate_evaluator_asset(
+        args.evaluator_asset_path.resolve(strict=True), evaluator_binding
+    )
+    if accepted_manifest.get("evaluator_version") != evaluator_asset[
+        "evaluator_version"
+    ]:
+        raise RuntimeError("AFP evaluator asset differs from accepted Stage-0 evaluator")
+    source_delta = verify_evaluator_route_source_delta(
+        root, accepted_binding["accepted_git_commit"], evaluator_binding
+    )
     output_dir.mkdir(parents=True)
     write_json(
         output_dir / "run-intent.json",
@@ -161,6 +201,9 @@ def main() -> None:
             "slurm_job_id": os.environ["SLURM_JOB_ID"],
             "source": source,
             "protocol_sha256": _sha256_path(protocol_path),
+            "polybert_asset": model_asset,
+            "evaluator_asset": evaluator_asset,
+            "evaluator_route_source_delta": source_delta,
             "external_api_requests_authorized": False,
             "credentials_loading_authorized": False,
             "ppo_execution_authorized": False,
@@ -170,6 +213,31 @@ def main() -> None:
         },
     )
     started = time.perf_counter()
+    components, engine, specification, run_contract = build_runtime(
+        root,
+        accepted_manifest,
+        accepted_binding,
+        protocol,
+        Path(model_asset["model_path"]),
+        polybert_checkpoint_fingerprint=model_asset["checkpoint_fingerprint"],
+        evaluator_asset_path=Path(evaluator_asset["asset_path"]),
+    )
+    terminal_evaluator = components.evaluator.evaluator
+    runtime_evaluator_hashes = _runtime_evaluator_hashes(terminal_evaluator)
+    initial_ledger = components.evaluator.ledger()
+    runtime = {
+        "constructed": True,
+        "components_class": type(components).__name__,
+        "engine_class": type(engine).__name__,
+        "environment_id": specification["environment_id"],
+        "run_contract_environment_id": run_contract.environment_id,
+        "evaluator_version": components.evaluator.evaluator_version,
+        "evaluator_asset_path": str(terminal_evaluator.model_dir.resolve()),
+        "evaluator_required_file_sha256": runtime_evaluator_hashes,
+        "initial_evaluator_ledger": initial_ledger,
+        "local_models_loaded": True,
+        "model_inference_executed": False,
+    }
     prepared = _prepared()
     first_ids = prepared[0]["request"]["candidate_ids"]
     success_client = ScriptedClient(
@@ -208,7 +276,7 @@ def main() -> None:
     )
 
     closed_authorization = {
-        "schema_version": 2,
+        "schema_version": 3,
         "authorization_id": "closed-preflight-fixture",
         "protocol_id": SINGLE_ITERATION_INTEGRATION_V2_PROTOCOL_ID,
         "protocol_sha256": _sha256_path(protocol_path),
@@ -217,6 +285,11 @@ def main() -> None:
         "authorized_polybert_path": model_asset["model_path"],
         "polybert_asset_binding_sha256": model_asset["asset_binding_sha256"],
         "polybert_checkpoint_fingerprint": model_asset["checkpoint_fingerprint"],
+        "authorized_evaluator_asset_path": evaluator_asset["asset_path"],
+        "evaluator_asset_binding_sha256": evaluator_asset[
+            "asset_binding_sha256"
+        ],
+        "evaluator_asset_fingerprint": evaluator_asset["asset_fingerprint"],
         "maximum_slurm_runs": 1,
         "authorized_operations": {
             name: False for name in AUTHORIZATION_OPERATIONS
@@ -234,6 +307,11 @@ def main() -> None:
             polybert_path=Path(model_asset["model_path"]),
             polybert_asset_binding_sha256=model_asset["asset_binding_sha256"],
             polybert_checkpoint_fingerprint=model_asset["checkpoint_fingerprint"],
+            evaluator_asset_path=Path(evaluator_asset["asset_path"]),
+            evaluator_asset_binding_sha256=evaluator_asset[
+                "asset_binding_sha256"
+            ],
+            evaluator_asset_fingerprint=evaluator_asset["asset_fingerprint"],
         )
     except ValueError:
         authorization_rejected = True
@@ -242,6 +320,9 @@ def main() -> None:
     runner_source = runner_path.read_text(encoding="utf-8")
     authorization_index = runner_source.index("authorization = load_execution_authorization(")
     model_asset_index = runner_source.index("model_asset = validate_polybert_asset(")
+    evaluator_asset_index = runner_source.index(
+        "evaluator_asset = validate_evaluator_asset("
+    )
     credentials_index = runner_source.index("settings = APISettings.from_private_file(")
     checks = {
         "protocol_identity": protocol["protocol_id"]
@@ -255,12 +336,40 @@ def main() -> None:
         < credentials_index,
         "model_asset_checked_before_credentials": model_asset_index
         < credentials_index,
+        "evaluator_asset_checked_before_authorization": evaluator_asset_index
+        < authorization_index,
+        "evaluator_asset_checked_before_credentials": evaluator_asset_index
+        < credentials_index,
         "model_asset_bound_to_accepted_encoder": model_asset["encoder_version"]
         == bindings["accepted_manifest"]["environment"]["encoder_version"],
         "model_asset_full_fingerprint_bound": model_asset["checkpoint_fingerprint"]
         == polybert_binding["checkpoint_fingerprint"],
         "model_asset_required_files_bound": model_asset["required_file_sha256"]
         == polybert_binding["required_file_sha256"],
+        "evaluator_asset_source_delta_exact": source_delta["exact"] is True,
+        "evaluator_asset_source_delta_is_routing_only": source_delta[
+            "observed_paths"
+        ]
+        == ["RL_PPO/envs/evaluator.py"],
+        "evaluator_asset_required_files_bound": evaluator_asset[
+            "required_file_sha256"
+        ]
+        == evaluator_binding["required_file_sha256"],
+        "full_stage0_runtime_constructed": runtime["constructed"] is True,
+        "runtime_evaluator_asset_route_exact": Path(
+            runtime["evaluator_asset_path"]
+        ).resolve()
+        == Path(evaluator_asset["asset_path"]).resolve(),
+        "runtime_evaluator_version_bound": runtime["evaluator_version"]
+        == evaluator_asset["evaluator_version"],
+        "runtime_evaluator_hashes_bound": runtime[
+            "evaluator_required_file_sha256"
+        ]
+        == evaluator_asset["required_file_sha256"],
+        "runtime_evaluator_ledger_zero": all(
+            int(initial_ledger[name]) == 0
+            for name in ("requested_calls", "unique_calls", "backend_calls")
+        ),
         "success_all_pools_validated": success["all_pool_decisions_validated"] is True,
         "success_oracle_would_be_authorized": success["oracle_selection_authorized"] is True,
         "success_attempt_bound": success["semantic_attempt_count"] == 3,
@@ -318,6 +427,10 @@ def main() -> None:
         "protocol_sha256": _sha256_path(protocol_path),
         "runner_sha256": _sha256_path(runner_path),
         "model_asset": model_asset,
+        "evaluator_asset": evaluator_asset,
+        "evaluator_route_source_delta": source_delta,
+        "accepted_binding": accepted_binding,
+        "runtime": runtime,
         "checks": checks,
         "scenarios": {
             "success_repair_and_abstain": success,
@@ -331,7 +444,8 @@ def main() -> None:
         "credentials_loaded": False,
         "ppo_executed": False,
         "oracle_executed": False,
-        "local_model_invoked": False,
+        "local_models_loaded": True,
+        "local_model_inference_executed": False,
         "sealed_test_accessed": False,
         "elapsed_seconds": time.perf_counter() - started,
         "resources": {

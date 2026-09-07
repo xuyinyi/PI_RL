@@ -8,6 +8,10 @@ import pytest
 
 from RL_PPO.envs.embedding import _checkpoint_fingerprint
 from reproduction.scicf.llm.api_client import APITransportError, ChatCompletion
+from reproduction.scicf.online.evaluator_asset import (
+    load_evaluator_asset_binding,
+    validate_evaluator_asset,
+)
 from reproduction.scicf.online.model_asset import (
     load_polybert_asset_binding,
     validate_polybert_asset,
@@ -104,6 +108,7 @@ def test_frozen_v2_protocol_and_all_bound_inputs_validate():
     protocol = load_protocol(PROTOCOL)
     bindings = verify_protocol_bindings(ROOT, protocol)
     model_binding = load_polybert_asset_binding(ROOT)
+    evaluator_binding = load_evaluator_asset_binding(ROOT)
     assert protocol["status"] == "frozen_unimplemented_unexecuted"
     assert bindings["v1_archive"]["decision"].startswith("no_go_")
     assert bindings["schema_report"]["external_api_request_count"] == 0
@@ -113,6 +118,11 @@ def test_frozen_v2_protocol_and_all_bound_inputs_validate():
         "6bdd24f951dd90d3031e749ef0130752811bfefe6c850af82b805cf015ea195f"
     )
     assert len(model_binding["required_file_sha256"]) == 14
+    assert evaluator_binding["evaluator_version"] == (
+        "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0"
+    )
+    assert len(evaluator_binding["required_file_sha256"]) == 13
+    assert evaluator_binding["original_author_weights"] is False
 
 
 def test_execution_requires_exact_single_run_authorization(tmp_path):
@@ -120,10 +130,14 @@ def test_execution_requires_exact_single_run_authorization(tmp_path):
     output = tmp_path / "authorized-output"
     polybert_path = tmp_path / "polybert"
     polybert_path.mkdir()
+    evaluator_asset_path = tmp_path / "evaluator-assets"
+    evaluator_asset_path.mkdir()
     binding_sha256 = "b" * 64
     checkpoint_fingerprint = "c" * 64
+    evaluator_binding_sha256 = "e" * 64
+    evaluator_fingerprint = "f" * 64
     manifest = {
-        "schema_version": 2,
+        "schema_version": 3,
         "authorization_id": "unit-test-only",
         "protocol_id": "dapigen-scicf-single-iteration-integration-smoke-v2",
         "protocol_sha256": protocol_sha256,
@@ -132,6 +146,9 @@ def test_execution_requires_exact_single_run_authorization(tmp_path):
         "authorized_polybert_path": str(polybert_path),
         "polybert_asset_binding_sha256": binding_sha256,
         "polybert_checkpoint_fingerprint": checkpoint_fingerprint,
+        "authorized_evaluator_asset_path": str(evaluator_asset_path),
+        "evaluator_asset_binding_sha256": evaluator_binding_sha256,
+        "evaluator_asset_fingerprint": evaluator_fingerprint,
         "maximum_slurm_runs": 1,
         "authorized_operations": dict(AUTHORIZATION_OPERATIONS),
     }
@@ -145,6 +162,9 @@ def test_execution_requires_exact_single_run_authorization(tmp_path):
         polybert_path=polybert_path,
         polybert_asset_binding_sha256=binding_sha256,
         polybert_checkpoint_fingerprint=checkpoint_fingerprint,
+        evaluator_asset_path=evaluator_asset_path,
+        evaluator_asset_binding_sha256=evaluator_binding_sha256,
+        evaluator_asset_fingerprint=evaluator_fingerprint,
     )
     assert loaded["authorization_id"] == "unit-test-only"
 
@@ -159,6 +179,9 @@ def test_execution_requires_exact_single_run_authorization(tmp_path):
             polybert_path=polybert_path,
             polybert_asset_binding_sha256=binding_sha256,
             polybert_checkpoint_fingerprint=checkpoint_fingerprint,
+            evaluator_asset_path=evaluator_asset_path,
+            evaluator_asset_binding_sha256=evaluator_binding_sha256,
+            evaluator_asset_fingerprint=evaluator_fingerprint,
         )
 
     manifest["polybert_checkpoint_fingerprint"] = checkpoint_fingerprint
@@ -173,9 +196,29 @@ def test_execution_requires_exact_single_run_authorization(tmp_path):
             polybert_path=polybert_path,
             polybert_asset_binding_sha256=binding_sha256,
             polybert_checkpoint_fingerprint=checkpoint_fingerprint,
+            evaluator_asset_path=evaluator_asset_path,
+            evaluator_asset_binding_sha256=evaluator_binding_sha256,
+            evaluator_asset_fingerprint=evaluator_fingerprint,
         )
 
     manifest["authorized_polybert_path"] = str(polybert_path)
+    manifest["evaluator_asset_fingerprint"] = "0" * 64
+    path.write_text(json.dumps(manifest), encoding="utf-8")
+    with pytest.raises(ValueError, match="AFP evaluator fingerprint mismatch"):
+        load_execution_authorization(
+            path,
+            protocol_sha256=protocol_sha256,
+            implementation_commit="abc123",
+            output_dir=output,
+            polybert_path=polybert_path,
+            polybert_asset_binding_sha256=binding_sha256,
+            polybert_checkpoint_fingerprint=checkpoint_fingerprint,
+            evaluator_asset_path=evaluator_asset_path,
+            evaluator_asset_binding_sha256=evaluator_binding_sha256,
+            evaluator_asset_fingerprint=evaluator_fingerprint,
+        )
+
+    manifest["evaluator_asset_fingerprint"] = evaluator_fingerprint
     manifest["authorized_operations"]["multi_iteration_training_authorized"] = True
     path.write_text(json.dumps(manifest), encoding="utf-8")
     with pytest.raises(ValueError, match="exact bounded scope"):
@@ -187,6 +230,9 @@ def test_execution_requires_exact_single_run_authorization(tmp_path):
             polybert_path=polybert_path,
             polybert_asset_binding_sha256=binding_sha256,
             polybert_checkpoint_fingerprint=checkpoint_fingerprint,
+            evaluator_asset_path=evaluator_asset_path,
+            evaluator_asset_binding_sha256=evaluator_binding_sha256,
+            evaluator_asset_fingerprint=evaluator_fingerprint,
         )
 
 
@@ -230,6 +276,54 @@ def test_polybert_asset_rejects_unmanifested_full_tree_change(tmp_path):
     (model_path / "download.metadata").write_text("changed", encoding="utf-8")
     with pytest.raises(RuntimeError, match="checkpoint fingerprint mismatch"):
         validate_polybert_asset(model_path, binding)
+
+
+def _synthetic_evaluator_binding(asset_path):
+    required_hashes = {}
+    for name, content in (
+        ("model.pt", b"model"),
+        ("fpscores.pkl.gz", b"scores"),
+    ):
+        path = asset_path / name
+        path.write_bytes(content)
+        required_hashes[name] = hashlib.sha256(content).hexdigest()
+    fingerprint = hashlib.sha256(
+        json.dumps(
+            required_hashes, sort_keys=True, separators=(",", ":")
+        ).encode("utf-8")
+    ).hexdigest()
+    return {
+        "asset_binding_id": "synthetic-evaluator-binding",
+        "binding_sha256": "1" * 64,
+        "asset_fingerprint": fingerprint,
+        "evaluator_version": "synthetic-evaluator",
+        "compatibility_mode": "reconstructed-afp-compatibility",
+        "required_file_sha256": required_hashes,
+    }
+
+
+def test_evaluator_asset_requires_exact_hash_bound_inventory(tmp_path):
+    asset_path = tmp_path / "evaluator-assets"
+    asset_path.mkdir()
+    binding = _synthetic_evaluator_binding(asset_path)
+    receipt = validate_evaluator_asset(asset_path, binding)
+    assert receipt["asset_fingerprint"] == binding["asset_fingerprint"]
+    assert receipt["required_file_count"] == 2
+    assert receipt["original_author_weights"] is False
+    assert receipt["validated_before_credentials"] is True
+
+    (asset_path / "extra.pt").write_bytes(b"unbound")
+    with pytest.raises(RuntimeError, match="asset inventory differs"):
+        validate_evaluator_asset(asset_path, binding)
+
+
+def test_evaluator_asset_rejects_hash_change(tmp_path):
+    asset_path = tmp_path / "evaluator-assets"
+    asset_path.mkdir()
+    binding = _synthetic_evaluator_binding(asset_path)
+    (asset_path / "model.pt").write_bytes(b"changed")
+    with pytest.raises(RuntimeError, match="hash mismatch"):
+        validate_evaluator_asset(asset_path, binding)
 
 
 def test_guarded_two_pool_path_repairs_then_accepts_abstention(tmp_path):

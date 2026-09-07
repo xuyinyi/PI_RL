@@ -11,8 +11,8 @@
 
 set -euo pipefail
 
-if [[ "$#" -ne 7 ]]; then
-    echo "usage: $0 REPO_ROOT PYTHON_BIN PYTHON_PACKAGE_ROOT POLYBERT_PATH PRIVATE_CREDENTIALS_FILE EXECUTION_AUTHORIZATION OUTPUT_DIR" >&2
+if [[ "$#" -ne 8 ]]; then
+    echo "usage: $0 REPO_ROOT PYTHON_BIN PYTHON_PACKAGE_ROOT POLYBERT_PATH EVALUATOR_ASSET_PATH PRIVATE_CREDENTIALS_FILE EXECUTION_AUTHORIZATION OUTPUT_DIR" >&2
     exit 2
 fi
 
@@ -20,9 +20,10 @@ repo_root="$1"
 python_bin="$2"
 python_package_root="$3"
 polybert_path="$4"
-credentials_file="$5"
-execution_authorization="$6"
-output_dir="$7"
+evaluator_asset_path="$5"
+credentials_file="$6"
+execution_authorization="$7"
+output_dir="$8"
 protocol="$repo_root/reproduction/scicf/online/configs/single_iteration_integration_v2_protocol.json"
 
 export CUBLAS_WORKSPACE_CONFIG=:4096:8
@@ -40,6 +41,7 @@ echo "scope=single-authorized-integration-v2 automatic_rerun=disabled multi_iter
 nvidia-smi --query-gpu=index,name,uuid,memory.total --format=csv,noheader
 test -d "$python_package_root/gymnasium"
 test -d "$polybert_path"
+test -d "$evaluator_asset_path"
 while read -r expected relative; do
     test -n "$expected"
     test -s "$polybert_path/$relative"
@@ -64,6 +66,7 @@ srun --cpu-bind=cores "$python_bin" -m reproduction.scicf.online.run_single_iter
     --protocol "$protocol" \
     --execution-authorization "$execution_authorization" \
     --polybert-path "$polybert_path" \
+    --evaluator-asset-path "$evaluator_asset_path" \
     --credentials-file "$credentials_file" \
     --output-dir "$output_dir"
 

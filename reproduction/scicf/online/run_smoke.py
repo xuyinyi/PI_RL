@@ -119,13 +119,22 @@ def build_runtime(
     config: Mapping[str, Any],
     polybert_path: Path,
     polybert_checkpoint_fingerprint: Optional[str] = None,
+    evaluator_asset_path: Optional[Path] = None,
 ):
     from RL_PPO.envs.config import DAPiGenEnvConfig
+    from RL_PPO.envs.evaluator import PersistentDAPiGenBenchmarkEvaluator
     from RL_PPO.envs.factory import build_stage0_components
     from RL_PPO.envs.gymnasium_wrapper import DAPiGenGymnasiumEnv
 
     ppo_config = PPOEngineConfig(**config["ppo"])
     allowed_sources = tuple(METHOD_EVALUATOR_SOURCES[SCICF_PPO])
+    terminal_evaluator = None
+    if evaluator_asset_path is not None:
+        terminal_evaluator = PersistentDAPiGenBenchmarkEvaluator(
+            str(root),
+            device=ppo_config.device,
+            model_dir=str(evaluator_asset_path),
+        )
     components = build_stage0_components(
         dapigen_root=str(root),
         polybert_path=str(polybert_path),
@@ -135,6 +144,7 @@ def build_runtime(
         maximum_unique_calls=int(config["budget"]["maximum_unique_calls"]),
         encoder_mode="polybert",
         evaluator_mode="persistent",
+        terminal_evaluator=terminal_evaluator,
         evaluator_fail_fast=True,
         allowed_evaluator_sources=allowed_sources,
         cache_scope=str(config["budget"]["cache_scope"]),

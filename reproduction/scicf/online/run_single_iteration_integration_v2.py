@@ -32,6 +32,11 @@ from .contracts import (
     PairwiseRefinementConfig,
     SchemaRecoveryConfig,
 )
+from .evaluator_asset import (
+    load_evaluator_asset_binding,
+    validate_evaluator_asset,
+    verify_evaluator_route_source_delta,
+)
 from .model_asset import load_polybert_asset_binding, validate_polybert_asset
 from .pipeline import (
     FrozenPolicySampler,
@@ -70,6 +75,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--protocol", type=Path, required=True)
     parser.add_argument("--execution-authorization", type=Path, required=True)
     parser.add_argument("--polybert-path", type=Path, required=True)
+    parser.add_argument("--evaluator-asset-path", type=Path, required=True)
     parser.add_argument("--credentials-file", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     return parser.parse_args()
@@ -224,6 +230,9 @@ def load_execution_authorization(
     polybert_path: Path,
     polybert_asset_binding_sha256: str,
     polybert_checkpoint_fingerprint: str,
+    evaluator_asset_path: Path,
+    evaluator_asset_binding_sha256: str,
+    evaluator_asset_fingerprint: str,
 ) -> Mapping[str, Any]:
     payload = json.loads(path.read_text(encoding="utf-8"))
     required = {
@@ -236,6 +245,9 @@ def load_execution_authorization(
         "authorized_polybert_path",
         "polybert_asset_binding_sha256",
         "polybert_checkpoint_fingerprint",
+        "authorized_evaluator_asset_path",
+        "evaluator_asset_binding_sha256",
+        "evaluator_asset_fingerprint",
         "maximum_slurm_runs",
         "authorized_operations",
     }
@@ -244,7 +256,7 @@ def load_execution_authorization(
             "execution authorization keys differ; missing=%s extra=%s"
             % (sorted(required - set(payload)), sorted(set(payload) - required))
         )
-    if payload["schema_version"] != 2:
+    if payload["schema_version"] != 3:
         raise ValueError("unsupported execution authorization schema")
     if not isinstance(payload["authorization_id"], str) or not payload["authorization_id"]:
         raise ValueError("execution authorization_id must be non-empty")
@@ -262,6 +274,15 @@ def load_execution_authorization(
         raise ValueError("execution authorization polyBERT binding hash mismatch")
     if payload["polybert_checkpoint_fingerprint"] != polybert_checkpoint_fingerprint:
         raise ValueError("execution authorization polyBERT fingerprint mismatch")
+    if (
+        Path(payload["authorized_evaluator_asset_path"]).resolve()
+        != evaluator_asset_path.resolve()
+    ):
+        raise ValueError("execution authorization AFP evaluator asset path mismatch")
+    if payload["evaluator_asset_binding_sha256"] != evaluator_asset_binding_sha256:
+        raise ValueError("execution authorization AFP evaluator binding hash mismatch")
+    if payload["evaluator_asset_fingerprint"] != evaluator_asset_fingerprint:
+        raise ValueError("execution authorization AFP evaluator fingerprint mismatch")
     if payload["maximum_slurm_runs"] != 1:
         raise ValueError("execution authorization must permit exactly one Slurm run")
     if payload["authorized_operations"] != AUTHORIZATION_OPERATIONS:
@@ -612,8 +633,6 @@ def main() -> None:
     binding = verify_accepted_binding(
         root, accepted_manifest, protocol["accepted_binding"]["environment_id"]
     )
-    if binding["stage0_source_changed_from_accepted"]:
-        raise RuntimeError("accepted Stage-0 source changed before integration-v2")
     if output_dir.exists():
         raise FileExistsError("integration-v2 output already exists")
     polybert_binding = load_polybert_asset_binding(root)
@@ -624,6 +643,18 @@ def main() -> None:
         != model_asset["encoder_version"]
     ):
         raise RuntimeError("polyBERT asset differs from accepted Stage-0 encoder")
+    evaluator_binding = load_evaluator_asset_binding(root)
+    evaluator_asset_path = args.evaluator_asset_path.resolve(strict=True)
+    evaluator_asset = validate_evaluator_asset(
+        evaluator_asset_path, evaluator_binding
+    )
+    if accepted_manifest.get("evaluator_version") != evaluator_asset[
+        "evaluator_version"
+    ]:
+        raise RuntimeError("AFP evaluator asset differs from accepted Stage-0 evaluator")
+    source_delta = verify_evaluator_route_source_delta(
+        root, binding["accepted_git_commit"], evaluator_binding
+    )
     authorization = load_execution_authorization(
         authorization_path,
         protocol_sha256=protocol_sha256,
@@ -632,13 +663,16 @@ def main() -> None:
         polybert_path=polybert_path,
         polybert_asset_binding_sha256=model_asset["asset_binding_sha256"],
         polybert_checkpoint_fingerprint=model_asset["checkpoint_fingerprint"],
+        evaluator_asset_path=evaluator_asset_path,
+        evaluator_asset_binding_sha256=evaluator_asset["asset_binding_sha256"],
+        evaluator_asset_fingerprint=evaluator_asset["asset_fingerprint"],
     )
     output_dir.mkdir(parents=True)
     write_json(
         output_dir / "run-intent.json",
         {
             "schema_version": 1,
-            "status": "declared_after_authorization_and_model_binding_before_credentials",
+            "status": "declared_after_authorization_and_all_asset_bindings_before_credentials",
             "protocol_id": SINGLE_ITERATION_INTEGRATION_V2_PROTOCOL_ID,
             "slurm_job_id": os.environ["SLURM_JOB_ID"],
             "source": source,
@@ -647,6 +681,8 @@ def main() -> None:
             "authorization_sha256": _sha256_path(authorization_path),
             "accepted_manifest_sha256": _sha256_path(accepted_manifest_path),
             "polybert_asset": model_asset,
+            "evaluator_asset": evaluator_asset,
+            "evaluator_route_source_delta": source_delta,
             "credentials_loaded_at_intent_time": False,
             "credentials_path_logged": False,
             "api_key_logged": False,
@@ -670,6 +706,7 @@ def main() -> None:
         protocol,
         polybert_path,
         polybert_checkpoint_fingerprint=model_asset["checkpoint_fingerprint"],
+        evaluator_asset_path=evaluator_asset_path,
     )
     initial_policy_sha256 = engine.policy_state_sha256
     behavior_policy = FrozenPolicySampler(engine.model, protocol["ppo"]["device"])
@@ -1022,6 +1059,9 @@ def main() -> None:
         "protocol_sha256": protocol_sha256,
         "authorization_id": authorization["authorization_id"],
         "accepted_binding": binding,
+        "polybert_asset": model_asset,
+        "evaluator_asset": evaluator_asset,
+        "evaluator_route_source_delta": source_delta,
         "stack_specification": specification,
         "run_contract": asdict(run_contract),
         "standard_ppo": iteration_summary(ppo_result),

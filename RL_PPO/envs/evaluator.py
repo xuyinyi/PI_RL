@@ -649,6 +649,7 @@ class PersistentDAPiGenBenchmarkEvaluator(object):
         dapigen_root: str,
         device: Optional[str] = None,
         deterministic_torch: bool = True,
+        model_dir: Optional[str] = None,
     ) -> None:
         import pandas as pd
         import torch
@@ -657,8 +658,12 @@ class PersistentDAPiGenBenchmarkEvaluator(object):
         self.torch = torch
         self.root = Path(dapigen_root).resolve()
         self.gnn_dir = self.root / "RL_PPO" / "GNN"
-        self.model_dir = self.gnn_dir / "model"
-        if not self.model_dir.exists():
+        self.model_dir = (
+            (self.gnn_dir / "model").resolve()
+            if model_dir is None
+            else Path(model_dir).resolve()
+        )
+        if not self.model_dir.is_dir():
             raise FileNotFoundError("DAPiGen GNN model directory not found: %s" % self.model_dir)
         if str(self.gnn_dir) not in sys.path:
             sys.path.insert(0, str(self.gnn_dir))

@@ -4,14 +4,15 @@
 #SBATCH --nodelist=yanlih100n1
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=2
-#SBATCH --mem=8G
-#SBATCH --time=00:15:00
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=96G
+#SBATCH --gres=gpu:1
+#SBATCH --time=00:20:00
 
 set -euo pipefail
 
-if [[ "$#" -ne 5 ]]; then
-    echo "usage: $0 REPO_ROOT PYTHON_BIN PYTHON_PACKAGE_ROOT POLYBERT_PATH OUTPUT_DIR" >&2
+if [[ "$#" -ne 6 ]]; then
+    echo "usage: $0 REPO_ROOT PYTHON_BIN PYTHON_PACKAGE_ROOT POLYBERT_PATH EVALUATOR_ASSET_PATH OUTPUT_DIR" >&2
     exit 2
 fi
 
@@ -19,10 +20,11 @@ repo_root="$1"
 python_bin="$2"
 python_package_root="$3"
 polybert_path="$4"
-output_dir="$5"
+evaluator_asset_path="$5"
+output_dir="$6"
 protocol="$repo_root/reproduction/scicf/online/configs/single_iteration_integration_v2_protocol.json"
 
-export CUDA_VISIBLE_DEVICES=''
+export CUBLAS_WORKSPACE_CONFIG=:4096:8
 export DGLBACKEND=pytorch
 export MKL_NUM_THREADS=1
 export OMP_NUM_THREADS=1
@@ -33,10 +35,12 @@ export PYTHONDONTWRITEBYTECODE=1
 export TOKENIZERS_PARALLELISM=false
 
 echo "job_id=${SLURM_JOB_ID} host=$(hostname) cpus=${SLURM_CPUS_PER_TASK} protocol=dapigen-scicf-single-iteration-integration-smoke-v2"
-echo "scope=mock-only-preflight external_api=disabled credentials=disabled ppo=disabled oracle=disabled"
+echo "scope=complete-runtime-no-credential-preflight external_api=disabled credentials=disabled ppo=disabled oracle=disabled"
+nvidia-smi --query-gpu=index,name,uuid,memory.total --format=csv,noheader
 test -d "$python_package_root/gymnasium"
 test -f "$protocol"
 test -d "$polybert_path"
+test -d "$evaluator_asset_path"
 while read -r expected relative; do
     test -n "$expected"
     test -s "$polybert_path/$relative"
@@ -55,7 +59,8 @@ srun --cpu-bind=cores "$python_bin" -m reproduction.scicf.online.run_single_iter
     --repo-root "$repo_root" \
     --protocol "$protocol" \
     --polybert-path "$polybert_path" \
+    --evaluator-asset-path "$evaluator_asset_path" \
     --output-dir "$output_dir"
 
 test -z "$(git -C "$repo_root" status --porcelain)"
-echo "scicf_single_iteration_v2_mock_preflight_complete"
+echo "scicf_single_iteration_v2_complete_runtime_no_credential_preflight_complete"
