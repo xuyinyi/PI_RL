@@ -2,11 +2,11 @@
 
 Status date: 2026-09-07
 
-Plan status: **the schema-3 integration-v2 run remains a no-go after zero strict
-pairs; the K=5 soft-pair and optional-LLM resilience components and the v3
-single-iteration runner have passed their respective n001 Slurm preflights, but
-no real v3 execution or multi-iteration training is authorized, and historical
-sealed tests and all scientific claim gates remain closed**
+Plan status: **the schema-3 integration-v2 run remains archived as a no-go after
+zero strict pairs; the K=5 optional-LLM v3 single-iteration run completed and
+applied one soft-pair update in n001 Slurm Job 4736, but this engineering result
+does not authorize a rerun or multi-iteration training, and historical sealed
+tests and all scientific claim gates remain closed**
 
 ## 2026-09-06 architecture-first amendment
 
@@ -221,6 +221,23 @@ LLMs, or sealed-test accesses. The decision permits only requesting a new exact
 single-run schema-4 authorization; it does not authorize that run or any
 multi-iteration training. Evidence is under
 `reproduction/results/scicf-single-iteration-v3-preflight-20260907/`.
+
+After explicit authorization of the blinded external payload and one real
+PPO/AFP execution, schema-4 authorization
+`scicf-single-iteration-v3-schema4-one-run-93501f3-20260907` was consumed by
+exactly one n001 Slurm submission, Job 4736. Sixty-nine server tests passed and
+the job completed one 128-transition PPO iteration, durably wrote the primary
+checkpoint before credentials/LLM, validated both DeepSeek pool decisions on
+their first attempt, verified eight selected candidates with `K=5`, and applied
+one weighted pairwise step from four non-zero empirical weights. The soft gate
+had total weight `3.3433`, effective mass `1.6717`, and no failures. The value
+head was unchanged, full-support maximum joint KL was `2.70e-7`, and there were
+no integrity failures. The authoritative module decision is
+`primary_ppo_committed_auxiliary_applied`. This proves only the bounded
+single-iteration engineering path. The consumed authorization cannot be reused,
+and no automatic rerun or multi-iteration training is authorized. Evidence is
+under
+`reproduction/results/scicf-single-iteration-v3-real-schema4-job4736-20260907/`.
 
 ## 1. Authority and scope
 

@@ -1,0 +1,30 @@
+{
+  "api_key_logged": false,
+  "attempt_index": 0,
+  "attempt_kind": "initial",
+  "capture_status": "captured_before_validation",
+  "completion_tokens": 155,
+  "prompt_tokens": 7749,
+  "protocol_id": "dapigen-scicf-llm-schema-robustness-dev-v1",
+  "provider": {
+    "endpoint_sha256": "948f1ecb6b48f91adc4e110d0351cd172b16450e9936d358992e0dfad7b863f3",
+    "external_api": true,
+    "include_seed": false,
+    "json_mode": true,
+    "max_tokens_field": "max_tokens",
+    "model_id": "deepseek-v4-flash",
+    "model_revision": "DeepSeek-V4-Flash-0731-api-snapshot-2026-09-03",
+    "provider_id": "deepseek-official",
+    "thinking": "disabled",
+    "type": "openai-compatible-api"
+  },
+  "provider_response_id": "85ec490f-15b9-4fc2-82f8-010279124bf9",
+  "provider_response_sha256": "4689211013d0303c7e55bd8ab87e1b0b38b4e19982f7cda60aa4f4c8974c8b56",
+  "raw_response": "{\"ranked_intervention_ids\":[\"cf-9eaa24c0e992c61f\",\"cf-db42dfb825ada4e5\",\"cf-710f4dd423428638\",\"cf-58eda5102428641e\"],\"reasoning\":\"Prioritize interventions that replace the dianhydride with complete, rigid, aromatic dianhydrides (e.g., naphthalene- or pyromellitic-based) to enhance thermal/mechanical properties while maintaining optical clarity. Also include a complete diamine with extended conjugation to improve rigidity and transmittance. These alternatives are synthetically accessible and likely to improve the composite score without excessive trade-offs.\",\"abstain\":false,\"confidence\":0.7}",
+  "raw_response_text_sha256": "c969a6cc07d64fc43303c2a005b6b0f3d4ae1efcbbc807104bb7eb796dbaf1dc",
+  "request_id": "dapigen-scicf-single-iteration-integration-smoke-v3-pool-01-job-4736",
+  "schema_version": 1,
+  "system_fingerprint": "a26a7955944dc5c60445bff77fac9c8e",
+  "total_tokens": 7904,
+  "transport_retries_used": 0
+}

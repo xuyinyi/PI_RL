@@ -75,6 +75,16 @@
 > or multi-iteration training is authorized. See
 > `reproduction/scicf/SINGLE_ITERATION_INTEGRATION_V3_PROTOCOL.md` and
 > `reproduction/results/scicf-single-iteration-v3-preflight-20260907/`.
+> The new schema-4 authorization was then consumed exactly once by n001 Slurm
+> Job 4736. The job passed 69 tests, committed one 128-transition PPO update
+> before LLM access, validated two DeepSeek decisions, completed selected-only
+> `K=5` verification for eight candidates, retained four non-zero soft weights,
+> and applied one KL-bounded auxiliary step. The authoritative result is
+> `primary_ppo_committed_auxiliary_applied` with no integrity failures. This is
+> single-iteration engineering evidence only: the authorization cannot be
+> reused, and no automatic rerun, multi-iteration training, effectiveness
+> claim, or scientific claim is authorized. See
+> `reproduction/results/scicf-single-iteration-v3-real-schema4-job4736-20260907/`.
 
 SciCF-PPO is being added as a feature-gated extension of the frozen
 `dapigen-ppo-compat-baseline-v1` baseline. The upstream PPO clipped objective,

@@ -1,0 +1,52 @@
+{
+  "checkpoint": {
+    "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-single-iteration-v3-real-schema4-93501f3-20260907/primary-ppo-checkpoint-before-llm.pt",
+    "sha256": "b627609ba6d1c65a1c0865e0cc3720cba35a8ed5dc74878ad3613aa680a9b041"
+  },
+  "credentials_loaded": false,
+  "durable_before_llm": true,
+  "external_api_invoked": false,
+  "standard_ppo": {
+    "actor_advantages_sha256": "2e335afbd5fe9814adfd5f1211826a5034593f1d0e04ddbf7ff3490f3bb23006",
+    "batch_id": "p2b-000000-22981cac23f6160f",
+    "credit_evaluator_delta": {
+      "backend_calls": 0,
+      "cache_hits": 0,
+      "requested_by_source": {},
+      "requested_calls": 0,
+      "unique_calls": 0
+    },
+    "critic_returns_sha256": "f75222dfd511776262962b70aff2fd0af556493814cd58d17b68b12d99dadf67",
+    "gae_sha256": "2e335afbd5fe9814adfd5f1211826a5034593f1d0e04ddbf7ff3490f3bb23006",
+    "rollout_digest": "7f2d2be54036835c3d59189391313ac3daa911f7cf3613613e1dde110da9e468",
+    "rollout_evaluator_delta": {
+      "backend_calls": 27,
+      "cache_hits": 0,
+      "requested_by_source": {
+        "scicf_ppo/on_policy": 27
+      },
+      "requested_calls": 27,
+      "unique_calls": 27
+    },
+    "successful_terminal_count": 27,
+    "transition_count": 128,
+    "update_metrics": {
+      "actor_loss": -0.028126218356192112,
+      "approximate_kl": 0.008422786369919777,
+      "clip_fraction": 0.05078125,
+      "entropy": 9.375167846679688,
+      "optimizer_steps": 8.0,
+      "stopped_for_target_kl": 0.0,
+      "value_loss": 0.1083287859801203
+    },
+    "update_receipt": {
+      "actor_advantages_sha256": "2e335afbd5fe9814adfd5f1211826a5034593f1d0e04ddbf7ff3490f3bb23006",
+      "critic_returns_sha256": "f75222dfd511776262962b70aff2fd0af556493814cd58d17b68b12d99dadf67",
+      "engine_contract_id": "dapigen-p2-single-ppo-engine-v1",
+      "optimizer_step_completed": true,
+      "policy_version_after": 1,
+      "policy_version_before": 0,
+      "source_batch_id": "p2b-000000-22981cac23f6160f"
+    }
+  }
+}

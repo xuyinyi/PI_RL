@@ -1,0 +1,32 @@
+{
+  "schema_version": 4,
+  "authorization_id": "scicf-single-iteration-v3-schema4-one-run-93501f3-20260907",
+  "protocol_id": "dapigen-scicf-single-iteration-integration-smoke-v3",
+  "protocol_sha256": "57d7a06c8e519370b2cbb70330db4132bc08e7ff24e1fefa393ef13467b2d925",
+  "soft_pair_config_sha256": "97ed1bcf468293faa5c9e0eafb2dfde819061c201996ccbbcaf6b66bacce7173",
+  "implementation_commit": "93501f33cf4594791b31a805b153bf1accc94538",
+  "authorized_output_directory": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-single-iteration-v3-real-schema4-93501f3-20260907",
+  "authorized_polybert_path": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v23-mask-dev-20260904/RL_PPO/models",
+  "polybert_asset_binding_sha256": "7e2f1cf5caa38d3d42e7ebe2599435ec306aa74e2cffeb9c2cac23408876a7ed",
+  "polybert_checkpoint_fingerprint": "6bdd24f951dd90d3031e749ef0130752811bfefe6c850af82b805cf015ea195f",
+  "authorized_evaluator_asset_path": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v23-mask-dev-20260904/RL_PPO/GNN/model",
+  "evaluator_asset_binding_sha256": "67cd8ed2c2cf29c823985a889033bc7ee3f0c898b82e32d992c2c34917d80eb9",
+  "evaluator_asset_fingerprint": "0bdcea6155f5a53acd94afd322d408fe3e31c02cf13778a0c65f5f0938096ab4",
+  "maximum_slurm_runs": 1,
+  "authorized_operations": {
+    "credentials_loading_authorized": true,
+    "external_api_requests_authorized": true,
+    "single_iteration_ppo_authorized": true,
+    "oracle_execution_authorized": true,
+    "k5_soft_verification_authorized": true,
+    "optional_llm_degradation_authorized": true,
+    "single_iteration_integration_v3_authorized": true,
+    "automatic_rerun_authorized": false,
+    "multi_iteration_training_authorized": false,
+    "formal_training_authorized": false,
+    "sealed_test_access_authorized": false,
+    "baseline_mutation_authorized": false,
+    "algorithm_effectiveness_claim_authorized": false,
+    "scientific_claim_authorized": false
+  }
+}

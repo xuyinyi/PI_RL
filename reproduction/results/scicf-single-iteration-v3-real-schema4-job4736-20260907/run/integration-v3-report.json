@@ -1,0 +1,706 @@
+{
+  "accepted_binding": {
+    "accepted_chemistry_backend": "dapigen-legacy-chemistry-deterministic-v2:dapigen_custom-sha256-e9f66fcccf1fe399:rdkit-2022.09.5",
+    "accepted_diamine_catalog_sha256": "0a91e1b7084692136139379b69a06301ed510750dc8f32220cee0cba6a49100a",
+    "accepted_dianhydride_catalog_sha256": "0a021f30b960a251b763ef6c0e0133e4f6d1214c1fa91da272a2cb241693b934",
+    "accepted_environment_id": "dapigen:8004c1fa2055a186b4a4f3ed",
+    "accepted_git_commit": "373b3291ac04dbf654c134bee2ca61a0c86d1a68",
+    "accepted_task_config": {
+      "attachment_label_max": 16,
+      "complete_block_policy": "pristine_only",
+      "environment_version": "dapigen-stage0-standard-v2.3",
+      "failure_reward": 0.0,
+      "horizon_semantics": "failure_terminal",
+      "include_terminal_candidates_in_info": false,
+      "invalid_action_handling": "raise",
+      "mask_mode": "closure_exact_cached",
+      "max_atoms": 60,
+      "max_steps": 5,
+      "minimum_diamine_growth_steps": 0,
+      "minimum_dianhydride_growth_steps": 0,
+      "observation_mode": "augmented_v3",
+      "product_selection": "seeded_uniform"
+    },
+    "profile_git_commit": "93501f33cf4594791b31a805b153bf1accc94538",
+    "profile_git_dirty": false,
+    "stage0_source_changed_from_accepted": true
+  },
+  "acquisition": {
+    "all_pool_decisions_validated": true,
+    "http_transmissions_observed": 2,
+    "http_transmissions_observed_is_exact": true,
+    "http_transmissions_upper_bound_for_started_decisions": 2,
+    "http_transmissions_used": 2,
+    "maximum_http_transmissions_total": 8,
+    "oracle_selection_authorized": true,
+    "pool_decision_count_expected": 2,
+    "pool_decision_count_started": 2,
+    "pool_outcomes": [
+      {
+        "attempt_count": 1,
+        "oracle_selection_authorized": true,
+        "outcome_sha256": "c9404876fe2f68d0622f2a13636cae39179a5647b3e0057823d4a68b7f103e08",
+        "pool_index": 0,
+        "request_id": "dapigen-scicf-single-iteration-integration-smoke-v3-pool-00-job-4736",
+        "selected_intervention_ids": [
+          "cf-6ff223aff62da0b8",
+          "cf-1c523d7d070572e3",
+          "cf-eb2c755c0867c3a8",
+          "cf-85d775bcf7b7c736"
+        ],
+        "semantic_repair_count": 0,
+        "status": "validated",
+        "usage": {
+          "completion_tokens": 113,
+          "http_transmissions_observed": 1,
+          "prompt_tokens": 7732,
+          "returned_content_count": 1,
+          "token_accounting_complete": true
+        }
+      },
+      {
+        "attempt_count": 1,
+        "oracle_selection_authorized": true,
+        "outcome_sha256": "dcdc844b1404a2a2921d75d3289b7b0b69d429bbf9d8805ab4734ccae829f690",
+        "pool_index": 1,
+        "request_id": "dapigen-scicf-single-iteration-integration-smoke-v3-pool-01-job-4736",
+        "selected_intervention_ids": [
+          "cf-9eaa24c0e992c61f",
+          "cf-db42dfb825ada4e5",
+          "cf-710f4dd423428638",
+          "cf-58eda5102428641e"
+        ],
+        "semantic_repair_count": 0,
+        "status": "validated",
+        "usage": {
+          "completion_tokens": 155,
+          "http_transmissions_observed": 1,
+          "prompt_tokens": 7749,
+          "returned_content_count": 1,
+          "token_accounting_complete": true
+        }
+      }
+    ],
+    "reported_tokens": {
+      "completion": 268,
+      "prompt": 15481
+    },
+    "returned_content_count": 2,
+    "selected_intervention_ids": [
+      "cf-6ff223aff62da0b8",
+      "cf-1c523d7d070572e3",
+      "cf-eb2c755c0867c3a8",
+      "cf-85d775bcf7b7c736",
+      "cf-9eaa24c0e992c61f",
+      "cf-db42dfb825ada4e5",
+      "cf-710f4dd423428638",
+      "cf-58eda5102428641e"
+    ],
+    "semantic_attempt_count": 2,
+    "semantic_repair_count": 0,
+    "status": "validated_all_pools",
+    "token_accounting_complete": true
+  },
+  "authorization_id": "scicf-single-iteration-v3-schema4-one-run-93501f3-20260907",
+  "automatic_rerun_authorized": false,
+  "auxiliary_receipt": {
+    "acquisition_payload": {
+      "all_pool_decisions_validated": true,
+      "http_transmissions_observed": 2,
+      "http_transmissions_observed_is_exact": true,
+      "http_transmissions_upper_bound_for_started_decisions": 2,
+      "http_transmissions_used": 2,
+      "maximum_http_transmissions_total": 8,
+      "oracle_selection_authorized": true,
+      "pool_decision_count_expected": 2,
+      "pool_decision_count_started": 2,
+      "pool_outcomes": [
+        {
+          "attempt_count": 1,
+          "oracle_selection_authorized": true,
+          "outcome_sha256": "c9404876fe2f68d0622f2a13636cae39179a5647b3e0057823d4a68b7f103e08",
+          "pool_index": 0,
+          "request_id": "dapigen-scicf-single-iteration-integration-smoke-v3-pool-00-job-4736",
+          "selected_intervention_ids": [
+            "cf-6ff223aff62da0b8",
+            "cf-1c523d7d070572e3",
+            "cf-eb2c755c0867c3a8",
+            "cf-85d775bcf7b7c736"
+          ],
+          "semantic_repair_count": 0,
+          "status": "validated",
+          "usage": {
+            "completion_tokens": 113,
+            "http_transmissions_observed": 1,
+            "prompt_tokens": 7732,
+            "returned_content_count": 1,
+            "token_accounting_complete": true
+          }
+        },
+        {
+          "attempt_count": 1,
+          "oracle_selection_authorized": true,
+          "outcome_sha256": "dcdc844b1404a2a2921d75d3289b7b0b69d429bbf9d8805ab4734ccae829f690",
+          "pool_index": 1,
+          "request_id": "dapigen-scicf-single-iteration-integration-smoke-v3-pool-01-job-4736",
+          "selected_intervention_ids": [
+            "cf-9eaa24c0e992c61f",
+            "cf-db42dfb825ada4e5",
+            "cf-710f4dd423428638",
+            "cf-58eda5102428641e"
+          ],
+          "semantic_repair_count": 0,
+          "status": "validated",
+          "usage": {
+            "completion_tokens": 155,
+            "http_transmissions_observed": 1,
+            "prompt_tokens": 7749,
+            "returned_content_count": 1,
+            "token_accounting_complete": true
+          }
+        }
+      ],
+      "reported_tokens": {
+        "completion": 268,
+        "prompt": 15481
+      },
+      "returned_content_count": 2,
+      "selected_intervention_ids": [
+        "cf-6ff223aff62da0b8",
+        "cf-1c523d7d070572e3",
+        "cf-eb2c755c0867c3a8",
+        "cf-85d775bcf7b7c736",
+        "cf-9eaa24c0e992c61f",
+        "cf-db42dfb825ada4e5",
+        "cf-710f4dd423428638",
+        "cf-58eda5102428641e"
+      ],
+      "semantic_attempt_count": 2,
+      "semantic_repair_count": 0,
+      "status": "validated_all_pools",
+      "token_accounting_complete": true
+    },
+    "auxiliary_status": "applied",
+    "circuit_breaker": {
+      "config": {
+        "abstention_is_recoverable": true,
+        "circuit_cooldown_iterations": 3,
+        "maximum_consecutive_llm_failures": 2,
+        "no_pair_mass_is_recoverable": true,
+        "primary_ppo_checkpoint_required": true
+      },
+      "consecutive_llm_failures": 0,
+      "open_until_iteration": 0,
+      "schema_version": 1
+    },
+    "continue_training": true,
+    "iteration": 1,
+    "method_observed": "ppo_plus_scicf_soft_pair",
+    "primary_ppo_status": "committed_before_llm",
+    "refinement": {
+      "attempted_optimizer_steps": 1,
+      "candidate_ids": [
+        "cf-6ff223aff62da0b8",
+        "cf-9eaa24c0e992c61f",
+        "cf-710f4dd423428638",
+        "cf-58eda5102428641e"
+      ],
+      "continue_primary_training": true,
+      "counterfactual_actions_in_ppo_clipping": false,
+      "gradient_norm": 3.0528485774993896,
+      "llm_confidence_used_for_weight": false,
+      "maximum_joint_kl": -2.893630153266713e-07,
+      "mean_joint_kl": -2.893630153266713e-07,
+      "method_observed": "ppo_plus_scicf_soft_pair",
+      "optimizer_steps": 1,
+      "oracle_empirical_confidence_used_for_weight": true,
+      "pairwise_loss": 0.7544529438018799,
+      "policy_sha256_after": "3930edbd5450eb2e7e85f84c1c8313e710c0be42090bbd0a7cee3c401eb2ba1e",
+      "policy_sha256_before": "ce518902a2321fa0968c200bc0850a6f753f60b4ec88075054582db22cd11b2f",
+      "policy_version_after": 2,
+      "policy_version_before": 1,
+      "refinement_config": {
+        "delta_tolerance": 0.005,
+        "learning_rate": 1e-05,
+        "maximum_gradient_norm": 0.5,
+        "maximum_weight": 2.0,
+        "target_kl": 0.01
+      },
+      "soft_pair_gate": {
+        "config": {
+          "beta_prior_alpha": 0.5,
+          "magnitude_scale": 0.05,
+          "maximum_single_pair_mass_fraction": 0.75,
+          "maximum_training_weight": 2.0,
+          "minimum_effective_pair_mass": 0.5,
+          "minimum_training_weight": 0.05,
+          "minimum_weighted_candidate_count": 2,
+          "practical_delta_tolerance": 0.005,
+          "replicates": 5
+        },
+        "continue_primary_training": true,
+        "effective_pair_mass": 1.6716666666666664,
+        "eligible_for_optional_update": true,
+        "failures": [],
+        "maximum_single_pair_mass_fraction": 0.29910269192422734,
+        "total_training_weight": 3.343333333333333,
+        "weighted_candidate_count": 4
+      },
+      "status": "applied",
+      "weights": [
+        1.0,
+        0.8999999999999999,
+        0.8999999999999999,
+        0.5433333333333332
+      ]
+    },
+    "scicf_applied": true,
+    "silent_fallback_used": false
+  },
+  "candidate_pools": [
+    {
+      "abstained": false,
+      "candidate_ids": [
+        "cf-1c523d7d070572e3",
+        "cf-6db1eee0d0d65fac",
+        "cf-dc366dc6134d74ee",
+        "cf-b3f73e0958b6869b",
+        "cf-ea41c7aa45b898d6",
+        "cf-85d775bcf7b7c736",
+        "cf-c80d6985f6ebbeba",
+        "cf-1f4d3d0e65760e5b",
+        "cf-b10accc46e562ee4",
+        "cf-29b788953d35f39a",
+        "cf-3e75b889d203d682",
+        "cf-170ca968d1effe63",
+        "cf-7226e648cd24b8ca",
+        "cf-6ff223aff62da0b8",
+        "cf-9adc9963880d974e",
+        "cf-7302ffe3fd00cc0d",
+        "cf-50cc6aeebb4bb7b0",
+        "cf-eb2c755c0867c3a8",
+        "cf-f5bd7c8579d79372",
+        "cf-f6b018b21b196a45",
+        "cf-af933d5b3326b81e",
+        "cf-b9c18247a47f74bc",
+        "cf-4b3786a34f5aa1ad",
+        "cf-f4fa0a99c7022781"
+      ],
+      "candidate_timesteps": [
+        0,
+        1,
+        2
+      ],
+      "episode_id": 52,
+      "policy_score_exposed": false,
+      "pool_index": 0,
+      "presented_ids_match_pool": true,
+      "reward_truth_exposed": false,
+      "selected_ids": [
+        "cf-6ff223aff62da0b8",
+        "cf-1c523d7d070572e3",
+        "cf-eb2c755c0867c3a8",
+        "cf-85d775bcf7b7c736"
+      ]
+    },
+    {
+      "abstained": false,
+      "candidate_ids": [
+        "cf-cdf0e14637db7eef",
+        "cf-924bf3bdc10273e4",
+        "cf-7252e9af2361087b",
+        "cf-a4580f0e8ce7275b",
+        "cf-f59dd9e26cb6f0a5",
+        "cf-8a13919698f2afa4",
+        "cf-6830a20cd74b6575",
+        "cf-710f4dd423428638",
+        "cf-3af365f8462263a6",
+        "cf-e5ed8afa69011ade",
+        "cf-db42dfb825ada4e5",
+        "cf-c7c6581f0b0e2383",
+        "cf-58dd6156fcf88bc4",
+        "cf-d10cebd2a4927c31",
+        "cf-f09f1a7317dae1b9",
+        "cf-15fd2963643a1524",
+        "cf-617bc9c51f5a89b2",
+        "cf-e92b6b20e1ee1be7",
+        "cf-9a3926668da2c371",
+        "cf-e952949ebf28b4c7",
+        "cf-31d9901e59463e0b",
+        "cf-58eda5102428641e",
+        "cf-9eaa24c0e992c61f",
+        "cf-7d291125cb068e61"
+      ],
+      "candidate_timesteps": [
+        0,
+        1
+      ],
+      "episode_id": 8,
+      "policy_score_exposed": false,
+      "pool_index": 1,
+      "presented_ids_match_pool": true,
+      "reward_truth_exposed": false,
+      "selected_ids": [
+        "cf-9eaa24c0e992c61f",
+        "cf-db42dfb825ada4e5",
+        "cf-710f4dd423428638",
+        "cf-58eda5102428641e"
+      ]
+    }
+  ],
+  "classification": {
+    "algorithm_effectiveness_established": false,
+    "continue_training": true,
+    "formal_training_authorized": false,
+    "integrity_failures": [],
+    "method_observed": "ppo_plus_scicf_soft_pair",
+    "multi_iteration_training_authorized": false,
+    "real_run_does_not_authorize_next_scope": true,
+    "scientific_claim_authorized": false,
+    "scope": "single-iteration-v3-engineering-only"
+  },
+  "elapsed_seconds": 52.954212836921215,
+  "evaluator_asset": {
+    "asset_binding_id": "dapigen-reconstructed-afp-compatibility-evaluator-v1",
+    "asset_binding_sha256": "67cd8ed2c2cf29c823985a889033bc7ee3f0c898b82e32d992c2c34917d80eb9",
+    "asset_fingerprint": "0bdcea6155f5a53acd94afd322d408fe3e31c02cf13778a0c65f5f0938096ab4",
+    "asset_path": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v23-mask-dev-20260904/RL_PPO/GNN/model",
+    "compatibility_mode": "reconstructed-afp-compatibility",
+    "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "original_author_weights": false,
+    "required_file_count": 13,
+    "required_file_sha256": {
+      "Ensemble_cte_AFP_56.pt": "862ca8a97392302ad91bf784685c3b6af0b8439d4d5aa9439a01df38c2ca2d14",
+      "Ensemble_cte_AFP_settings.csv": "e50b62726b991aa991935ccfc0d994a7ae5362b418b876c3fd98294edd1dc38a",
+      "Ensemble_strength_AFP_84.pt": "078b0a5a67781e3d6f7dc488d09e41d87d555ed7fe6ee490ea2ddcd1ab7e6541",
+      "Ensemble_strength_AFP_settings.csv": "363df230aec1e6996301afc9f16308a10cfd093c0345c4d6d59fa0f701ba1260",
+      "Ensemble_tg_AFP_64.pt": "c333c54fe983e5924dcece1af6360c5a9cbbca5ca0b9f2063429b33d80dfbdd2",
+      "Ensemble_tg_AFP_settings.csv": "2d3a3b3bea5e6c636f6aeb493b8809fbefa88b0630a5fef2265c7dfe5f412123",
+      "Ensemble_transmittance(400)_AFP_43.pt": "a2220756d8faea96e29d768119ea13cf39a0c894a8c1664ba6fe5c2bac8a1bc0",
+      "Ensemble_transmittance(400)_AFP_settings.csv": "231e708ddd7ceb62b41d03dd6958c3f65bf47410defc9b32cf1328dbed64a448",
+      "cte_scaler.pkl": "c114884f6faef9efd6a1d6815969e0a0ab8f48a7c10ab9ab22638cf8cffc47c6",
+      "fpscores.pkl.gz": "10dcef9340c873e7b987924461b0af5365eb8dd96be607203debe8ddf80c1e73",
+      "strength_scaler.pkl": "22128758962a089e4ce6a52c6b9453aa53fd056c2af9f3889040b4df2b2263c8",
+      "tg_scaler.pkl": "567d3654755a7d966d649b571950e28ef9ebe1596e7d8eacaef867c8bac8f3c5",
+      "transmittance(400)_scaler.pkl": "5bde8e80e9996dbf0a983bcdc3c0981337fe3757252b5276af30dd0c14e4838c"
+    },
+    "validated_before_credentials": true
+  },
+  "evaluator_route_source_delta": {
+    "accepted_commit": "373b3291ac04dbf654c134bee2ca61a0c86d1a68",
+    "allowed_paths": [
+      "RL_PPO/envs/evaluator.py"
+    ],
+    "current_file_sha256": {
+      "RL_PPO/envs/evaluator.py": "90b27f5947dc9fbe9c6b4220f2fbbbb43ad82ff4ca552d7e7ac7ce82c6e420e1"
+    },
+    "exact": true,
+    "observed_paths": [
+      "RL_PPO/envs/evaluator.py"
+    ]
+  },
+  "execution_status": "passed",
+  "external_api_invoked": true,
+  "final_checkpoint": {
+    "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-single-iteration-v3-real-schema4-93501f3-20260907/final-single-iteration-v3-checkpoint.pt",
+    "sha256": "787188787b078b7db8892bf4b7cfebb6f0f7c9007106f1360811e1c47599642b"
+  },
+  "final_evaluator_ledger": {
+    "allowed_sources": [
+      "evaluation",
+      "scicf_ppo/counterfactual",
+      "scicf_ppo/factual",
+      "scicf_ppo/on_policy"
+    ],
+    "backend_by_source": {
+      "scicf_ppo/counterfactual": 16,
+      "scicf_ppo/factual": 11,
+      "scicf_ppo/on_policy": 27
+    },
+    "backend_calls": 54,
+    "budget_protocol_version": "terminal-requested-unique-backend-v2",
+    "cache_entries": 54,
+    "cache_hit_rate": 0.15625,
+    "cache_hits": 10,
+    "cache_scope": "scicf_single_iteration_integration_v2",
+    "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "invalid_results": 0,
+    "maximum_requested_calls": 512,
+    "maximum_unique_calls": 512,
+    "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+    "remaining_requested_calls": 448,
+    "remaining_unique_calls": 458,
+    "requested_by_source": {
+      "scicf_ppo/counterfactual": 26,
+      "scicf_ppo/factual": 11,
+      "scicf_ppo/on_policy": 27
+    },
+    "requested_calls": 64,
+    "unique_by_source": {
+      "scicf_ppo/counterfactual": 16,
+      "scicf_ppo/factual": 11,
+      "scicf_ppo/on_policy": 27
+    },
+    "unique_calls": 54
+  },
+  "host": "yanlih100n1",
+  "local_model_invoked": false,
+  "module_decision": "primary_ppo_committed_auxiliary_applied",
+  "pairwise_refinement": {
+    "full_candidate_support_drift": {
+      "maximum_absolute_value_drift": 0.0012129470705986023,
+      "maximum_diamine_kl": 2.69834345090203e-07,
+      "maximum_dianhydride_kl": 1.8526543499319814e-07,
+      "maximum_joint_kl": 2.69834345090203e-07,
+      "maximum_non_target_factor_kl": 0.0,
+      "maximum_target_factor_kl": 2.69834345090203e-07,
+      "mean_absolute_value_drift": 0.0003213956952095032,
+      "mean_diamine_kl": 4.497239084836716e-08,
+      "mean_dianhydride_kl": 3.883985755237518e-08,
+      "mean_joint_kl": 8.381224840074235e-08,
+      "mean_non_target_factor_kl": 0.0,
+      "mean_target_factor_kl": 8.381224840074235e-08
+    },
+    "receipt": {
+      "attempted_optimizer_steps": 1,
+      "candidate_ids": [
+        "cf-6ff223aff62da0b8",
+        "cf-9eaa24c0e992c61f",
+        "cf-710f4dd423428638",
+        "cf-58eda5102428641e"
+      ],
+      "continue_primary_training": true,
+      "counterfactual_actions_in_ppo_clipping": false,
+      "gradient_norm": 3.0528485774993896,
+      "llm_confidence_used_for_weight": false,
+      "maximum_joint_kl": -2.893630153266713e-07,
+      "mean_joint_kl": -2.893630153266713e-07,
+      "method_observed": "ppo_plus_scicf_soft_pair",
+      "optimizer_steps": 1,
+      "oracle_empirical_confidence_used_for_weight": true,
+      "pairwise_loss": 0.7544529438018799,
+      "policy_sha256_after": "3930edbd5450eb2e7e85f84c1c8313e710c0be42090bbd0a7cee3c401eb2ba1e",
+      "policy_sha256_before": "ce518902a2321fa0968c200bc0850a6f753f60b4ec88075054582db22cd11b2f",
+      "policy_version_after": 2,
+      "policy_version_before": 1,
+      "refinement_config": {
+        "delta_tolerance": 0.005,
+        "learning_rate": 1e-05,
+        "maximum_gradient_norm": 0.5,
+        "maximum_weight": 2.0,
+        "target_kl": 0.01
+      },
+      "soft_pair_gate": {
+        "config": {
+          "beta_prior_alpha": 0.5,
+          "magnitude_scale": 0.05,
+          "maximum_single_pair_mass_fraction": 0.75,
+          "maximum_training_weight": 2.0,
+          "minimum_effective_pair_mass": 0.5,
+          "minimum_training_weight": 0.05,
+          "minimum_weighted_candidate_count": 2,
+          "practical_delta_tolerance": 0.005,
+          "replicates": 5
+        },
+        "continue_primary_training": true,
+        "effective_pair_mass": 1.6716666666666664,
+        "eligible_for_optional_update": true,
+        "failures": [],
+        "maximum_single_pair_mass_fraction": 0.29910269192422734,
+        "total_training_weight": 3.343333333333333,
+        "weighted_candidate_count": 4
+      },
+      "status": "applied",
+      "weights": [
+        1.0,
+        0.8999999999999999,
+        0.8999999999999999,
+        0.5433333333333332
+      ]
+    },
+    "value_head_sha256_after": "3e3d39a26ab9572e18cb169bcf2cb6e7869c2eefca5110920353e81973a7d841",
+    "value_head_sha256_before": "3e3d39a26ab9572e18cb169bcf2cb6e7869c2eefca5110920353e81973a7d841",
+    "weighted_metrics_after": {
+      "maximum_signed_margin": -0.005322933197021484,
+      "minimum_signed_margin": -0.21605777740478516,
+      "total_training_weight": 3.343333333333333,
+      "weighted_candidate_count": 4,
+      "weighted_mean_pairwise_loss": 0.7541010862732763,
+      "weighted_mean_signed_margin": -0.1170201448952094,
+      "weighted_preference_accuracy": 0.0
+    },
+    "weighted_metrics_before": {
+      "maximum_signed_margin": -0.006022930145263672,
+      "minimum_signed_margin": -0.2166743278503418,
+      "total_training_weight": 3.343333333333333,
+      "weighted_candidate_count": 4,
+      "weighted_mean_pairwise_loss": 0.7544529558936122,
+      "weighted_mean_signed_margin": -0.11768591463387548,
+      "weighted_preference_accuracy": 0.0
+    }
+  },
+  "platform": "Linux-4.18.0-553.63.1.el8_10.x86_64-x86_64-with-glibc2.17",
+  "policy_hashes": {
+    "after_standard_ppo": "ce518902a2321fa0968c200bc0850a6f753f60b4ec88075054582db22cd11b2f",
+    "behavior": "3218aeada82b9a49b306eaa345cde010693222d13952e1708f3767432c503b59",
+    "final": "3930edbd5450eb2e7e85f84c1c8313e710c0be42090bbd0a7cee3c401eb2ba1e",
+    "initial": "3218aeada82b9a49b306eaa345cde010693222d13952e1708f3767432c503b59"
+  },
+  "polybert_asset": {
+    "asset_binding_id": "dapigen-polybert-reconstructed-compatibility-e7dce434-fulltree-v1",
+    "asset_binding_sha256": "7e2f1cf5caa38d3d42e7ebe2599435ec306aa74e2cffeb9c2cac23408876a7ed",
+    "checkpoint_fingerprint": "6bdd24f951dd90d3031e749ef0130752811bfefe6c850af82b805cf015ea195f",
+    "encoder_version": "polybert-sha256:6bdd24f951dd90d3031e749e",
+    "model_path": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v23-mask-dev-20260904/RL_PPO/models",
+    "required_file_count": 14,
+    "required_file_sha256": {
+      ".gitattributes": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+      "1_Pooling/config.json": "683f6c40a16773ff51acae0782c2feadf657d547d83839cb3ceae12559674ac5",
+      "README.md": "86ebef16b6ab84cddc0039f68a9e0f42ff364aca27d7bc86c56265a54931d915",
+      "added_tokens.json": "8279a702dd980b8470bf5e18b8880a0bdc8ab015aff6d39442d03b4aa8daa37f",
+      "config.json": "ad391d9de8f9eff355554a7bb4635714250e1079f51b6b973f46d8b008be559a",
+      "config_sentence_transformers.json": "1241b64de469187877d2734714c906b23fbdf82da16dca63205e88e07b55f7ae",
+      "model.safetensors": "21cfab4a3b0599852fb8ef529a67e41632246b9256ed834938ba9b46cb24148f",
+      "modules.json": "8f4b264b80206c830bebbdcae377e137925650a433b689343a63bdc9b3145460",
+      "pytorch_model.bin": "469d1928fe140f3d8d93f69e69a11aebf540e7a2043b38a9a6758cf0bb640a9c",
+      "sentence_bert_config.json": "ec8e29d6dcb61b611b7d3fdd2982c4524e6ad985959fa7194eacfb655a8d0d51",
+      "special_tokens_map.json": "311de3f4eed9d76a43bf0d71f10e62e086ca65ccce9f15d5da0d2098bf519ecc",
+      "spm.model": "2285839ce5a54c35acd7a59c38e531c243a5c46476e1ba11080bf11d303618d5",
+      "tokenizer.json": "89891f8a97ba93608626d704722a8243fb64c700f4e9b09edcebe794680d3c78",
+      "tokenizer_config.json": "a7fe4028e90570619c41417ade2b7135b2ff56fb93a33fbac14ff42cc22de7d0"
+    },
+    "upstream_polybert_identity_verified": false,
+    "validated_before_credentials": true
+  },
+  "primary_ppo_checkpoint": {
+    "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-single-iteration-v3-real-schema4-93501f3-20260907/primary-ppo-checkpoint-before-llm.pt",
+    "sha256": "b627609ba6d1c65a1c0865e0cc3720cba35a8ed5dc74878ad3613aa680a9b041",
+    "written_before_credentials_and_llm": true
+  },
+  "protocol_id": "dapigen-scicf-single-iteration-integration-smoke-v3",
+  "protocol_sha256": "57d7a06c8e519370b2cbb70330db4132bc08e7ff24e1fefa393ef13467b2d925",
+  "provider_public_identity_written": true,
+  "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "resources": {
+    "peak_rss_mib": 1608.70703125
+  },
+  "run_contract": {
+    "allowed_evaluator_sources": [
+      "evaluation",
+      "scicf_ppo/counterfactual",
+      "scicf_ppo/factual",
+      "scicf_ppo/on_policy"
+    ],
+    "budget_contract_id": "51c96f1d3c9bae806de79e9b0a3db9dfba125cd37d782eecd816d90b7314223e",
+    "credit_estimator_contract_id": "dapigen-p2-credit-estimator-v1",
+    "environment_id": "dapigen:8004c1fa2055a186b4a4f3ed",
+    "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "method": "scicf_ppo",
+    "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+    "ppo_engine_contract_id": "dapigen-p2-single-ppo-engine-v1",
+    "ppo_hyperparameters_sha256": "7f2c215f51f90b3bb7f210af3d03b2fde789bd4526e6da9797ab48fdeface462",
+    "task_contract_id": "237bfedb2bfa364f3251b47c4e6f83f1ba99ad698c7e1cdde65c62c9f1d0768e"
+  },
+  "schema_version": 1,
+  "sealed_test_accessed": false,
+  "slurm_job_id": "4736",
+  "soft_pair_config_sha256": "97ed1bcf468293faa5c9e0eafb2dfde819061c201996ccbbcaf6b66bacce7173",
+  "source": {
+    "branch": "HEAD",
+    "commit": "93501f33cf4594791b31a805b153bf1accc94538",
+    "dirty": false,
+    "tags": []
+  },
+  "stack_specification": {
+    "chemistry_backend": "dapigen-legacy-chemistry-deterministic-v2:dapigen_custom-sha256-e9f66fcccf1fe399:rdkit-2022.09.5",
+    "config": {
+      "attachment_label_max": 16,
+      "complete_block_policy": "pristine_only",
+      "environment_version": "dapigen-stage0-standard-v2.3",
+      "failure_reward": 0.0,
+      "horizon_semantics": "failure_terminal",
+      "include_terminal_candidates_in_info": false,
+      "invalid_action_handling": "raise",
+      "mask_mode": "closure_exact_cached",
+      "max_atoms": 60,
+      "max_steps": 5,
+      "minimum_diamine_growth_steps": 0,
+      "minimum_dianhydride_growth_steps": 0,
+      "observation_mode": "augmented_v3",
+      "product_selection": "seeded_uniform"
+    },
+    "diamine_catalog_sha256": "0a91e1b7084692136139379b69a06301ed510750dc8f32220cee0cba6a49100a",
+    "diamine_noop_id": 1004,
+    "dianhydride_catalog_sha256": "0a021f30b960a251b763ef6c0e0133e4f6d1214c1fa91da272a2cb241693b934",
+    "dianhydride_noop_id": 576,
+    "encoder_version": "polybert-sha256:6bdd24f951dd90d3031e749e",
+    "environment_id": "dapigen:8004c1fa2055a186b4a4f3ed",
+    "environment_version": "dapigen-stage0-standard-v2.3",
+    "initial_diamine_smiles": "[16*]c1ccc(N)cc1",
+    "initial_dianhydride_smiles": "[16*]c1ccc2c(c1)C(=O)OC2=O",
+    "number_of_diamine_actions": 1005,
+    "number_of_dianhydride_actions": 577,
+    "observation_dimension": 1246,
+    "product_selection_estimand": "common-uniform-quantile-over-sorted-unique-products-v1",
+    "state_schema_version": 3
+  },
+  "standard_ppo": {
+    "actor_advantages_sha256": "2e335afbd5fe9814adfd5f1211826a5034593f1d0e04ddbf7ff3490f3bb23006",
+    "batch_id": "p2b-000000-22981cac23f6160f",
+    "credit_evaluator_delta": {
+      "backend_calls": 0,
+      "cache_hits": 0,
+      "requested_by_source": {},
+      "requested_calls": 0,
+      "unique_calls": 0
+    },
+    "critic_returns_sha256": "f75222dfd511776262962b70aff2fd0af556493814cd58d17b68b12d99dadf67",
+    "gae_sha256": "2e335afbd5fe9814adfd5f1211826a5034593f1d0e04ddbf7ff3490f3bb23006",
+    "rollout_digest": "7f2d2be54036835c3d59189391313ac3daa911f7cf3613613e1dde110da9e468",
+    "rollout_evaluator_delta": {
+      "backend_calls": 27,
+      "cache_hits": 0,
+      "requested_by_source": {
+        "scicf_ppo/on_policy": 27
+      },
+      "requested_calls": 27,
+      "unique_calls": 27
+    },
+    "successful_terminal_count": 27,
+    "transition_count": 128,
+    "update_metrics": {
+      "actor_loss": -0.028126218356192112,
+      "approximate_kl": 0.008422786369919777,
+      "clip_fraction": 0.05078125,
+      "entropy": 9.375167846679688,
+      "optimizer_steps": 8.0,
+      "stopped_for_target_kl": 0.0,
+      "value_loss": 0.1083287859801203
+    },
+    "update_receipt": {
+      "actor_advantages_sha256": "2e335afbd5fe9814adfd5f1211826a5034593f1d0e04ddbf7ff3490f3bb23006",
+      "critic_returns_sha256": "f75222dfd511776262962b70aff2fd0af556493814cd58d17b68b12d99dadf67",
+      "engine_contract_id": "dapigen-p2-single-ppo-engine-v1",
+      "optimizer_step_completed": true,
+      "policy_version_after": 1,
+      "policy_version_before": 0,
+      "source_batch_id": "p2b-000000-22981cac23f6160f"
+    }
+  },
+  "verification": {
+    "ledger_delta": {
+      "backend_calls": 27,
+      "cache_hits": 10,
+      "requested_by_source": {
+        "scicf_ppo/counterfactual": 26,
+        "scicf_ppo/factual": 11
+      },
+      "requested_calls": 37,
+      "unique_calls": 27
+    },
+    "replicates": 5,
+    "selected_only": true,
+    "soft_weighted_count": 4,
+    "verified_count": 8
+  }
+}

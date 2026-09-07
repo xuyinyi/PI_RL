@@ -1,0 +1,30 @@
+{
+  "attempt_index": 0,
+  "raw_capture_file": "attempt-00-raw-response.json",
+  "raw_capture_sha256": "8f57c389ca0a954e0eed5af9ae07c4c84eb7f966128e714a6ba684e8e527d955",
+  "raw_was_captured_before_validation": true,
+  "request_id": "dapigen-scicf-single-iteration-integration-smoke-v3-pool-00-job-4736",
+  "schema_version": 1,
+  "status": "validated",
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": null,
+    "ranked_intervention_ids": [
+      "cf-6ff223aff62da0b8",
+      "cf-1c523d7d070572e3",
+      "cf-eb2c755c0867c3a8",
+      "cf-85d775bcf7b7c736"
+    ],
+    "reasoning": "Selected interventions at early timesteps that introduce rigid, aromatic, or fluorinated motifs to potentially improve thermal/mechanical properties while maintaining synthetic accessibility. Prioritized those with complete building blocks and plausible attachment compatibility.",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-6ff223aff62da0b8",
+      "cf-1c523d7d070572e3",
+      "cf-eb2c755c0867c3a8",
+      "cf-85d775bcf7b7c736"
+    ]
+  },
+  "validation_error": null,
+  "validation_error_code": null
+}
