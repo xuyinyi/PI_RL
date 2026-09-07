@@ -1,0 +1,2 @@
+job_id=4690 host=yanlih100n1 cpus=2 protocol=dapigen-scicf-single-iteration-integration-smoke-v2
+scope=mock-only-preflight external_api=disabled credentials=disabled ppo=disabled oracle=disabled

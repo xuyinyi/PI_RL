@@ -2,11 +2,11 @@
 
 Status date: 2026-09-07
 
-Plan status: **the LLM response-schema robustness development gate passed after
-the single-iteration integration no-go, and the separate integration-v2
-protocol is now frozen but unimplemented and unexecuted; real API/PPO reruns,
-multi-iteration training, historical sealed tests, and all scientific claim
-gates remain closed**
+Plan status: **the separate integration-v2 protocol is frozen and its
+authorization-gated runner passed mock-only n001 Slurm preflight; the real
+single-iteration run still requires separate authorization, while automatic
+reruns, multi-iteration training, historical sealed tests, and all scientific
+claim gates remain closed**
 
 ## 2026-09-06 architecture-first amendment
 
@@ -94,7 +94,7 @@ authorize a DeepSeek call, integration rerun, or multi-iteration training.
 Evidence is under
 `reproduction/results/scicf-schema-robustness-dev-20260907/`.
 
-The sixth coordinate is the unexecuted protocol
+The sixth coordinate began as the unexecuted protocol
 `dapigen-scicf-single-iteration-integration-smoke-v2`. It freezes v1's seed,
 PPO, candidate construction, two 24-candidate pools, `B=4`, selected-only `K=2`
 verification, pairwise update, and thresholds. The only permitted implementation
@@ -102,9 +102,19 @@ delta is to route both DeepSeek decisions through the accepted bounded response
 guard and to emit a terminal fail-closed report if either guard is exhausted.
 The protocol distinguishes two pool decisions, at most four schema attempts,
 and at most eight HTTP transmissions. This protocol freeze authorizes no
-implementation, server preflight, credential load, DeepSeek request, PPO,
-Oracle verification, rerun, or multi-iteration training. See
-`reproduction/scicf/online/SINGLE_ITERATION_INTEGRATION_V2_PROTOCOL.md`.
+real execution, credential load, DeepSeek request, PPO, Oracle verification,
+rerun, or multi-iteration training.
+
+The authorization-gated v2 runner was subsequently implemented at clean commit
+`05c92e587b9e50c1f23b83f271c95243724da33c`. CPU-only n001 Slurm Job 4692
+passed 25 tests and all 19 mock-preflight checks after a transport-accounting
+correction. The accepted preflight used six in-memory completions and zero
+external API requests, credential loads, PPO steps, Oracle calls, local models,
+or sealed-test accesses. Its decision admits only requesting a separate,
+single-run real-execution authorization; it does not provide that authorization
+or open multi-iteration training. See
+`reproduction/scicf/online/SINGLE_ITERATION_INTEGRATION_V2_PROTOCOL.md` and
+`reproduction/results/scicf-single-iteration-integration-v2-preflight-20260907/`.
 
 ## 1. Authority and scope
 

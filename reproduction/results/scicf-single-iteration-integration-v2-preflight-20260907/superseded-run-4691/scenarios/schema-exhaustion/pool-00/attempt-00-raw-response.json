@@ -1,0 +1,22 @@
+{
+  "api_key_logged": false,
+  "attempt_index": 0,
+  "attempt_kind": "initial",
+  "capture_status": "captured_before_validation",
+  "completion_tokens": 8,
+  "prompt_tokens": 20,
+  "protocol_id": "dapigen-scicf-llm-schema-robustness-dev-v1",
+  "provider": {
+    "external_api": false,
+    "provider_id": "mock-v2-no-network"
+  },
+  "provider_response_id": "mock-v2-00",
+  "provider_response_sha256": "bd78a5e90d55744cabc163c9efab38cabcf9e505307b5744def9bd97c58f02ed",
+  "raw_response": "{\"abstain\": false, \"ranked_intervention_ids\": [\"cf-x\"]}",
+  "raw_response_text_sha256": "bd78a5e90d55744cabc163c9efab38cabcf9e505307b5744def9bd97c58f02ed",
+  "request_id": "integration-v2-preflight-pool-00",
+  "schema_version": 1,
+  "system_fingerprint": "mock-no-network",
+  "total_tokens": 28,
+  "transport_retries_used": 0
+}

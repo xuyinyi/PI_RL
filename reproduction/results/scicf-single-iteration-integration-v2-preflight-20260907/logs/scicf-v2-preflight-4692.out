@@ -1,0 +1,6 @@
+job_id=4692 host=yanlih100n1 cpus=2 protocol=dapigen-scicf-single-iteration-integration-smoke-v2
+scope=mock-only-preflight external_api=disabled credentials=disabled ppo=disabled oracle=disabled
+.........................                                                [100%]
+25 passed in 4.36s
+{"execution_status": "passed", "failures": [], "module_decision": "go_request_separate_real_single_iteration_execution_authorization", "output": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-integration-v2-preflight-05c92e5"}
+scicf_single_iteration_v2_mock_preflight_complete

@@ -1,0 +1,41 @@
+{
+  "attempt_count": 2,
+  "attempts": [
+    {
+      "attempt_index": 0,
+      "attempt_kind": "initial",
+      "raw_capture_file": "attempt-00-raw-response.json",
+      "raw_capture_sha256": "6c85e6605dc2a9dbe431d24df1bc4ea8f45303630fb7d65d263e07586e8514f6",
+      "request_file": "attempt-00-request.json",
+      "request_sha256": "ab5b7da55d87de0d4e2df349e4abaf66c9540451bd71ccbb900d3035deabef45",
+      "status": "invalid",
+      "validation_error_code": "ranked_response_schema_invalid",
+      "validation_file": "attempt-00-validation.json",
+      "validation_sha256": "dc0c332a529214e29543a19cedfda6721aa504ec871dbb25a9a2db2c6fe1e328"
+    },
+    {
+      "attempt_index": 1,
+      "attempt_kind": "schema_repair",
+      "raw_capture_file": "attempt-01-raw-response.json",
+      "raw_capture_sha256": "468ceef6397f1aa2f255a562e27f19f8ef9c3a836b7bbae04cbed3f80d6ae034",
+      "request_file": "attempt-01-request.json",
+      "request_sha256": "9b3720438209e27b0953b933712812f1c27cf97cef383c85938023fe28952375",
+      "status": "invalid",
+      "validation_error_code": "ranked_response_schema_invalid",
+      "validation_file": "attempt-01-validation.json",
+      "validation_sha256": "fc3897102c158734dbf13c49bc656a242d033814a9357b92652e9e70f2ec5847"
+    }
+  ],
+  "cached_response_substituted": false,
+  "fallback_selection_used": false,
+  "maximum_http_transmissions": 4,
+  "maximum_schema_attempts": 2,
+  "oracle_selection_authorized": false,
+  "raw_capture_complete": true,
+  "request_id": "integration-v2-preflight-pool-00",
+  "schema_version": 1,
+  "selected_intervention_ids": [],
+  "semantic_repair_count": 1,
+  "status": "fail_closed_schema_exhausted",
+  "validated": null
+}

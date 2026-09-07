@@ -9,9 +9,11 @@
 > development gate passed.
 > These are engineering and development evidence only; they do not reopen the
 > sealed test or authorize performance claims. Only a separate integration-v2
-> protocol is now frozen but remains unimplemented and unexecuted; no server
-> preflight, real API/PPO rerun, Oracle call, or multi-iteration scope is
-> authorized. See `reproduction/PROJECT_PLAN.md`,
+> protocol is frozen and its authorization-gated runner passed a mock-only n001
+> Slurm preflight. The real single-iteration execution still requires a separate
+> exact-scope authorization; no real API/PPO rerun, Oracle call, automatic
+> rerun, or multi-iteration scope is authorized. See
+> `reproduction/PROJECT_PLAN.md`,
 > `reproduction/scicf/online/ARCHITECTURE_SMOKE_V1.md`, and
 > `reproduction/scicf/online/ACQUISITION_VERIFIER_DEV_V1.md`, and
 > `reproduction/scicf/online/PAIRWISE_STABILITY_DEV_V1.md`, and

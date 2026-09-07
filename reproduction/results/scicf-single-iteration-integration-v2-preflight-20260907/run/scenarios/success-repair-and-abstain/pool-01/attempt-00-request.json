@@ -1,0 +1,25 @@
+{
+  "api_key_exposed": false,
+  "attempt_index": 0,
+  "attempt_kind": "initial",
+  "candidate_ids_sha256": "23d6070628ea83411fb876392ded1c5a0d70bff8f4ad152ef2caf6ad1eb01ed2",
+  "maximum_budget": 4,
+  "messages": [
+    {
+      "content": "Return one blinded JSON ranking.",
+      "role": "system"
+    },
+    {
+      "content": "{\"candidate_ids\": [\"cf-preflight-01-00\", \"cf-preflight-01-01\", \"cf-preflight-01-02\", \"cf-preflight-01-03\", \"cf-preflight-01-04\", \"cf-preflight-01-05\", \"cf-preflight-01-06\", \"cf-preflight-01-07\", \"cf-preflight-01-08\", \"cf-preflight-01-09\", \"cf-preflight-01-10\", \"cf-preflight-01-11\", \"cf-preflight-01-12\", \"cf-preflight-01-13\", \"cf-preflight-01-14\", \"cf-preflight-01-15\", \"cf-preflight-01-16\", \"cf-preflight-01-17\", \"cf-preflight-01-18\", \"cf-preflight-01-19\", \"cf-preflight-01-20\", \"cf-preflight-01-21\", \"cf-preflight-01-22\", \"cf-preflight-01-23\"], \"maximum_oracle_budget\": 4, \"policy_score_included\": false, \"terminal_reward_or_properties_included\": false}",
+      "role": "user"
+    }
+  ],
+  "messages_sha256": "baf6126e9d5028e0eb7e1deffe5a71b35ada6422b5639d8e942edd9bd662b4c9",
+  "original_prompt_sha256": "baf6126e9d5028e0eb7e1deffe5a71b35ada6422b5639d8e942edd9bd662b4c9",
+  "policy_score_exposed": false,
+  "protocol_id": "dapigen-scicf-llm-schema-robustness-dev-v1",
+  "raw_invalid_response_replayed_to_model": false,
+  "request_id": "integration-v2-preflight-pool-01",
+  "reward_truth_exposed": false,
+  "schema_version": 1
+}
