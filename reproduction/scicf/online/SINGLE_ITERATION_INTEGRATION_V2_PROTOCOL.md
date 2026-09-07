@@ -1,7 +1,7 @@
 # LLM-SciCF single-iteration integration-v2 protocol freeze
 
-Status: **protocol frozen; model-asset-hardened runner passed mock-only
-preflight, but no new real execution is authorized**.
+Status: **protocol frozen; the model-bound real attempt failed before PPO on
+missing evaluator assets, and no further real execution is authorized**.
 
 ## Purpose
 
@@ -109,6 +109,20 @@ CPU-only n001 Slurm Job 4694 passed the resulting mock/preflight at clean commit
 `46aef57c693a4644a52bdfcd337cbc90184ac31e`. This permits only requesting a
 fresh exact one-run authorization. It did not load credentials, call the API,
 run PPO or Oracle verification, or create an execution authorization.
+
+The separately authorized schema-v2 attempt, Job 4695, subsequently passed the
+complete polyBERT boundary but failed during construction of the persistent
+scientific evaluator. The clean implementation worktree lacked the ignored
+reconstructed AFP compatibility weights, scalers, and settings files expected
+under `RL_PPO/GNN/model`. No DeepSeek transmission, PPO iteration, Oracle
+evaluation, or pairwise update occurred.
+
+This exposed a second environment-preflight gap: the external polyBERT asset was
+bound, while evaluator assets were still implicitly resolved from the source
+checkout. A future implementation must explicitly route and hash-bind the
+accepted evaluator assets before credential loading, and its no-credential
+Slurm preflight must construct the complete Stage0 runtime. Job 4695's consumed
+authorization does not cover that repair or another run.
 
 ## Immutable numerical and scientific boundary
 

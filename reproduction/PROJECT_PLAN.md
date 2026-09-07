@@ -2,12 +2,12 @@
 
 Status date: 2026-09-07
 
-Plan status: **the separate integration-v2 protocol is frozen; after the first
-authorized real attempt failed before PPO on an incomplete polyBERT path, the
-runner was hardened with full model-asset binding and passed a new mock-only
-n001 Slurm preflight; a fresh exact one-run authorization is not yet granted,
-and automatic reruns, multi-iteration training, historical sealed tests, and
-all scientific claim gates remain closed**
+Plan status: **the separate integration-v2 protocol is frozen; polyBERT asset
+binding passed its mock preflight and the newly authorized real attempt passed
+that boundary, but then failed before PPO because the implementation worktree
+lacked ignored AFP evaluator assets; the attempt was not rerun, and automatic
+reruns, multi-iteration training, historical sealed tests, and all scientific
+claim gates remain closed**
 
 ## 2026-09-06 architecture-first amendment
 
@@ -140,6 +140,21 @@ external API, PPO, Oracle, local-model, or sealed-test access. Its decision is
 only `go_request_separate_real_single_iteration_execution_authorization`; no
 new authorization or real run was created. Evidence is under
 `reproduction/results/scicf-single-iteration-integration-v2-model-asset-preflight-20260907/`.
+
+The resulting schema-v2 real attempt was submitted exactly once as n001 Slurm
+Job 4695 at implementation commit `46aef57`. Fifty-four tests and the full
+polyBERT path, 14-file, fingerprint, accepted-encoder, and authorization checks
+passed. Runtime construction then failed before PPO because the clean
+implementation worktree did not contain the ignored reconstructed AFP
+compatibility weights, scalers, and settings expected under
+`RL_PPO/GNN/model`. The credentials configuration and local polyBERT were
+loaded, but no DeepSeek transmission, PPO iteration, Oracle evaluation, or
+pairwise update occurred. The authorization is consumed and no automatic rerun
+was submitted. A further attempt requires a separately authorized
+evaluator-asset routing/binding repair, a no-credential n001 Slurm preflight
+that constructs the complete Stage0 runtime, and only then a fresh one-run
+authorization. Evidence is under
+`reproduction/results/scicf-single-iteration-integration-v2-real-modelbound-20260907/`.
 
 ## 1. Authority and scope
 

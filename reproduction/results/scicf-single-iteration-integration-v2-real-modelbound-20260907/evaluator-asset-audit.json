@@ -1,0 +1,58 @@
+{
+  "audit_date": "2026-09-07",
+  "host": "yanlih100n1",
+  "failed_implementation_asset_directory": {
+    "path": "/home/wch/workspaces/DAPiGen-reproduction/scicf-integration-v2-model-asset-preflight-46aef57/RL_PPO/GNN/model",
+    "present_files": {
+      "__init__.py": 0,
+      "fpscores.pkl.gz": 3848394
+    },
+    "missing_compatibility_files": [
+      "transmittance(400)_scaler.pkl",
+      "cte_scaler.pkl",
+      "strength_scaler.pkl",
+      "tg_scaler.pkl",
+      "Ensemble_transmittance(400)_AFP_43.pt",
+      "Ensemble_cte_AFP_56.pt",
+      "Ensemble_strength_AFP_84.pt",
+      "Ensemble_tg_AFP_64.pt",
+      "Ensemble_transmittance(400)_AFP_settings.csv",
+      "Ensemble_cte_AFP_settings.csv",
+      "Ensemble_strength_AFP_settings.csv",
+      "Ensemble_tg_AFP_settings.csv"
+    ]
+  },
+  "verified_compatibility_asset_directory": {
+    "path": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v23-mask-dev-20260904/RL_PPO/GNN/model",
+    "required_file_sha256": {
+      "transmittance(400)_scaler.pkl": "5bde8e80e9996dbf0a983bcdc3c0981337fe3757252b5276af30dd0c14e4838c",
+      "cte_scaler.pkl": "c114884f6faef9efd6a1d6815969e0a0ab8f48a7c10ab9ab22638cf8cffc47c6",
+      "strength_scaler.pkl": "22128758962a089e4ce6a52c6b9453aa53fd056c2af9f3889040b4df2b2263c8",
+      "tg_scaler.pkl": "567d3654755a7d966d649b571950e28ef9ebe1596e7d8eacaef867c8bac8f3c5",
+      "Ensemble_transmittance(400)_AFP_43.pt": "a2220756d8faea96e29d768119ea13cf39a0c894a8c1664ba6fe5c2bac8a1bc0",
+      "Ensemble_cte_AFP_56.pt": "862ca8a97392302ad91bf784685c3b6af0b8439d4d5aa9439a01df38c2ca2d14",
+      "Ensemble_strength_AFP_84.pt": "078b0a5a67781e3d6f7dc488d09e41d87d555ed7fe6ee490ea2ddcd1ab7e6541",
+      "Ensemble_tg_AFP_64.pt": "c333c54fe983e5924dcece1af6360c5a9cbbca5ca0b9f2063429b33d80dfbdd2",
+      "Ensemble_transmittance(400)_AFP_settings.csv": "231e708ddd7ceb62b41d03dd6958c3f65bf47410defc9b32cf1328dbed64a448",
+      "Ensemble_cte_AFP_settings.csv": "e50b62726b991aa991935ccfc0d994a7ae5362b418b876c3fd98294edd1dc38a",
+      "Ensemble_strength_AFP_settings.csv": "363df230aec1e6996301afc9f16308a10cfd093c0345c4d6d59fa0f701ba1260",
+      "Ensemble_tg_AFP_settings.csv": "2d3a3b3bea5e6c636f6aeb493b8809fbefa88b0630a5fef2265c7dfe5f412123"
+    },
+    "existing_asset_gate_ready": true,
+    "asset_label": "reconstructed AFP compatibility baseline",
+    "original_author_weights": false
+  },
+  "diagnosis": "The Job 4694 preflight bound the external polyBERT directory but did not validate that the ignored reconstructed AFP evaluator assets were available to the implementation worktree. PersistentDAPiGenBenchmarkEvaluator derives its model directory from the source checkout root and failed during construction.",
+  "execution_boundary": {
+    "polybert_asset_validation_passed": true,
+    "credentials_configuration_loaded": true,
+    "polybert_model_loaded": true,
+    "initial_polybert_embedding_path_entered": true,
+    "evaluator_construction_completed": false,
+    "external_api_transmissions": 0,
+    "ppo_iterations_started": 0,
+    "oracle_evaluations": 0,
+    "pairwise_updates": 0,
+    "automatic_rerun_submitted": false
+  }
+}

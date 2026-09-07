@@ -20,8 +20,14 @@
 > the exact model path, 14 required-file hashes, and full accepted checkpoint
 > fingerprint are now validated before credentials and bound into future
 > authorization schema version 2. This admits only requesting a fresh one-run
-> authorization; none has been created, and automatic rerun and multi-iteration
-> scope remain closed. See
+> authorization. The schema-v2 attempt was subsequently submitted once as Job
+> 4695 and passed the polyBERT boundary, but failed before PPO because the clean
+> implementation worktree lacked the ignored reconstructed AFP evaluator
+> assets. Credentials configuration and local polyBERT were loaded, but no
+> DeepSeek transmission, PPO, Oracle, or pairwise update occurred. The consumed
+> authorization was not reused. A separately authorized evaluator-asset binding
+> repair and complete-runtime mock/preflight are now required; automatic rerun
+> and multi-iteration scope remain closed. See
 > `reproduction/PROJECT_PLAN.md`,
 > `reproduction/scicf/online/ARCHITECTURE_SMOKE_V1.md`, and
 > `reproduction/scicf/online/ACQUISITION_VERIFIER_DEV_V1.md`, and
@@ -31,7 +37,9 @@
 > `reproduction/scicf/online/SINGLE_ITERATION_INTEGRATION_V2_PROTOCOL.md`, and
 > `reproduction/results/scicf-single-iteration-integration-v2-real-20260907/`,
 > and
-> `reproduction/results/scicf-single-iteration-integration-v2-model-asset-preflight-20260907/`.
+> `reproduction/results/scicf-single-iteration-integration-v2-model-asset-preflight-20260907/`,
+> and
+> `reproduction/results/scicf-single-iteration-integration-v2-real-modelbound-20260907/`.
 
 SciCF-PPO is being added as a feature-gated extension of the frozen
 `dapigen-ppo-compat-baseline-v1` baseline. The upstream PPO clipped objective,

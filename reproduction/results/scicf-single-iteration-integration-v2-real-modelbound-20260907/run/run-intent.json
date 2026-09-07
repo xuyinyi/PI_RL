@@ -1,0 +1,47 @@
+{
+  "accepted_manifest_sha256": "8d4eaa0f72d042384a1eaaa87ae8b9c8728cef490482ead8ea8e350c6cbe8165",
+  "api_key_logged": false,
+  "authorization_id": "user-authorized-scicf-integration-v2-modelbound-one-run-20260907",
+  "authorization_sha256": "22d7550b22132f9f33f4bfc4730aabf279a509f1e8ade6725dad9ac42ea26ad4",
+  "automatic_rerun_authorized": false,
+  "credentials_loaded_at_intent_time": false,
+  "credentials_path_logged": false,
+  "multi_iteration_training_authorized": false,
+  "polybert_asset": {
+    "asset_binding_id": "dapigen-polybert-reconstructed-compatibility-e7dce434-fulltree-v1",
+    "asset_binding_sha256": "7e2f1cf5caa38d3d42e7ebe2599435ec306aa74e2cffeb9c2cac23408876a7ed",
+    "checkpoint_fingerprint": "6bdd24f951dd90d3031e749ef0130752811bfefe6c850af82b805cf015ea195f",
+    "encoder_version": "polybert-sha256:6bdd24f951dd90d3031e749e",
+    "model_path": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v23-mask-dev-20260904/RL_PPO/models",
+    "required_file_count": 14,
+    "required_file_sha256": {
+      ".gitattributes": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+      "1_Pooling/config.json": "683f6c40a16773ff51acae0782c2feadf657d547d83839cb3ceae12559674ac5",
+      "README.md": "86ebef16b6ab84cddc0039f68a9e0f42ff364aca27d7bc86c56265a54931d915",
+      "added_tokens.json": "8279a702dd980b8470bf5e18b8880a0bdc8ab015aff6d39442d03b4aa8daa37f",
+      "config.json": "ad391d9de8f9eff355554a7bb4635714250e1079f51b6b973f46d8b008be559a",
+      "config_sentence_transformers.json": "1241b64de469187877d2734714c906b23fbdf82da16dca63205e88e07b55f7ae",
+      "model.safetensors": "21cfab4a3b0599852fb8ef529a67e41632246b9256ed834938ba9b46cb24148f",
+      "modules.json": "8f4b264b80206c830bebbdcae377e137925650a433b689343a63bdc9b3145460",
+      "pytorch_model.bin": "469d1928fe140f3d8d93f69e69a11aebf540e7a2043b38a9a6758cf0bb640a9c",
+      "sentence_bert_config.json": "ec8e29d6dcb61b611b7d3fdd2982c4524e6ad985959fa7194eacfb655a8d0d51",
+      "special_tokens_map.json": "311de3f4eed9d76a43bf0d71f10e62e086ca65ccce9f15d5da0d2098bf519ecc",
+      "spm.model": "2285839ce5a54c35acd7a59c38e531c243a5c46476e1ba11080bf11d303618d5",
+      "tokenizer.json": "89891f8a97ba93608626d704722a8243fb64c700f4e9b09edcebe794680d3c78",
+      "tokenizer_config.json": "a7fe4028e90570619c41417ade2b7135b2ff56fb93a33fbac14ff42cc22de7d0"
+    },
+    "upstream_polybert_identity_verified": false,
+    "validated_before_credentials": true
+  },
+  "protocol_id": "dapigen-scicf-single-iteration-integration-smoke-v2",
+  "protocol_sha256": "f05df22b15c069f43b6e9cc5013550a97b6c46f79db059e3674f5395de8c3955",
+  "schema_version": 1,
+  "slurm_job_id": "4695",
+  "source": {
+    "branch": "HEAD",
+    "commit": "46aef57c693a4644a52bdfcd337cbc90184ac31e",
+    "dirty": false,
+    "tags": []
+  },
+  "status": "declared_after_authorization_and_model_binding_before_credentials"
+}
