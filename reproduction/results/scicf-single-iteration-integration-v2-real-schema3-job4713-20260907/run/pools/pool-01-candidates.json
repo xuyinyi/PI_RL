@@ -1,0 +1,974 @@
+{
+  "candidates": [
+    {
+      "alternative_action": [
+        213,
+        159
+      ],
+      "alternative_block": {
+        "action_id": 159,
+        "atom_count": 12,
+        "attachment_count": 0,
+        "attachment_labels": [],
+        "canonical_smiles": "Nc1cccc2c(N)cc#cc12",
+        "is_complete_for_side": true,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.0012948570074513555,
+      "candidate_id": "cf-cdf0e14637db7eef",
+      "component": "diamine",
+      "episode_id": 8,
+      "factual_action": [
+        213,
+        981
+      ],
+      "factual_block": {
+        "action_id": 981,
+        "atom_count": 22,
+        "attachment_count": 2,
+        "attachment_labels": [
+          16
+        ],
+        "canonical_smiles": "[16*]c1ccc([16*])c(P(=O)(c2ccccc2)c2ccccc2)c1",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 0,
+      "transition_id": "p2t-000000000013"
+    },
+    {
+      "alternative_action": [
+        64,
+        981
+      ],
+      "alternative_block": {
+        "action_id": 64,
+        "atom_count": 13,
+        "attachment_count": 1,
+        "attachment_labels": [
+          15
+        ],
+        "canonical_smiles": "[15*]C1CC2CC1C1C(=O)OC(=O)C21",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.002336183562874794,
+      "candidate_id": "cf-924bf3bdc10273e4",
+      "component": "dianhydride",
+      "episode_id": 8,
+      "factual_action": [
+        213,
+        981
+      ],
+      "factual_block": {
+        "action_id": 213,
+        "atom_count": 17,
+        "attachment_count": 1,
+        "attachment_labels": [
+          16
+        ],
+        "canonical_smiles": "[16*]c1c(C)c2c(c3ccccc13)C(=O)OC2=O",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 0,
+      "transition_id": "p2t-000000000013"
+    },
+    {
+      "alternative_action": [
+        576,
+        759
+      ],
+      "alternative_block": {
+        "action_id": 759,
+        "atom_count": 23,
+        "attachment_count": 2,
+        "attachment_labels": [
+          8
+        ],
+        "canonical_smiles": "[8*]C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C([8*])(F)F",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.002242881804704666,
+      "candidate_id": "cf-7252e9af2361087b",
+      "component": "diamine",
+      "episode_id": 8,
+      "factual_action": [
+        576,
+        697
+      ],
+      "factual_block": {
+        "action_id": 697,
+        "atom_count": 11,
+        "attachment_count": 2,
+        "attachment_labels": [
+          8
+        ],
+        "canonical_smiles": "[8*]C([8*])(CCCF)C(F)(F)F",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 1,
+      "transition_id": "p2t-000000000014"
+    },
+    {
+      "alternative_action": [
+        213,
+        594
+      ],
+      "alternative_block": {
+        "action_id": 594,
+        "atom_count": 18,
+        "attachment_count": 2,
+        "attachment_labels": [
+          16
+        ],
+        "canonical_smiles": "[16*]c1c2ccc(N)cc2c([16*])c2ccc(N)cc12",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.0012967148795723915,
+      "candidate_id": "cf-a4580f0e8ce7275b",
+      "component": "diamine",
+      "episode_id": 8,
+      "factual_action": [
+        213,
+        981
+      ],
+      "factual_block": {
+        "action_id": 981,
+        "atom_count": 22,
+        "attachment_count": 2,
+        "attachment_labels": [
+          16
+        ],
+        "canonical_smiles": "[16*]c1ccc([16*])c(P(=O)(c2ccccc2)c2ccccc2)c1",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 0,
+      "transition_id": "p2t-000000000013"
+    },
+    {
+      "alternative_action": [
+        131,
+        981
+      ],
+      "alternative_block": {
+        "action_id": 131,
+        "atom_count": 16,
+        "attachment_count": 2,
+        "attachment_labels": [
+          16
+        ],
+        "canonical_smiles": "[16*]c1cccc(C2(C)c3ccc([16*])cc32)c1",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.002345069544389844,
+      "candidate_id": "cf-f59dd9e26cb6f0a5",
+      "component": "dianhydride",
+      "episode_id": 8,
+      "factual_action": [
+        213,
+        981
+      ],
+      "factual_block": {
+        "action_id": 213,
+        "atom_count": 17,
+        "attachment_count": 1,
+        "attachment_labels": [
+          16
+        ],
+        "canonical_smiles": "[16*]c1c(C)c2c(c3ccccc13)C(=O)OC2=O",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 0,
+      "transition_id": "p2t-000000000013"
+    },
+    {
+      "alternative_action": [
+        576,
+        414
+      ],
+      "alternative_block": {
+        "action_id": 414,
+        "atom_count": 9,
+        "attachment_count": 1,
+        "attachment_labels": [
+          3
+        ],
+        "canonical_smiles": "[3*]OC1=CCCC(N)=C1",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.002245156792923808,
+      "candidate_id": "cf-8a13919698f2afa4",
+      "component": "diamine",
+      "episode_id": 8,
+      "factual_action": [
+        576,
+        697
+      ],
+      "factual_block": {
+        "action_id": 697,
+        "atom_count": 11,
+        "attachment_count": 2,
+        "attachment_labels": [
+          8
+        ],
+        "canonical_smiles": "[8*]C([8*])(CCCF)C(F)(F)F",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 1,
+      "transition_id": "p2t-000000000014"
+    },
+    {
+      "alternative_action": [
+        213,
+        393
+      ],
+      "alternative_block": {
+        "action_id": 393,
+        "atom_count": 31,
+        "attachment_count": 0,
+        "attachment_labels": [],
+        "canonical_smiles": "Nc1ccc2c(c1)OCCOCCOc1cc(N)ccc1OCCOCCOCCO2",
+        "is_complete_for_side": true,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.0012977870646864176,
+      "candidate_id": "cf-6830a20cd74b6575",
+      "component": "diamine",
+      "episode_id": 8,
+      "factual_action": [
+        213,
+        981
+      ],
+      "factual_block": {
+        "action_id": 981,
+        "atom_count": 22,
+        "attachment_count": 2,
+        "attachment_labels": [
+          16
+        ],
+        "canonical_smiles": "[16*]c1ccc([16*])c(P(=O)(c2ccccc2)c2ccccc2)c1",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 0,
+      "transition_id": "p2t-000000000013"
+    },
+    {
+      "alternative_action": [
+        86,
+        981
+      ],
+      "alternative_block": {
+        "action_id": 86,
+        "atom_count": 20,
+        "attachment_count": 0,
+        "attachment_labels": [],
+        "canonical_smiles": "O=C1OC(=O)C2CC3C(CCC4C(=O)OC(=O)C43)CC12",
+        "is_complete_for_side": true,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.0023436686024069786,
+      "candidate_id": "cf-710f4dd423428638",
+      "component": "dianhydride",
+      "episode_id": 8,
+      "factual_action": [
+        213,
+        981
+      ],
+      "factual_block": {
+        "action_id": 213,
+        "atom_count": 17,
+        "attachment_count": 1,
+        "attachment_labels": [
+          16
+        ],
+        "canonical_smiles": "[16*]c1c(C)c2c(c3ccccc13)C(=O)OC2=O",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 0,
+      "transition_id": "p2t-000000000013"
+    },
+    {
+      "alternative_action": [
+        576,
+        333
+      ],
+      "alternative_block": {
+        "action_id": 333,
+        "atom_count": 8,
+        "attachment_count": 1,
+        "attachment_labels": [
+          15
+        ],
+        "canonical_smiles": "[15*]C1C=C(N)C=CC1",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.002241866197437048,
+      "candidate_id": "cf-3af365f8462263a6",
+      "component": "diamine",
+      "episode_id": 8,
+      "factual_action": [
+        576,
+        697
+      ],
+      "factual_block": {
+        "action_id": 697,
+        "atom_count": 11,
+        "attachment_count": 2,
+        "attachment_labels": [
+          8
+        ],
+        "canonical_smiles": "[8*]C([8*])(CCCF)C(F)(F)F",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 1,
+      "transition_id": "p2t-000000000014"
+    },
+    {
+      "alternative_action": [
+        213,
+        660
+      ],
+      "alternative_block": {
+        "action_id": 660,
+        "atom_count": 17,
+        "attachment_count": 0,
+        "attachment_labels": [],
+        "canonical_smiles": "NC1=CC2Nc3cc(N)ccc3C(=O)C2C=C1",
+        "is_complete_for_side": true,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.0012938650324940681,
+      "candidate_id": "cf-e5ed8afa69011ade",
+      "component": "diamine",
+      "episode_id": 8,
+      "factual_action": [
+        213,
+        981
+      ],
+      "factual_block": {
+        "action_id": 981,
+        "atom_count": 22,
+        "attachment_count": 2,
+        "attachment_labels": [
+          16
+        ],
+        "canonical_smiles": "[16*]c1ccc([16*])c(P(=O)(c2ccccc2)c2ccccc2)c1",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 0,
+      "transition_id": "p2t-000000000013"
+    },
+    {
+      "alternative_action": [
+        210,
+        981
+      ],
+      "alternative_block": {
+        "action_id": 210,
+        "atom_count": 30,
+        "attachment_count": 0,
+        "attachment_labels": [],
+        "canonical_smiles": "O=C1OC(=O)c2cc3c(cc21)C1c2ccccc2C3c2cc3c(cc21)C(=O)OC3=O",
+        "is_complete_for_side": true,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.0023456793278455734,
+      "candidate_id": "cf-db42dfb825ada4e5",
+      "component": "dianhydride",
+      "episode_id": 8,
+      "factual_action": [
+        213,
+        981
+      ],
+      "factual_block": {
+        "action_id": 213,
+        "atom_count": 17,
+        "attachment_count": 1,
+        "attachment_labels": [
+          16
+        ],
+        "canonical_smiles": "[16*]c1c(C)c2c(c3ccccc13)C(=O)OC2=O",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 0,
+      "transition_id": "p2t-000000000013"
+    },
+    {
+      "alternative_action": [
+        576,
+        603
+      ],
+      "alternative_block": {
+        "action_id": 603,
+        "atom_count": 16,
+        "attachment_count": 1,
+        "attachment_labels": [
+          16
+        ],
+        "canonical_smiles": "[16*]c1c(N)ccc2cc3ccccc3cc12",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.002243579365313053,
+      "candidate_id": "cf-c7c6581f0b0e2383",
+      "component": "diamine",
+      "episode_id": 8,
+      "factual_action": [
+        576,
+        697
+      ],
+      "factual_block": {
+        "action_id": 697,
+        "atom_count": 11,
+        "attachment_count": 2,
+        "attachment_labels": [
+          8
+        ],
+        "canonical_smiles": "[8*]C([8*])(CCCF)C(F)(F)F",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 1,
+      "transition_id": "p2t-000000000014"
+    },
+    {
+      "alternative_action": [
+        213,
+        586
+      ],
+      "alternative_block": {
+        "action_id": 586,
+        "atom_count": 18,
+        "attachment_count": 2,
+        "attachment_labels": [
+          16
+        ],
+        "canonical_smiles": "[16*]c1ccc2ccc3c([16*])ccc4ccc1c2c43",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.0012937505962327123,
+      "candidate_id": "cf-58dd6156fcf88bc4",
+      "component": "diamine",
+      "episode_id": 8,
+      "factual_action": [
+        213,
+        981
+      ],
+      "factual_block": {
+        "action_id": 981,
+        "atom_count": 22,
+        "attachment_count": 2,
+        "attachment_labels": [
+          16
+        ],
+        "canonical_smiles": "[16*]c1ccc([16*])c(P(=O)(c2ccccc2)c2ccccc2)c1",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 0,
+      "transition_id": "p2t-000000000013"
+    },
+    {
+      "alternative_action": [
+        118,
+        981
+      ],
+      "alternative_block": {
+        "action_id": 118,
+        "atom_count": 22,
+        "attachment_count": 2,
+        "attachment_labels": [
+          16
+        ],
+        "canonical_smiles": "[16*]c1ccc([16*])c2c1C1c3ccccc3C2c2ccccc21",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.0023397677578032017,
+      "candidate_id": "cf-d10cebd2a4927c31",
+      "component": "dianhydride",
+      "episode_id": 8,
+      "factual_action": [
+        213,
+        981
+      ],
+      "factual_block": {
+        "action_id": 213,
+        "atom_count": 17,
+        "attachment_count": 1,
+        "attachment_labels": [
+          16
+        ],
+        "canonical_smiles": "[16*]c1c(C)c2c(c3ccccc13)C(=O)OC2=O",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 0,
+      "transition_id": "p2t-000000000013"
+    },
+    {
+      "alternative_action": [
+        576,
+        69
+      ],
+      "alternative_block": {
+        "action_id": 69,
+        "atom_count": 8,
+        "attachment_count": 2,
+        "attachment_labels": [
+          16
+        ],
+        "canonical_smiles": "[16*]c1ccccc1[16*]",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.002238426823168993,
+      "candidate_id": "cf-f09f1a7317dae1b9",
+      "component": "diamine",
+      "episode_id": 8,
+      "factual_action": [
+        576,
+        697
+      ],
+      "factual_block": {
+        "action_id": 697,
+        "atom_count": 11,
+        "attachment_count": 2,
+        "attachment_labels": [
+          8
+        ],
+        "canonical_smiles": "[8*]C([8*])(CCCF)C(F)(F)F",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 1,
+      "transition_id": "p2t-000000000014"
+    },
+    {
+      "alternative_action": [
+        213,
+        276
+      ],
+      "alternative_block": {
+        "action_id": 276,
+        "atom_count": 6,
+        "attachment_count": 2,
+        "attachment_labels": [
+          3
+        ],
+        "canonical_smiles": "[3*]OC=CO[3*]",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.0012967283837497234,
+      "candidate_id": "cf-15fd2963643a1524",
+      "component": "diamine",
+      "episode_id": 8,
+      "factual_action": [
+        213,
+        981
+      ],
+      "factual_block": {
+        "action_id": 981,
+        "atom_count": 22,
+        "attachment_count": 2,
+        "attachment_labels": [
+          16
+        ],
+        "canonical_smiles": "[16*]c1ccc([16*])c(P(=O)(c2ccccc2)c2ccccc2)c1",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 0,
+      "transition_id": "p2t-000000000013"
+    },
+    {
+      "alternative_action": [
+        96,
+        981
+      ],
+      "alternative_block": {
+        "action_id": 96,
+        "atom_count": 13,
+        "attachment_count": 1,
+        "attachment_labels": [
+          3
+        ],
+        "canonical_smiles": "[3*]OC1=CC=C2C(=O)OC(=O)C2C1",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.0023444369435310364,
+      "candidate_id": "cf-617bc9c51f5a89b2",
+      "component": "dianhydride",
+      "episode_id": 8,
+      "factual_action": [
+        213,
+        981
+      ],
+      "factual_block": {
+        "action_id": 213,
+        "atom_count": 17,
+        "attachment_count": 1,
+        "attachment_labels": [
+          16
+        ],
+        "canonical_smiles": "[16*]c1c(C)c2c(c3ccccc13)C(=O)OC2=O",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 0,
+      "transition_id": "p2t-000000000013"
+    },
+    {
+      "alternative_action": [
+        576,
+        710
+      ],
+      "alternative_block": {
+        "action_id": 710,
+        "atom_count": 6,
+        "attachment_count": 2,
+        "attachment_labels": [
+          8
+        ],
+        "canonical_smiles": "[8*]CC([8*])(C)C",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.0022500460036098957,
+      "candidate_id": "cf-e92b6b20e1ee1be7",
+      "component": "diamine",
+      "episode_id": 8,
+      "factual_action": [
+        576,
+        697
+      ],
+      "factual_block": {
+        "action_id": 697,
+        "atom_count": 11,
+        "attachment_count": 2,
+        "attachment_labels": [
+          8
+        ],
+        "canonical_smiles": "[8*]C([8*])(CCCF)C(F)(F)F",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 1,
+      "transition_id": "p2t-000000000014"
+    },
+    {
+      "alternative_action": [
+        213,
+        726
+      ],
+      "alternative_block": {
+        "action_id": 726,
+        "atom_count": 11,
+        "attachment_count": 2,
+        "attachment_labels": [
+          8
+        ],
+        "canonical_smiles": "[8*]C([8*])(C(F)(F)F)C(F)(F)F",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.0012921869056299329,
+      "candidate_id": "cf-9a3926668da2c371",
+      "component": "diamine",
+      "episode_id": 8,
+      "factual_action": [
+        213,
+        981
+      ],
+      "factual_block": {
+        "action_id": 981,
+        "atom_count": 22,
+        "attachment_count": 2,
+        "attachment_labels": [
+          16
+        ],
+        "canonical_smiles": "[16*]c1ccc([16*])c(P(=O)(c2ccccc2)c2ccccc2)c1",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 0,
+      "transition_id": "p2t-000000000013"
+    },
+    {
+      "alternative_action": [
+        553,
+        981
+      ],
+      "alternative_block": {
+        "action_id": 553,
+        "atom_count": 4,
+        "attachment_count": 3,
+        "attachment_labels": [
+          8
+        ],
+        "canonical_smiles": "[8*]C([8*])[8*]",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.0023480516392737627,
+      "candidate_id": "cf-e952949ebf28b4c7",
+      "component": "dianhydride",
+      "episode_id": 8,
+      "factual_action": [
+        213,
+        981
+      ],
+      "factual_block": {
+        "action_id": 213,
+        "atom_count": 17,
+        "attachment_count": 1,
+        "attachment_labels": [
+          16
+        ],
+        "canonical_smiles": "[16*]c1c(C)c2c(c3ccccc13)C(=O)OC2=O",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 0,
+      "transition_id": "p2t-000000000013"
+    },
+    {
+      "alternative_action": [
+        576,
+        950
+      ],
+      "alternative_block": {
+        "action_id": 950,
+        "atom_count": 26,
+        "attachment_count": 2,
+        "attachment_labels": [
+          16
+        ],
+        "canonical_smiles": "[16*]c1c([16*])c(=C(C(F)(F)F)C(F)(F)F)ccc1=C(C(F)(F)F)C(F)(F)F",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.0022408347576856613,
+      "candidate_id": "cf-31d9901e59463e0b",
+      "component": "diamine",
+      "episode_id": 8,
+      "factual_action": [
+        576,
+        697
+      ],
+      "factual_block": {
+        "action_id": 697,
+        "atom_count": 11,
+        "attachment_count": 2,
+        "attachment_labels": [
+          8
+        ],
+        "canonical_smiles": "[8*]C([8*])(CCCF)C(F)(F)F",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 1,
+      "transition_id": "p2t-000000000014"
+    },
+    {
+      "alternative_action": [
+        213,
+        606
+      ],
+      "alternative_block": {
+        "action_id": 606,
+        "atom_count": 16,
+        "attachment_count": 0,
+        "attachment_labels": [],
+        "canonical_smiles": "Nc1ccc(N)c2cc3ccccc3cc12",
+        "is_complete_for_side": true,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.001295804395340383,
+      "candidate_id": "cf-58eda5102428641e",
+      "component": "diamine",
+      "episode_id": 8,
+      "factual_action": [
+        213,
+        981
+      ],
+      "factual_block": {
+        "action_id": 981,
+        "atom_count": 22,
+        "attachment_count": 2,
+        "attachment_labels": [
+          16
+        ],
+        "canonical_smiles": "[16*]c1ccc([16*])c(P(=O)(c2ccccc2)c2ccccc2)c1",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 0,
+      "transition_id": "p2t-000000000013"
+    },
+    {
+      "alternative_action": [
+        503,
+        981
+      ],
+      "alternative_block": {
+        "action_id": 503,
+        "atom_count": 16,
+        "attachment_count": 0,
+        "attachment_labels": [],
+        "canonical_smiles": "O=c1oc(=O)c2c1ccc1c(=O)oc(=O)c12",
+        "is_complete_for_side": true,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.0023385826498270035,
+      "candidate_id": "cf-9eaa24c0e992c61f",
+      "component": "dianhydride",
+      "episode_id": 8,
+      "factual_action": [
+        213,
+        981
+      ],
+      "factual_block": {
+        "action_id": 213,
+        "atom_count": 17,
+        "attachment_count": 1,
+        "attachment_labels": [
+          16
+        ],
+        "canonical_smiles": "[16*]c1c(C)c2c(c3ccccc13)C(=O)OC2=O",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 0,
+      "transition_id": "p2t-000000000013"
+    },
+    {
+      "alternative_action": [
+        576,
+        762
+      ],
+      "alternative_block": {
+        "action_id": 762,
+        "atom_count": 11,
+        "attachment_count": 2,
+        "attachment_labels": [
+          8
+        ],
+        "canonical_smiles": "[8*]C(F)(F)C([8*])(F)C(F)(F)F",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "behavior_policy_probability": 0.002241564681753516,
+      "candidate_id": "cf-7d291125cb068e61",
+      "component": "diamine",
+      "episode_id": 8,
+      "factual_action": [
+        576,
+        697
+      ],
+      "factual_block": {
+        "action_id": 697,
+        "atom_count": 11,
+        "attachment_count": 2,
+        "attachment_labels": [
+          8
+        ],
+        "canonical_smiles": "[8*]C([8*])(CCCF)C(F)(F)F",
+        "is_complete_for_side": false,
+        "operation": "select_building_block"
+      },
+      "state_id": null,
+      "timestep": 1,
+      "transition_id": "p2t-000000000014"
+    }
+  ],
+  "episode_id": 8,
+  "pool_index": 1,
+  "trajectory_context": {
+    "candidate_timesteps": [
+      0,
+      1
+    ],
+    "episode_id": 8,
+    "episode_selection_rule": "explicit-predeclared-episode-id-without-outcome-filtering",
+    "states_and_factual_actions": [
+      {
+        "factual_action": [
+          213,
+          981
+        ],
+        "pre_action_state": {
+          "diamine_complete": false,
+          "diamine_growth_steps": 0,
+          "diamine_smiles": "[16*]c1ccc(N)cc1",
+          "dianhydride_complete": false,
+          "dianhydride_growth_steps": 0,
+          "dianhydride_smiles": "[16*]c1ccc2c(c1)C(=O)OC2=O",
+          "max_steps": 5,
+          "step_index": 0
+        },
+        "timestep": 0
+      },
+      {
+        "factual_action": [
+          576,
+          697
+        ],
+        "pre_action_state": {
+          "diamine_complete": false,
+          "diamine_growth_steps": 1,
+          "diamine_smiles": "[16*]c1ccc(-c2ccc(N)cc2)cc1P(=O)(c1ccccc1)c1ccccc1",
+          "dianhydride_complete": true,
+          "dianhydride_growth_steps": 1,
+          "dianhydride_smiles": "Cc1c2c(c3ccccc3c1-c1ccc3c(c1)C(=O)OC3=O)C(=O)OC2=O",
+          "max_steps": 5,
+          "step_index": 1
+        },
+        "timestep": 1
+      }
+    ],
+    "step_count": 2,
+    "terminal_reward_or_properties_included": false
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "api_key_logged": false,
+  "attempt_index": 0,
+  "attempt_kind": "initial",
+  "capture_status": "captured_before_validation",
+  "completion_tokens": 105,
+  "prompt_tokens": 7732,
+  "protocol_id": "dapigen-scicf-llm-schema-robustness-dev-v1",
+  "provider": {
+    "endpoint_sha256": "948f1ecb6b48f91adc4e110d0351cd172b16450e9936d358992e0dfad7b863f3",
+    "external_api": true,
+    "include_seed": false,
+    "json_mode": true,
+    "max_tokens_field": "max_tokens",
+    "model_id": "deepseek-v4-flash",
+    "model_revision": "DeepSeek-V4-Flash-0731-api-snapshot-2026-09-03",
+    "provider_id": "deepseek-official",
+    "thinking": "disabled",
+    "type": "openai-compatible-api"
+  },
+  "provider_response_id": "458a5ee0-968c-4ae4-b58b-930cf7ffa1fe",
+  "provider_response_sha256": "7995086a4543b7fa1385412290ff1d710ceb9f1ad1b470374176dd671b7ca929",
+  "raw_response": "{\"ranked_intervention_ids\":[\"cf-50cc6aeebb4bb7b0\",\"cf-f5bd7c8579d79372\",\"cf-170ca968d1effe63\",\"cf-eb2c755c0867c3a8\"],\"abstain\":false,\"reasoning\":\"Selected interventions that introduce diverse, synthetically accessible building blocks with potential to improve rigidity, fluorination, or aromaticity while maintaining attachment compatibility, prioritizing early-stage changes for broader impact.\"}",
+  "raw_response_text_sha256": "93a91f63129e8fad85587b1562be72879920242921ffae9ee43ac466ec08aa2c",
+  "request_id": "dapigen-scicf-single-iteration-integration-smoke-v2-pool-00-job-4713",
+  "schema_version": 1,
+  "system_fingerprint": "a26a7955944dc5c60445bff77fac9c8e",
+  "total_tokens": 7837,
+  "transport_retries_used": 0
+}

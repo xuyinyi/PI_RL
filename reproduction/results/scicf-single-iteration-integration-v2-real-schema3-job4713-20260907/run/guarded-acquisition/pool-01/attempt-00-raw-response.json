@@ -1,0 +1,30 @@
+{
+  "api_key_logged": false,
+  "attempt_index": 0,
+  "attempt_kind": "initial",
+  "capture_status": "captured_before_validation",
+  "completion_tokens": 158,
+  "prompt_tokens": 7749,
+  "protocol_id": "dapigen-scicf-llm-schema-robustness-dev-v1",
+  "provider": {
+    "endpoint_sha256": "948f1ecb6b48f91adc4e110d0351cd172b16450e9936d358992e0dfad7b863f3",
+    "external_api": true,
+    "include_seed": false,
+    "json_mode": true,
+    "max_tokens_field": "max_tokens",
+    "model_id": "deepseek-v4-flash",
+    "model_revision": "DeepSeek-V4-Flash-0731-api-snapshot-2026-09-03",
+    "provider_id": "deepseek-official",
+    "thinking": "disabled",
+    "type": "openai-compatible-api"
+  },
+  "provider_response_id": "ec06b202-c3ac-4995-86a1-8197179bd170",
+  "provider_response_sha256": "607524f7d7ae5afb74c35bc48257265dea99ddf931459c73ab1b0f3e6ebcacb5",
+  "raw_response": "{\"ranked_intervention_ids\":[\"cf-9eaa24c0e992c61f\",\"cf-924bf3bdc10273e4\",\"cf-710f4dd423428638\",\"cf-db42dfb825ada4e5\"],\"reasoning\":\"Prioritize interventions that replace the dianhydride with complete, rigid, aromatic or alicyclic dianhydrides (e.g., naphthalene or norbornane derivatives) to potentially improve thermal/mechanical properties while maintaining synthetic accessibility. The selected candidates are complete for the dianhydride side, reducing risk of invalid trajectories, and offer structural diversity likely to affect CTE and Tg favorably.\",\"confidence\":0.6,\"abstain\":false}",
+  "raw_response_text_sha256": "fc8838fea9f2f0a10cd6006c06d2f31f1afc75cc835899313ea2d240d1b3f2c3",
+  "request_id": "dapigen-scicf-single-iteration-integration-smoke-v2-pool-01-job-4713",
+  "schema_version": 1,
+  "system_fingerprint": "a26a7955944dc5c60445bff77fac9c8e",
+  "total_tokens": 7907,
+  "transport_retries_used": 0
+}

@@ -1,0 +1,76 @@
+{
+  "all_pool_decisions_validated": true,
+  "http_transmissions_observed": 2,
+  "http_transmissions_observed_is_exact": true,
+  "http_transmissions_upper_bound_for_started_decisions": 2,
+  "http_transmissions_used": 2,
+  "maximum_http_transmissions_total": 8,
+  "oracle_selection_authorized": true,
+  "pool_decision_count_expected": 2,
+  "pool_decision_count_started": 2,
+  "pool_outcomes": [
+    {
+      "attempt_count": 1,
+      "oracle_selection_authorized": true,
+      "outcome_sha256": "57467fb10c58046418f6c0a10e3a9a3e04686ee9f3f9509c46fb601f74a5f367",
+      "pool_index": 0,
+      "request_id": "dapigen-scicf-single-iteration-integration-smoke-v2-pool-00-job-4713",
+      "selected_intervention_ids": [
+        "cf-50cc6aeebb4bb7b0",
+        "cf-f5bd7c8579d79372",
+        "cf-170ca968d1effe63",
+        "cf-eb2c755c0867c3a8"
+      ],
+      "semantic_repair_count": 0,
+      "status": "validated",
+      "usage": {
+        "completion_tokens": 105,
+        "http_transmissions_observed": 1,
+        "prompt_tokens": 7732,
+        "returned_content_count": 1,
+        "token_accounting_complete": true
+      }
+    },
+    {
+      "attempt_count": 1,
+      "oracle_selection_authorized": true,
+      "outcome_sha256": "c2ce5c5859fd59a78835cbca2f034240e4ce3cb765296e950136e52768791593",
+      "pool_index": 1,
+      "request_id": "dapigen-scicf-single-iteration-integration-smoke-v2-pool-01-job-4713",
+      "selected_intervention_ids": [
+        "cf-9eaa24c0e992c61f",
+        "cf-924bf3bdc10273e4",
+        "cf-710f4dd423428638",
+        "cf-db42dfb825ada4e5"
+      ],
+      "semantic_repair_count": 0,
+      "status": "validated",
+      "usage": {
+        "completion_tokens": 158,
+        "http_transmissions_observed": 1,
+        "prompt_tokens": 7749,
+        "returned_content_count": 1,
+        "token_accounting_complete": true
+      }
+    }
+  ],
+  "reported_tokens": {
+    "completion": 263,
+    "prompt": 15481
+  },
+  "returned_content_count": 2,
+  "selected_intervention_ids": [
+    "cf-50cc6aeebb4bb7b0",
+    "cf-f5bd7c8579d79372",
+    "cf-170ca968d1effe63",
+    "cf-eb2c755c0867c3a8",
+    "cf-9eaa24c0e992c61f",
+    "cf-924bf3bdc10273e4",
+    "cf-710f4dd423428638",
+    "cf-db42dfb825ada4e5"
+  ],
+  "semantic_attempt_count": 2,
+  "semantic_repair_count": 0,
+  "status": "validated_all_pools",
+  "token_accounting_complete": true
+}

@@ -1,0 +1,50 @@
+{
+  "attempt_count": 1,
+  "attempts": [
+    {
+      "attempt_index": 0,
+      "attempt_kind": "initial",
+      "raw_capture_file": "attempt-00-raw-response.json",
+      "raw_capture_sha256": "e84f5fe725b2b94f700c29914f489e6ffe075ab66b745270b7cf131502021968",
+      "request_file": "attempt-00-request.json",
+      "request_sha256": "500656094c423840acb07326f07a1a8354cc155d78268b04d2562ce54db6419c",
+      "status": "validated",
+      "validation_error_code": null,
+      "validation_file": "attempt-00-validation.json",
+      "validation_sha256": "9ad0ac4856061bf52f59fde5df9f08d4b91d8740cf3bb6381641d326dd9509ee"
+    }
+  ],
+  "maximum_http_transmissions": 4,
+  "maximum_schema_attempts": 2,
+  "oracle_selection_authorized": true,
+  "raw_capture_complete": true,
+  "request_id": "dapigen-scicf-single-iteration-integration-smoke-v2-pool-01-job-4713",
+  "schema_version": 1,
+  "selected_intervention_ids": [
+    "cf-9eaa24c0e992c61f",
+    "cf-924bf3bdc10273e4",
+    "cf-710f4dd423428638",
+    "cf-db42dfb825ada4e5"
+  ],
+  "semantic_repair_count": 0,
+  "status": "validated",
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": 0.6,
+    "ranked_intervention_ids": [
+      "cf-9eaa24c0e992c61f",
+      "cf-924bf3bdc10273e4",
+      "cf-710f4dd423428638",
+      "cf-db42dfb825ada4e5"
+    ],
+    "reasoning": "Prioritize interventions that replace the dianhydride with complete, rigid, aromatic or alicyclic dianhydrides (e.g., naphthalene or norbornane derivatives) to potentially improve thermal/mechanical properties while maintaining synthetic accessibility. The selected candidates are complete for the dianhydride side, reducing risk of invalid trajectories, and offer structural diversity likely to affect CTE and Tg favorably.",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-9eaa24c0e992c61f",
+      "cf-924bf3bdc10273e4",
+      "cf-710f4dd423428638",
+      "cf-db42dfb825ada4e5"
+    ]
+  }
+}

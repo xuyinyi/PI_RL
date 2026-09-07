@@ -1,0 +1,50 @@
+{
+  "attempt_count": 1,
+  "attempts": [
+    {
+      "attempt_index": 0,
+      "attempt_kind": "initial",
+      "raw_capture_file": "attempt-00-raw-response.json",
+      "raw_capture_sha256": "dbdf53c1c3da57ffb7d0b30e8c071b7042481bf6947332885bc3f885e659e7ab",
+      "request_file": "attempt-00-request.json",
+      "request_sha256": "ea467c1d959d0e35bae5687eec1b284d4d6252eb009f5126ddfa621af09f41e3",
+      "status": "validated",
+      "validation_error_code": null,
+      "validation_file": "attempt-00-validation.json",
+      "validation_sha256": "d6bca011a0a25bf087fa3d20c8cf03f3590ae0f6cc302bc613cfa203b3760bb7"
+    }
+  ],
+  "maximum_http_transmissions": 4,
+  "maximum_schema_attempts": 2,
+  "oracle_selection_authorized": true,
+  "raw_capture_complete": true,
+  "request_id": "dapigen-scicf-single-iteration-integration-smoke-v2-pool-00-job-4713",
+  "schema_version": 1,
+  "selected_intervention_ids": [
+    "cf-50cc6aeebb4bb7b0",
+    "cf-f5bd7c8579d79372",
+    "cf-170ca968d1effe63",
+    "cf-eb2c755c0867c3a8"
+  ],
+  "semantic_repair_count": 0,
+  "status": "validated",
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": null,
+    "ranked_intervention_ids": [
+      "cf-50cc6aeebb4bb7b0",
+      "cf-f5bd7c8579d79372",
+      "cf-170ca968d1effe63",
+      "cf-eb2c755c0867c3a8"
+    ],
+    "reasoning": "Selected interventions that introduce diverse, synthetically accessible building blocks with potential to improve rigidity, fluorination, or aromaticity while maintaining attachment compatibility, prioritizing early-stage changes for broader impact.",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-50cc6aeebb4bb7b0",
+      "cf-f5bd7c8579d79372",
+      "cf-170ca968d1effe63",
+      "cf-eb2c755c0867c3a8"
+    ]
+  }
+}

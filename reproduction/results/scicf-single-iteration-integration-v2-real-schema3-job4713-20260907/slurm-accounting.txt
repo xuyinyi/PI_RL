@@ -1,0 +1,5 @@
+JobID|JobName|Partition|State|ExitCode|Elapsed|AllocCPUS|ReqMem|AllocTRES|NodeList
+4713|scicf-one-iter-v2|compute|COMPLETED|0:0|00:00:49|8|96G|billing=8,cpu=8,gres/gpu=1,mem=96G,node=1|yanlih100n1
+4713.batch|batch||COMPLETED|0:0|00:00:49|8||cpu=8,gres/gpu=1,mem=96G,node=1|yanlih100n1
+4713.0|python||COMPLETED|0:0|00:00:05|8||cpu=8,gres/gpu=1,mem=96G,node=1|yanlih100n1
+4713.1|python||COMPLETED|0:0|00:00:43|8||cpu=8,gres/gpu=1,mem=96G,node=1|yanlih100n1

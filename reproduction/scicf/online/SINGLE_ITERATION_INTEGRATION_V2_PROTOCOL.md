@@ -1,8 +1,8 @@
 # LLM-SciCF single-iteration integration-v2 protocol freeze
 
-Status: **protocol frozen; explicit AFP evaluator-asset routing and the
-complete-runtime no-credential preflight passed, but no further real execution
-is authorized**.
+Status: **protocol frozen; the exact schema-3 real execution was consumed by
+n001 Slurm Job 4713 and returned `no_go_multi_iteration_protocol_freeze` after
+zero sign-consistent pairs; no rerun or further scope is authorized**.
 
 ## Purpose
 
@@ -165,3 +165,27 @@ to this frozen protocol and its implementation commit.
 Even a passing integration-v2 run would open only a separately frozen bounded
 short-horizon multi-iteration engineering protocol. It would not authorize that
 protocol's execution or formal training.
+
+## Terminal schema-3 execution record
+
+The separately authorized schema-3 execution bound clean implementation
+`39cd7fb33c1c88397e78808860d766c9876c12df`, the accepted polyBERT binding and
+full checkpoint fingerprint, the 13-file AFP compatibility binding and asset
+fingerprint, and one unique output directory. Exactly one Slurm job was
+submitted on n001: Job 4713.
+
+The job passed 56 server tests and completed the complete bounded path. Standard
+PPO used 128 transitions and eight optimizer steps. Both 24-candidate DeepSeek
+pool decisions validated on the first response, used two HTTP transmissions in
+total, and selected four candidates each. Selected-only matched verification
+completed all 32 factual/counterfactual branches and made 12 terminal AFP
+evaluations. However, all eight candidates had a zero or sign-inconsistent
+delta across the two fixed replicates. The accepted pair count was zero, so the
+pairwise update was skipped and the post-pairwise policy correctly equalled the
+post-PPO policy.
+
+The runner recorded no integrity failure, but the frozen minimum-pair and
+update requirements failed. Its authoritative decision is
+`no_go_multi_iteration_protocol_freeze`. The authorization is consumed, no
+automatic rerun was made, and next scope remains closed. See
+`../../results/scicf-single-iteration-integration-v2-real-schema3-job4713-20260907/`.

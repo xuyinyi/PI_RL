@@ -2,12 +2,12 @@
 
 Status date: 2026-09-07
 
-Plan status: **the separate integration-v2 protocol is frozen; after the latest
-real attempt failed before PPO on implicitly resolved AFP assets, the runner now
-explicitly routes and hash-binds all 13 evaluator assets and has passed a
-complete-runtime, no-credential n001 Slurm preflight; no new real-run
-authorization has been created, and automatic reruns, multi-iteration training,
-historical sealed tests, and all scientific claim gates remain closed**
+Plan status: **the separately authorized schema-3 integration-v2 run completed
+the full single-iteration path in n001 Slurm Job 4713, but produced zero
+sign-consistent verified pairs and therefore returned
+`no_go_multi_iteration_protocol_freeze`; the one-run authorization is consumed,
+and automatic reruns, multi-iteration training, historical sealed tests, and
+all scientific claim gates remain closed**
 
 ## 2026-09-06 architecture-first amendment
 
@@ -172,6 +172,22 @@ initial-embedding cache misses. This admits only requesting a fresh exact
 one-run execution authorization; no authorization or real run was created.
 Evidence is under
 `reproduction/results/scicf-integration-v2-evaluator-asset-preflight-20260907/`.
+
+The fresh schema-3 execution authorization bound implementation `39cd7fb`, the
+accepted polyBERT and AFP fingerprints, and one previously absent output
+directory. It was consumed by exactly one n001 Slurm submission, Job 4713.
+Fifty-six server tests passed and the job completed one 128-transition PPO
+iteration, two valid DeepSeek decisions over separate 24-candidate pools,
+selected-only `K=2` verification of eight candidates, and a terminal
+checkpoint. Both API responses validated on their first attempt, using two HTTP
+transmissions total. Verification completed all 32 branches and used 12 AFP
+terminal evaluations, but every selected candidate's two deltas contained a
+zero or changed sign. The accepted pair count was therefore zero and the
+pairwise optimizer correctly took zero steps. The authoritative decision is
+`no_go_multi_iteration_protocol_freeze`, even though Slurm and the bounded
+runner completed normally with no integrity failures. No automatic rerun was
+submitted and no next scope is authorized. Evidence is under
+`reproduction/results/scicf-single-iteration-integration-v2-real-schema3-job4713-20260907/`.
 
 ## 1. Authority and scope
 

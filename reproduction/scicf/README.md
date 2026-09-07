@@ -27,9 +27,15 @@
 > DeepSeek transmission, PPO, Oracle, or pairwise update occurred. The consumed
 > authorization was not reused. The runner now explicitly routes and hash-binds
 > all 13 evaluator assets, and n001 Slurm Job 4697 passed a no-credential
-> complete-runtime preflight at clean commit `39cd7fb`. This admits only asking
-> for a fresh exact one-run authorization; none has been created, and automatic
-> rerun and multi-iteration scope remain closed. See
+> complete-runtime preflight at clean commit `39cd7fb`. A fresh schema-3
+> authorization was then bound to that implementation, both accepted asset
+> fingerprints, and one unique output directory, and was consumed by exactly
+> one n001 submission: Job 4713. The full runner completed one PPO iteration,
+> two valid DeepSeek acquisitions, and all selected-only `K=2` verification,
+> but all eight selected candidates had a zero or sign-inconsistent replicate
+> delta. Zero pairs were accepted, pairwise refinement was skipped, and the
+> authoritative decision was `no_go_multi_iteration_protocol_freeze`. No
+> automatic rerun was submitted; multi-iteration scope remains closed. See
 > `reproduction/PROJECT_PLAN.md`,
 > `reproduction/scicf/online/ARCHITECTURE_SMOKE_V1.md`, and
 > `reproduction/scicf/online/ACQUISITION_VERIFIER_DEV_V1.md`, and
@@ -43,7 +49,9 @@
 > and
 > `reproduction/results/scicf-single-iteration-integration-v2-real-modelbound-20260907/`,
 > and
-> `reproduction/results/scicf-integration-v2-evaluator-asset-preflight-20260907/`.
+> `reproduction/results/scicf-integration-v2-evaluator-asset-preflight-20260907/`,
+> and
+> `reproduction/results/scicf-single-iteration-integration-v2-real-schema3-job4713-20260907/`.
 
 SciCF-PPO is being added as a feature-gated extension of the frozen
 `dapigen-ppo-compat-baseline-v1` baseline. The upstream PPO clipped objective,
