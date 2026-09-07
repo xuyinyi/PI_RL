@@ -369,3 +369,51 @@ def refine_soft_pairs(
         "soft_pair_gate": gate,
         "refinement_config": asdict(refinement_config),
     }
+
+
+def weighted_pairwise_preference_metrics(
+    *,
+    model,
+    candidates_by_id: Mapping[str, OnlineCandidate],
+    evidence: Sequence[SoftPairEvidence],
+    device,
+) -> Mapping[str, Any]:
+    """Measure policy preference margins under empirical Oracle weights."""
+
+    weighted = [item for item in evidence if item.training_weight > 0.0]
+    if not weighted:
+        raise ValueError("weighted pairwise metrics require non-zero evidence")
+    margins = []
+    weights = []
+    with torch.no_grad():
+        for item in weighted:
+            candidate = candidates_by_id[item.candidate_id]
+            d_log, a_log = _masked_log_probabilities(model, candidate, device)
+            index = 0 if candidate.component == "dianhydride" else 1
+            component_log = d_log if index == 0 else a_log
+            raw_margin = (
+                component_log[candidate.alternative_action[index]]
+                - component_log[candidate.factual_action[index]]
+            )
+            direction = 1.0 if item.preferred == "counterfactual" else -1.0
+            margins.append(float((direction * raw_margin).item()))
+            weights.append(float(item.training_weight))
+    margin_array = np.asarray(margins, dtype=np.float64)
+    weight_array = np.asarray(weights, dtype=np.float64)
+    if not bool(np.isfinite(margin_array).all()) or not bool(
+        np.isfinite(weight_array).all()
+    ):
+        raise ValueError("weighted preference metrics must be finite")
+    normalized = weight_array / float(np.sum(weight_array))
+    losses = np.logaddexp(0.0, -margin_array)
+    return {
+        "weighted_candidate_count": int(len(weighted)),
+        "total_training_weight": float(np.sum(weight_array)),
+        "weighted_preference_accuracy": float(
+            np.sum(normalized * (margin_array > 0.0))
+        ),
+        "weighted_mean_signed_margin": float(np.sum(normalized * margin_array)),
+        "weighted_mean_pairwise_loss": float(np.sum(normalized * losses)),
+        "minimum_signed_margin": float(np.min(margin_array)),
+        "maximum_signed_margin": float(np.max(margin_array)),
+    }

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "protocol_id": "dapigen-scicf-single-iteration-integration-smoke-v3",
+  "classification": "single_iteration_optional_llm_soft_pair_engineering_protocol_only",
+  "status": "frozen_unimplemented_unexecuted",
+  "required_host": "yanlih100n1",
+  "base_v2_protocol": {
+    "path": "reproduction/scicf/online/configs/single_iteration_integration_v2_protocol.json",
+    "sha256": "f05df22b15c069f43b6e9cc5013550a97b6c46f79db059e3674f5395de8c3955"
+  },
+  "soft_pair_development": {
+    "path": "reproduction/scicf/online/configs/soft_pair_resilience_dev_v1.json",
+    "sha256": "97ed1bcf468293faa5c9e0eafb2dfde819061c201996ccbbcaf6b66bacce7173",
+    "required_component_decision": "pass_components_only_no_real_run_authorized",
+    "component_report": "reproduction/results/scicf-soft-pair-resilience-preflight-20260907/run/soft-pair-resilience-preflight-report.json",
+    "component_report_sha256": "bd95fbe56f2fb47fdadb1b736ba3388cfb5755f9777d8916efcf2d29699400f8"
+  },
+  "primary_transaction": {
+    "standard_ppo_is_primary": true,
+    "checkpoint_before_llm": true,
+    "recoverable_llm_failure_cannot_rollback_ppo": true,
+    "maximum_primary_ppo_iterations": 1
+  },
+  "verification": {
+    "candidate_scope": "llm_selected_only",
+    "replicates": 5,
+    "maximum_selected_candidates": 8,
+    "maximum_branches": 80
+  },
+  "llm_failure_policy": {
+    "recoverable_outcome": "ppo_only_degraded",
+    "silent_fallback_forbidden": true,
+    "continue_after_provider_timeout": true,
+    "continue_after_provider_rate_limit": true,
+    "continue_after_provider_unavailable": true,
+    "continue_after_transport_exhaustion": true,
+    "continue_after_schema_exhaustion": true,
+    "continue_after_valid_abstention": true,
+    "continue_after_insufficient_soft_pair_mass": true
+  },
+  "integrity_policy": {
+    "authorization_failure_is_fatal": true,
+    "asset_binding_failure_is_fatal": true,
+    "budget_overrun_is_fatal": true,
+    "information_leakage_is_fatal": true,
+    "unvalidated_output_cannot_reach_oracle": true,
+    "unexpected_programming_error_is_fatal": true
+  },
+  "authorization_state": {
+    "runner_implementation_authorized": true,
+    "no_credential_full_runtime_preflight_authorized": true,
+    "real_single_iteration_authorized": false,
+    "automatic_rerun_authorized": false,
+    "multi_iteration_training_authorized": false,
+    "formal_training_authorized": false,
+    "sealed_test_access_authorized": false,
+    "baseline_mutation_authorized": false,
+    "algorithm_effectiveness_claim_authorized": false,
+    "scientific_claim_authorized": false
+  }
+}

@@ -26,6 +26,7 @@ from reproduction.scicf.online.soft_pair import (
     aggregate_soft_verifications,
     refine_soft_pairs,
     soft_pair_gate,
+    weighted_pairwise_preference_metrics,
 )
 
 
@@ -189,6 +190,12 @@ def test_soft_refinement_applies_once_and_never_uses_llm_confidence():
     engine = _Engine()
     value_before = copy.deepcopy(engine.model.value_head.state_dict())
     before = engine.policy_state_sha256
+    metrics_before = weighted_pairwise_preference_metrics(
+        model=engine.model,
+        candidates_by_id=candidates,
+        evidence=evidence,
+        device=engine.device,
+    )
     receipt = refine_soft_pairs(
         engine=engine,
         candidates_by_id=candidates,
@@ -206,6 +213,15 @@ def test_soft_refinement_applies_once_and_never_uses_llm_confidence():
     assert receipt["counterfactual_actions_in_ppo_clipping"] is False
     assert engine.policy_version == 2
     assert engine.policy_state_sha256 != before
+    metrics_after = weighted_pairwise_preference_metrics(
+        model=engine.model,
+        candidates_by_id=candidates,
+        evidence=evidence,
+        device=engine.device,
+    )
+    assert metrics_after["weighted_mean_signed_margin"] > metrics_before[
+        "weighted_mean_signed_margin"
+    ]
     for name, value in value_before.items():
         assert torch.equal(value, engine.model.value_head.state_dict()[name])
 
