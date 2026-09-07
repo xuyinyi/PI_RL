@@ -15,6 +15,9 @@ PAIRWISE_STABILITY_PROTOCOL_ID = "dapigen-scicf-pairwise-stability-dev-v1"
 SINGLE_ITERATION_INTEGRATION_PROTOCOL_ID = (
     "dapigen-scicf-single-iteration-integration-smoke-v1"
 )
+SINGLE_ITERATION_INTEGRATION_V2_PROTOCOL_ID = (
+    "dapigen-scicf-single-iteration-integration-smoke-v2"
+)
 SCHEMA_ROBUSTNESS_PROTOCOL_ID = "dapigen-scicf-llm-schema-robustness-dev-v1"
 ONLINE_PROMPT_VERSION = "scicf-dapigen-online-acquisition-blinded-v1"
 ONLINE_PRESENTATION_PROTOCOL = "opaque-id-sha256-shuffle-v1"
