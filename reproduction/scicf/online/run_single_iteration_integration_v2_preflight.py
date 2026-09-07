@@ -253,6 +253,12 @@ def main() -> None:
             "oracle_selection_authorized"
         ]
         is False,
+        "transport_token_accounting_not_imputed": transport[
+            "token_accounting_complete"
+        ]
+        is False
+        and transport["reported_tokens"]
+        == {"prompt": None, "completion": None},
         "external_api_request_count_zero": True,
         "credentials_loaded_false": True,
         "ppo_executed_false": True,

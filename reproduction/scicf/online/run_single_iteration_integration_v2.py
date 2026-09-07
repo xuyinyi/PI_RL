@@ -362,7 +362,7 @@ def _attempt_usage(pool_dir: Path) -> Mapping[str, Any]:
     records = []
     for path in sorted(pool_dir.glob("attempt-*-raw-response.json")):
         records.append(json.loads(path.read_text(encoding="utf-8")))
-    token_complete = all(
+    token_complete = bool(records) and all(
         item.get("prompt_tokens") is not None
         and item.get("completion_tokens") is not None
         for item in records
@@ -465,6 +465,16 @@ def run_guarded_pool_decisions(
         or item["status"] == "fail_closed_schema_exhausted"
         for item in outcomes
     )
+    transmission_upper_bound = sum(
+        usage["http_transmissions_observed"]
+        + (
+            0
+            if outcome["status"]
+            in {"validated", "fail_closed_schema_exhausted"}
+            else int(guard_config.transport_retries_per_attempt) + 1
+        )
+        for outcome, usage in zip(outcomes, usages)
+    )
     summary = {
         "status": "validated_all_pools" if all_validated else "fail_closed",
         "pool_decision_count_expected": expected,
@@ -483,6 +493,14 @@ def run_guarded_pool_decisions(
             item["http_transmissions_observed"] for item in usages
         ),
         "http_transmissions_observed_is_exact": transport_exact,
+        "http_transmissions_used": (
+            sum(item["http_transmissions_observed"] for item in usages)
+            if transport_exact
+            else None
+        ),
+        "http_transmissions_upper_bound_for_started_decisions": (
+            transmission_upper_bound
+        ),
         "maximum_http_transmissions_total": int(
             protocol["acquisition"]["maximum_http_transmissions_total"]
         ),

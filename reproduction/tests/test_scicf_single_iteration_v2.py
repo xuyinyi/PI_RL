@@ -201,6 +201,10 @@ def test_transport_exhaustion_stops_without_semantic_repair(tmp_path):
     assert summary["semantic_repair_count"] == 0
     assert summary["oracle_selection_authorized"] is False
     assert summary["http_transmissions_observed_is_exact"] is False
+    assert summary["http_transmissions_used"] is None
+    assert summary["http_transmissions_upper_bound_for_started_decisions"] == 2
+    assert summary["token_accounting_complete"] is False
+    assert summary["reported_tokens"] == {"prompt": None, "completion": None}
 
 
 def test_protocol_rejects_expanded_http_or_training_scope(tmp_path):
