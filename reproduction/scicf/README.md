@@ -85,6 +85,21 @@
 > reused, and no automatic rerun, multi-iteration training, effectiveness
 > claim, or scientific claim is authorized. See
 > `reproduction/results/scicf-single-iteration-v3-real-schema4-job4736-20260907/`.
+> A six-iteration maximum short-horizon controller was next implemented at clean
+> commit `5f2a6a1`. It persists the circuit-breaker, cumulative LLM wall time,
+> engine state, prior control hash, and chained history digest after every
+> iteration. LLM work is capped at 60 seconds per iteration and 180 seconds
+> total, and every provider timeout is reduced to the remaining shared deadline.
+> Tiny negative KL diagnostics in `[-1e-6, 0)` are clamped to zero; materially
+> negative KL remains fatal. n001 Slurm Job 4737 passed 29 tests and all 30
+> no-credential full-runtime checks. Its synthetic sequence proved the expected
+> two-failure/three-skip/iteration-6-retry circuit behavior and cumulative time
+> restoration. It made zero API requests and ran zero PPO or AFP Oracle calls.
+> The decision only permits requesting a separately bound schema-5 authorization;
+> it does not authorize a real short-horizon run, automatic resume/rerun, formal
+> training, effectiveness claims, or scientific claims. See
+> `reproduction/scicf/SHORT_HORIZON_MULTI_ITERATION_V1.md` and
+> `reproduction/results/scicf-short-horizon-preflight-20260907/`.
 
 SciCF-PPO is being added as a feature-gated extension of the frozen
 `dapigen-ppo-compat-baseline-v1` baseline. The upstream PPO clipped objective,

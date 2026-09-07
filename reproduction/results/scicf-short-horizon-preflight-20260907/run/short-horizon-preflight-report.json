@@ -1,0 +1,432 @@
+{
+  "accepted_binding": {
+    "accepted_chemistry_backend": "dapigen-legacy-chemistry-deterministic-v2:dapigen_custom-sha256-e9f66fcccf1fe399:rdkit-2022.09.5",
+    "accepted_diamine_catalog_sha256": "0a91e1b7084692136139379b69a06301ed510750dc8f32220cee0cba6a49100a",
+    "accepted_dianhydride_catalog_sha256": "0a021f30b960a251b763ef6c0e0133e4f6d1214c1fa91da272a2cb241693b934",
+    "accepted_environment_id": "dapigen:8004c1fa2055a186b4a4f3ed",
+    "accepted_git_commit": "373b3291ac04dbf654c134bee2ca61a0c86d1a68",
+    "accepted_task_config": {
+      "attachment_label_max": 16,
+      "complete_block_policy": "pristine_only",
+      "environment_version": "dapigen-stage0-standard-v2.3",
+      "failure_reward": 0.0,
+      "horizon_semantics": "failure_terminal",
+      "include_terminal_candidates_in_info": false,
+      "invalid_action_handling": "raise",
+      "mask_mode": "closure_exact_cached",
+      "max_atoms": 60,
+      "max_steps": 5,
+      "minimum_diamine_growth_steps": 0,
+      "minimum_dianhydride_growth_steps": 0,
+      "observation_mode": "augmented_v3",
+      "product_selection": "seeded_uniform"
+    },
+    "profile_git_commit": "5f2a6a100edcfd0b15fe82228a0eef8e1c2c2904",
+    "profile_git_dirty": false,
+    "stage0_source_changed_from_accepted": true
+  },
+  "checks": {
+    "checkpoint_circuit_state_persisted": true,
+    "checkpoint_previous_hash_chain_exact": true,
+    "checkpoint_wall_time_state_persisted": true,
+    "circuit_state_persisted_and_recovered": true,
+    "closed_schema5_authorization_rejected": true,
+    "credentials_loaded_false": true,
+    "deadline_wraps_provider_before_control_checkpoint": true,
+    "external_api_request_count_zero": true,
+    "full_runtime_constructed": true,
+    "materially_negative_kl_rejected": true,
+    "no_local_llm_loaded": true,
+    "oracle_calls_zero": true,
+    "ppo_iterations_zero": true,
+    "primary_checkpoint_precedes_credentials": true,
+    "protocol_identity": true,
+    "real_execution_not_authorized": true,
+    "runtime_afp_property_inference_not_executed": true,
+    "runtime_budget_bound_to_1248": true,
+    "runtime_evaluator_hashes_exact": true,
+    "runtime_evaluator_ledger_zero": true,
+    "runtime_evaluator_path_exact": true,
+    "runtime_polybert_initial_embedding_executed": true,
+    "sealed_test_accessed_false": true,
+    "six_control_checkpoints_written": true,
+    "sixth_iteration_retries": true,
+    "three_iterations_skip_acquisition": true,
+    "tiny_negative_kl_clamped": true,
+    "two_failures_open_circuit": true,
+    "wall_time_persisted_only_attempted_iterations": true,
+    "wall_time_persisted_value": true
+  },
+  "classification": {
+    "algorithm_effectiveness_established": false,
+    "automatic_rerun_authorized": false,
+    "failures": [],
+    "formal_training_authorized": false,
+    "real_multi_iteration_execution_authorized": false,
+    "scientific_claim_authorized": false,
+    "scope": "no-credential-full-runtime-short-horizon-preflight"
+  },
+  "credentials_loaded": false,
+  "elapsed_seconds": 4.448696665465832,
+  "evaluator_asset": {
+    "asset_binding_id": "dapigen-reconstructed-afp-compatibility-evaluator-v1",
+    "asset_binding_sha256": "67cd8ed2c2cf29c823985a889033bc7ee3f0c898b82e32d992c2c34917d80eb9",
+    "asset_fingerprint": "0bdcea6155f5a53acd94afd322d408fe3e31c02cf13778a0c65f5f0938096ab4",
+    "asset_path": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v23-mask-dev-20260904/RL_PPO/GNN/model",
+    "compatibility_mode": "reconstructed-afp-compatibility",
+    "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "original_author_weights": false,
+    "required_file_count": 13,
+    "required_file_sha256": {
+      "Ensemble_cte_AFP_56.pt": "862ca8a97392302ad91bf784685c3b6af0b8439d4d5aa9439a01df38c2ca2d14",
+      "Ensemble_cte_AFP_settings.csv": "e50b62726b991aa991935ccfc0d994a7ae5362b418b876c3fd98294edd1dc38a",
+      "Ensemble_strength_AFP_84.pt": "078b0a5a67781e3d6f7dc488d09e41d87d555ed7fe6ee490ea2ddcd1ab7e6541",
+      "Ensemble_strength_AFP_settings.csv": "363df230aec1e6996301afc9f16308a10cfd093c0345c4d6d59fa0f701ba1260",
+      "Ensemble_tg_AFP_64.pt": "c333c54fe983e5924dcece1af6360c5a9cbbca5ca0b9f2063429b33d80dfbdd2",
+      "Ensemble_tg_AFP_settings.csv": "2d3a3b3bea5e6c636f6aeb493b8809fbefa88b0630a5fef2265c7dfe5f412123",
+      "Ensemble_transmittance(400)_AFP_43.pt": "a2220756d8faea96e29d768119ea13cf39a0c894a8c1664ba6fe5c2bac8a1bc0",
+      "Ensemble_transmittance(400)_AFP_settings.csv": "231e708ddd7ceb62b41d03dd6958c3f65bf47410defc9b32cf1328dbed64a448",
+      "cte_scaler.pkl": "c114884f6faef9efd6a1d6815969e0a0ab8f48a7c10ab9ab22638cf8cffc47c6",
+      "fpscores.pkl.gz": "10dcef9340c873e7b987924461b0af5365eb8dd96be607203debe8ddf80c1e73",
+      "strength_scaler.pkl": "22128758962a089e4ce6a52c6b9453aa53fd056c2af9f3889040b4df2b2263c8",
+      "tg_scaler.pkl": "567d3654755a7d966d649b571950e28ef9ebe1596e7d8eacaef867c8bac8f3c5",
+      "transmittance(400)_scaler.pkl": "5bde8e80e9996dbf0a983bcdc3c0981337fe3757252b5276af30dd0c14e4838c"
+    },
+    "validated_before_credentials": true
+  },
+  "evaluator_route_source_delta": {
+    "accepted_commit": "373b3291ac04dbf654c134bee2ca61a0c86d1a68",
+    "allowed_paths": [
+      "RL_PPO/envs/evaluator.py"
+    ],
+    "current_file_sha256": {
+      "RL_PPO/envs/evaluator.py": "90b27f5947dc9fbe9c6b4220f2fbbbb43ad82ff4ca552d7e7ac7ce82c6e420e1"
+    },
+    "exact": true,
+    "observed_paths": [
+      "RL_PPO/envs/evaluator.py"
+    ]
+  },
+  "execution_status": "passed",
+  "external_api_request_count": 0,
+  "host": "yanlih100n1",
+  "local_llm_loaded": false,
+  "mock_control_sequence": {
+    "controls": [
+      {
+        "completed_iteration": 1,
+        "control_checkpoint_path": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-short-horizon-preflight-5f2a6a1-20260907/mock-control-sequence/control-01/control.json",
+        "control_checkpoint_sha256": "35b3fde3e1f3a6e942ab608cf673b4799b6f0359be1311ee1768c3bfd2031098",
+        "engine_checkpoint_path": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-short-horizon-preflight-5f2a6a1-20260907/mock-control-sequence/control-01/engine.pt",
+        "engine_checkpoint_sha256": "96f46c57f621f70a540b628560fc428c70a9c86f51f8257988d977bf606f73f5"
+      },
+      {
+        "completed_iteration": 2,
+        "control_checkpoint_path": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-short-horizon-preflight-5f2a6a1-20260907/mock-control-sequence/control-02/control.json",
+        "control_checkpoint_sha256": "46153d52a998eff1d1117a72fd8a14a5b990078bbe283d19f1b2f53d043ee482",
+        "engine_checkpoint_path": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-short-horizon-preflight-5f2a6a1-20260907/mock-control-sequence/control-02/engine.pt",
+        "engine_checkpoint_sha256": "96f46c57f621f70a540b628560fc428c70a9c86f51f8257988d977bf606f73f5"
+      },
+      {
+        "completed_iteration": 3,
+        "control_checkpoint_path": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-short-horizon-preflight-5f2a6a1-20260907/mock-control-sequence/control-03/control.json",
+        "control_checkpoint_sha256": "0ffc76e5cf8937f76726fa64a13ec1855b94cef9cad6d92e8b076e498eedd0d4",
+        "engine_checkpoint_path": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-short-horizon-preflight-5f2a6a1-20260907/mock-control-sequence/control-03/engine.pt",
+        "engine_checkpoint_sha256": "96f46c57f621f70a540b628560fc428c70a9c86f51f8257988d977bf606f73f5"
+      },
+      {
+        "completed_iteration": 4,
+        "control_checkpoint_path": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-short-horizon-preflight-5f2a6a1-20260907/mock-control-sequence/control-04/control.json",
+        "control_checkpoint_sha256": "3e4433c79222607b054e233cbfa8a251ded87a22881b6973a5bcd5992a336c6f",
+        "engine_checkpoint_path": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-short-horizon-preflight-5f2a6a1-20260907/mock-control-sequence/control-04/engine.pt",
+        "engine_checkpoint_sha256": "96f46c57f621f70a540b628560fc428c70a9c86f51f8257988d977bf606f73f5"
+      },
+      {
+        "completed_iteration": 5,
+        "control_checkpoint_path": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-short-horizon-preflight-5f2a6a1-20260907/mock-control-sequence/control-05/control.json",
+        "control_checkpoint_sha256": "16712c837fbde7c68b6be27c97d835357f4243a6401cf9b7e316690674ffc9d8",
+        "engine_checkpoint_path": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-short-horizon-preflight-5f2a6a1-20260907/mock-control-sequence/control-05/engine.pt",
+        "engine_checkpoint_sha256": "96f46c57f621f70a540b628560fc428c70a9c86f51f8257988d977bf606f73f5"
+      },
+      {
+        "completed_iteration": 6,
+        "control_checkpoint_path": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-short-horizon-preflight-5f2a6a1-20260907/mock-control-sequence/control-06/control.json",
+        "control_checkpoint_sha256": "a756e428572e8cb1c3fcc6baf80291e78ce040f105474ec40c1c29c41be64c64",
+        "engine_checkpoint_path": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-short-horizon-preflight-5f2a6a1-20260907/mock-control-sequence/control-06/engine.pt",
+        "engine_checkpoint_sha256": "96f46c57f621f70a540b628560fc428c70a9c86f51f8257988d977bf606f73f5"
+      }
+    ],
+    "final_breaker": {
+      "config": {
+        "abstention_is_recoverable": true,
+        "circuit_cooldown_iterations": 3,
+        "maximum_consecutive_llm_failures": 2,
+        "no_pair_mass_is_recoverable": true,
+        "primary_ppo_checkpoint_required": true
+      },
+      "consecutive_llm_failures": 0,
+      "open_until_iteration": 0,
+      "schema_version": 1
+    },
+    "final_history_digest": "89c7d1d35231d13ecf79409b7b5d350e1dd967ab9cc99826e500e40d0659ca34",
+    "final_wall_budget": {
+      "completed_attempt_iterations": [
+        1,
+        2,
+        6
+      ],
+      "config": {
+        "maximum_seconds_per_iteration": 60.0,
+        "maximum_seconds_total": 180.0,
+        "minimum_transport_timeout_seconds": 0.01
+      },
+      "consumed_seconds": 25.0,
+      "remaining_total_seconds": 155.0,
+      "schema_version": 1
+    },
+    "receipts": [
+      {
+        "auxiliary_status": "skipped_recoverable_llm_failure",
+        "circuit_breaker": {
+          "config": {
+            "abstention_is_recoverable": true,
+            "circuit_cooldown_iterations": 3,
+            "maximum_consecutive_llm_failures": 2,
+            "no_pair_mass_is_recoverable": true,
+            "primary_ppo_checkpoint_required": true
+          },
+          "consecutive_llm_failures": 1,
+          "open_until_iteration": 0,
+          "schema_version": 1
+        },
+        "continue_training": true,
+        "iteration": 1,
+        "method_observed": "ppo_only_degraded",
+        "primary_ppo_status": "committed_before_llm",
+        "reason": "provider_timeout",
+        "scicf_applied": false,
+        "silent_fallback_used": false
+      },
+      {
+        "auxiliary_status": "skipped_recoverable_llm_failure",
+        "circuit_breaker": {
+          "config": {
+            "abstention_is_recoverable": true,
+            "circuit_cooldown_iterations": 3,
+            "maximum_consecutive_llm_failures": 2,
+            "no_pair_mass_is_recoverable": true,
+            "primary_ppo_checkpoint_required": true
+          },
+          "consecutive_llm_failures": 2,
+          "open_until_iteration": 6,
+          "schema_version": 1
+        },
+        "continue_training": true,
+        "iteration": 2,
+        "method_observed": "ppo_only_degraded",
+        "primary_ppo_status": "committed_before_llm",
+        "reason": "provider_timeout",
+        "scicf_applied": false,
+        "silent_fallback_used": false
+      },
+      {
+        "auxiliary_status": "skipped_circuit_open",
+        "circuit_breaker": {
+          "config": {
+            "abstention_is_recoverable": true,
+            "circuit_cooldown_iterations": 3,
+            "maximum_consecutive_llm_failures": 2,
+            "no_pair_mass_is_recoverable": true,
+            "primary_ppo_checkpoint_required": true
+          },
+          "consecutive_llm_failures": 2,
+          "open_until_iteration": 6,
+          "schema_version": 1
+        },
+        "continue_training": true,
+        "iteration": 3,
+        "method_observed": "ppo_only_degraded",
+        "primary_ppo_status": "committed_before_llm",
+        "reason": "bounded_provider_cooldown",
+        "scicf_applied": false,
+        "silent_fallback_used": false
+      },
+      {
+        "auxiliary_status": "skipped_circuit_open",
+        "circuit_breaker": {
+          "config": {
+            "abstention_is_recoverable": true,
+            "circuit_cooldown_iterations": 3,
+            "maximum_consecutive_llm_failures": 2,
+            "no_pair_mass_is_recoverable": true,
+            "primary_ppo_checkpoint_required": true
+          },
+          "consecutive_llm_failures": 2,
+          "open_until_iteration": 6,
+          "schema_version": 1
+        },
+        "continue_training": true,
+        "iteration": 4,
+        "method_observed": "ppo_only_degraded",
+        "primary_ppo_status": "committed_before_llm",
+        "reason": "bounded_provider_cooldown",
+        "scicf_applied": false,
+        "silent_fallback_used": false
+      },
+      {
+        "auxiliary_status": "skipped_circuit_open",
+        "circuit_breaker": {
+          "config": {
+            "abstention_is_recoverable": true,
+            "circuit_cooldown_iterations": 3,
+            "maximum_consecutive_llm_failures": 2,
+            "no_pair_mass_is_recoverable": true,
+            "primary_ppo_checkpoint_required": true
+          },
+          "consecutive_llm_failures": 2,
+          "open_until_iteration": 6,
+          "schema_version": 1
+        },
+        "continue_training": true,
+        "iteration": 5,
+        "method_observed": "ppo_only_degraded",
+        "primary_ppo_status": "committed_before_llm",
+        "reason": "bounded_provider_cooldown",
+        "scicf_applied": false,
+        "silent_fallback_used": false
+      },
+      {
+        "acquisition_payload": {
+          "mock": true
+        },
+        "auxiliary_status": "ready_for_oracle_verification",
+        "circuit_breaker": {
+          "config": {
+            "abstention_is_recoverable": true,
+            "circuit_cooldown_iterations": 3,
+            "maximum_consecutive_llm_failures": 2,
+            "no_pair_mass_is_recoverable": true,
+            "primary_ppo_checkpoint_required": true
+          },
+          "consecutive_llm_failures": 0,
+          "open_until_iteration": 0,
+          "schema_version": 1
+        },
+        "continue_training": true,
+        "iteration": 6,
+        "method_observed": "scicf_auxiliary_pending",
+        "primary_ppo_status": "committed_before_llm",
+        "scicf_applied": false,
+        "silent_fallback_used": false
+      }
+    ]
+  },
+  "module_decision": "go_request_separate_short_horizon_real_execution_authorization",
+  "oracle_calls": 0,
+  "platform": "Linux-4.18.0-553.63.1.el8_10.x86_64-x86_64-with-glibc2.17",
+  "polybert_asset": {
+    "asset_binding_id": "dapigen-polybert-reconstructed-compatibility-e7dce434-fulltree-v1",
+    "asset_binding_sha256": "7e2f1cf5caa38d3d42e7ebe2599435ec306aa74e2cffeb9c2cac23408876a7ed",
+    "checkpoint_fingerprint": "6bdd24f951dd90d3031e749ef0130752811bfefe6c850af82b805cf015ea195f",
+    "encoder_version": "polybert-sha256:6bdd24f951dd90d3031e749e",
+    "model_path": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v23-mask-dev-20260904/RL_PPO/models",
+    "required_file_count": 14,
+    "required_file_sha256": {
+      ".gitattributes": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+      "1_Pooling/config.json": "683f6c40a16773ff51acae0782c2feadf657d547d83839cb3ceae12559674ac5",
+      "README.md": "86ebef16b6ab84cddc0039f68a9e0f42ff364aca27d7bc86c56265a54931d915",
+      "added_tokens.json": "8279a702dd980b8470bf5e18b8880a0bdc8ab015aff6d39442d03b4aa8daa37f",
+      "config.json": "ad391d9de8f9eff355554a7bb4635714250e1079f51b6b973f46d8b008be559a",
+      "config_sentence_transformers.json": "1241b64de469187877d2734714c906b23fbdf82da16dca63205e88e07b55f7ae",
+      "model.safetensors": "21cfab4a3b0599852fb8ef529a67e41632246b9256ed834938ba9b46cb24148f",
+      "modules.json": "8f4b264b80206c830bebbdcae377e137925650a433b689343a63bdc9b3145460",
+      "pytorch_model.bin": "469d1928fe140f3d8d93f69e69a11aebf540e7a2043b38a9a6758cf0bb640a9c",
+      "sentence_bert_config.json": "ec8e29d6dcb61b611b7d3fdd2982c4524e6ad985959fa7194eacfb655a8d0d51",
+      "special_tokens_map.json": "311de3f4eed9d76a43bf0d71f10e62e086ca65ccce9f15d5da0d2098bf519ecc",
+      "spm.model": "2285839ce5a54c35acd7a59c38e531c243a5c46476e1ba11080bf11d303618d5",
+      "tokenizer.json": "89891f8a97ba93608626d704722a8243fb64c700f4e9b09edcebe794680d3c78",
+      "tokenizer_config.json": "a7fe4028e90570619c41417ade2b7135b2ff56fb93a33fbac14ff42cc22de7d0"
+    },
+    "upstream_polybert_identity_verified": false,
+    "validated_before_credentials": true
+  },
+  "ppo_iterations": 0,
+  "protocol_id": "dapigen-scicf-short-horizon-multi-iteration-smoke-v1",
+  "protocol_sha256": "ec4e70980e34ae9f69e38b10fc485588cfcf56238883f7066bb627511a044254",
+  "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "resources": {
+    "peak_rss_mib": 1084.51171875
+  },
+  "runner_sha256": "60619f2185995421faf9bef9f4b088b61efc17b4772dd0731c7099b90555246c",
+  "runtime": {
+    "afp_property_inference_executed": false,
+    "components_class": "Stage0Components",
+    "constructed": true,
+    "encoder_diagnostics": {
+      "cache_entries": 2,
+      "cache_hits": 0,
+      "cache_misses": 2,
+      "checkpoint_fingerprint": "6bdd24f951dd90d3031e749ef0130752811bfefe6c850af82b805cf015ea195f",
+      "device": "cuda:0",
+      "encoder_version": "polybert-sha256:6bdd24f951dd90d3031e749e",
+      "output_dim": 600
+    },
+    "engine_class": "PPOEngine",
+    "environment_id": "dapigen:8004c1fa2055a186b4a4f3ed",
+    "evaluator_asset_path": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v23-mask-dev-20260904/RL_PPO/GNN/model",
+    "evaluator_required_file_sha256": {
+      "Ensemble_cte_AFP_56.pt": "862ca8a97392302ad91bf784685c3b6af0b8439d4d5aa9439a01df38c2ca2d14",
+      "Ensemble_cte_AFP_settings.csv": "e50b62726b991aa991935ccfc0d994a7ae5362b418b876c3fd98294edd1dc38a",
+      "Ensemble_strength_AFP_84.pt": "078b0a5a67781e3d6f7dc488d09e41d87d555ed7fe6ee490ea2ddcd1ab7e6541",
+      "Ensemble_strength_AFP_settings.csv": "363df230aec1e6996301afc9f16308a10cfd093c0345c4d6d59fa0f701ba1260",
+      "Ensemble_tg_AFP_64.pt": "c333c54fe983e5924dcece1af6360c5a9cbbca5ca0b9f2063429b33d80dfbdd2",
+      "Ensemble_tg_AFP_settings.csv": "2d3a3b3bea5e6c636f6aeb493b8809fbefa88b0630a5fef2265c7dfe5f412123",
+      "Ensemble_transmittance(400)_AFP_43.pt": "a2220756d8faea96e29d768119ea13cf39a0c894a8c1664ba6fe5c2bac8a1bc0",
+      "Ensemble_transmittance(400)_AFP_settings.csv": "231e708ddd7ceb62b41d03dd6958c3f65bf47410defc9b32cf1328dbed64a448",
+      "cte_scaler.pkl": "c114884f6faef9efd6a1d6815969e0a0ab8f48a7c10ab9ab22638cf8cffc47c6",
+      "fpscores.pkl.gz": "10dcef9340c873e7b987924461b0af5365eb8dd96be607203debe8ddf80c1e73",
+      "strength_scaler.pkl": "22128758962a089e4ce6a52c6b9453aa53fd056c2af9f3889040b4df2b2263c8",
+      "tg_scaler.pkl": "567d3654755a7d966d649b571950e28ef9ebe1596e7d8eacaef867c8bac8f3c5",
+      "transmittance(400)_scaler.pkl": "5bde8e80e9996dbf0a983bcdc3c0981337fe3757252b5276af30dd0c14e4838c"
+    },
+    "initial_evaluator_ledger": {
+      "allowed_sources": [
+        "evaluation",
+        "scicf_ppo/counterfactual",
+        "scicf_ppo/factual",
+        "scicf_ppo/on_policy"
+      ],
+      "backend_by_source": {},
+      "backend_calls": 0,
+      "budget_protocol_version": "terminal-requested-unique-backend-v2",
+      "cache_entries": 0,
+      "cache_hit_rate": 0.0,
+      "cache_hits": 0,
+      "cache_scope": "scicf_short_horizon_multi_iteration_v1",
+      "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+      "invalid_results": 0,
+      "maximum_requested_calls": 1248,
+      "maximum_unique_calls": 1248,
+      "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+      "remaining_requested_calls": 1248,
+      "remaining_unique_calls": 1248,
+      "requested_by_source": {},
+      "requested_calls": 0,
+      "unique_by_source": {},
+      "unique_calls": 0
+    },
+    "local_llm_loaded": false,
+    "maximum_requested_calls": 1248,
+    "polybert_initial_embedding_inference_executed": true,
+    "run_contract_environment_id": "dapigen:8004c1fa2055a186b4a4f3ed"
+  },
+  "schema_version": 1,
+  "sealed_test_accessed": false,
+  "slurm_job_id": "4737",
+  "source": {
+    "branch": "HEAD",
+    "commit": "5f2a6a100edcfd0b15fe82228a0eef8e1c2c2904",
+    "dirty": false,
+    "tags": []
+  }
+}

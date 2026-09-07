@@ -4,9 +4,10 @@ Status date: 2026-09-07
 
 Plan status: **the schema-3 integration-v2 run remains archived as a no-go after
 zero strict pairs; the K=5 optional-LLM v3 single-iteration run completed and
-applied one soft-pair update in n001 Slurm Job 4736, but this engineering result
-does not authorize a rerun or multi-iteration training, and historical sealed
-tests and all scientific claim gates remain closed**
+applied one soft-pair update in n001 Slurm Job 4736; the separately developed
+short-horizon runner passed only its no-credential Slurm preflight in Job 4737.
+No real multi-iteration execution, rerun, formal training, sealed-test access,
+or scientific claim is authorized**
 
 ## 2026-09-06 architecture-first amendment
 
@@ -238,6 +239,24 @@ single-iteration engineering path. The consumed authorization cannot be reused,
 and no automatic rerun or multi-iteration training is authorized. Evidence is
 under
 `reproduction/results/scicf-single-iteration-v3-real-schema4-job4736-20260907/`.
+
+The bounded short-horizon controller was then implemented at clean commit
+`5f2a6a100edcfd0b15fe82228a0eef8e1c2c2904`. It caps the coordinate at six
+iterations, persists circuit-breaker state and cumulative LLM wall time in an
+exactly hashed control checkpoint after every iteration, caps LLM time at 60
+seconds per iteration and 180 seconds total, and clamps only KL diagnostics in
+`[-1e-6, 0)` while rejecting materially negative values. Standard PPO remains
+the primary transaction and is checkpointed before any credential read; bounded
+LLM availability failures yield an explicit `ppo_only_degraded` iteration.
+n001 Slurm Job 4737 passed 29 server tests and all 30 no-credential full-runtime
+checks. Its synthetic sequence proved two failures, iterations 3-5 skipped by a
+persisted open circuit, and retry at iteration 6 while cumulative LLM time
+remained 25 seconds across checkpoint reloads. The run used zero credentials,
+API requests, PPO iterations, AFP Oracle calls, AFP property inferences, local
+LLMs, or sealed-test accesses. Its decision permits only requesting a separate
+exact schema-5 authorization; no real short-horizon run, automatic resume/rerun,
+or formal training is authorized. Evidence is under
+`reproduction/results/scicf-short-horizon-preflight-20260907/`.
 
 ## 1. Authority and scope
 
