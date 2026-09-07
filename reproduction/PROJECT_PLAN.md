@@ -3,10 +3,10 @@
 Status date: 2026-09-07
 
 Plan status: **the schema-3 integration-v2 run remains a no-go after zero strict
-pairs; a new K=5 soft-pair and optional-LLM resilience component coordinate has
-passed mock-only n001 Slurm preflight, but no v3 real runner, real execution, or
-multi-iteration training is authorized, and historical sealed tests and all
-scientific claim gates remain closed**
+pairs; the K=5 soft-pair and optional-LLM resilience components and the v3
+single-iteration runner have passed their respective n001 Slurm preflights, but
+no real v3 execution or multi-iteration training is authorized, and historical
+sealed tests and all scientific claim gates remain closed**
 
 ## 2026-09-06 architecture-first amendment
 
@@ -204,6 +204,23 @@ Oracle calls, local models, or sealed-test accesses. This admits only separately
 gated v3 runner development and a later no-credential full-runtime preflight;
 it does not authorize a real run or multi-iteration training. Evidence is under
 `reproduction/results/scicf-soft-pair-resilience-preflight-20260907/`.
+
+The separately frozen v3 integration runner was implemented at clean commit
+`93501f33cf4594791b31a805b153bf1accc94538`. It validates schema-4 execution
+authorization and all frozen assets before PPO, commits and hashes the primary
+PPO checkpoint before reading private API settings, and then treats the LLM and
+K=5 soft-pair refinement as an optional auxiliary transaction. Expected
+provider/transport/schema failures, valid abstention, insufficient pair mass,
+and pairwise KL rollback retain the primary PPO result as an explicit
+`ppo_only_degraded` iteration. Authorization, asset, budget, leakage,
+allowlist, and unexpected programming errors remain fatal. n001 Slurm Job 4715
+passed 25 server tests and all 31 no-credential full-runtime checks. It loaded
+the scientific runtime and executed the expected polyBERT initialization, but
+used zero credentials, API requests, PPO iterations, AFP Oracle calls, local
+LLMs, or sealed-test accesses. The decision permits only requesting a new exact
+single-run schema-4 authorization; it does not authorize that run or any
+multi-iteration training. Evidence is under
+`reproduction/results/scicf-single-iteration-v3-preflight-20260907/`.
 
 ## 1. Authority and scope
 

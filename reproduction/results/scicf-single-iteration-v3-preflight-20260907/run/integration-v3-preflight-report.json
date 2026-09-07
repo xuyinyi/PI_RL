@@ -1,0 +1,696 @@
+{
+  "abstention_receipt": {
+    "auxiliary_status": "skipped_llm_abstained",
+    "circuit_breaker": {
+      "config": {
+        "abstention_is_recoverable": true,
+        "circuit_cooldown_iterations": 3,
+        "maximum_consecutive_llm_failures": 2,
+        "no_pair_mass_is_recoverable": true,
+        "primary_ppo_checkpoint_required": true
+      },
+      "consecutive_llm_failures": 0,
+      "open_until_iteration": 0,
+      "schema_version": 1
+    },
+    "continue_training": true,
+    "iteration": 1,
+    "method_observed": "ppo_only_degraded",
+    "primary_ppo_status": "committed_before_llm",
+    "reason": "valid_schema_abstention",
+    "scicf_applied": false,
+    "silent_fallback_used": false
+  },
+  "accepted_binding": {
+    "accepted_chemistry_backend": "dapigen-legacy-chemistry-deterministic-v2:dapigen_custom-sha256-e9f66fcccf1fe399:rdkit-2022.09.5",
+    "accepted_diamine_catalog_sha256": "0a91e1b7084692136139379b69a06301ed510750dc8f32220cee0cba6a49100a",
+    "accepted_dianhydride_catalog_sha256": "0a021f30b960a251b763ef6c0e0133e4f6d1214c1fa91da272a2cb241693b934",
+    "accepted_environment_id": "dapigen:8004c1fa2055a186b4a4f3ed",
+    "accepted_git_commit": "373b3291ac04dbf654c134bee2ca61a0c86d1a68",
+    "accepted_task_config": {
+      "attachment_label_max": 16,
+      "complete_block_policy": "pristine_only",
+      "environment_version": "dapigen-stage0-standard-v2.3",
+      "failure_reward": 0.0,
+      "horizon_semantics": "failure_terminal",
+      "include_terminal_candidates_in_info": false,
+      "invalid_action_handling": "raise",
+      "mask_mode": "closure_exact_cached",
+      "max_atoms": 60,
+      "max_steps": 5,
+      "minimum_diamine_growth_steps": 0,
+      "minimum_dianhydride_growth_steps": 0,
+      "observation_mode": "augmented_v3",
+      "product_selection": "seeded_uniform"
+    },
+    "profile_git_commit": "93501f33cf4594791b31a805b153bf1accc94538",
+    "profile_git_dirty": false,
+    "stage0_source_changed_from_accepted": true
+  },
+  "checks": {
+    "all_recoverable_failures_continue_ppo": true,
+    "assets_before_authorization": true,
+    "authorization_before_ppo": true,
+    "circuit_retries_after_cooldown": true,
+    "circuit_skips_exactly_three_iterations": true,
+    "closed_schema4_authorization_rejected": true,
+    "component_preflight_bound": true,
+    "configured_recoverable_codes_exact": true,
+    "credentials_inside_optional_acquisition": true,
+    "credentials_loaded_false": true,
+    "evaluator_asset_bound_to_accepted_stage0": true,
+    "evaluator_source_delta_exact_and_routing_only": true,
+    "external_api_request_count_zero": true,
+    "full_runtime_constructed": true,
+    "insufficient_pair_mass_continues_ppo": true,
+    "model_asset_bound_to_accepted_encoder": true,
+    "no_local_llm_loaded": true,
+    "oracle_executed_false": true,
+    "ppo_checkpoint_before_credentials": true,
+    "ppo_executed_false": true,
+    "protocol_identity": true,
+    "runtime_afp_oracle_not_executed": true,
+    "runtime_evaluator_hashes_bound": true,
+    "runtime_evaluator_ledger_zero": true,
+    "runtime_evaluator_route_exact": true,
+    "runtime_polybert_embedding_executed": true,
+    "sealed_test_accessed_false": true,
+    "soft_aggregation_exact_k5": true,
+    "soft_mass_gate_passes": true,
+    "soft_weights_order_empirical_confidence": true,
+    "valid_abstention_continues_ppo": true
+  },
+  "circuit_breaker": {
+    "recovery": {
+      "acquisition_payload": {},
+      "auxiliary_status": "ready_for_oracle_verification",
+      "circuit_breaker": {
+        "config": {
+          "abstention_is_recoverable": true,
+          "circuit_cooldown_iterations": 3,
+          "maximum_consecutive_llm_failures": 2,
+          "no_pair_mass_is_recoverable": true,
+          "primary_ppo_checkpoint_required": true
+        },
+        "consecutive_llm_failures": 0,
+        "open_until_iteration": 0,
+        "schema_version": 1
+      },
+      "continue_training": true,
+      "iteration": 6,
+      "method_observed": "scicf_auxiliary_pending",
+      "primary_ppo_status": "committed_before_llm",
+      "scicf_applied": false,
+      "silent_fallback_used": false
+    },
+    "skips": [
+      "skipped_circuit_open",
+      "skipped_circuit_open",
+      "skipped_circuit_open"
+    ]
+  },
+  "classification": {
+    "algorithm_effectiveness_established": false,
+    "automatic_rerun_authorized": false,
+    "failures": [],
+    "formal_training_authorized": false,
+    "multi_iteration_training_authorized": false,
+    "real_single_iteration_authorized": false,
+    "scientific_claim_authorized": false,
+    "scope": "no-credential-full-runtime-integration-v3-preflight"
+  },
+  "credentials_loaded": false,
+  "elapsed_seconds": 4.672925882041454,
+  "evaluator_asset": {
+    "asset_binding_id": "dapigen-reconstructed-afp-compatibility-evaluator-v1",
+    "asset_binding_sha256": "67cd8ed2c2cf29c823985a889033bc7ee3f0c898b82e32d992c2c34917d80eb9",
+    "asset_fingerprint": "0bdcea6155f5a53acd94afd322d408fe3e31c02cf13778a0c65f5f0938096ab4",
+    "asset_path": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v23-mask-dev-20260904/RL_PPO/GNN/model",
+    "compatibility_mode": "reconstructed-afp-compatibility",
+    "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "original_author_weights": false,
+    "required_file_count": 13,
+    "required_file_sha256": {
+      "Ensemble_cte_AFP_56.pt": "862ca8a97392302ad91bf784685c3b6af0b8439d4d5aa9439a01df38c2ca2d14",
+      "Ensemble_cte_AFP_settings.csv": "e50b62726b991aa991935ccfc0d994a7ae5362b418b876c3fd98294edd1dc38a",
+      "Ensemble_strength_AFP_84.pt": "078b0a5a67781e3d6f7dc488d09e41d87d555ed7fe6ee490ea2ddcd1ab7e6541",
+      "Ensemble_strength_AFP_settings.csv": "363df230aec1e6996301afc9f16308a10cfd093c0345c4d6d59fa0f701ba1260",
+      "Ensemble_tg_AFP_64.pt": "c333c54fe983e5924dcece1af6360c5a9cbbca5ca0b9f2063429b33d80dfbdd2",
+      "Ensemble_tg_AFP_settings.csv": "2d3a3b3bea5e6c636f6aeb493b8809fbefa88b0630a5fef2265c7dfe5f412123",
+      "Ensemble_transmittance(400)_AFP_43.pt": "a2220756d8faea96e29d768119ea13cf39a0c894a8c1664ba6fe5c2bac8a1bc0",
+      "Ensemble_transmittance(400)_AFP_settings.csv": "231e708ddd7ceb62b41d03dd6958c3f65bf47410defc9b32cf1328dbed64a448",
+      "cte_scaler.pkl": "c114884f6faef9efd6a1d6815969e0a0ab8f48a7c10ab9ab22638cf8cffc47c6",
+      "fpscores.pkl.gz": "10dcef9340c873e7b987924461b0af5365eb8dd96be607203debe8ddf80c1e73",
+      "strength_scaler.pkl": "22128758962a089e4ce6a52c6b9453aa53fd056c2af9f3889040b4df2b2263c8",
+      "tg_scaler.pkl": "567d3654755a7d966d649b571950e28ef9ebe1596e7d8eacaef867c8bac8f3c5",
+      "transmittance(400)_scaler.pkl": "5bde8e80e9996dbf0a983bcdc3c0981337fe3757252b5276af30dd0c14e4838c"
+    },
+    "validated_before_credentials": true
+  },
+  "evaluator_route_source_delta": {
+    "accepted_commit": "373b3291ac04dbf654c134bee2ca61a0c86d1a68",
+    "allowed_paths": [
+      "RL_PPO/envs/evaluator.py"
+    ],
+    "current_file_sha256": {
+      "RL_PPO/envs/evaluator.py": "90b27f5947dc9fbe9c6b4220f2fbbbb43ad82ff4ca552d7e7ac7ce82c6e420e1"
+    },
+    "exact": true,
+    "observed_paths": [
+      "RL_PPO/envs/evaluator.py"
+    ]
+  },
+  "execution_status": "passed",
+  "external_api_request_count": 0,
+  "host": "yanlih100n1",
+  "local_llm_loaded": false,
+  "mock_primary_checkpoint_sha256": "85f70f027b4e13707cc29936dfd20d4b2eff2b477152aeca0c6f7d197b25762f",
+  "module_decision": "go_request_separate_real_single_iteration_v3_authorization",
+  "no_mass_receipt": {
+    "acquisition_payload": {
+      "ids": [
+        "cf-a"
+      ]
+    },
+    "auxiliary_status": "skipped_after_verification",
+    "circuit_breaker": {
+      "config": {
+        "abstention_is_recoverable": true,
+        "circuit_cooldown_iterations": 3,
+        "maximum_consecutive_llm_failures": 2,
+        "no_pair_mass_is_recoverable": true,
+        "primary_ppo_checkpoint_required": true
+      },
+      "consecutive_llm_failures": 0,
+      "open_until_iteration": 0,
+      "schema_version": 1
+    },
+    "continue_training": true,
+    "iteration": 1,
+    "method_observed": "ppo_only_degraded",
+    "primary_ppo_status": "committed_before_llm",
+    "reason": "skipped_insufficient_soft_pair_mass",
+    "refinement": {
+      "continue_primary_training": true,
+      "status": "skipped_insufficient_soft_pair_mass"
+    },
+    "scicf_applied": false,
+    "silent_fallback_used": false
+  },
+  "oracle_calls": 0,
+  "platform": "Linux-4.18.0-553.63.1.el8_10.x86_64-x86_64-with-glibc2.17",
+  "polybert_asset": {
+    "asset_binding_id": "dapigen-polybert-reconstructed-compatibility-e7dce434-fulltree-v1",
+    "asset_binding_sha256": "7e2f1cf5caa38d3d42e7ebe2599435ec306aa74e2cffeb9c2cac23408876a7ed",
+    "checkpoint_fingerprint": "6bdd24f951dd90d3031e749ef0130752811bfefe6c850af82b805cf015ea195f",
+    "encoder_version": "polybert-sha256:6bdd24f951dd90d3031e749e",
+    "model_path": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v23-mask-dev-20260904/RL_PPO/models",
+    "required_file_count": 14,
+    "required_file_sha256": {
+      ".gitattributes": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+      "1_Pooling/config.json": "683f6c40a16773ff51acae0782c2feadf657d547d83839cb3ceae12559674ac5",
+      "README.md": "86ebef16b6ab84cddc0039f68a9e0f42ff364aca27d7bc86c56265a54931d915",
+      "added_tokens.json": "8279a702dd980b8470bf5e18b8880a0bdc8ab015aff6d39442d03b4aa8daa37f",
+      "config.json": "ad391d9de8f9eff355554a7bb4635714250e1079f51b6b973f46d8b008be559a",
+      "config_sentence_transformers.json": "1241b64de469187877d2734714c906b23fbdf82da16dca63205e88e07b55f7ae",
+      "model.safetensors": "21cfab4a3b0599852fb8ef529a67e41632246b9256ed834938ba9b46cb24148f",
+      "modules.json": "8f4b264b80206c830bebbdcae377e137925650a433b689343a63bdc9b3145460",
+      "pytorch_model.bin": "469d1928fe140f3d8d93f69e69a11aebf540e7a2043b38a9a6758cf0bb640a9c",
+      "sentence_bert_config.json": "ec8e29d6dcb61b611b7d3fdd2982c4524e6ad985959fa7194eacfb655a8d0d51",
+      "special_tokens_map.json": "311de3f4eed9d76a43bf0d71f10e62e086ca65ccce9f15d5da0d2098bf519ecc",
+      "spm.model": "2285839ce5a54c35acd7a59c38e531c243a5c46476e1ba11080bf11d303618d5",
+      "tokenizer.json": "89891f8a97ba93608626d704722a8243fb64c700f4e9b09edcebe794680d3c78",
+      "tokenizer_config.json": "a7fe4028e90570619c41417ade2b7135b2ff56fb93a33fbac14ff42cc22de7d0"
+    },
+    "upstream_polybert_identity_verified": false,
+    "validated_before_credentials": true
+  },
+  "ppo_iterations": 0,
+  "protocol_id": "dapigen-scicf-single-iteration-integration-smoke-v3",
+  "protocol_sha256": "57d7a06c8e519370b2cbb70330db4132bc08e7ff24e1fefa393ef13467b2d925",
+  "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "recoverable_receipts": {
+    "provider_rate_limited": {
+      "auxiliary_status": "skipped_recoverable_llm_failure",
+      "circuit_breaker": {
+        "config": {
+          "abstention_is_recoverable": true,
+          "circuit_cooldown_iterations": 3,
+          "maximum_consecutive_llm_failures": 2,
+          "no_pair_mass_is_recoverable": true,
+          "primary_ppo_checkpoint_required": true
+        },
+        "consecutive_llm_failures": 1,
+        "open_until_iteration": 0,
+        "schema_version": 1
+      },
+      "continue_training": true,
+      "iteration": 1,
+      "method_observed": "ppo_only_degraded",
+      "primary_ppo_status": "committed_before_llm",
+      "reason": "provider_rate_limited",
+      "scicf_applied": false,
+      "silent_fallback_used": false
+    },
+    "provider_timeout": {
+      "auxiliary_status": "skipped_recoverable_llm_failure",
+      "circuit_breaker": {
+        "config": {
+          "abstention_is_recoverable": true,
+          "circuit_cooldown_iterations": 3,
+          "maximum_consecutive_llm_failures": 2,
+          "no_pair_mass_is_recoverable": true,
+          "primary_ppo_checkpoint_required": true
+        },
+        "consecutive_llm_failures": 1,
+        "open_until_iteration": 0,
+        "schema_version": 1
+      },
+      "continue_training": true,
+      "iteration": 1,
+      "method_observed": "ppo_only_degraded",
+      "primary_ppo_status": "committed_before_llm",
+      "reason": "provider_timeout",
+      "scicf_applied": false,
+      "silent_fallback_used": false
+    },
+    "provider_unavailable": {
+      "auxiliary_status": "skipped_recoverable_llm_failure",
+      "circuit_breaker": {
+        "config": {
+          "abstention_is_recoverable": true,
+          "circuit_cooldown_iterations": 3,
+          "maximum_consecutive_llm_failures": 2,
+          "no_pair_mass_is_recoverable": true,
+          "primary_ppo_checkpoint_required": true
+        },
+        "consecutive_llm_failures": 1,
+        "open_until_iteration": 0,
+        "schema_version": 1
+      },
+      "continue_training": true,
+      "iteration": 1,
+      "method_observed": "ppo_only_degraded",
+      "primary_ppo_status": "committed_before_llm",
+      "reason": "provider_unavailable",
+      "scicf_applied": false,
+      "silent_fallback_used": false
+    },
+    "schema_exhausted": {
+      "auxiliary_status": "skipped_recoverable_llm_failure",
+      "circuit_breaker": {
+        "config": {
+          "abstention_is_recoverable": true,
+          "circuit_cooldown_iterations": 3,
+          "maximum_consecutive_llm_failures": 2,
+          "no_pair_mass_is_recoverable": true,
+          "primary_ppo_checkpoint_required": true
+        },
+        "consecutive_llm_failures": 1,
+        "open_until_iteration": 0,
+        "schema_version": 1
+      },
+      "continue_training": true,
+      "iteration": 1,
+      "method_observed": "ppo_only_degraded",
+      "primary_ppo_status": "committed_before_llm",
+      "reason": "schema_exhausted",
+      "scicf_applied": false,
+      "silent_fallback_used": false
+    },
+    "transport_exhausted": {
+      "auxiliary_status": "skipped_recoverable_llm_failure",
+      "circuit_breaker": {
+        "config": {
+          "abstention_is_recoverable": true,
+          "circuit_cooldown_iterations": 3,
+          "maximum_consecutive_llm_failures": 2,
+          "no_pair_mass_is_recoverable": true,
+          "primary_ppo_checkpoint_required": true
+        },
+        "consecutive_llm_failures": 1,
+        "open_until_iteration": 0,
+        "schema_version": 1
+      },
+      "continue_training": true,
+      "iteration": 1,
+      "method_observed": "ppo_only_degraded",
+      "primary_ppo_status": "committed_before_llm",
+      "reason": "transport_exhausted",
+      "scicf_applied": false,
+      "silent_fallback_used": false
+    }
+  },
+  "resources": {
+    "peak_rss_mib": 1093.39453125
+  },
+  "runner_sha256": "4b9bf0bb71ddcc8f05e3feb5c56248c592f42dac7f2060d6eb5e38d32c915c7a",
+  "runtime": {
+    "afp_property_inference_executed": false,
+    "components_class": "Stage0Components",
+    "constructed": true,
+    "encoder_diagnostics": {
+      "cache_entries": 2,
+      "cache_hits": 0,
+      "cache_misses": 2,
+      "checkpoint_fingerprint": "6bdd24f951dd90d3031e749ef0130752811bfefe6c850af82b805cf015ea195f",
+      "device": "cuda:0",
+      "encoder_version": "polybert-sha256:6bdd24f951dd90d3031e749e",
+      "output_dim": 600
+    },
+    "engine_class": "PPOEngine",
+    "environment_id": "dapigen:8004c1fa2055a186b4a4f3ed",
+    "evaluator_asset_path": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v23-mask-dev-20260904/RL_PPO/GNN/model",
+    "evaluator_required_file_sha256": {
+      "Ensemble_cte_AFP_56.pt": "862ca8a97392302ad91bf784685c3b6af0b8439d4d5aa9439a01df38c2ca2d14",
+      "Ensemble_cte_AFP_settings.csv": "e50b62726b991aa991935ccfc0d994a7ae5362b418b876c3fd98294edd1dc38a",
+      "Ensemble_strength_AFP_84.pt": "078b0a5a67781e3d6f7dc488d09e41d87d555ed7fe6ee490ea2ddcd1ab7e6541",
+      "Ensemble_strength_AFP_settings.csv": "363df230aec1e6996301afc9f16308a10cfd093c0345c4d6d59fa0f701ba1260",
+      "Ensemble_tg_AFP_64.pt": "c333c54fe983e5924dcece1af6360c5a9cbbca5ca0b9f2063429b33d80dfbdd2",
+      "Ensemble_tg_AFP_settings.csv": "2d3a3b3bea5e6c636f6aeb493b8809fbefa88b0630a5fef2265c7dfe5f412123",
+      "Ensemble_transmittance(400)_AFP_43.pt": "a2220756d8faea96e29d768119ea13cf39a0c894a8c1664ba6fe5c2bac8a1bc0",
+      "Ensemble_transmittance(400)_AFP_settings.csv": "231e708ddd7ceb62b41d03dd6958c3f65bf47410defc9b32cf1328dbed64a448",
+      "cte_scaler.pkl": "c114884f6faef9efd6a1d6815969e0a0ab8f48a7c10ab9ab22638cf8cffc47c6",
+      "fpscores.pkl.gz": "10dcef9340c873e7b987924461b0af5365eb8dd96be607203debe8ddf80c1e73",
+      "strength_scaler.pkl": "22128758962a089e4ce6a52c6b9453aa53fd056c2af9f3889040b4df2b2263c8",
+      "tg_scaler.pkl": "567d3654755a7d966d649b571950e28ef9ebe1596e7d8eacaef867c8bac8f3c5",
+      "transmittance(400)_scaler.pkl": "5bde8e80e9996dbf0a983bcdc3c0981337fe3757252b5276af30dd0c14e4838c"
+    },
+    "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "initial_evaluator_ledger": {
+      "allowed_sources": [
+        "evaluation",
+        "scicf_ppo/counterfactual",
+        "scicf_ppo/factual",
+        "scicf_ppo/on_policy"
+      ],
+      "backend_by_source": {},
+      "backend_calls": 0,
+      "budget_protocol_version": "terminal-requested-unique-backend-v2",
+      "cache_entries": 0,
+      "cache_hit_rate": 0.0,
+      "cache_hits": 0,
+      "cache_scope": "scicf_single_iteration_integration_v2",
+      "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+      "invalid_results": 0,
+      "maximum_requested_calls": 512,
+      "maximum_unique_calls": 512,
+      "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+      "remaining_requested_calls": 512,
+      "remaining_unique_calls": 512,
+      "requested_by_source": {},
+      "requested_calls": 0,
+      "unique_by_source": {},
+      "unique_calls": 0
+    },
+    "local_llm_loaded": false,
+    "polybert_initial_embedding_inference_executed": true,
+    "run_contract_environment_id": "dapigen:8004c1fa2055a186b4a4f3ed",
+    "scientific_local_models_loaded": true
+  },
+  "schema_version": 1,
+  "scientific_local_models_loaded": true,
+  "sealed_test_accessed": false,
+  "slurm_job_id": "4715",
+  "soft_evidence": [
+    {
+      "accepted": false,
+      "candidate_id": "cf-soft-1",
+      "counterfactual_returns": [
+        0.6,
+        0.58,
+        0.56,
+        0.54,
+        0.52
+      ],
+      "counterfactual_terminal_records": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "deltas": [
+        0.1,
+        0.08,
+        0.06,
+        0.04,
+        0.02
+      ],
+      "factual_returns": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "factual_terminal_records": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "mean_delta": 0.06,
+      "paired_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "preferred": null,
+      "rejection_reason": "v3-preflight-soft-only",
+      "soft_aggregation": {
+        "magnitude_confidence": 1.0,
+        "median_delta": 0.06,
+        "negative_count": 0,
+        "nonzero_fraction": 1.0,
+        "positive_count": 5,
+        "posterior_positive_probability": 0.9166666666666666,
+        "preferred": "counterfactual",
+        "sign_confidence": 0.8333333333333333,
+        "status": "weighted_preference",
+        "tie_count": 0,
+        "training_weight": 1.6666666666666665
+      },
+      "strict_all_nonzero_same_sign": false
+    },
+    {
+      "accepted": false,
+      "candidate_id": "cf-soft-2",
+      "counterfactual_returns": [
+        0.58,
+        0.56,
+        0.54,
+        0.52,
+        0.49
+      ],
+      "counterfactual_terminal_records": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "deltas": [
+        0.08,
+        0.06,
+        0.04,
+        0.02,
+        -0.01
+      ],
+      "factual_returns": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "factual_terminal_records": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "mean_delta": 0.038,
+      "paired_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "preferred": null,
+      "rejection_reason": "v3-preflight-soft-only",
+      "soft_aggregation": {
+        "magnitude_confidence": 0.7999999999999999,
+        "median_delta": 0.04,
+        "negative_count": 1,
+        "nonzero_fraction": 1.0,
+        "positive_count": 4,
+        "posterior_positive_probability": 0.75,
+        "preferred": "counterfactual",
+        "sign_confidence": 0.5,
+        "status": "weighted_preference",
+        "tie_count": 0,
+        "training_weight": 0.7999999999999999
+      },
+      "strict_all_nonzero_same_sign": false
+    },
+    {
+      "accepted": false,
+      "candidate_id": "cf-soft-3",
+      "counterfactual_returns": [
+        0.53,
+        0.52,
+        0.51,
+        0.49,
+        0.48
+      ],
+      "counterfactual_terminal_records": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "deltas": [
+        0.03,
+        0.02,
+        0.01,
+        -0.01,
+        -0.02
+      ],
+      "factual_returns": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "factual_terminal_records": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "mean_delta": 0.006,
+      "paired_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "preferred": null,
+      "rejection_reason": "v3-preflight-soft-only",
+      "soft_aggregation": {
+        "magnitude_confidence": 0.19999999999999998,
+        "median_delta": 0.01,
+        "negative_count": 2,
+        "nonzero_fraction": 1.0,
+        "positive_count": 3,
+        "posterior_positive_probability": 0.5833333333333334,
+        "preferred": "counterfactual",
+        "sign_confidence": 0.16666666666666674,
+        "status": "weighted_preference",
+        "tie_count": 0,
+        "training_weight": 0.0666666666666667
+      },
+      "strict_all_nonzero_same_sign": false
+    },
+    {
+      "accepted": false,
+      "candidate_id": "cf-soft-4",
+      "counterfactual_returns": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "counterfactual_terminal_records": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "deltas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "factual_returns": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "factual_terminal_records": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "mean_delta": 0.0,
+      "paired_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "preferred": null,
+      "rejection_reason": "v3-preflight-soft-only",
+      "soft_aggregation": {
+        "magnitude_confidence": 0.0,
+        "median_delta": 0.0,
+        "negative_count": 0,
+        "nonzero_fraction": 0.0,
+        "positive_count": 0,
+        "posterior_positive_probability": 0.5,
+        "preferred": null,
+        "sign_confidence": 0.0,
+        "status": "abstained_all_ties",
+        "tie_count": 5,
+        "training_weight": 0.0
+      },
+      "strict_all_nonzero_same_sign": false
+    }
+  ],
+  "soft_gate": {
+    "config": {
+      "beta_prior_alpha": 0.5,
+      "magnitude_scale": 0.05,
+      "maximum_single_pair_mass_fraction": 0.75,
+      "maximum_training_weight": 2.0,
+      "minimum_effective_pair_mass": 0.5,
+      "minimum_training_weight": 0.05,
+      "minimum_weighted_candidate_count": 2,
+      "practical_delta_tolerance": 0.005,
+      "replicates": 5
+    },
+    "continue_primary_training": true,
+    "effective_pair_mass": 1.2666666666666666,
+    "eligible_for_optional_update": true,
+    "failures": [],
+    "maximum_single_pair_mass_fraction": 0.6578947368421052,
+    "total_training_weight": 2.533333333333333,
+    "weighted_candidate_count": 3
+  },
+  "soft_pair_config_sha256": "97ed1bcf468293faa5c9e0eafb2dfde819061c201996ccbbcaf6b66bacce7173",
+  "source": {
+    "branch": "HEAD",
+    "commit": "93501f33cf4594791b31a805b153bf1accc94538",
+    "dirty": false,
+    "tags": []
+  }
+}

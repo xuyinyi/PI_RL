@@ -64,6 +64,17 @@
 > training. See
 > `reproduction/scicf/online/SOFT_PAIR_RESILIENCE_DEV_V1.md` and
 > `reproduction/results/scicf-soft-pair-resilience-preflight-20260907/`.
+> The v3 runner was then implemented at clean commit `93501f3`. n001 Slurm Job
+> 4715 passed 25 server tests and all 31 no-credential full-runtime checks. It
+> verified that the primary PPO checkpoint precedes credentials/LLM, every
+> bounded LLM availability failure remains an explicit non-blocking degraded
+> path, and integrity failures remain fatal. The job made zero API requests,
+> ran zero PPO iterations and zero AFP Oracle calls, and loaded no local LLM.
+> Its decision is only
+> `go_request_separate_real_single_iteration_v3_authorization`; no real v3 run
+> or multi-iteration training is authorized. See
+> `reproduction/scicf/SINGLE_ITERATION_INTEGRATION_V3_PROTOCOL.md` and
+> `reproduction/results/scicf-single-iteration-v3-preflight-20260907/`.
 
 SciCF-PPO is being added as a feature-gated extension of the frozen
 `dapigen-ppo-compat-baseline-v1` baseline. The upstream PPO clipped objective,
