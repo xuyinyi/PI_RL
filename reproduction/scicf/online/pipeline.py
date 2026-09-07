@@ -507,15 +507,43 @@ def _masked_log_probabilities(model, candidate: OnlineCandidate, device):
     return d_log, a_log
 
 
+KL_NUMERICAL_NEGATIVE_TOLERANCE = 1e-6
+
+
+def numerically_nonnegative_kl(
+    value: float,
+    *,
+    tolerance: float = KL_NUMERICAL_NEGATIVE_TOLERANCE,
+) -> float:
+    """Clamp only floating-point KL noise; reject materially negative values."""
+
+    observed = float(value)
+    tolerance = float(tolerance)
+    if not math.isfinite(observed):
+        raise ContractViolation("KL diagnostic must be finite")
+    if not math.isfinite(tolerance) or tolerance <= 0.0:
+        raise ValueError("KL numerical tolerance must be finite and positive")
+    if observed < -tolerance:
+        raise ContractViolation(
+            "KL diagnostic is materially negative: %s < -%s"
+            % (observed, tolerance)
+        )
+    return max(0.0, observed)
+
+
 def _joint_kl(pre_model, post_model, candidates, device) -> Tuple[float, float]:
     values = []
     with torch.no_grad():
         for candidate in candidates:
             pre_d, pre_a = _masked_log_probabilities(pre_model, candidate, device)
             post_d, post_a = _masked_log_probabilities(post_model, candidate, device)
-            d_kl = torch.sum(torch.exp(pre_d) * (pre_d - post_d))
-            a_kl = torch.sum(torch.exp(pre_a) * (pre_a - post_a))
-            values.append(float((d_kl + a_kl).item()))
+            d_kl = numerically_nonnegative_kl(
+                float(torch.sum(torch.exp(pre_d) * (pre_d - post_d)).item())
+            )
+            a_kl = numerically_nonnegative_kl(
+                float(torch.sum(torch.exp(pre_a) * (pre_a - post_a)).item())
+            )
+            values.append(d_kl + a_kl)
     return float(np.mean(values)), float(np.max(values))
 
 

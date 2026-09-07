@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "protocol_id": "dapigen-scicf-short-horizon-multi-iteration-smoke-v1",
+  "classification": "runner_development_and_no_credential_preflight_only",
+  "status": "frozen_before_runner_preflight",
+  "required_host": "yanlih100n1",
+  "prerequisites": {
+    "v3_protocol": {
+      "path": "reproduction/scicf/online/configs/single_iteration_integration_v3_protocol.json",
+      "sha256": "57d7a06c8e519370b2cbb70330db4132bc08e7ff24e1fefa393ef13467b2d925"
+    },
+    "soft_pair_config": {
+      "path": "reproduction/scicf/online/configs/soft_pair_resilience_dev_v1.json",
+      "sha256": "97ed1bcf468293faa5c9e0eafb2dfde819061c201996ccbbcaf6b66bacce7173"
+    },
+    "v3_full_runtime_preflight_report": {
+      "path": "reproduction/results/scicf-single-iteration-v3-preflight-20260907/run/integration-v3-preflight-report.json",
+      "sha256": "b075cbf98713edc37f9b2ea9c6011aa421cc2eb946de7fb0ae97b007c864d79e"
+    },
+    "v3_real_single_iteration_report": {
+      "path": "reproduction/results/scicf-single-iteration-v3-real-schema4-job4736-20260907/run/integration-v3-report.json",
+      "sha256": "c3c83dcdeb1dafe1175d6013749ced030e9d82459f4f54bdd2caa59c156035dc"
+    },
+    "required_v3_preflight_decision": "go_request_separate_real_single_iteration_v3_authorization",
+    "required_v3_real_decision": "primary_ppo_committed_auxiliary_applied",
+    "required_v3_implementation_commit": "93501f33cf4594791b31a805b153bf1accc94538"
+  },
+  "horizon": {
+    "maximum_iterations": 6,
+    "checkpoint_every_iterations": 1,
+    "primary_ppo_checkpoint_before_llm_each_iteration": true,
+    "resume_requires_exact_control_hash": true,
+    "automatic_resume": false
+  },
+  "llm_wall_clock_budget": {
+    "maximum_seconds_per_iteration": 60.0,
+    "maximum_seconds_total": 180.0,
+    "minimum_transport_timeout_seconds": 0.01,
+    "persist_across_checkpoints": true,
+    "exhaustion_outcome": "ppo_only_degraded"
+  },
+  "circuit_breaker": {
+    "maximum_consecutive_llm_failures": 2,
+    "circuit_cooldown_iterations": 3,
+    "persist_across_checkpoints": true,
+    "skip_outcome": "ppo_only_degraded"
+  },
+  "kl_numerics": {
+    "negative_tolerance": 0.000001,
+    "within_tolerance_action": "clamp_to_zero",
+    "below_negative_tolerance_action": "fatal_contract_violation"
+  },
+  "scientific_budget": {
+    "replicates_per_selected_candidate": 5,
+    "maximum_selected_candidates_per_iteration": 8,
+    "maximum_verification_branches_per_iteration": 80,
+    "maximum_pairwise_optimizer_steps_per_iteration": 1,
+    "maximum_requested_evaluator_calls_total": 1248
+  },
+  "failure_policy": {
+    "recoverable_llm_failure_continues_ppo": true,
+    "valid_abstention_continues_ppo": true,
+    "insufficient_soft_mass_continues_ppo": true,
+    "pairwise_kl_rollback_continues_ppo": true,
+    "silent_fallback_forbidden": true,
+    "integrity_failure_is_fatal": true,
+    "automatic_rerun": false
+  },
+  "authorization_state": {
+    "runner_implementation_authorized": true,
+    "no_credential_full_runtime_preflight_authorized": true,
+    "real_multi_iteration_execution_authorized": false,
+    "credentials_loading_authorized": false,
+    "external_api_requests_authorized": false,
+    "ppo_execution_authorized": false,
+    "oracle_execution_authorized": false,
+    "automatic_rerun_authorized": false,
+    "formal_training_authorized": false,
+    "sealed_test_access_authorized": false,
+    "algorithm_effectiveness_claim_authorized": false,
+    "scientific_claim_authorized": false
+  }
+}
