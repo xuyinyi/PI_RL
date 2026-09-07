@@ -15,6 +15,7 @@ PAIRWISE_STABILITY_PROTOCOL_ID = "dapigen-scicf-pairwise-stability-dev-v1"
 SINGLE_ITERATION_INTEGRATION_PROTOCOL_ID = (
     "dapigen-scicf-single-iteration-integration-smoke-v1"
 )
+SCHEMA_ROBUSTNESS_PROTOCOL_ID = "dapigen-scicf-llm-schema-robustness-dev-v1"
 ONLINE_PROMPT_VERSION = "scicf-dapigen-online-acquisition-blinded-v1"
 ONLINE_PRESENTATION_PROTOCOL = "opaque-id-sha256-shuffle-v1"
 
@@ -211,3 +212,50 @@ class PairwiseRefinementConfig:
             value = float(getattr(self, name))
             if not math.isfinite(value) or value <= 0.0:
                 raise ValueError("%s must be finite and positive" % name)
+
+
+@dataclass(frozen=True)
+class SchemaRecoveryConfig:
+    """Hard bounds for one online response plus at most one semantic repair."""
+
+    maximum_schema_attempts: int = 2
+    transport_retries_per_attempt: int = 1
+    max_output_tokens: int = 512
+    timeout_seconds: float = 120.0
+
+    def __post_init__(self) -> None:
+        if (
+            isinstance(self.maximum_schema_attempts, bool)
+            or not isinstance(self.maximum_schema_attempts, int)
+            or self.maximum_schema_attempts not in {1, 2}
+        ):
+            raise ValueError("maximum_schema_attempts must be 1 or 2")
+        if (
+            isinstance(self.transport_retries_per_attempt, bool)
+            or not isinstance(self.transport_retries_per_attempt, int)
+            or not 0 <= self.transport_retries_per_attempt <= 1
+        ):
+            raise ValueError("transport_retries_per_attempt must be 0 or 1")
+        if (
+            isinstance(self.max_output_tokens, bool)
+            or not isinstance(self.max_output_tokens, int)
+            or self.max_output_tokens < 1
+        ):
+            raise ValueError("max_output_tokens must be positive")
+        if (
+            isinstance(self.timeout_seconds, bool)
+            or not isinstance(self.timeout_seconds, (int, float))
+            or not math.isfinite(float(self.timeout_seconds))
+            or float(self.timeout_seconds) <= 0.0
+        ):
+            raise ValueError("timeout_seconds must be finite and positive")
+
+    @property
+    def maximum_semantic_repairs(self) -> int:
+        return int(self.maximum_schema_attempts) - 1
+
+    @property
+    def maximum_http_transmissions(self) -> int:
+        return int(self.maximum_schema_attempts) * (
+            int(self.transport_retries_per_attempt) + 1
+        )
