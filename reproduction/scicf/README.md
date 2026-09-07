@@ -15,8 +15,13 @@
 > package without model configuration or weights. No API transmission, PPO
 > iteration, Oracle call, or pairwise update occurred, and the consumed
 > authorization was not reused. A new asset-completeness preflight and fresh
-> exact-scope authorization are required before any further real attempt;
-> automatic rerun and multi-iteration scope remain closed. See
+> exact-scope authorization are required before any further real attempt. That
+> asset hardening passed CPU-only n001 Slurm Job 4694 at clean commit `46aef57`:
+> the exact model path, 14 required-file hashes, and full accepted checkpoint
+> fingerprint are now validated before credentials and bound into future
+> authorization schema version 2. This admits only requesting a fresh one-run
+> authorization; none has been created, and automatic rerun and multi-iteration
+> scope remain closed. See
 > `reproduction/PROJECT_PLAN.md`,
 > `reproduction/scicf/online/ARCHITECTURE_SMOKE_V1.md`, and
 > `reproduction/scicf/online/ACQUISITION_VERIFIER_DEV_V1.md`, and
@@ -24,7 +29,9 @@
 > `reproduction/scicf/online/SINGLE_ITERATION_INTEGRATION_V1.md`, and
 > `reproduction/scicf/online/SCHEMA_ROBUSTNESS_DEV_V1.md`, and
 > `reproduction/scicf/online/SINGLE_ITERATION_INTEGRATION_V2_PROTOCOL.md`, and
-> `reproduction/results/scicf-single-iteration-integration-v2-real-20260907/`.
+> `reproduction/results/scicf-single-iteration-integration-v2-real-20260907/`,
+> and
+> `reproduction/results/scicf-single-iteration-integration-v2-model-asset-preflight-20260907/`.
 
 SciCF-PPO is being added as a feature-gated extension of the frozen
 `dapigen-ppo-compat-baseline-v1` baseline. The upstream PPO clipped objective,

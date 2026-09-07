@@ -1,0 +1,19 @@
+{
+  "credentials_loading_authorized": false,
+  "external_api_requests_authorized": false,
+  "multi_iteration_training_authorized": false,
+  "oracle_execution_authorized": false,
+  "ppo_execution_authorized": false,
+  "protocol_id": "dapigen-scicf-single-iteration-integration-smoke-v2",
+  "protocol_sha256": "f05df22b15c069f43b6e9cc5013550a97b6c46f79db059e3674f5395de8c3955",
+  "schema_version": 1,
+  "single_iteration_integration_rerun_authorized": false,
+  "slurm_job_id": "4694",
+  "source": {
+    "branch": "HEAD",
+    "commit": "46aef57c693a4644a52bdfcd337cbc90184ac31e",
+    "dirty": false,
+    "tags": []
+  },
+  "status": "declared-before-mock-preflight"
+}

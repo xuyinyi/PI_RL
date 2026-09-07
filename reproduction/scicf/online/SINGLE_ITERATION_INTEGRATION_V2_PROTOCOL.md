@@ -1,6 +1,7 @@
 # LLM-SciCF single-iteration integration-v2 protocol freeze
 
-Status: **protocol frozen but not implemented or authorized for execution**.
+Status: **protocol frozen; model-asset-hardened runner passed mock-only
+preflight, but no new real execution is authorized**.
 
 ## Purpose
 
@@ -88,6 +89,26 @@ fallback selection.
 Any preflight, binding, schema, leakage, budget, ordering, ledger, drift,
 checkpoint, or threshold failure returns a no-go. Slurm `COMPLETED` by itself is
 not a passing gate; only the frozen terminal decision is authoritative.
+
+## Post-Job-4693 model-asset hardening
+
+The first authorized v2 attempt failed before PPO because its submitted
+`QSPR/polyBERT` path was a source package without checkpoint files. The
+scientific protocol remains unchanged, but the execution boundary now requires
+the complete accepted polyBERT asset to be validated before credential loading.
+
+The exact resolved model path, repository asset-binding SHA-256, 14 core-file
+hashes, and the existing full-checkpoint fingerprint are recorded in the run
+intent and must also be present in authorization schema version 2. The full
+fingerprint uses the existing Stage0 checkpoint algorithm, including download
+metadata and lock files and excluding only `.git` and `__pycache__`. The runner
+also passes this fingerprint to the Stage0 factory for a second check during
+model construction.
+
+CPU-only n001 Slurm Job 4694 passed the resulting mock/preflight at clean commit
+`46aef57c693a4644a52bdfcd337cbc90184ac31e`. This permits only requesting a
+fresh exact one-run authorization. It did not load credentials, call the API,
+run PPO or Oracle verification, or create an execution authorization.
 
 ## Immutable numerical and scientific boundary
 

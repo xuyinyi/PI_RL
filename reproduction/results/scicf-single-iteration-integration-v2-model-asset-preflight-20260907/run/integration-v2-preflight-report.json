@@ -1,0 +1,235 @@
+{
+  "checks": {
+    "authorization_checked_before_credentials": true,
+    "closed_authorization_rejected": true,
+    "credentials_loaded_false": true,
+    "external_api_request_count_zero": true,
+    "model_asset_bound_to_accepted_encoder": true,
+    "model_asset_checked_before_credentials": true,
+    "model_asset_full_fingerprint_bound": true,
+    "model_asset_required_files_bound": true,
+    "oracle_executed_false": true,
+    "ppo_executed_false": true,
+    "protocol_identity": true,
+    "schema_exhaustion_fail_closed": true,
+    "schema_exhaustion_oracle_closed": true,
+    "schema_exhaustion_stops_second_pool": true,
+    "schema_gate_bound_and_passed": true,
+    "success_all_pools_validated": true,
+    "success_attempt_bound": true,
+    "success_http_bound": true,
+    "success_oracle_would_be_authorized": true,
+    "transport_exhaustion_fail_closed": true,
+    "transport_exhaustion_oracle_closed": true,
+    "transport_token_accounting_not_imputed": true,
+    "v1_remains_no_go": true
+  },
+  "classification": {
+    "algorithm_effectiveness_established": false,
+    "automatic_rerun_authorized": false,
+    "failures": [],
+    "formal_training_authorized": false,
+    "multi_iteration_training_authorized": false,
+    "real_single_iteration_execution_authorized": false,
+    "scientific_claim_authorized": false,
+    "scope": "mock-only-integration-v2-runner-preflight"
+  },
+  "credentials_loaded": false,
+  "elapsed_seconds": 0.028805352747440338,
+  "execution_status": "passed",
+  "external_api_request_count": 0,
+  "host": "yanlih100n1",
+  "local_model_invoked": false,
+  "mock_completion_count": 6,
+  "model_asset": {
+    "asset_binding_id": "dapigen-polybert-reconstructed-compatibility-e7dce434-fulltree-v1",
+    "asset_binding_sha256": "7e2f1cf5caa38d3d42e7ebe2599435ec306aa74e2cffeb9c2cac23408876a7ed",
+    "checkpoint_fingerprint": "6bdd24f951dd90d3031e749ef0130752811bfefe6c850af82b805cf015ea195f",
+    "encoder_version": "polybert-sha256:6bdd24f951dd90d3031e749e",
+    "model_path": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v23-mask-dev-20260904/RL_PPO/models",
+    "required_file_count": 14,
+    "required_file_sha256": {
+      ".gitattributes": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+      "1_Pooling/config.json": "683f6c40a16773ff51acae0782c2feadf657d547d83839cb3ceae12559674ac5",
+      "README.md": "86ebef16b6ab84cddc0039f68a9e0f42ff364aca27d7bc86c56265a54931d915",
+      "added_tokens.json": "8279a702dd980b8470bf5e18b8880a0bdc8ab015aff6d39442d03b4aa8daa37f",
+      "config.json": "ad391d9de8f9eff355554a7bb4635714250e1079f51b6b973f46d8b008be559a",
+      "config_sentence_transformers.json": "1241b64de469187877d2734714c906b23fbdf82da16dca63205e88e07b55f7ae",
+      "model.safetensors": "21cfab4a3b0599852fb8ef529a67e41632246b9256ed834938ba9b46cb24148f",
+      "modules.json": "8f4b264b80206c830bebbdcae377e137925650a433b689343a63bdc9b3145460",
+      "pytorch_model.bin": "469d1928fe140f3d8d93f69e69a11aebf540e7a2043b38a9a6758cf0bb640a9c",
+      "sentence_bert_config.json": "ec8e29d6dcb61b611b7d3fdd2982c4524e6ad985959fa7194eacfb655a8d0d51",
+      "special_tokens_map.json": "311de3f4eed9d76a43bf0d71f10e62e086ca65ccce9f15d5da0d2098bf519ecc",
+      "spm.model": "2285839ce5a54c35acd7a59c38e531c243a5c46476e1ba11080bf11d303618d5",
+      "tokenizer.json": "89891f8a97ba93608626d704722a8243fb64c700f4e9b09edcebe794680d3c78",
+      "tokenizer_config.json": "a7fe4028e90570619c41417ade2b7135b2ff56fb93a33fbac14ff42cc22de7d0"
+    },
+    "upstream_polybert_identity_verified": false,
+    "validated_before_credentials": true
+  },
+  "module_decision": "go_request_separate_real_single_iteration_execution_authorization",
+  "oracle_executed": false,
+  "platform": "Linux-4.18.0-553.63.1.el8_10.x86_64-x86_64-with-glibc2.17",
+  "ppo_executed": false,
+  "protocol_id": "dapigen-scicf-single-iteration-integration-smoke-v2",
+  "protocol_sha256": "f05df22b15c069f43b6e9cc5013550a97b6c46f79db059e3674f5395de8c3955",
+  "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "resources": {
+    "peak_rss_mib": 388.3359375
+  },
+  "runner_sha256": "24a6309cecca7cac4e42dc1fbdfd76f455efa2ec50b81ad4d138acf59c307c34",
+  "scenarios": {
+    "schema_exhaustion": {
+      "all_pool_decisions_validated": false,
+      "http_transmissions_observed": 2,
+      "http_transmissions_observed_is_exact": true,
+      "http_transmissions_upper_bound_for_started_decisions": 2,
+      "http_transmissions_used": 2,
+      "maximum_http_transmissions_total": 8,
+      "oracle_selection_authorized": false,
+      "pool_decision_count_expected": 2,
+      "pool_decision_count_started": 1,
+      "pool_outcomes": [
+        {
+          "attempt_count": 2,
+          "oracle_selection_authorized": false,
+          "outcome_sha256": "765923b6b4b7276e1b5ad410f987c66d2bde29f689b8a7577e29c6f4b987c442",
+          "pool_index": 0,
+          "request_id": "integration-v2-preflight-pool-00",
+          "selected_intervention_ids": [],
+          "semantic_repair_count": 1,
+          "status": "fail_closed_schema_exhausted",
+          "usage": {
+            "completion_tokens": 16,
+            "http_transmissions_observed": 2,
+            "prompt_tokens": 40,
+            "returned_content_count": 2,
+            "token_accounting_complete": true
+          }
+        }
+      ],
+      "reported_tokens": {
+        "completion": 16,
+        "prompt": 40
+      },
+      "returned_content_count": 2,
+      "selected_intervention_ids": [],
+      "semantic_attempt_count": 2,
+      "semantic_repair_count": 1,
+      "status": "fail_closed",
+      "token_accounting_complete": true
+    },
+    "success_repair_and_abstain": {
+      "all_pool_decisions_validated": true,
+      "http_transmissions_observed": 3,
+      "http_transmissions_observed_is_exact": true,
+      "http_transmissions_upper_bound_for_started_decisions": 3,
+      "http_transmissions_used": 3,
+      "maximum_http_transmissions_total": 8,
+      "oracle_selection_authorized": true,
+      "pool_decision_count_expected": 2,
+      "pool_decision_count_started": 2,
+      "pool_outcomes": [
+        {
+          "attempt_count": 2,
+          "oracle_selection_authorized": true,
+          "outcome_sha256": "43fb0c18c8c61f4deb4b1b6989451aa321f0aed9f01e8725c4795b4a24ba7314",
+          "pool_index": 0,
+          "request_id": "integration-v2-preflight-pool-00",
+          "selected_intervention_ids": [
+            "cf-preflight-00-02",
+            "cf-preflight-00-09"
+          ],
+          "semantic_repair_count": 1,
+          "status": "validated",
+          "usage": {
+            "completion_tokens": 16,
+            "http_transmissions_observed": 2,
+            "prompt_tokens": 40,
+            "returned_content_count": 2,
+            "token_accounting_complete": true
+          }
+        },
+        {
+          "attempt_count": 1,
+          "oracle_selection_authorized": true,
+          "outcome_sha256": "f4849f4fbf16d4efda29f47f6bd48e389d46556a68d3280abe18198ca2fcb86d",
+          "pool_index": 1,
+          "request_id": "integration-v2-preflight-pool-01",
+          "selected_intervention_ids": [],
+          "semantic_repair_count": 0,
+          "status": "validated",
+          "usage": {
+            "completion_tokens": 8,
+            "http_transmissions_observed": 1,
+            "prompt_tokens": 20,
+            "returned_content_count": 1,
+            "token_accounting_complete": true
+          }
+        }
+      ],
+      "reported_tokens": {
+        "completion": 24,
+        "prompt": 60
+      },
+      "returned_content_count": 3,
+      "selected_intervention_ids": [
+        "cf-preflight-00-02",
+        "cf-preflight-00-09"
+      ],
+      "semantic_attempt_count": 3,
+      "semantic_repair_count": 1,
+      "status": "validated_all_pools",
+      "token_accounting_complete": true
+    },
+    "transport_exhaustion": {
+      "all_pool_decisions_validated": false,
+      "http_transmissions_observed": 0,
+      "http_transmissions_observed_is_exact": false,
+      "http_transmissions_upper_bound_for_started_decisions": 2,
+      "http_transmissions_used": null,
+      "maximum_http_transmissions_total": 8,
+      "oracle_selection_authorized": false,
+      "pool_decision_count_expected": 2,
+      "pool_decision_count_started": 1,
+      "pool_outcomes": [
+        {
+          "attempt_count": 1,
+          "oracle_selection_authorized": false,
+          "outcome_sha256": "e275718279ceb54deaeeaf953c69137f73ec747bea5573f62ced11ad90b1fda5",
+          "pool_index": 0,
+          "request_id": "integration-v2-preflight-pool-00",
+          "selected_intervention_ids": [],
+          "semantic_repair_count": 0,
+          "status": "fail_closed_transport_error",
+          "usage": {
+            "completion_tokens": null,
+            "http_transmissions_observed": 0,
+            "prompt_tokens": null,
+            "returned_content_count": 0,
+            "token_accounting_complete": false
+          }
+        }
+      ],
+      "reported_tokens": {
+        "completion": null,
+        "prompt": null
+      },
+      "returned_content_count": 0,
+      "selected_intervention_ids": [],
+      "semantic_attempt_count": 1,
+      "semantic_repair_count": 0,
+      "status": "fail_closed",
+      "token_accounting_complete": false
+    }
+  },
+  "schema_version": 1,
+  "sealed_test_accessed": false,
+  "slurm_job_id": "4694",
+  "source": {
+    "branch": "HEAD",
+    "commit": "46aef57c693a4644a52bdfcd337cbc90184ac31e",
+    "dirty": false,
+    "tags": []
+  }
+}

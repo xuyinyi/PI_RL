@@ -1,0 +1,13 @@
+{
+  "attempt_count": 1,
+  "error": "mock transport exhaustion",
+  "error_type": "APITransportError",
+  "maximum_http_transmissions": 4,
+  "maximum_schema_attempts": 2,
+  "oracle_selection_authorized": false,
+  "request_id": "integration-v2-preflight-pool-00",
+  "schema_version": 1,
+  "selected_intervention_ids": [],
+  "semantic_repair_count": 0,
+  "status": "fail_closed_transport_error"
+}

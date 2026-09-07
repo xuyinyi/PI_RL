@@ -2,11 +2,12 @@
 
 Status date: 2026-09-07
 
-Plan status: **the separate integration-v2 protocol is frozen and its
-authorization-gated runner passed mock-only n001 Slurm preflight; the one
-authorized real-run attempt failed before PPO on an incomplete polyBERT path
-and was not rerun, while automatic reruns, multi-iteration training, historical
-sealed tests, and all scientific claim gates remain closed**
+Plan status: **the separate integration-v2 protocol is frozen; after the first
+authorized real attempt failed before PPO on an incomplete polyBERT path, the
+runner was hardened with full model-asset binding and passed a new mock-only
+n001 Slurm preflight; a fresh exact one-run authorization is not yet granted,
+and automatic reruns, multi-iteration training, historical sealed tests, and
+all scientific claim gates remain closed**
 
 ## 2026-09-06 architecture-first amendment
 
@@ -126,6 +127,19 @@ consumed and no automatic rerun was made. A future attempt requires a new
 model-asset completeness and hash-binding implementation, a new n001 Slurm
 mock/preflight, and a fresh exact one-run authorization. Evidence is under
 `reproduction/results/scicf-single-iteration-integration-v2-real-20260907/`.
+
+The model-asset preflight repair was implemented at clean commit
+`46aef57c693a4644a52bdfcd337cbc90184ac31e`. The runner now verifies the exact
+resolved path, 14 required-file hashes, and the accepted full checkpoint
+fingerprint `6bdd24f951dd90d3031e749ef0130752811bfefe6c850af82b805cf015ea195f`
+before credential loading. Future authorization schema version 2 binds that
+path, asset-binding hash, and fingerprint in addition to the existing protocol,
+implementation, output, run-count, and operation scope. CPU-only n001 Slurm Job
+4694 passed 29 tests and all 23 mock/preflight checks with zero credential,
+external API, PPO, Oracle, local-model, or sealed-test access. Its decision is
+only `go_request_separate_real_single_iteration_execution_authorization`; no
+new authorization or real run was created. Evidence is under
+`reproduction/results/scicf-single-iteration-integration-v2-model-asset-preflight-20260907/`.
 
 ## 1. Authority and scope
 

@@ -1,0 +1,5 @@
+JobIDRaw|State|ExitCode|Elapsed|AllocTRES
+4694|COMPLETED|0:0|00:00:08|billing=2,cpu=2,mem=8G,node=1
+4694.batch|COMPLETED|0:0|00:00:08|cpu=2,mem=8G,node=1
+4694.0|COMPLETED|0:0|00:00:05|cpu=2,mem=8G,node=1
+4694.1|COMPLETED|0:0|00:00:02|cpu=2,mem=8G,node=1
