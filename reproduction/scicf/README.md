@@ -1,5 +1,12 @@
 # SciCF-PPO development boundary
 
+Current handoff (2026-09-08): online K=5 SciCF and its PPO-only control completed
+six iterations each in Jobs 4748/4751. See
+[development handoff](../DEVELOPMENT_HANDOFF_20260908.md) for implemented modules,
+open tasks and exact runtime paths. The chronological paragraph below preserves
+the scope of each earlier authorization; it is not a statement that later
+separately authorized work remains unimplemented.
+
 > **Architecture-first amendment (updated 2026-09-07):** Historical SciCF evidence and
 > no-go decisions remain unchanged. The online architecture smoke and the
 > acquisition/verifier and pairwise-stability development gates passed under

@@ -2,6 +2,33 @@
 
 Status date: 2026-09-08
 
+Handoff entry: [DEVELOPMENT_HANDOFF_20260908.md](DEVELOPMENT_HANDOFF_20260908.md).
+This update reconciles the repository and read-only n001 checks at approximately
+09:12 Asia/Shanghai. No wch jobs were queued/running at that snapshot. The
+2026-09-06 architecture-first user decision supersedes the older MCC-first work
+order below; historical protocols and result decisions retain their original scope.
+
+## Current progress dashboard
+
+| Workstream | Current status | Evidence / remaining work |
+|---|---|---|
+| AFP/polyBERT compatibility assets | Complete for accepted compatibility runtime | Author-original asset identity and independent validation unresolved |
+| Original RLlib compatibility PPO | Complete and frozen | Job 4562, 100 iterations, 99,000 steps; strong evaluation mode collapse |
+| AlgorithmAdapter/CommonEvaluator/Slurm framework | Implemented and server-tested | Legacy 1,200-D task; not a drop-in evaluator for current 1,246-D policies |
+| Stage 0 v2.3 / P1 | Accepted for compatibility assets | Jobs 4659-4661; custom chemistry, exact masks, replay and model parity |
+| Shared native PPO/GAE / P2 | PPO path complete; full P2 partial | Job 4671; Policy-CC/MCC-PPO estimators and I02-I04 remain pending |
+| Offline Gate 1–1B.3 | Experiments completed, efficacy gates failed | Historical negative diagnostics; sealed-test entry remains closed |
+| Online SciCF / K=5 / schema and resilience | Engineering implemented and verified | Jobs 4684-4686, 4714-4715, 4736-4737; no live breaker-opening trace |
+| Six-iteration SciCF | Complete | Job 4748; 768 transitions, 6 auxiliary updates |
+| Matched PPO-only control and analysis | Complete | Job 4751; 38 tests in preflight 4750; one-seed exploratory difference |
+| P4-A five-seed standard PPO array | All jobs terminated; 3 pass / 2 failed_gate | Seeds 20260911/20260914 lack complete evaluation metrics; full audit/aggregation/archive pending |
+| Matched reward/final-policy evaluation | Not completed | Needs common native-engine evaluator integration and fixed evaluation protocol |
+| Multi-seed SciCF effectiveness and equal-cost comparison | Not started | Six-iteration pair is insufficient; random/heuristic online controls also pending |
+| Scientific and cross-environment validation | Not completed | No independent QSPR/MD/DFT/wet-lab or second-environment acceptance evidence |
+
+No new training or API call is authorized by this documentation update. The
+previous SciCF and PPO-only single-run authorizations have been consumed.
+
 Plan status: **the schema-3 integration-v2 run remains archived as a no-go after
 zero strict pairs; the K=5 optional-LLM v3 single-iteration run completed in Job
 4736; the separately authorized six-iteration short-horizon engineering run
@@ -307,7 +334,11 @@ for the positive aggregate; the first five had cumulative difference -3.
 Reward improvement, final-policy quality and multi-seed robustness remain
 unmeasured. Evidence: `reproduction/results/ppo-only-matched-short-horizon-20260908/`.
 
-This document is the authoritative forward plan for the DAPiGen reinforcement-learning project. The active route is:
+This document is the forward plan for the DAPiGen project. The current immediate
+route is the user-selected online SciCF architecture-first programme, followed
+by common reward/final-policy evaluation and controlled algorithm comparisons.
+The following is the earlier 2026-09-04 alternative research roadmap, retained
+for reference and not selected as the next implementation task:
 
 ```text
 Stage 0 environment acceptance
@@ -318,7 +349,12 @@ Stage 0 environment acceptance
         -> independent scientific validation
 ```
 
-The earlier SciCF acquisition programme is retained as immutable negative and engineering evidence under `reproduction/scicf/`, `experiments/gates/`, and `reproduction/results/`. Its failed gates, sealed-test decisions, and claim boundaries are not overwritten. It is no longer the active implementation roadmap. MCC-PPO is a separately gated method hypothesis and must not be presented as a continuation that passed the earlier SciCF gates.
+The offline SciCF acquisition programme remains immutable negative evidence
+under `reproduction/scicf/gate1/`, `experiments/gates/`, and `reproduction/results/`.
+Online SciCF engineering resumed under the later user amendment without passing
+those offline gates. MCC-PPO remains a separate, unintegrated method hypothesis;
+its proposed counterfactual actor-credit estimator must not be confused with the
+implemented post-PPO SciCF auxiliary loss.
 
 Reference files returned by the planning conversation are recorded in `reference-intake-20260904.md`. They are design inputs, not accepted production code or experimental evidence.
 
@@ -326,7 +362,7 @@ Reference files returned by the planning conversation are recorded in `reference
 
 DAPiGen receives a trustworthy task reward only after a complete polyimide has been generated. Partial dianhydride, diamine, and intermediate structures do not have reliable physical-property labels. The project therefore asks whether terminal outcomes can be converted into better step-level policy credit without inventing intermediate physical rewards.
 
-The active research questions are:
+The broader research questions retained from the earlier roadmap are:
 
 1. Does policy-conditioned counterfactual completion improve sample efficiency over standard PPO under the same requested terminal-evaluator budget?
 2. Does an LLM-guided, mechanism-matched proposal improve on policy-only counterfactual completion under the same task, PPO engine, and evaluator budget?
@@ -343,7 +379,11 @@ PPO versus MCC-PPO is useful as an end-to-end comparison but cannot by itself id
 
 ## 3. Non-negotiable scientific invariants
 
-All methods and all formal runs must satisfy the following invariants.
+The following invariants describe the earlier Policy-CC/MCC-PPO formal-design
+contract. Items about counterfactual actor credit, learned completion models
+and same-iteration labels are not a description of current SciCF code. Current
+SciCF keeps PPO actor credit equal to GAE and applies a separate verified-pair
+auxiliary step; its executable contract is in `scicf/online/`.
 
 1. Only complete PI molecules may enter the terminal evaluator.
 2. The LLM may propose a mechanism and a legal counterfactual-action distribution; it is not a reward model, critic, value estimator, or trusted labeler.
@@ -508,9 +548,11 @@ Required evidence:
 
 This baseline is distinct from both the original reconstructed compatibility run and paper-result reproduction.
 
-Current status: **P4-A protocol frozen before results; single-seed preflight
-passed in Slurm Job 4675 and the five-seed formal array was launched as Job
-4676**. P4-A covers the standard five-step native-PPO arm only. The original
+Current status (n001 rechecked 2026-09-08): **P4-A preflight 4675 passed;
+all five tasks in formal array 4676 have terminated. Seeds 20260912, 20260913
+and 20260915 report `passed`; seeds 20260911 and 20260914 report `failed_gate`,
+with `evaluation_metrics_complete=false`. Full five-seed audit, aggregation
+and local evidence synchronization remain incomplete.** P4-A covers the standard five-step native-PPO arm only. The original
 RLlib compatibility evidence and `legacy_effective` six-step semantic control
 remain required before the complete P4 gate can close.
 
@@ -587,7 +629,7 @@ Current status: **not started**.
 - Do not copy the downloaded reference packages into the repository until intake review and an explicit integration patch are prepared.
 - Preserve the frozen original PPO and SciCF histories. New results use new directories, configuration identities, and manifests.
 
-## 8. Current state at plan activation
+## 8. Historical state at plan activation (not current status)
 
 | Component | State on 2026-09-04 | Claim boundary |
 |---|---|---|
@@ -601,7 +643,7 @@ Current status: **not started**.
 | Formal comparison | closed | No method claim |
 | Independent validation | not started | No physical-property or experimental claim |
 
-## 9. Immediate work order
+## 9. Historical MCC/P4 work order (superseded for immediate development)
 
 1. **Complete:** preserve the reference-artifact intake and Stage-0 v2.2/v2.3 development evidence.
 2. **Complete:** preserve the clean P1 run coordinate and its synchronized, hash-verified evidence.
@@ -618,7 +660,32 @@ Current status: **not started**.
 9. Integrate Policy-CC (`eta = 0`) and close I02-I04 without changing the common PPO optimizer path; integrate MCC-PPO last.
 10. Complete P3 estimator validation and draft/freeze P5 before running it.
 
-The current authorized activity is **completion and audit of the already
-launched five-seed formal P4-A array**. Neither the smoke nor P4-A alone
-authorizes external API work, counterfactual training, a matched algorithm
-comparison or scientific claim promotion.
+The paragraph above records the 2026-09-04 work order. The array is now terminal,
+and online SciCF plus its one-run PPO-only control have separately completed.
+
+## 10. Current handoff backlog and completion criteria
+
+1. **Done:** archive all authorized short-horizon jobs, exact fingerprints,
+   first-iteration equivalence and the exploratory comparison (Job 4751).
+2. **Done in this documentation task:** reconcile stale active-route and P4-A
+   status text; publish a detailed handoff with source/asset/runner locations.
+3. **Next engineering priority:** define and implement a common native-engine
+   reward/terminal-event record and fixed-budget final-checkpoint evaluator.
+   Completion requires both arms to expose the same metrics and denominators,
+   without silently adapting the historical 1,200-D evaluator to 1,246-D policies.
+4. **Next comparison design:** freeze common evaluation seeds and budget,
+   invalid/duplicate handling and endpoints; explicitly choose interaction-matched
+   versus total-Oracle-cost-matched claims. Actual evaluation/training needs its
+   concrete run scope approved.
+5. **Method isolation:** plan PPO + random/heuristic selection under the same
+   K=5 verifier and auxiliary update, plus RNG-consumption isolation. Existing
+   offline comparisons do not establish the LLM's online incremental value.
+6. **Legacy completion:** audit all five P4-A reports and failed evaluation
+   checkpoints, aggregate without dropping failed seeds, and archive the result.
+   Do not repair the frozen protocol's outcome by relaxing metrics or rerunning.
+7. **Later:** matched multi-seed/longer-horizon experiments, held-out structures,
+   alternative evaluators and a second environment. Policy-CC/MCC-PPO remain
+   optional separately scoped implementation routes, not implied next actions.
+
+The user has requested documentation and handoff in this turn. No fresh run,
+API request, sealed-test access or asset replacement is part of that request.

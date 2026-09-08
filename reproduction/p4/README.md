@@ -1,6 +1,12 @@
 # P4-A native PPO baseline
 
-Current status: **preflight Job 4675 passed; formal array Job 4676 running**.
+Current status (n001 read-only check, 2026-09-08): **preflight 4675 passed;
+formal array 4676 has terminated, with three passed and two failed-gate seeds**.
+Seeds 20260912/20260913/20260915 report `passed`. Seeds 20260911/20260914
+report `failed_gate` and `evaluation_metrics_complete=false`. Full per-seed
+audit, five-seed aggregation and local formal-evidence synchronization remain
+open. Terminal report paths/hashes are in
+`../results/handoff-status-20260908/REMOTE_STATUS.md`.
 
 This directory contains the frozen standard-five-step native-PPO baseline arm.
 The machine protocol fixes the task, optimizer, training evaluator budget,

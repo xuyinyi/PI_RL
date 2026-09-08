@@ -1,9 +1,13 @@
 # DAPiGen original PPO reproduction on n001
 
-> **Active forward plan (2026-09-04):** see `PROJECT_PLAN.md`. The new route is
-> Stage 0 acceptance followed by a unified PPO / Policy-CC / MCC-PPO comparison.
-> Historical reproduction and SciCF evidence below remains unchanged and must
-> not be interpreted as acceptance of the new environment or algorithm.
+> **Current development entry (2026-09-08):** see
+> [PROJECT_PLAN.md](PROJECT_PLAN.md) and the detailed
+> [development handoff](DEVELOPMENT_HANDOFF_20260908.md).
+> Stage 0/PPO engineering, six-iteration online SciCF (4748), and its matched
+> PPO-only control (4751) are complete within compatibility scope. The earlier
+> Policy-CC/MCC-PPO route remains unintegrated. Historical reproduction below
+> retains its own task/asset definitions and must not be pooled with current
+> native-engine results.
 
 This directory records a fail-closed reproduction of the public DAPiGen PPO
 implementation. It does not treat an import smoke test, a reconstructed reward
@@ -43,8 +47,13 @@ common paper-metric evaluator and matched multi-seed experiments are complete.
 - Full reconstructed-asset PPO baseline: **completed through Slurm** (job `4562`; exit `0:0`, 100 iterations, 99,000 environment steps).
 - Baseline checkpoints/evaluations: **complete** (epochs `0,10,...,100`; 10,000 generated samples per checkpoint).
 - Frozen compatibility-baseline record: **complete**; see `baseline-freeze.md`.
-- Stage-0 v2.3 mask-refinement development acceptance: **passed**; clean Git
-  coordinate remains required for formal Gate P1 (see `stage0/VALIDATION_V2.3.md`).
+- Stage-0 v2.3 formal Gate P1: **passed under compatibility assets**, clean
+  commit `373b329`, Jobs 4659-4661 (see `stage0/VALIDATION_V2.3_P1.md`).
+- Current online SciCF and matched PPO-only: **six iterations each completed**,
+  Jobs 4748/4751; 158 versus 146 evaluated terminals over 768 transitions,
+  with unequal actual evaluator spending. Reward improvement is unmeasured.
+- P4-A five-seed array: **terminal, three passed and two failed evaluation
+  completeness gates**; full aggregation/local evidence closure pending.
 - Paper result reproduction: **not established**.
 
 ## Network helper on n001
@@ -63,9 +72,9 @@ downloads. It is not installed as root and does not expose a LAN listener.
 `prepare_mihomo_config.py` preserves the resolved subscription while replacing
 only the runtime listener settings. `select_mihomo_proxy.py` tests candidates
 against Hugging Face and selects a working candidate without printing node names.
-At the current repository state, public Hugging Face downloads work through the
-proxy, while the pinned `kuelumbus/polyBERT` revision returns an authentication
-challenge and therefore still requires an authorized Hugging Face login.
+At the historical download check, public Hugging Face downloads worked through
+the proxy and the pinned primary repository returned an authentication challenge.
+Proxy liveness and current upstream access were not rechecked for this handoff.
 
 ## Verified environment smoke
 

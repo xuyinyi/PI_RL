@@ -1,5 +1,14 @@
 # SciCF-PPO task status
 
+> **Navigation updated 2026-09-08:** the dated text below is the offline
+> acquisition-track snapshot. It does not describe the later online programme.
+> Online PPO + K=5 SciCF and the matched PPO-only control have now completed
+> six iterations each (Jobs 4748/4751). Current status and unfinished work:
+> [project plan](../PROJECT_PLAN.md) and
+> [handoff](../DEVELOPMENT_HANDOFF_20260908.md). Historical no-go decisions below
+> are retained unchanged; their old “not implemented” statements apply only to
+> that snapshot.
+
 Status date: 2026-09-03
 
 > **Historical track notice (2026-09-04):** This status is preserved as the
