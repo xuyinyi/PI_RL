@@ -280,6 +280,17 @@ cannot be reused. Evidence is under
 
 ## 1. Authority and scope
 
+On 2026-09-08, the user authorized freezing a matched PPO-only control and
+analysis protocol before requesting execution. The frozen coordinate is
+`reproduction/scicf/PPO_ONLY_MATCHED_SHORT_HORIZON_V1.md`, with configuration
+`reproduction/scicf/online/configs/ppo_only_matched_short_horizon_v1.json`.
+It fixes seed 20260907, six iterations and 768 transitions against Job 4748,
+with the same PPO hyperparameters, asset bindings and evaluator ceilings.
+Actual auxiliary cost is reported separately. This is a one-seed exploratory
+comparison specified after observing SciCF results. Runner implementation,
+server preflight and the single real PPO-only submission are the proposed next
+execution scope; none has been performed by the protocol-freeze task.
+
 This document is the authoritative forward plan for the DAPiGen reinforcement-learning project. The active route is:
 
 ```text
