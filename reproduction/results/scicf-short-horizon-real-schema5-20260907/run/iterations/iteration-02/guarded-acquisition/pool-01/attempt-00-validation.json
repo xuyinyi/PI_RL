@@ -1,0 +1,30 @@
+{
+  "attempt_index": 0,
+  "raw_capture_file": "attempt-00-raw-response.json",
+  "raw_capture_sha256": "360d872932199c53a48766885a067f192472e2598d6f3cccf41a3409e58c508b",
+  "raw_was_captured_before_validation": true,
+  "request_id": "dapigen-scicf-short-horizon-multi-iteration-smoke-v1-iter-02-pool-01-job-4748",
+  "schema_version": 1,
+  "status": "validated",
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": 0.6,
+    "ranked_intervention_ids": [
+      "cf-f5511196233fb909",
+      "cf-4cf7c71df8ccd64e",
+      "cf-4e034a858aab41a9",
+      "cf-6c89ed39231d1e66"
+    ],
+    "reasoning": "Selected interventions at timestep 0 that replace the dianhydride with rigid, aromatic, or fluorinated alternatives to potentially improve thermal/mechanical properties while maintaining synthetic accessibility. These are early-stage changes with high impact on the final polymer structure.",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-f5511196233fb909",
+      "cf-4cf7c71df8ccd64e",
+      "cf-4e034a858aab41a9",
+      "cf-6c89ed39231d1e66"
+    ]
+  },
+  "validation_error": null,
+  "validation_error_code": null
+}

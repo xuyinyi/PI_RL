@@ -1,0 +1,50 @@
+{
+  "attempt_count": 1,
+  "attempts": [
+    {
+      "attempt_index": 0,
+      "attempt_kind": "initial",
+      "raw_capture_file": "attempt-00-raw-response.json",
+      "raw_capture_sha256": "92f9db6a1d53e462bbf7db706835033c88ed589342536dc046e960c8d93d23d1",
+      "request_file": "attempt-00-request.json",
+      "request_sha256": "3286c2e15a4e8f599f9590504948b304b2394de222925ec7a74344b79be1c2dd",
+      "status": "validated",
+      "validation_error_code": null,
+      "validation_file": "attempt-00-validation.json",
+      "validation_sha256": "6f69d6b4f4ee9c01e26d1ff4604048b881b7cd03f952c5a61e05ebd69bde4ab6"
+    }
+  ],
+  "maximum_http_transmissions": 4,
+  "maximum_schema_attempts": 2,
+  "oracle_selection_authorized": true,
+  "raw_capture_complete": true,
+  "request_id": "dapigen-scicf-short-horizon-multi-iteration-smoke-v1-iter-04-pool-01-job-4748",
+  "schema_version": 1,
+  "selected_intervention_ids": [
+    "cf-54b6472f84d346f3",
+    "cf-84482f2712490a27",
+    "cf-053389c590c6d62b",
+    "cf-75048b2e84ac33ca"
+  ],
+  "semantic_repair_count": 0,
+  "status": "validated",
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": 0.6,
+    "ranked_intervention_ids": [
+      "cf-54b6472f84d346f3",
+      "cf-84482f2712490a27",
+      "cf-053389c590c6d62b",
+      "cf-75048b2e84ac33ca"
+    ],
+    "reasoning": "Selected interventions at timestep 0 that replace the dianhydride or diamine with smaller, more synthetically accessible building blocks while maintaining aromaticity and functionality, potentially improving synthetic accessibility and transmittance without drastically compromising thermal/mechanical properties.",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-54b6472f84d346f3",
+      "cf-84482f2712490a27",
+      "cf-053389c590c6d62b",
+      "cf-75048b2e84ac33ca"
+    ]
+  }
+}

@@ -1,0 +1,2172 @@
+{
+  "iteration": 6,
+  "ledger_delta": {
+    "backend_calls": 23,
+    "cache_hits": 7,
+    "requested_by_source": {
+      "scicf_ppo/counterfactual": 15,
+      "scicf_ppo/factual": 15
+    },
+    "requested_calls": 30,
+    "unique_calls": 23
+  },
+  "maximum_branch_count": 80,
+  "records": [
+    {
+      "accepted": true,
+      "candidate_id": "cf-fc380991731432d8",
+      "counterfactual_returns": [
+        0.3419,
+        0.3433,
+        0.3419,
+        0.3442,
+        0.3416
+      ],
+      "counterfactual_terminal_records": [
+        {
+          "actions": [
+            [
+              576,
+              83
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.3419,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1cc(C(C)(c2ccc(N3C(=O)c4ccc(C5=CCC6C(=O)N(C)C(=O)C6=C5)cc4C3=O)cc2)C(F)(F)C(F)(F)C(F)(F)F)cc2ccccc12",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.3419,
+            "properties": {
+              "cte": 53.52,
+              "sa_score": 4.31,
+              "strength": 90.35,
+              "tg": 291.64,
+              "transmittance": 82.14
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1cc(C(C)(c2ccc(N3C(=O)c4ccc(C5=CCC6C(=O)N(C)C(=O)C6=C5)cc4C3=O)cc2)C(F)(F)C(F)(F)C(F)(F)F)cc2ccccc12",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              576,
+              83
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.3433,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc(C(C)(c2cc(N3C(=O)C4=CC(c5ccc6c(c5)C(=O)N(C)C6=O)=CCC4C3=O)c3ccccc3c2)C(F)(F)C(F)(F)C(F)(F)F)cc1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.3433,
+            "properties": {
+              "cte": 52.97,
+              "sa_score": 4.32,
+              "strength": 90.32,
+              "tg": 291.74,
+              "transmittance": 82.31
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc(C(C)(c2cc(N3C(=O)C4=CC(c5ccc6c(c5)C(=O)N(C)C6=O)=CCC4C3=O)c3ccccc3c2)C(F)(F)C(F)(F)C(F)(F)F)cc1",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              576,
+              83
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.3419,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1cc(C(C)(c2ccc(N3C(=O)c4ccc(C5=CCC6C(=O)N(C)C(=O)C6=C5)cc4C3=O)cc2)C(F)(F)C(F)(F)C(F)(F)F)cc2ccccc12",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.3419,
+            "properties": {
+              "cte": 53.52,
+              "sa_score": 4.31,
+              "strength": 90.35,
+              "tg": 291.64,
+              "transmittance": 82.14
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1cc(C(C)(c2ccc(N3C(=O)c4ccc(C5=CCC6C(=O)N(C)C(=O)C6=C5)cc4C3=O)cc2)C(F)(F)C(F)(F)C(F)(F)F)cc2ccccc12",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              576,
+              83
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.3442,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1cc(C(C)(c2ccc(N3C(=O)C4=CC(c5ccc6c(c5)C(=O)N(C)C6=O)=CCC4C3=O)cc2)C(F)(F)C(F)(F)C(F)(F)F)cc2ccccc12",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.3442,
+            "properties": {
+              "cte": 53.21,
+              "sa_score": 4.3,
+              "strength": 90.32,
+              "tg": 291.64,
+              "transmittance": 82.39
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1cc(C(C)(c2ccc(N3C(=O)C4=CC(c5ccc6c(c5)C(=O)N(C)C6=O)=CCC4C3=O)cc2)C(F)(F)C(F)(F)C(F)(F)F)cc2ccccc12",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              576,
+              83
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.3416,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc(C(C)(c2cc(N3C(=O)c4ccc(C5=CCC6C(=O)N(C)C(=O)C6=C5)cc4C3=O)c3ccccc3c2)C(F)(F)C(F)(F)C(F)(F)F)cc1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.3416,
+            "properties": {
+              "cte": 53.29,
+              "sa_score": 4.32,
+              "strength": 90.35,
+              "tg": 291.74,
+              "transmittance": 82.06
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc(C(C)(c2cc(N3C(=O)c4ccc(C5=CCC6C(=O)N(C)C(=O)C6=C5)cc4C3=O)c3ccccc3c2)C(F)(F)C(F)(F)C(F)(F)F)cc1",
+          "termination_reason": "success"
+        }
+      ],
+      "deltas": [
+        0.3419,
+        0.3433,
+        0.3419,
+        0.06059999999999999,
+        0.3416
+      ],
+      "factual_returns": [
+        0.0,
+        0.0,
+        0.0,
+        0.2836,
+        0.0
+      ],
+      "factual_terminal_records": [
+        {
+          "actions": [
+            [
+              576,
+              514
+            ],
+            [
+              576,
+              418
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              576,
+              514
+            ],
+            [
+              576,
+              510
+            ],
+            [
+              576,
+              548
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              576,
+              514
+            ],
+            [
+              576,
+              564
+            ],
+            [
+              576,
+              369
+            ],
+            [
+              576,
+              482
+            ]
+          ],
+          "environment_transitions": 4,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              576,
+              514
+            ],
+            [
+              576,
+              598
+            ],
+            [
+              576,
+              414
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.2836,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc(C(C)(c2nc(C3(OC4=CCCC(N5C(=O)c6ccc(C7=CCC8C(=O)N(C)C(=O)C8=C7)cc6C5=O)=C4)CC3)co2)C(F)(F)C(F)(F)C(F)(F)F)cc1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.2836,
+            "properties": {
+              "cte": 59.36,
+              "sa_score": 5.11,
+              "strength": 82.15,
+              "tg": 273.89,
+              "transmittance": 82.25
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc(C(C)(c2nc(C3(OC4=CCCC(N5C(=O)c6ccc(C7=CCC8C(=O)N(C)C(=O)C8=C7)cc6C5=O)=C4)CC3)co2)C(F)(F)C(F)(F)C(F)(F)F)cc1",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              576,
+              514
+            ],
+            [
+              576,
+              907
+            ],
+            [
+              576,
+              873
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "mean_delta": 0.28586,
+      "paired_seeds": [
+        2692639779629488792,
+        2153532273414986610,
+        5946317894323135141,
+        2360858157253684938,
+        3366014226528991706
+      ],
+      "preferred": "counterfactual",
+      "rejection_reason": null,
+      "soft_aggregation": {
+        "magnitude_confidence": 1.0,
+        "median_delta": 0.3419,
+        "negative_count": 0,
+        "nonzero_fraction": 1.0,
+        "positive_count": 5,
+        "posterior_positive_probability": 0.9166666666666666,
+        "preferred": "counterfactual",
+        "sign_confidence": 0.8333333333333333,
+        "status": "weighted_preference",
+        "tie_count": 0,
+        "training_weight": 1.6666666666666665
+      },
+      "strict_all_nonzero_same_sign": true
+    },
+    {
+      "accepted": false,
+      "candidate_id": "cf-672c0bb0ed45f117",
+      "counterfactual_returns": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "counterfactual_terminal_records": [
+        {
+          "actions": [
+            [
+              576,
+              693
+            ],
+            [
+              576,
+              405
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              576,
+              693
+            ],
+            [
+              576,
+              353
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              576,
+              693
+            ],
+            [
+              576,
+              167
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              576,
+              693
+            ],
+            [
+              576,
+              554
+            ],
+            [
+              576,
+              75
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              576,
+              693
+            ],
+            [
+              576,
+              42
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "deltas": [
+        -0.2649,
+        -0.2915,
+        -0.3115,
+        0.0,
+        -0.3007
+      ],
+      "factual_returns": [
+        0.2649,
+        0.2915,
+        0.3115,
+        0.0,
+        0.3007
+      ],
+      "factual_terminal_records": [
+        {
+          "actions": [
+            [
+              576,
+              644
+            ],
+            [
+              576,
+              404
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.2649,
+          "terminal_evaluation": {
+            "canonical_smiles": "CC1C=CC=C(Oc2csc(-c3nc(C(C)(c4ccc(N5C(=O)c6ccc(C7=CCC8C(=O)N(C)C(=O)C8=C7)cc6C5=O)cc4)C(F)(F)C(F)(F)C(F)(F)F)co3)n2)C1C",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.2649,
+            "properties": {
+              "cte": 62.86,
+              "sa_score": 5.43,
+              "strength": 80.52,
+              "tg": 268.63,
+              "transmittance": 79.48
+            },
+            "valid": true
+          },
+          "terminal_smiles": "CC1C=CC=C(Oc2csc(-c3nc(C(C)(c4ccc(N5C(=O)c6ccc(C7=CCC8C(=O)N(C)C(=O)C8=C7)cc6C5=O)cc4)C(F)(F)C(F)(F)C(F)(F)F)co3)n2)C1C",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              576,
+              644
+            ],
+            [
+              576,
+              351
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.2915,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc(C(C)(c2coc(-c3nc(C4(C)C=CC(N5C(=O)c6ccc(C7=CCC8C(=O)N(C)C(=O)C8=C7)cc6C5=O)=CC4)cs3)n2)C(F)(F)C(F)(F)C(F)(F)F)cc1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.2915,
+            "properties": {
+              "cte": 59.12,
+              "sa_score": 5.29,
+              "strength": 82.71,
+              "tg": 284.06,
+              "transmittance": 83.34
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc(C(C)(c2coc(-c3nc(C4(C)C=CC(N5C(=O)c6ccc(C7=CCC8C(=O)N(C)C(=O)C8=C7)cc6C5=O)=CC4)cs3)n2)C(F)(F)C(F)(F)C(F)(F)F)cc1",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              576,
+              644
+            ],
+            [
+              576,
+              266
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.3115,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc(C(C)(c2coc(-c3nc(-c4ccc(N5C(=O)C6=CC(c7ccc8c(c7)C(=O)N(C)C8=O)=CCC6C5=O)cc4)cs3)n2)C(F)(F)C(F)(F)C(F)(F)F)cc1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.3115,
+            "properties": {
+              "cte": 56.88,
+              "sa_score": 4.61,
+              "strength": 85.27,
+              "tg": 304.92,
+              "transmittance": 79.7
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc(C(C)(c2coc(-c3nc(-c4ccc(N5C(=O)C6=CC(c7ccc8c(c7)C(=O)N(C)C8=O)=CCC6C5=O)cc4)cs3)n2)C(F)(F)C(F)(F)C(F)(F)F)cc1",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              576,
+              644
+            ],
+            [
+              576,
+              564
+            ],
+            [
+              576,
+              63
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              576,
+              644
+            ],
+            [
+              576,
+              49
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.3007,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc(C(C)(c2coc(-c3csc(C(C)(C)N4C(=O)c5ccc(C6=CCC7C(=O)N(C)C(=O)C7=C6)cc5C4=O)n3)n2)C(F)(F)C(F)(F)C(F)(F)F)cc1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.3007,
+            "properties": {
+              "cte": 58.6,
+              "sa_score": 4.82,
+              "strength": 84.1,
+              "tg": 269.25,
+              "transmittance": 84.04
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc(C(C)(c2coc(-c3csc(C(C)(C)N4C(=O)c5ccc(C6=CCC7C(=O)N(C)C(=O)C7=C6)cc5C4=O)n3)n2)C(F)(F)C(F)(F)C(F)(F)F)cc1",
+          "termination_reason": "success"
+        }
+      ],
+      "mean_delta": -0.23372,
+      "paired_seeds": [
+        1137942994790970756,
+        5681663674511462488,
+        6437803512931374704,
+        7241552102838326915,
+        795061075202243874
+      ],
+      "preferred": null,
+      "rejection_reason": "zero_or_sign_inconsistent_delta",
+      "soft_aggregation": {
+        "magnitude_confidence": 1.0,
+        "median_delta": -0.2915,
+        "negative_count": 4,
+        "nonzero_fraction": 0.8,
+        "positive_count": 0,
+        "posterior_positive_probability": 0.1,
+        "preferred": "factual",
+        "sign_confidence": 0.8,
+        "status": "weighted_preference",
+        "tie_count": 1,
+        "training_weight": 1.2800000000000002
+      },
+      "strict_all_nonzero_same_sign": false
+    },
+    {
+      "accepted": true,
+      "candidate_id": "cf-7c16329f6a0bcfff",
+      "counterfactual_returns": [
+        0.3577,
+        0.3577,
+        0.358,
+        0.3577,
+        0.358
+      ],
+      "counterfactual_terminal_records": [
+        {
+          "actions": [
+            [
+              576,
+              833
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.3577,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc(C(C)(c2coc(-c3ccc(N4C(=O)C5=CC(c6ccc7c(c6)C(=O)N(C)C7=O)=CCC5C4=O)cc3Cl)n2)C(F)(F)C(F)(F)C(F)(F)F)cc1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.3577,
+            "properties": {
+              "cte": 42.51,
+              "sa_score": 4.49,
+              "strength": 90.56,
+              "tg": 295.59,
+              "transmittance": 82.52
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc(C(C)(c2coc(-c3ccc(N4C(=O)C5=CC(c6ccc7c(c6)C(=O)N(C)C7=O)=CCC5C4=O)cc3Cl)n2)C(F)(F)C(F)(F)C(F)(F)F)cc1",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              576,
+              833
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.3577,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc(C(C)(c2coc(-c3ccc(N4C(=O)C5=CC(c6ccc7c(c6)C(=O)N(C)C7=O)=CCC5C4=O)cc3Cl)n2)C(F)(F)C(F)(F)C(F)(F)F)cc1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.3577,
+            "properties": {
+              "cte": 42.51,
+              "sa_score": 4.49,
+              "strength": 90.56,
+              "tg": 295.59,
+              "transmittance": 82.52
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc(C(C)(c2coc(-c3ccc(N4C(=O)C5=CC(c6ccc7c(c6)C(=O)N(C)C7=O)=CCC5C4=O)cc3Cl)n2)C(F)(F)C(F)(F)C(F)(F)F)cc1",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              576,
+              833
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.358,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc(-c2nc(C(C)(c3ccc(N4C(=O)C5=CC(c6ccc7c(c6)C(=O)N(C)C7=O)=CCC5C4=O)cc3)C(F)(F)C(F)(F)C(F)(F)F)co2)c(Cl)c1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.358,
+            "properties": {
+              "cte": 42.48,
+              "sa_score": 4.49,
+              "strength": 90.56,
+              "tg": 295.59,
+              "transmittance": 82.58
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc(-c2nc(C(C)(c3ccc(N4C(=O)C5=CC(c6ccc7c(c6)C(=O)N(C)C7=O)=CCC5C4=O)cc3)C(F)(F)C(F)(F)C(F)(F)F)co2)c(Cl)c1",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              576,
+              833
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.3577,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc(C(C)(c2coc(-c3ccc(N4C(=O)C5=CC(c6ccc7c(c6)C(=O)N(C)C7=O)=CCC5C4=O)cc3Cl)n2)C(F)(F)C(F)(F)C(F)(F)F)cc1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.3577,
+            "properties": {
+              "cte": 42.51,
+              "sa_score": 4.49,
+              "strength": 90.56,
+              "tg": 295.59,
+              "transmittance": 82.52
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc(C(C)(c2coc(-c3ccc(N4C(=O)C5=CC(c6ccc7c(c6)C(=O)N(C)C7=O)=CCC5C4=O)cc3Cl)n2)C(F)(F)C(F)(F)C(F)(F)F)cc1",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              576,
+              833
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.358,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc(-c2nc(C(C)(c3ccc(N4C(=O)C5=CC(c6ccc7c(c6)C(=O)N(C)C7=O)=CCC5C4=O)cc3)C(F)(F)C(F)(F)C(F)(F)F)co2)c(Cl)c1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.358,
+            "properties": {
+              "cte": 42.48,
+              "sa_score": 4.49,
+              "strength": 90.56,
+              "tg": 295.59,
+              "transmittance": 82.58
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc(-c2nc(C(C)(c3ccc(N4C(=O)C5=CC(c6ccc7c(c6)C(=O)N(C)C7=O)=CCC5C4=O)cc3)C(F)(F)C(F)(F)C(F)(F)F)co2)c(Cl)c1",
+          "termination_reason": "success"
+        }
+      ],
+      "deltas": [
+        0.06459999999999999,
+        0.3577,
+        0.358,
+        0.0932,
+        0.358
+      ],
+      "factual_returns": [
+        0.2931,
+        0.0,
+        0.0,
+        0.2645,
+        0.0
+      ],
+      "factual_terminal_records": [
+        {
+          "actions": [
+            [
+              576,
+              644
+            ],
+            [
+              576,
+              279
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.2931,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc(C(C)(c2coc(-c3csc(C4(C)C=C(N5C(=O)C6=CC(c7ccc8c(c7)C(=O)N(C)C8=O)=CCC6C5=O)C=CC4)n3)n2)C(F)(F)C(F)(F)C(F)(F)F)cc1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.2931,
+            "properties": {
+              "cte": 58.52,
+              "sa_score": 5.24,
+              "strength": 82.69,
+              "tg": 284.39,
+              "transmittance": 83.42
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc(C(C)(c2coc(-c3csc(C4(C)C=C(N5C(=O)C6=CC(c7ccc8c(c7)C(=O)N(C)C8=O)=CCC6C5=O)C=CC4)n3)n2)C(F)(F)C(F)(F)C(F)(F)F)cc1",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              576,
+              644
+            ],
+            [
+              576,
+              695
+            ],
+            [
+              576,
+              940
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              576,
+              644
+            ],
+            [
+              576,
+              152
+            ],
+            [
+              576,
+              927
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              576,
+              644
+            ],
+            [
+              576,
+              776
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.2645,
+          "terminal_evaluation": {
+            "canonical_smiles": "C=Cc1cc(-c2nc(-c3nc(C(C)(c4ccc(C)cc4)C(F)(F)C(F)(F)C(F)(F)F)co3)cs2)ccc1N1C(=O)c2ccc(C3=CCC4C(=O)N(C)C(=O)C4=C3)cc2C1=O",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.2645,
+            "properties": {
+              "cte": 62.67,
+              "sa_score": 4.82,
+              "strength": 85.0,
+              "tg": 299.91,
+              "transmittance": 73.41
+            },
+            "valid": true
+          },
+          "terminal_smiles": "C=Cc1cc(-c2nc(-c3nc(C(C)(c4ccc(C)cc4)C(F)(F)C(F)(F)C(F)(F)F)co3)cs2)ccc1N1C(=O)c2ccc(C3=CCC4C(=O)N(C)C(=O)C4=C3)cc2C1=O",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              576,
+              644
+            ],
+            [
+              576,
+              102
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "mean_delta": 0.24630000000000002,
+      "paired_seeds": [
+        3560164333217631086,
+        5842328924008389480,
+        4553186635386129522,
+        4173241585663115448,
+        2454247723275768525
+      ],
+      "preferred": "counterfactual",
+      "rejection_reason": null,
+      "soft_aggregation": {
+        "magnitude_confidence": 1.0,
+        "median_delta": 0.3577,
+        "negative_count": 0,
+        "nonzero_fraction": 1.0,
+        "positive_count": 5,
+        "posterior_positive_probability": 0.9166666666666666,
+        "preferred": "counterfactual",
+        "sign_confidence": 0.8333333333333333,
+        "status": "weighted_preference",
+        "tie_count": 0,
+        "training_weight": 1.6666666666666665
+      },
+      "strict_all_nonzero_same_sign": true
+    },
+    {
+      "accepted": false,
+      "candidate_id": "cf-a68f058e68d4dec4",
+      "counterfactual_returns": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "counterfactual_terminal_records": [
+        {
+          "actions": [
+            [
+              212,
+              773
+            ],
+            [
+              25,
+              376
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              212,
+              773
+            ],
+            [
+              402,
+              548
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              212,
+              773
+            ],
+            [
+              154,
+              806
+            ],
+            [
+              124,
+              1004
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              212,
+              773
+            ],
+            [
+              153,
+              640
+            ],
+            [
+              68,
+              1004
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              212,
+              773
+            ],
+            [
+              284,
+              587
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "deltas": [
+        -0.3433,
+        -0.3439,
+        -0.3266,
+        -0.2775,
+        0.0
+      ],
+      "factual_returns": [
+        0.3433,
+        0.3439,
+        0.3266,
+        0.2775,
+        0.0
+      ],
+      "factual_terminal_records": [
+        {
+          "actions": [
+            [
+              538,
+              773
+            ],
+            [
+              576,
+              376
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.3433,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1cc(F)cc(C(C)(c2ccc(N3C(=O)c4ccc(C5=CCC6C(=O)N(C)C(=O)C6=C5)cc4C3=O)cc2)C(F)(F)C(F)(F)C(F)(F)F)c1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.3433,
+            "properties": {
+              "cte": 54.12,
+              "sa_score": 4.31,
+              "strength": 89.23,
+              "tg": 285.26,
+              "transmittance": 83.38
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1cc(F)cc(C(C)(c2ccc(N3C(=O)c4ccc(C5=CCC6C(=O)N(C)C(=O)C6=C5)cc4C3=O)cc2)C(F)(F)C(F)(F)C(F)(F)F)c1",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              538,
+              773
+            ],
+            [
+              576,
+              548
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.3439,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc(C(C)(c2c3ccccc3c(N3C(=O)C4=CC(c5ccc6c(c5)C(=O)N(C)C6=O)=CCC4C3=O)c3ccccc23)C(F)(F)C(F)(F)C(F)(F)F)cc1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.3439,
+            "properties": {
+              "cte": 51.63,
+              "sa_score": 4.42,
+              "strength": 91.69,
+              "tg": 323.69,
+              "transmittance": 80.52
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc(C(C)(c2c3ccccc3c(N3C(=O)C4=CC(c5ccc6c(c5)C(=O)N(C)C6=O)=CCC4C3=O)c3ccccc23)C(F)(F)C(F)(F)C(F)(F)F)cc1",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              538,
+              773
+            ],
+            [
+              576,
+              806
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.3266,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc(C(C)(c2ccc(N3C(=O)C4=CC(c5ccc6c(c5)C(=O)N(C)C6=O)=CCC4C3=O)cc2)C(F)(F)C(F)(F)C(F)(F)F)cc1C#N",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.3266,
+            "properties": {
+              "cte": 55.74,
+              "sa_score": 4.34,
+              "strength": 88.28,
+              "tg": 268.58,
+              "transmittance": 81.93
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc(C(C)(c2ccc(N3C(=O)C4=CC(c5ccc6c(c5)C(=O)N(C)C6=O)=CCC4C3=O)cc2)C(F)(F)C(F)(F)C(F)(F)F)cc1C#N",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              538,
+              773
+            ],
+            [
+              576,
+              640
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.2775,
+          "terminal_evaluation": {
+            "canonical_smiles": "CC1CCC(C(C)(c2ccc(N3C(=O)C4=CC(c5ccc6c(c5)C(=O)N(C)C6=O)=CCC4C3=O)cc2)C(F)(F)C(F)(F)C(F)(F)F)CC1C",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.2775,
+            "properties": {
+              "cte": 52.88,
+              "sa_score": 4.82,
+              "strength": 88.35,
+              "tg": 252.35,
+              "transmittance": 75.56
+            },
+            "valid": true
+          },
+          "terminal_smiles": "CC1CCC(C(C)(c2ccc(N3C(=O)C4=CC(c5ccc6c(c5)C(=O)N(C)C6=O)=CCC4C3=O)cc2)C(F)(F)C(F)(F)C(F)(F)F)CC1C",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              538,
+              773
+            ],
+            [
+              576,
+              587
+            ],
+            [
+              576,
+              37
+            ],
+            [
+              576,
+              717
+            ]
+          ],
+          "environment_transitions": 4,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "mean_delta": -0.25826000000000005,
+      "paired_seeds": [
+        8499238823269206956,
+        4922951849692572516,
+        754423286208611471,
+        3024331885337756762,
+        2816221483735733206
+      ],
+      "preferred": null,
+      "rejection_reason": "zero_or_sign_inconsistent_delta",
+      "soft_aggregation": {
+        "magnitude_confidence": 1.0,
+        "median_delta": -0.3266,
+        "negative_count": 4,
+        "nonzero_fraction": 0.8,
+        "positive_count": 0,
+        "posterior_positive_probability": 0.1,
+        "preferred": "factual",
+        "sign_confidence": 0.8,
+        "status": "weighted_preference",
+        "tie_count": 1,
+        "training_weight": 1.2800000000000002
+      },
+      "strict_all_nonzero_same_sign": false
+    },
+    {
+      "accepted": false,
+      "candidate_id": "cf-947ac6ad37aacfc7",
+      "counterfactual_returns": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "counterfactual_terminal_records": [
+        {
+          "actions": [
+            [
+              52,
+              1004
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              52,
+              1004
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              52,
+              1004
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              52,
+              1004
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              52,
+              1004
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "deltas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "factual_returns": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "factual_terminal_records": [
+        {
+          "actions": [
+            [
+              213,
+              1004
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              213,
+              1004
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              213,
+              1004
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              213,
+              1004
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              213,
+              1004
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "mean_delta": 0.0,
+      "paired_seeds": [
+        7742603458531501414,
+        8015656800452035456,
+        3193797310906527084,
+        7243492965968639855,
+        2469901466023945058
+      ],
+      "preferred": null,
+      "rejection_reason": "zero_or_sign_inconsistent_delta",
+      "soft_aggregation": {
+        "magnitude_confidence": 0.0,
+        "median_delta": 0.0,
+        "negative_count": 0,
+        "nonzero_fraction": 0.0,
+        "positive_count": 0,
+        "posterior_positive_probability": 0.5,
+        "preferred": null,
+        "sign_confidence": 0.0,
+        "status": "abstained_all_ties",
+        "tie_count": 5,
+        "training_weight": 0.0
+      },
+      "strict_all_nonzero_same_sign": false
+    },
+    {
+      "accepted": false,
+      "candidate_id": "cf-34c81d0e16a014e5",
+      "counterfactual_returns": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "counterfactual_terminal_records": [
+        {
+          "actions": [
+            [
+              228,
+              1004
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              228,
+              1004
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              228,
+              1004
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              228,
+              1004
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              228,
+              1004
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "deltas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "factual_returns": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "factual_terminal_records": [
+        {
+          "actions": [
+            [
+              213,
+              1004
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              213,
+              1004
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              213,
+              1004
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              213,
+              1004
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              213,
+              1004
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "mean_delta": 0.0,
+      "paired_seeds": [
+        3752184161272014411,
+        2205163789805747802,
+        1362813642926753538,
+        103637899148675642,
+        1342526145050854243
+      ],
+      "preferred": null,
+      "rejection_reason": "zero_or_sign_inconsistent_delta",
+      "soft_aggregation": {
+        "magnitude_confidence": 0.0,
+        "median_delta": 0.0,
+        "negative_count": 0,
+        "nonzero_fraction": 0.0,
+        "positive_count": 0,
+        "posterior_positive_probability": 0.5,
+        "preferred": null,
+        "sign_confidence": 0.0,
+        "status": "abstained_all_ties",
+        "tie_count": 5,
+        "training_weight": 0.0
+      },
+      "strict_all_nonzero_same_sign": false
+    },
+    {
+      "accepted": false,
+      "candidate_id": "cf-526fbf8eed79abdc",
+      "counterfactual_returns": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "counterfactual_terminal_records": [
+        {
+          "actions": [
+            [
+              467,
+              632
+            ],
+            [
+              186,
+              1004
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              467,
+              632
+            ],
+            [
+              440,
+              1004
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              467,
+              632
+            ],
+            [
+              26,
+              1004
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              467,
+              632
+            ],
+            [
+              230,
+              1004
+            ],
+            [
+              207,
+              1004
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              467,
+              632
+            ],
+            [
+              25,
+              1004
+            ],
+            [
+              3,
+              1004
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "deltas": [
+        -0.2969,
+        -0.1236,
+        0.0,
+        0.0,
+        -0.4148
+      ],
+      "factual_returns": [
+        0.2969,
+        0.1236,
+        0.0,
+        0.0,
+        0.4148
+      ],
+      "factual_terminal_records": [
+        {
+          "actions": [
+            [
+              311,
+              632
+            ],
+            [
+              208,
+              1004
+            ],
+            [
+              251,
+              1004
+            ],
+            [
+              61,
+              1004
+            ]
+          ],
+          "environment_transitions": 4,
+          "return": 0.2969,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc2c(-c3ccc4c(c3)C(=O)N(c3ccc5ccc6ccc(C)c7ccc3c5c67)C4=O)c(CC=Cc3ccc([Si](C)(C)C)cc3)c3c(c2c1)C(=O)N(C)C3=O",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.2969,
+            "properties": {
+              "cte": 30.93,
+              "sa_score": 3.58,
+              "strength": 102.98,
+              "tg": 384.8,
+              "transmittance": 52.6
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc2c(-c3ccc4c(c3)C(=O)N(c3ccc5ccc6ccc(C)c7ccc3c5c67)C4=O)c(CC=Cc3ccc([Si](C)(C)C)cc3)c3c(c2c1)C(=O)N(C)C3=O",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              311,
+              632
+            ],
+            [
+              439,
+              1004
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.1236,
+          "terminal_evaluation": {
+            "canonical_smiles": "CCC(C)(C)c1c(-c2ccc3c(c2)C(=O)N(c2ccc4ccc5ccc(C)c6ccc2c4c56)C3=O)c2c(c3cc(C)ccc13)C(=O)N(C)C2=O",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.1236,
+            "properties": {
+              "cte": 27.34,
+              "sa_score": 3.29,
+              "strength": 127.83,
+              "tg": 429.99,
+              "transmittance": 19.86
+            },
+            "valid": true
+          },
+          "terminal_smiles": "CCC(C)(C)c1c(-c2ccc3c(c2)C(=O)N(c2ccc4ccc5ccc(C)c6ccc2c4c56)C3=O)c2c(c3cc(C)ccc13)C(=O)N(C)C2=O",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              311,
+              632
+            ],
+            [
+              40,
+              1004
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              311,
+              632
+            ],
+            [
+              282,
+              1004
+            ],
+            [
+              212,
+              1004
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              311,
+              632
+            ],
+            [
+              39,
+              1004
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.4148,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc2c(-c3ccc4c(c3)C(=O)N(c3ccc5ccc6ccc(C)c7ccc3c5c67)C4=O)c(C(C)CCCC(C)C)c3c(c2c1)C(=O)N(C)C3=O",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.4148,
+            "properties": {
+              "cte": 30.67,
+              "sa_score": 3.76,
+              "strength": 97.05,
+              "tg": 412.11,
+              "transmittance": 73.9
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc2c(-c3ccc4c(c3)C(=O)N(c3ccc5ccc6ccc(C)c7ccc3c5c67)C4=O)c(C(C)CCCC(C)C)c3c(c2c1)C(=O)N(C)C3=O",
+          "termination_reason": "success"
+        }
+      ],
+      "mean_delta": -0.16706,
+      "paired_seeds": [
+        6964116519434634325,
+        8423637319973356864,
+        5783711308537033940,
+        8813904745391785779,
+        1009742514540227275
+      ],
+      "preferred": null,
+      "rejection_reason": "zero_or_sign_inconsistent_delta",
+      "soft_aggregation": {
+        "magnitude_confidence": 1.0,
+        "median_delta": -0.1236,
+        "negative_count": 3,
+        "nonzero_fraction": 0.6,
+        "positive_count": 0,
+        "posterior_positive_probability": 0.125,
+        "preferred": "factual",
+        "sign_confidence": 0.75,
+        "status": "weighted_preference",
+        "tie_count": 2,
+        "training_weight": 0.8999999999999999
+      },
+      "strict_all_nonzero_same_sign": false
+    },
+    {
+      "accepted": false,
+      "candidate_id": "cf-1ee38d60f429cc31",
+      "counterfactual_returns": [
+        0.0012,
+        0.0012,
+        0.0012,
+        0.0012,
+        0.0012
+      ],
+      "counterfactual_terminal_records": [
+        {
+          "actions": [
+            [
+              67,
+              632
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0012,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc2ccc3ccc(-n4c(=O)c5c6ccccc6c6ccc7c(=O)n(C)c(=O)c7c6c5c4=O)c4ccc1c2c34",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.0012,
+            "properties": {
+              "cte": 16.73,
+              "sa_score": 2.91,
+              "strength": 263.33,
+              "tg": 435.64,
+              "transmittance": 0.16
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc2ccc3ccc(-n4c(=O)c5c6ccccc6c6ccc7c(=O)n(C)c(=O)c7c6c5c4=O)c4ccc1c2c34",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              67,
+              632
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0012,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc2ccc3ccc(-n4c(=O)c5ccc6c7ccccc7c7c(=O)n(C)c(=O)c7c6c5c4=O)c4ccc1c2c34",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.0012,
+            "properties": {
+              "cte": 16.71,
+              "sa_score": 2.9,
+              "strength": 263.33,
+              "tg": 435.64,
+              "transmittance": 0.16
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc2ccc3ccc(-n4c(=O)c5ccc6c7ccccc7c7c(=O)n(C)c(=O)c7c6c5c4=O)c4ccc1c2c34",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              67,
+              632
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0012,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc2ccc3ccc(-n4c(=O)c5c6ccccc6c6ccc7c(=O)n(C)c(=O)c7c6c5c4=O)c4ccc1c2c34",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.0012,
+            "properties": {
+              "cte": 16.73,
+              "sa_score": 2.91,
+              "strength": 263.33,
+              "tg": 435.64,
+              "transmittance": 0.16
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc2ccc3ccc(-n4c(=O)c5c6ccccc6c6ccc7c(=O)n(C)c(=O)c7c6c5c4=O)c4ccc1c2c34",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              67,
+              632
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0012,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc2ccc3ccc(-n4c(=O)c5c6ccccc6c6ccc7c(=O)n(C)c(=O)c7c6c5c4=O)c4ccc1c2c34",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.0012,
+            "properties": {
+              "cte": 16.73,
+              "sa_score": 2.91,
+              "strength": 263.33,
+              "tg": 435.64,
+              "transmittance": 0.16
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc2ccc3ccc(-n4c(=O)c5c6ccccc6c6ccc7c(=O)n(C)c(=O)c7c6c5c4=O)c4ccc1c2c34",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              67,
+              632
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.0012,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc2ccc3ccc(-n4c(=O)c5c6ccccc6c6ccc7c(=O)n(C)c(=O)c7c6c5c4=O)c4ccc1c2c34",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.0012,
+            "properties": {
+              "cte": 16.73,
+              "sa_score": 2.91,
+              "strength": 263.33,
+              "tg": 435.64,
+              "transmittance": 0.16
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc2ccc3ccc(-n4c(=O)c5c6ccccc6c6ccc7c(=O)n(C)c(=O)c7c6c5c4=O)c4ccc1c2c34",
+          "termination_reason": "success"
+        }
+      ],
+      "deltas": [
+        0.0012,
+        0.0012,
+        0.0012,
+        -0.0267,
+        0.0012
+      ],
+      "factual_returns": [
+        0.0,
+        0.0,
+        0.0,
+        0.0279,
+        0.0
+      ],
+      "factual_terminal_records": [
+        {
+          "actions": [
+            [
+              311,
+              632
+            ],
+            [
+              424,
+              1004
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              311,
+              632
+            ],
+            [
+              449,
+              1004
+            ],
+            [
+              289,
+              1004
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              311,
+              632
+            ],
+            [
+              127,
+              1004
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              311,
+              632
+            ],
+            [
+              78,
+              1004
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0279,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc2c(C(F)(F)F)c(-c3ccc4c(c3)C(=O)N(C)C4=O)c3c(c2c1)C(=O)N(c1ccc2ccc4ccc(C)c5ccc1c2c45)C3=O",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.0279,
+            "properties": {
+              "cte": 10.18,
+              "sa_score": 3.23,
+              "strength": 164.41,
+              "tg": 388.78,
+              "transmittance": 4.17
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc2c(C(F)(F)F)c(-c3ccc4c(c3)C(=O)N(C)C4=O)c3c(c2c1)C(=O)N(c1ccc2ccc4ccc(C)c5ccc1c2c45)C3=O",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              311,
+              632
+            ],
+            [
+              58,
+              1004
+            ],
+            [
+              568,
+              1004
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "mean_delta": -0.00438,
+      "paired_seeds": [
+        8883550896427412207,
+        8797010610114860445,
+        8449680352590860775,
+        5518546931936265130,
+        1834211172598960064
+      ],
+      "preferred": null,
+      "rejection_reason": "zero_or_sign_inconsistent_delta",
+      "soft_aggregation": {
+        "magnitude_confidence": 0.023999999999999997,
+        "median_delta": 0.0012,
+        "negative_count": 1,
+        "nonzero_fraction": 0.2,
+        "positive_count": 0,
+        "posterior_positive_probability": 0.25,
+        "preferred": null,
+        "sign_confidence": 0.5,
+        "status": "abstained_below_minimum_weight",
+        "tie_count": 4,
+        "training_weight": 0.0
+      },
+      "strict_all_nonzero_same_sign": false
+    }
+  ],
+  "replicates": 5,
+  "selected_ids": [
+    "cf-fc380991731432d8",
+    "cf-672c0bb0ed45f117",
+    "cf-7c16329f6a0bcfff",
+    "cf-a68f058e68d4dec4",
+    "cf-947ac6ad37aacfc7",
+    "cf-34c81d0e16a014e5",
+    "cf-526fbf8eed79abdc",
+    "cf-1ee38d60f429cc31"
+  ],
+  "selected_only": true
+}

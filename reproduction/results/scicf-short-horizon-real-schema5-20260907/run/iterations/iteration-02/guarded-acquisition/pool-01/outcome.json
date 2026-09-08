@@ -1,0 +1,50 @@
+{
+  "attempt_count": 1,
+  "attempts": [
+    {
+      "attempt_index": 0,
+      "attempt_kind": "initial",
+      "raw_capture_file": "attempt-00-raw-response.json",
+      "raw_capture_sha256": "360d872932199c53a48766885a067f192472e2598d6f3cccf41a3409e58c508b",
+      "request_file": "attempt-00-request.json",
+      "request_sha256": "9545f079db2982da38f1ee4c721b195ce0131622398c06a1e3b374137b3a23f5",
+      "status": "validated",
+      "validation_error_code": null,
+      "validation_file": "attempt-00-validation.json",
+      "validation_sha256": "bae2a10ddcebc6b5077a2e80b000918d3df71e31403e826ccdb39ef2f87141b7"
+    }
+  ],
+  "maximum_http_transmissions": 4,
+  "maximum_schema_attempts": 2,
+  "oracle_selection_authorized": true,
+  "raw_capture_complete": true,
+  "request_id": "dapigen-scicf-short-horizon-multi-iteration-smoke-v1-iter-02-pool-01-job-4748",
+  "schema_version": 1,
+  "selected_intervention_ids": [
+    "cf-f5511196233fb909",
+    "cf-4cf7c71df8ccd64e",
+    "cf-4e034a858aab41a9",
+    "cf-6c89ed39231d1e66"
+  ],
+  "semantic_repair_count": 0,
+  "status": "validated",
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": 0.6,
+    "ranked_intervention_ids": [
+      "cf-f5511196233fb909",
+      "cf-4cf7c71df8ccd64e",
+      "cf-4e034a858aab41a9",
+      "cf-6c89ed39231d1e66"
+    ],
+    "reasoning": "Selected interventions at timestep 0 that replace the dianhydride with rigid, aromatic, or fluorinated alternatives to potentially improve thermal/mechanical properties while maintaining synthetic accessibility. These are early-stage changes with high impact on the final polymer structure.",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-f5511196233fb909",
+      "cf-4cf7c71df8ccd64e",
+      "cf-4e034a858aab41a9",
+      "cf-6c89ed39231d1e66"
+    ]
+  }
+}

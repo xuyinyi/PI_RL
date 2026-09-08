@@ -1,0 +1,12 @@
+{
+  "attempt_index": 0,
+  "raw_capture_file": "attempt-00-raw-response.json",
+  "raw_capture_sha256": "7c312f3b29e8679eebd7ce1a3106020a3704ef6768f33ec4f5259825fa78a219",
+  "raw_was_captured_before_validation": true,
+  "request_id": "dapigen-scicf-short-horizon-multi-iteration-smoke-v1-iter-03-pool-01-job-4748",
+  "schema_version": 1,
+  "status": "invalid",
+  "validated": null,
+  "validation_error": "abstain must be a JSON boolean",
+  "validation_error_code": "ranked_response_schema_invalid"
+}

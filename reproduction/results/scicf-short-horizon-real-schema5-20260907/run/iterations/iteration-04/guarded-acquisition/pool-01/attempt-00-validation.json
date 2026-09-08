@@ -1,0 +1,30 @@
+{
+  "attempt_index": 0,
+  "raw_capture_file": "attempt-00-raw-response.json",
+  "raw_capture_sha256": "92f9db6a1d53e462bbf7db706835033c88ed589342536dc046e960c8d93d23d1",
+  "raw_was_captured_before_validation": true,
+  "request_id": "dapigen-scicf-short-horizon-multi-iteration-smoke-v1-iter-04-pool-01-job-4748",
+  "schema_version": 1,
+  "status": "validated",
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": 0.6,
+    "ranked_intervention_ids": [
+      "cf-54b6472f84d346f3",
+      "cf-84482f2712490a27",
+      "cf-053389c590c6d62b",
+      "cf-75048b2e84ac33ca"
+    ],
+    "reasoning": "Selected interventions at timestep 0 that replace the dianhydride or diamine with smaller, more synthetically accessible building blocks while maintaining aromaticity and functionality, potentially improving synthetic accessibility and transmittance without drastically compromising thermal/mechanical properties.",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-54b6472f84d346f3",
+      "cf-84482f2712490a27",
+      "cf-053389c590c6d62b",
+      "cf-75048b2e84ac33ca"
+    ]
+  },
+  "validation_error": null,
+  "validation_error_code": null
+}

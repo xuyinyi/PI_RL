@@ -1,13 +1,13 @@
 # Active project plan: terminal-evaluable counterfactual credit for DAPiGen
 
-Status date: 2026-09-07
+Status date: 2026-09-08
 
 Plan status: **the schema-3 integration-v2 run remains archived as a no-go after
-zero strict pairs; the K=5 optional-LLM v3 single-iteration run completed and
-applied one soft-pair update in n001 Slurm Job 4736; the separately developed
-short-horizon runner passed only its no-credential Slurm preflight in Job 4737.
-No real multi-iteration execution, rerun, formal training, sealed-test access,
-or scientific claim is authorized**
+zero strict pairs; the K=5 optional-LLM v3 single-iteration run completed in Job
+4736; the separately authorized six-iteration short-horizon engineering run
+completed in n001 Slurm Job 4748. It is not a matched comparison and does not
+authorize a rerun, longer or formal training, sealed-test access, an
+algorithm-effectiveness claim, or a scientific claim**
 
 ## 2026-09-06 architecture-first amendment
 
@@ -257,6 +257,26 @@ LLMs, or sealed-test accesses. Its decision permits only requesting a separate
 exact schema-5 authorization; no real short-horizon run, automatic resume/rerun,
 or formal training is authorized. Evidence is under
 `reproduction/results/scicf-short-horizon-preflight-20260907/`.
+
+The new schema-5 authorization was then bound to implementation `5f2a6a1`, the
+short-horizon protocol, both accepted asset fingerprints, iterations 1-6, no
+resume point, and one unique output directory. It was consumed by exactly one
+n001 Slurm submission, Job 4748. Sixty-seven server tests passed and all six
+iterations completed without integrity failures. The run accumulated 768 PPO
+transitions, 158 successful terminals, 12 DeepSeek pool decisions, 47 selected
+and `K=5` verified candidates, 20 non-zero empirical weights, and six one-step
+SciCF auxiliary updates. One schema-invalid response in iteration 3 was retained
+before validation and repaired within the frozen bound. Total LLM time was
+22.689 seconds, evaluator accounting was 299 requested / 255 unique / 255
+backend / 44 cache-hit calls, and the largest corrected auxiliary KL was
+`3.72e-7`. Six independently rehashed control checkpoints formed the exact
+previous-hash chain. The circuit remained closed because no provider failure
+occurred; the cooldown failure path therefore remains preflight evidence rather
+than a live observation. The authoritative decision is
+`short_horizon_engineering_run_complete_no_further_scope_authorized`. This is
+not a PPO comparison or effectiveness result, and the consumed authorization
+cannot be reused. Evidence is under
+`reproduction/results/scicf-short-horizon-real-schema5-20260907/`.
 
 ## 1. Authority and scope
 

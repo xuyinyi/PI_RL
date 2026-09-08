@@ -1,0 +1,50 @@
+{
+  "attempt_count": 1,
+  "attempts": [
+    {
+      "attempt_index": 0,
+      "attempt_kind": "initial",
+      "raw_capture_file": "attempt-00-raw-response.json",
+      "raw_capture_sha256": "8002f2dff093d99a74fa07b4abf24923f888624e4539e128bb3e11f5d781feb9",
+      "request_file": "attempt-00-request.json",
+      "request_sha256": "93932788908c4daf8a7317d4d274cd0ac3f5e55156fba12ebc111d4ce087847f",
+      "status": "validated",
+      "validation_error_code": null,
+      "validation_file": "attempt-00-validation.json",
+      "validation_sha256": "1521a84cefd4bda14ee5c8f018ec47f66e11d989c29f856b5e809e8e3b891dd4"
+    }
+  ],
+  "maximum_http_transmissions": 4,
+  "maximum_schema_attempts": 2,
+  "oracle_selection_authorized": true,
+  "raw_capture_complete": true,
+  "request_id": "dapigen-scicf-short-horizon-multi-iteration-smoke-v1-iter-02-pool-00-job-4748",
+  "schema_version": 1,
+  "selected_intervention_ids": [
+    "cf-99c31ab0f9e88ec7",
+    "cf-2734225f387d2e77",
+    "cf-f3e86740c5b4489b",
+    "cf-0e79b50395fddbef"
+  ],
+  "semantic_repair_count": 0,
+  "status": "validated",
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": 0.6,
+    "ranked_intervention_ids": [
+      "cf-99c31ab0f9e88ec7",
+      "cf-2734225f387d2e77",
+      "cf-f3e86740c5b4489b",
+      "cf-0e79b50395fddbef"
+    ],
+    "reasoning": "Selected interventions introduce rigid, aromatic, or fluorinated motifs that may improve thermal/mechanical properties while maintaining synthetic accessibility, and are compatible with the current partial structures.",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-99c31ab0f9e88ec7",
+      "cf-2734225f387d2e77",
+      "cf-f3e86740c5b4489b",
+      "cf-0e79b50395fddbef"
+    ]
+  }
+}

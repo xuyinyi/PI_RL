@@ -1,0 +1,50 @@
+{
+  "attempt_count": 1,
+  "attempts": [
+    {
+      "attempt_index": 0,
+      "attempt_kind": "initial",
+      "raw_capture_file": "attempt-00-raw-response.json",
+      "raw_capture_sha256": "2cb2b412acecf117b1b57962fda0a494f564038b2a39b1d0dee81491ecff7460",
+      "request_file": "attempt-00-request.json",
+      "request_sha256": "caf51068ffbf520906e91be87b0abefcdbbf9fd27b684823945b48b27a1adede",
+      "status": "validated",
+      "validation_error_code": null,
+      "validation_file": "attempt-00-validation.json",
+      "validation_sha256": "f6c1d49cd850223b173935c2dba22742590dcf452506646e3441bed0285b65b8"
+    }
+  ],
+  "maximum_http_transmissions": 4,
+  "maximum_schema_attempts": 2,
+  "oracle_selection_authorized": true,
+  "raw_capture_complete": true,
+  "request_id": "dapigen-scicf-short-horizon-multi-iteration-smoke-v1-iter-04-pool-00-job-4748",
+  "schema_version": 1,
+  "selected_intervention_ids": [
+    "cf-16f68adc2b94774b",
+    "cf-a895efb21f60faa9",
+    "cf-e17cd37164406454",
+    "cf-5956db5f42a89da6"
+  ],
+  "semantic_repair_count": 0,
+  "status": "validated",
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": 0.6,
+    "ranked_intervention_ids": [
+      "cf-16f68adc2b94774b",
+      "cf-a895efb21f60faa9",
+      "cf-e17cd37164406454",
+      "cf-5956db5f42a89da6"
+    ],
+    "reasoning": "Selected counterfactuals replace the factual dianhydride at timestep 2 with rigid, aromatic, or symmetric alternatives that may improve thermal/mechanical properties while retaining the fluorinated diamine for optical benefits. These candidates are chemically plausible and likely to yield informative trade-offs across the multi-objective terminal score.",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-16f68adc2b94774b",
+      "cf-a895efb21f60faa9",
+      "cf-e17cd37164406454",
+      "cf-5956db5f42a89da6"
+    ]
+  }
+}

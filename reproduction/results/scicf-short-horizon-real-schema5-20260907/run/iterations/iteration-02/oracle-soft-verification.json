@@ -1,0 +1,2374 @@
+{
+  "iteration": 2,
+  "ledger_delta": {
+    "backend_calls": 13,
+    "cache_hits": 4,
+    "requested_by_source": {
+      "scicf_ppo/counterfactual": 9,
+      "scicf_ppo/factual": 8
+    },
+    "requested_calls": 17,
+    "unique_calls": 13
+  },
+  "maximum_branch_count": 80,
+  "records": [
+    {
+      "accepted": true,
+      "candidate_id": "cf-99c31ab0f9e88ec7",
+      "counterfactual_returns": [
+        0.3106,
+        0.2643,
+        0.2998,
+        0.2512,
+        0.3032
+      ],
+      "counterfactual_terminal_records": [
+        {
+          "actions": [
+            [
+              23,
+              705
+            ],
+            [
+              576,
+              584
+            ],
+            [
+              576,
+              507
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.3106,
+          "terminal_evaluation": {
+            "canonical_smiles": "C=C(C)C(C)C(C)(c1ccc(C)cc1)c1c(C)ccc(C)c1-c1cc(Br)c(N2C(=O)c3ccc(C4C=C5C(=O)N(C)C(=O)C5=CC4)cc3C2=O)c(Br)c1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.3106,
+            "properties": {
+              "cte": 59.2,
+              "sa_score": 4.74,
+              "strength": 87.02,
+              "tg": 324.7,
+              "transmittance": 80.65
+            },
+            "valid": true
+          },
+          "terminal_smiles": "C=C(C)C(C)C(C)(c1ccc(C)cc1)c1c(C)ccc(C)c1-c1cc(Br)c(N2C(=O)c3ccc(C4C=C5C(=O)N(C)C(=O)C5=CC4)cc3C2=O)c(Br)c1",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              23,
+              705
+            ],
+            [
+              576,
+              650
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.2643,
+          "terminal_evaluation": {
+            "canonical_smiles": "C=C(C)C(C)C(C)(c1ccc(C)cc1)C1CCCC(N2C(=O)c3ccc(C4C=C5C(=O)N(C)C(=O)C5=CC4)cc3C2=O)C1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.2643,
+            "properties": {
+              "cte": 67.94,
+              "sa_score": 4.73,
+              "strength": 93.74,
+              "tg": 293.17,
+              "transmittance": 74.59
+            },
+            "valid": true
+          },
+          "terminal_smiles": "C=C(C)C(C)C(C)(c1ccc(C)cc1)C1CCCC(N2C(=O)c3ccc(C4C=C5C(=O)N(C)C(=O)C5=CC4)cc3C2=O)C1",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              23,
+              705
+            ],
+            [
+              576,
+              411
+            ],
+            [
+              576,
+              935
+            ],
+            [
+              576,
+              364
+            ]
+          ],
+          "environment_transitions": 4,
+          "return": 0.2998,
+          "terminal_evaluation": {
+            "canonical_smiles": "C=C(C)C(C)C(C)(c1ccc(N2C(=O)C3=CCC(c4ccc5c(c4)C(=O)N(C)C5=O)C=C3C2=O)cc1)c1cc(C)cc(C(Cl)(Cl)c2cccc(F)c2)c1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.2998,
+            "properties": {
+              "cte": 59.46,
+              "sa_score": 4.74,
+              "strength": 86.44,
+              "tg": 277.85,
+              "transmittance": 82.03
+            },
+            "valid": true
+          },
+          "terminal_smiles": "C=C(C)C(C)C(C)(c1ccc(N2C(=O)C3=CCC(c4ccc5c(c4)C(=O)N(C)C5=O)C=C3C2=O)cc1)c1cc(C)cc(C(Cl)(Cl)c2cccc(F)c2)c1",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              23,
+              705
+            ],
+            [
+              576,
+              69
+            ],
+            [
+              576,
+              338
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.2512,
+          "terminal_evaluation": {
+            "canonical_smiles": "C=C(C)C(C)C(C)(c1ccc(C)cc1)c1ccccc1OC1=CC=CC(N2C(=O)C3=CCC(c4ccc5c(c4)C(=O)N(C)C5=O)C=C3C2=O)C1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.2512,
+            "properties": {
+              "cte": 69.12,
+              "sa_score": 4.95,
+              "strength": 84.74,
+              "tg": 258.45,
+              "transmittance": 78.8
+            },
+            "valid": true
+          },
+          "terminal_smiles": "C=C(C)C(C)C(C)(c1ccc(C)cc1)c1ccccc1OC1=CC=CC(N2C(=O)C3=CCC(c4ccc5c(c4)C(=O)N(C)C5=O)C=C3C2=O)C1",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              23,
+              705
+            ],
+            [
+              576,
+              492
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.3032,
+          "terminal_evaluation": {
+            "canonical_smiles": "C=C(C)C(C)C(C)(c1ccc(N2C(=O)C3=CCC(c4ccc5c(c4)C(=O)N(C)C5=O)C=C3C2=O)cc1)c1ccc(C)c(F)c1F",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.3032,
+            "properties": {
+              "cte": 57.62,
+              "sa_score": 4.47,
+              "strength": 89.06,
+              "tg": 287.99,
+              "transmittance": 77.08
+            },
+            "valid": true
+          },
+          "terminal_smiles": "C=C(C)C(C)C(C)(c1ccc(N2C(=O)C3=CCC(c4ccc5c(c4)C(=O)N(C)C5=O)C=C3C2=O)cc1)c1ccc(C)c(F)c1F",
+          "termination_reason": "success"
+        }
+      ],
+      "deltas": [
+        0.3106,
+        0.2643,
+        0.2998,
+        0.2512,
+        0.3032
+      ],
+      "factual_returns": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "factual_terminal_records": [
+        {
+          "actions": [
+            [
+              333,
+              705
+            ],
+            [
+              343,
+              584
+            ],
+            [
+              135,
+              507
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              333,
+              705
+            ],
+            [
+              343,
+              650
+            ],
+            [
+              440,
+              1004
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              333,
+              705
+            ],
+            [
+              145,
+              411
+            ],
+            [
+              431,
+              935
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              333,
+              705
+            ],
+            [
+              212,
+              69
+            ],
+            [
+              9,
+              338
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              333,
+              705
+            ],
+            [
+              290,
+              492
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "mean_delta": 0.28582,
+      "paired_seeds": [
+        3956358051882858982,
+        2474707326996854454,
+        2533112917793332509,
+        5767932429548081408,
+        4159813439488082641
+      ],
+      "preferred": "counterfactual",
+      "rejection_reason": null,
+      "soft_aggregation": {
+        "magnitude_confidence": 1.0,
+        "median_delta": 0.2998,
+        "negative_count": 0,
+        "nonzero_fraction": 1.0,
+        "positive_count": 5,
+        "posterior_positive_probability": 0.9166666666666666,
+        "preferred": "counterfactual",
+        "sign_confidence": 0.8333333333333333,
+        "status": "weighted_preference",
+        "tie_count": 0,
+        "training_weight": 1.6666666666666665
+      },
+      "strict_all_nonzero_same_sign": true
+    },
+    {
+      "accepted": false,
+      "candidate_id": "cf-2734225f387d2e77",
+      "counterfactual_returns": [
+        0.0,
+        0.0,
+        0.0,
+        0.2957,
+        0.0
+      ],
+      "counterfactual_terminal_records": [
+        {
+          "actions": [
+            [
+              333,
+              733
+            ],
+            [
+              112,
+              680
+            ],
+            [
+              131,
+              576
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              333,
+              733
+            ],
+            [
+              454,
+              954
+            ],
+            [
+              23,
+              465
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              333,
+              733
+            ],
+            [
+              82,
+              409
+            ],
+            [
+              454,
+              63
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              333,
+              733
+            ],
+            [
+              116,
+              880
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.2957,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1ccc(C2C=CC(OS(=O)(=O)O)(N3C(=O)C4C=CC(OC5=CCC(C(CF)(c6ccc7c(c6)C(=O)N(C)C7=O)C(F)(F)F)C=C5)=CC4C3=O)C=C2C(F)(F)F)cc1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.2957,
+            "properties": {
+              "cte": 54.18,
+              "sa_score": 5.89,
+              "strength": 76.99,
+              "tg": 271.0,
+              "transmittance": 83.45
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1ccc(C2C=CC(OS(=O)(=O)O)(N3C(=O)C4C=CC(OC5=CCC(C(CF)(c6ccc7c(c6)C(=O)N(C)C7=O)C(F)(F)F)C=C5)=CC4C3=O)C=C2C(F)(F)F)cc1",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              333,
+              733
+            ],
+            [
+              21,
+              325
+            ],
+            [
+              68,
+              789
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "deltas": [
+        0.0,
+        -0.2596,
+        0.0,
+        0.02180000000000004,
+        0.0
+      ],
+      "factual_returns": [
+        0.0,
+        0.2596,
+        0.0,
+        0.2739,
+        0.0
+      ],
+      "factual_terminal_records": [
+        {
+          "actions": [
+            [
+              333,
+              705
+            ],
+            [
+              112,
+              549
+            ],
+            [
+              131,
+              1004
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              333,
+              705
+            ],
+            [
+              454,
+              921
+            ],
+            [
+              23,
+              1004
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.2596,
+          "terminal_evaluation": {
+            "canonical_smiles": "C=C(C)C(C)C(C)(c1ccc(C)cc1)C1(N2C(=O)c3ccc(C(CF)(c4ccc5ccccc5c4C4C=C5C(=O)N(C)C(=O)C5=CC4)C(F)(F)F)cc3C2=O)CCCCC1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.2596,
+            "properties": {
+              "cte": 63.46,
+              "sa_score": 5.28,
+              "strength": 79.23,
+              "tg": 273.49,
+              "transmittance": 77.92
+            },
+            "valid": true
+          },
+          "terminal_smiles": "C=C(C)C(C)C(C)(c1ccc(C)cc1)C1(N2C(=O)c3ccc(C(CF)(c4ccc5ccccc5c4C4C=C5C(=O)N(C)C(=O)C5=CC4)C(F)(F)F)cc3C2=O)CCCCC1",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              333,
+              705
+            ],
+            [
+              82,
+              405
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              333,
+              705
+            ],
+            [
+              116,
+              819
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.2739,
+          "terminal_evaluation": {
+            "canonical_smiles": "C=C(C)C(C)C(C)(c1ccc(N2C(=O)C3C=CC(OC4=CCC(C(CF)(c5ccc6c(c5)C(=O)N(C)C6=O)C(F)(F)F)C=C4)=CC3C2=O)cc1)c1ccc(C)cc1O",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.2739,
+            "properties": {
+              "cte": 59.38,
+              "sa_score": 5.53,
+              "strength": 81.89,
+              "tg": 250.74,
+              "transmittance": 81.67
+            },
+            "valid": true
+          },
+          "terminal_smiles": "C=C(C)C(C)C(C)(c1ccc(N2C(=O)C3C=CC(OC4=CCC(C(CF)(c5ccc6c(c5)C(=O)N(C)C6=O)C(F)(F)F)C=C4)=CC3C2=O)cc1)c1ccc(C)cc1O",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              333,
+              705
+            ],
+            [
+              21,
+              298
+            ],
+            [
+              68,
+              816
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "mean_delta": -0.04755999999999999,
+      "paired_seeds": [
+        1477811154909044919,
+        6043912170484756031,
+        4082275704768049349,
+        8527423504232179214,
+        5444482708556714706
+      ],
+      "preferred": null,
+      "rejection_reason": "zero_or_sign_inconsistent_delta",
+      "soft_aggregation": {
+        "magnitude_confidence": 0.0,
+        "median_delta": 0.0,
+        "negative_count": 1,
+        "nonzero_fraction": 0.4,
+        "positive_count": 1,
+        "posterior_positive_probability": 0.5,
+        "preferred": null,
+        "sign_confidence": 0.0,
+        "status": "abstained_direction_tie",
+        "tie_count": 3,
+        "training_weight": 0.0
+      },
+      "strict_all_nonzero_same_sign": false
+    },
+    {
+      "accepted": false,
+      "candidate_id": "cf-f3e86740c5b4489b",
+      "counterfactual_returns": [
+        0.0,
+        0.0,
+        0.0,
+        0.2745,
+        0.2739
+      ],
+      "counterfactual_terminal_records": [
+        {
+          "actions": [
+            [
+              479,
+              92
+            ],
+            [
+              576,
+              42
+            ],
+            [
+              576,
+              145
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              479,
+              92
+            ],
+            [
+              576,
+              584
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              479,
+              92
+            ],
+            [
+              576,
+              595
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              479,
+              92
+            ],
+            [
+              576,
+              364
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.2745,
+          "terminal_evaluation": {
+            "canonical_smiles": "C=Cc1cc(C(CF)(c2ccc3c(c2)C(=O)N(C)C3=O)C(F)(F)F)cc2c1C(=O)N(c1ccc(C(C)(c3c(C)cccc3-c3cccc(F)c3)C(C)C(=C)C)cc1)C2=O",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.2745,
+            "properties": {
+              "cte": 68.35,
+              "sa_score": 4.79,
+              "strength": 89.65,
+              "tg": 247.39,
+              "transmittance": 83.38
+            },
+            "valid": true
+          },
+          "terminal_smiles": "C=Cc1cc(C(CF)(c2ccc3c(c2)C(=O)N(C)C3=O)C(F)(F)F)cc2c1C(=O)N(c1ccc(C(C)(c3c(C)cccc3-c3cccc(F)c3)C(C)C(=C)C)cc1)C2=O",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              479,
+              92
+            ],
+            [
+              576,
+              365
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.2739,
+          "terminal_evaluation": {
+            "canonical_smiles": "C=Cc1cc(C(CF)(c2ccc3c(c2)C(=O)N(C)C3=O)C(F)(F)F)cc2c1C(=O)N(c1ccc(C(C)(c3c(C)cccc3-c3ccccc3F)C(C)C(=C)C)cc1)C2=O",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.2739,
+            "properties": {
+              "cte": 68.1,
+              "sa_score": 4.79,
+              "strength": 89.65,
+              "tg": 245.29,
+              "transmittance": 83.26
+            },
+            "valid": true
+          },
+          "terminal_smiles": "C=Cc1cc(C(CF)(c2ccc3c(c2)C(=O)N(C)C3=O)C(F)(F)F)cc2c1C(=O)N(c1ccc(C(C)(c3c(C)cccc3-c3ccccc3F)C(C)C(=C)C)cc1)C2=O",
+          "termination_reason": "success"
+        }
+      ],
+      "deltas": [
+        -0.2759,
+        -0.2759,
+        -0.2761,
+        -0.0013999999999999568,
+        -0.0020000000000000018
+      ],
+      "factual_returns": [
+        0.2759,
+        0.2759,
+        0.2761,
+        0.2759,
+        0.2759
+      ],
+      "factual_terminal_records": [
+        {
+          "actions": [
+            [
+              479,
+              769
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.2759,
+          "terminal_evaluation": {
+            "canonical_smiles": "C=Cc1cc(C(CF)(c2ccc3c(c2)C(=O)N(C)C3=O)C(F)(F)F)cc2c1C(=O)N(c1ccc(C)c(C(C)(c3ccc(C)cc3)C(C)C(=C)C)c1)C2=O",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.2759,
+            "properties": {
+              "cte": 64.01,
+              "sa_score": 4.67,
+              "strength": 88.79,
+              "tg": 256.79,
+              "transmittance": 78.5
+            },
+            "valid": true
+          },
+          "terminal_smiles": "C=Cc1cc(C(CF)(c2ccc3c(c2)C(=O)N(C)C3=O)C(F)(F)F)cc2c1C(=O)N(c1ccc(C)c(C(C)(c3ccc(C)cc3)C(C)C(=C)C)c1)C2=O",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              479,
+              769
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.2759,
+          "terminal_evaluation": {
+            "canonical_smiles": "C=Cc1cc(C(CF)(c2ccc3c(c2)C(=O)N(C)C3=O)C(F)(F)F)cc2c1C(=O)N(c1ccc(C)c(C(C)(c3ccc(C)cc3)C(C)C(=C)C)c1)C2=O",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.2759,
+            "properties": {
+              "cte": 64.01,
+              "sa_score": 4.67,
+              "strength": 88.79,
+              "tg": 256.79,
+              "transmittance": 78.5
+            },
+            "valid": true
+          },
+          "terminal_smiles": "C=Cc1cc(C(CF)(c2ccc3c(c2)C(=O)N(C)C3=O)C(F)(F)F)cc2c1C(=O)N(c1ccc(C)c(C(C)(c3ccc(C)cc3)C(C)C(=C)C)c1)C2=O",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              479,
+              769
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.2761,
+          "terminal_evaluation": {
+            "canonical_smiles": "C=Cc1cc(C(CF)(c2ccc3c(c2)C(=O)N(C)C3=O)C(F)(F)F)cc2c1C(=O)N(c1ccc(C(C)(c3cc(C)ccc3C)C(C)C(=C)C)cc1)C2=O",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.2761,
+            "properties": {
+              "cte": 64.95,
+              "sa_score": 4.67,
+              "strength": 88.79,
+              "tg": 256.79,
+              "transmittance": 79.1
+            },
+            "valid": true
+          },
+          "terminal_smiles": "C=Cc1cc(C(CF)(c2ccc3c(c2)C(=O)N(C)C3=O)C(F)(F)F)cc2c1C(=O)N(c1ccc(C(C)(c3cc(C)ccc3C)C(C)C(=C)C)cc1)C2=O",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              479,
+              769
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.2759,
+          "terminal_evaluation": {
+            "canonical_smiles": "C=Cc1cc(C(CF)(c2ccc3c(c2)C(=O)N(C)C3=O)C(F)(F)F)cc2c1C(=O)N(c1ccc(C)c(C(C)(c3ccc(C)cc3)C(C)C(=C)C)c1)C2=O",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.2759,
+            "properties": {
+              "cte": 64.01,
+              "sa_score": 4.67,
+              "strength": 88.79,
+              "tg": 256.79,
+              "transmittance": 78.5
+            },
+            "valid": true
+          },
+          "terminal_smiles": "C=Cc1cc(C(CF)(c2ccc3c(c2)C(=O)N(C)C3=O)C(F)(F)F)cc2c1C(=O)N(c1ccc(C)c(C(C)(c3ccc(C)cc3)C(C)C(=C)C)c1)C2=O",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              479,
+              769
+            ]
+          ],
+          "environment_transitions": 1,
+          "return": 0.2759,
+          "terminal_evaluation": {
+            "canonical_smiles": "C=Cc1cc(C(CF)(c2ccc3c(c2)C(=O)N(C)C3=O)C(F)(F)F)cc2c1C(=O)N(c1ccc(C)c(C(C)(c3ccc(C)cc3)C(C)C(=C)C)c1)C2=O",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.2759,
+            "properties": {
+              "cte": 64.01,
+              "sa_score": 4.67,
+              "strength": 88.79,
+              "tg": 256.79,
+              "transmittance": 78.5
+            },
+            "valid": true
+          },
+          "terminal_smiles": "C=Cc1cc(C(CF)(c2ccc3c(c2)C(=O)N(C)C3=O)C(F)(F)F)cc2c1C(=O)N(c1ccc(C)c(C(C)(c3ccc(C)cc3)C(C)C(=C)C)c1)C2=O",
+          "termination_reason": "success"
+        }
+      ],
+      "mean_delta": -0.16626,
+      "paired_seeds": [
+        571715260286059320,
+        8017278647337764754,
+        2775904553361028479,
+        6535577904120204310,
+        3376114491888131012
+      ],
+      "preferred": null,
+      "rejection_reason": "zero_or_sign_inconsistent_delta",
+      "soft_aggregation": {
+        "magnitude_confidence": 1.0,
+        "median_delta": -0.2759,
+        "negative_count": 3,
+        "nonzero_fraction": 0.6,
+        "positive_count": 0,
+        "posterior_positive_probability": 0.125,
+        "preferred": "factual",
+        "sign_confidence": 0.75,
+        "status": "weighted_preference",
+        "tie_count": 2,
+        "training_weight": 0.8999999999999999
+      },
+      "strict_all_nonzero_same_sign": false
+    },
+    {
+      "accepted": false,
+      "candidate_id": "cf-0e79b50395fddbef",
+      "counterfactual_returns": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "counterfactual_terminal_records": [
+        {
+          "actions": [
+            [
+              333,
+              770
+            ],
+            [
+              85,
+              135
+            ],
+            [
+              143,
+              544
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              333,
+              770
+            ],
+            [
+              116,
+              469
+            ],
+            [
+              576,
+              325
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              333,
+              770
+            ],
+            [
+              85,
+              809
+            ],
+            [
+              439,
+              92
+            ],
+            [
+              92,
+              701
+            ]
+          ],
+          "environment_transitions": 4,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              333,
+              770
+            ],
+            [
+              368,
+              595
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              333,
+              770
+            ],
+            [
+              278,
+              644
+            ],
+            [
+              58,
+              673
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "deltas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "factual_returns": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "factual_terminal_records": [
+        {
+          "actions": [
+            [
+              333,
+              705
+            ],
+            [
+              85,
+              284
+            ],
+            [
+              143,
+              1004
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              333,
+              705
+            ],
+            [
+              116,
+              468
+            ],
+            [
+              576,
+              401
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              333,
+              705
+            ],
+            [
+              85,
+              767
+            ],
+            [
+              439,
+              23
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              333,
+              705
+            ],
+            [
+              368,
+              568
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              333,
+              705
+            ],
+            [
+              278,
+              593
+            ],
+            [
+              58,
+              710
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "mean_delta": 0.0,
+      "paired_seeds": [
+        4298694000914358779,
+        4415391353850399766,
+        7216819818166434130,
+        1752844548066674981,
+        6857645685270162289
+      ],
+      "preferred": null,
+      "rejection_reason": "zero_or_sign_inconsistent_delta",
+      "soft_aggregation": {
+        "magnitude_confidence": 0.0,
+        "median_delta": 0.0,
+        "negative_count": 0,
+        "nonzero_fraction": 0.0,
+        "positive_count": 0,
+        "posterior_positive_probability": 0.5,
+        "preferred": null,
+        "sign_confidence": 0.0,
+        "status": "abstained_all_ties",
+        "tie_count": 5,
+        "training_weight": 0.0
+      },
+      "strict_all_nonzero_same_sign": false
+    },
+    {
+      "accepted": false,
+      "candidate_id": "cf-f5511196233fb909",
+      "counterfactual_returns": [
+        0.0,
+        0.0,
+        0.0,
+        0.305,
+        0.0
+      ],
+      "counterfactual_terminal_records": [
+        {
+          "actions": [
+            [
+              363,
+              566
+            ],
+            [
+              576,
+              730
+            ],
+            [
+              576,
+              423
+            ],
+            [
+              576,
+              104
+            ],
+            [
+              576,
+              981
+            ]
+          ],
+          "environment_transitions": 5,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              363,
+              566
+            ],
+            [
+              576,
+              943
+            ],
+            [
+              576,
+              798
+            ],
+            [
+              576,
+              947
+            ],
+            [
+              576,
+              367
+            ]
+          ],
+          "environment_transitions": 5,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "design_horizon_exhausted"
+        },
+        {
+          "actions": [
+            [
+              363,
+              566
+            ],
+            [
+              576,
+              772
+            ],
+            [
+              576,
+              773
+            ],
+            [
+              576,
+              557
+            ],
+            [
+              576,
+              583
+            ]
+          ],
+          "environment_transitions": 5,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              363,
+              566
+            ],
+            [
+              576,
+              504
+            ],
+            [
+              576,
+              872
+            ],
+            [
+              576,
+              790
+            ]
+          ],
+          "environment_transitions": 4,
+          "return": 0.305,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1nnc(-c2cc(N(C)C)c(-c3ccc(N4C(=O)C5(C)C(C)(C4=O)C4(F)C(=O)N(C)C(=O)C54F)cc3)cc2-c2cccs2)s1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.305,
+            "properties": {
+              "cte": 50.32,
+              "sa_score": 4.7,
+              "strength": 86.03,
+              "tg": 315.85,
+              "transmittance": 75.12
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1nnc(-c2cc(N(C)C)c(-c3ccc(N4C(=O)C5(C)C(C)(C4=O)C4(F)C(=O)N(C)C(=O)C54F)cc3)cc2-c2cccs2)s1",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              363,
+              566
+            ],
+            [
+              576,
+              714
+            ],
+            [
+              576,
+              399
+            ],
+            [
+              576,
+              781
+            ]
+          ],
+          "environment_transitions": 4,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "deltas": [
+        0.0,
+        0.0,
+        0.0,
+        0.2859,
+        0.0
+      ],
+      "factual_returns": [
+        0.0,
+        0.0,
+        0.0,
+        0.0191,
+        0.0
+      ],
+      "factual_terminal_records": [
+        {
+          "actions": [
+            [
+              517,
+              566
+            ],
+            [
+              576,
+              730
+            ],
+            [
+              576,
+              423
+            ],
+            [
+              576,
+              104
+            ]
+          ],
+          "environment_transitions": 4,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              517,
+              566
+            ],
+            [
+              576,
+              943
+            ],
+            [
+              576,
+              798
+            ],
+            [
+              576,
+              947
+            ],
+            [
+              576,
+              367
+            ]
+          ],
+          "environment_transitions": 5,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              517,
+              566
+            ],
+            [
+              576,
+              772
+            ],
+            [
+              576,
+              773
+            ],
+            [
+              576,
+              557
+            ],
+            [
+              576,
+              583
+            ]
+          ],
+          "environment_transitions": 5,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              517,
+              566
+            ],
+            [
+              576,
+              504
+            ],
+            [
+              576,
+              872
+            ],
+            [
+              576,
+              790
+            ]
+          ],
+          "environment_transitions": 4,
+          "return": 0.0191,
+          "terminal_evaluation": {
+            "canonical_smiles": "Cc1nnc(-c2cc(N(C)C)c(-c3ccc(N4C(=O)C5=CCCC(c6ccc7c(c6)C(=O)N(C)C7=O)=C5C4=O)cc3)cc2-c2cccs2)s1",
+            "epistemic_std": null,
+            "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+            "failure_reason": null,
+            "objective": 0.0191,
+            "properties": {
+              "cte": 46.96,
+              "sa_score": 3.49,
+              "strength": 86.91,
+              "tg": 321.16,
+              "transmittance": 3.84
+            },
+            "valid": true
+          },
+          "terminal_smiles": "Cc1nnc(-c2cc(N(C)C)c(-c3ccc(N4C(=O)C5=CCCC(c6ccc7c(c6)C(=O)N(C)C7=O)=C5C4=O)cc3)cc2-c2cccs2)s1",
+          "termination_reason": "success"
+        },
+        {
+          "actions": [
+            [
+              517,
+              566
+            ],
+            [
+              576,
+              713
+            ],
+            [
+              576,
+              399
+            ],
+            [
+              576,
+              781
+            ]
+          ],
+          "environment_transitions": 4,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "mean_delta": 0.057179999999999995,
+      "paired_seeds": [
+        8529261163775075337,
+        7960717601352231388,
+        7718143337490325485,
+        499319679332189981,
+        7445252058889005887
+      ],
+      "preferred": null,
+      "rejection_reason": "zero_or_sign_inconsistent_delta",
+      "soft_aggregation": {
+        "magnitude_confidence": 0.0,
+        "median_delta": 0.0,
+        "negative_count": 0,
+        "nonzero_fraction": 0.2,
+        "positive_count": 1,
+        "posterior_positive_probability": 0.75,
+        "preferred": null,
+        "sign_confidence": 0.5,
+        "status": "abstained_below_minimum_weight",
+        "tie_count": 4,
+        "training_weight": 0.0
+      },
+      "strict_all_nonzero_same_sign": false
+    },
+    {
+      "accepted": false,
+      "candidate_id": "cf-4cf7c71df8ccd64e",
+      "counterfactual_returns": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "counterfactual_terminal_records": [
+        {
+          "actions": [
+            [
+              233,
+              566
+            ],
+            [
+              243,
+              406
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              233,
+              566
+            ],
+            [
+              368,
+              509
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              233,
+              566
+            ],
+            [
+              339,
+              780
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              233,
+              566
+            ],
+            [
+              345,
+              872
+            ],
+            [
+              81,
+              129
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              233,
+              566
+            ],
+            [
+              42,
+              860
+            ],
+            [
+              275,
+              588
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "deltas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "factual_returns": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "factual_terminal_records": [
+        {
+          "actions": [
+            [
+              517,
+              566
+            ],
+            [
+              576,
+              406
+            ],
+            [
+              576,
+              941
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              517,
+              566
+            ],
+            [
+              576,
+              509
+            ],
+            [
+              576,
+              387
+            ],
+            [
+              576,
+              27
+            ],
+            [
+              576,
+              850
+            ]
+          ],
+          "environment_transitions": 5,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "design_horizon_exhausted"
+        },
+        {
+          "actions": [
+            [
+              517,
+              566
+            ],
+            [
+              576,
+              780
+            ],
+            [
+              576,
+              401
+            ],
+            [
+              576,
+              733
+            ]
+          ],
+          "environment_transitions": 4,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              517,
+              566
+            ],
+            [
+              576,
+              872
+            ],
+            [
+              576,
+              129
+            ],
+            [
+              576,
+              926
+            ]
+          ],
+          "environment_transitions": 4,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              517,
+              566
+            ],
+            [
+              576,
+              860
+            ],
+            [
+              576,
+              588
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "mean_delta": 0.0,
+      "paired_seeds": [
+        8303203025706957547,
+        5398067509372606288,
+        6792690052875630689,
+        2135231339085756474,
+        1500029694838582863
+      ],
+      "preferred": null,
+      "rejection_reason": "zero_or_sign_inconsistent_delta",
+      "soft_aggregation": {
+        "magnitude_confidence": 0.0,
+        "median_delta": 0.0,
+        "negative_count": 0,
+        "nonzero_fraction": 0.0,
+        "positive_count": 0,
+        "posterior_positive_probability": 0.5,
+        "preferred": null,
+        "sign_confidence": 0.0,
+        "status": "abstained_all_ties",
+        "tie_count": 5,
+        "training_weight": 0.0
+      },
+      "strict_all_nonzero_same_sign": false
+    },
+    {
+      "accepted": false,
+      "candidate_id": "cf-4e034a858aab41a9",
+      "counterfactual_returns": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "counterfactual_terminal_records": [
+        {
+          "actions": [
+            [
+              169,
+              566
+            ],
+            [
+              553,
+              298
+            ],
+            [
+              169,
+              915
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              169,
+              566
+            ],
+            [
+              339,
+              962
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              169,
+              566
+            ],
+            [
+              112,
+              8
+            ],
+            [
+              165,
+              639
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              169,
+              566
+            ],
+            [
+              99,
+              927
+            ],
+            [
+              30,
+              65
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              169,
+              566
+            ],
+            [
+              290,
+              1000
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "deltas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "factual_returns": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "factual_terminal_records": [
+        {
+          "actions": [
+            [
+              517,
+              566
+            ],
+            [
+              576,
+              298
+            ],
+            [
+              576,
+              915
+            ],
+            [
+              576,
+              641
+            ]
+          ],
+          "environment_transitions": 4,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              517,
+              566
+            ],
+            [
+              576,
+              962
+            ],
+            [
+              576,
+              470
+            ],
+            [
+              576,
+              469
+            ]
+          ],
+          "environment_transitions": 4,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              517,
+              566
+            ],
+            [
+              576,
+              8
+            ],
+            [
+              576,
+              639
+            ],
+            [
+              576,
+              566
+            ]
+          ],
+          "environment_transitions": 4,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              517,
+              566
+            ],
+            [
+              576,
+              927
+            ],
+            [
+              576,
+              65
+            ],
+            [
+              576,
+              779
+            ]
+          ],
+          "environment_transitions": 4,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              517,
+              566
+            ],
+            [
+              576,
+              1000
+            ],
+            [
+              576,
+              75
+            ],
+            [
+              576,
+              779
+            ]
+          ],
+          "environment_transitions": 4,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "mean_delta": 0.0,
+      "paired_seeds": [
+        1235618330015491773,
+        1944926009857588244,
+        8089046943041832207,
+        5620950513560836724,
+        414836928724510123
+      ],
+      "preferred": null,
+      "rejection_reason": "zero_or_sign_inconsistent_delta",
+      "soft_aggregation": {
+        "magnitude_confidence": 0.0,
+        "median_delta": 0.0,
+        "negative_count": 0,
+        "nonzero_fraction": 0.0,
+        "positive_count": 0,
+        "posterior_positive_probability": 0.5,
+        "preferred": null,
+        "sign_confidence": 0.0,
+        "status": "abstained_all_ties",
+        "tie_count": 5,
+        "training_weight": 0.0
+      },
+      "strict_all_nonzero_same_sign": false
+    },
+    {
+      "accepted": false,
+      "candidate_id": "cf-6c89ed39231d1e66",
+      "counterfactual_returns": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "counterfactual_terminal_records": [
+        {
+          "actions": [
+            [
+              98,
+              566
+            ],
+            [
+              143,
+              765
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              98,
+              566
+            ],
+            [
+              118,
+              19
+            ],
+            [
+              87,
+              689
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              98,
+              566
+            ],
+            [
+              52,
+              864
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              98,
+              566
+            ],
+            [
+              437,
+              961
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              98,
+              566
+            ],
+            [
+              32,
+              492
+            ]
+          ],
+          "environment_transitions": 2,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "deltas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "factual_returns": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "factual_terminal_records": [
+        {
+          "actions": [
+            [
+              517,
+              566
+            ],
+            [
+              576,
+              765
+            ],
+            [
+              576,
+              553
+            ]
+          ],
+          "environment_transitions": 3,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              517,
+              566
+            ],
+            [
+              576,
+              19
+            ],
+            [
+              576,
+              689
+            ],
+            [
+              576,
+              543
+            ],
+            [
+              576,
+              25
+            ]
+          ],
+          "environment_transitions": 5,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "design_horizon_exhausted"
+        },
+        {
+          "actions": [
+            [
+              517,
+              566
+            ],
+            [
+              576,
+              864
+            ],
+            [
+              576,
+              926
+            ],
+            [
+              576,
+              360
+            ],
+            [
+              576,
+              460
+            ]
+          ],
+          "environment_transitions": 5,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              517,
+              566
+            ],
+            [
+              576,
+              961
+            ],
+            [
+              576,
+              688
+            ],
+            [
+              576,
+              459
+            ]
+          ],
+          "environment_transitions": 4,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        },
+        {
+          "actions": [
+            [
+              517,
+              566
+            ],
+            [
+              576,
+              492
+            ],
+            [
+              576,
+              408
+            ],
+            [
+              576,
+              695
+            ]
+          ],
+          "environment_transitions": 4,
+          "return": 0.0,
+          "terminal_evaluation": null,
+          "terminal_smiles": null,
+          "termination_reason": "atom_limit_exceeded"
+        }
+      ],
+      "mean_delta": 0.0,
+      "paired_seeds": [
+        3999951952778645427,
+        7624399868764633841,
+        8093455569863646837,
+        4749566726089520457,
+        7912623880249747594
+      ],
+      "preferred": null,
+      "rejection_reason": "zero_or_sign_inconsistent_delta",
+      "soft_aggregation": {
+        "magnitude_confidence": 0.0,
+        "median_delta": 0.0,
+        "negative_count": 0,
+        "nonzero_fraction": 0.0,
+        "positive_count": 0,
+        "posterior_positive_probability": 0.5,
+        "preferred": null,
+        "sign_confidence": 0.0,
+        "status": "abstained_all_ties",
+        "tie_count": 5,
+        "training_weight": 0.0
+      },
+      "strict_all_nonzero_same_sign": false
+    }
+  ],
+  "replicates": 5,
+  "selected_ids": [
+    "cf-99c31ab0f9e88ec7",
+    "cf-2734225f387d2e77",
+    "cf-f3e86740c5b4489b",
+    "cf-0e79b50395fddbef",
+    "cf-f5511196233fb909",
+    "cf-4cf7c71df8ccd64e",
+    "cf-4e034a858aab41a9",
+    "cf-6c89ed39231d1e66"
+  ],
+  "selected_only": true
+}

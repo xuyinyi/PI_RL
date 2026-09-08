@@ -1,0 +1,50 @@
+{
+  "attempt_count": 1,
+  "attempts": [
+    {
+      "attempt_index": 0,
+      "attempt_kind": "initial",
+      "raw_capture_file": "attempt-00-raw-response.json",
+      "raw_capture_sha256": "f1bf2cbdaee4a67f82ed58ef01bbef8d119b363c94aa3ab671401b21d1643493",
+      "request_file": "attempt-00-request.json",
+      "request_sha256": "ed240f3ffb6819e300b9bdd89f7f6de58f20796243f315bb11ad0c105a1bbdce",
+      "status": "validated",
+      "validation_error_code": null,
+      "validation_file": "attempt-00-validation.json",
+      "validation_sha256": "2dff48a4ab65d0f9102ea409d74261f501454dd44ad0c2e402e9b2d723d0d1a3"
+    }
+  ],
+  "maximum_http_transmissions": 4,
+  "maximum_schema_attempts": 2,
+  "oracle_selection_authorized": true,
+  "raw_capture_complete": true,
+  "request_id": "dapigen-scicf-short-horizon-multi-iteration-smoke-v1-iter-03-pool-00-job-4748",
+  "schema_version": 1,
+  "selected_intervention_ids": [
+    "cf-768b58e51e5d2d2b",
+    "cf-45b068d0a3976eef",
+    "cf-6567b29a0d28d48b",
+    "cf-a7dfb2c73d4015db"
+  ],
+  "semantic_repair_count": 0,
+  "status": "validated",
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": 0.6,
+    "ranked_intervention_ids": [
+      "cf-768b58e51e5d2d2b",
+      "cf-45b068d0a3976eef",
+      "cf-6567b29a0d28d48b",
+      "cf-a7dfb2c73d4015db"
+    ],
+    "reasoning": "Selected interventions introduce fluorinated or chloro-substituted diamines at timestep 1, which can enhance thermal stability and optical clarity while maintaining synthetic accessibility. These modifications are likely to improve the trade-off across CTE, tensile strength, Tg, and transmittance.",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-768b58e51e5d2d2b",
+      "cf-45b068d0a3976eef",
+      "cf-6567b29a0d28d48b",
+      "cf-a7dfb2c73d4015db"
+    ]
+  }
+}

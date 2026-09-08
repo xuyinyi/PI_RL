@@ -1,0 +1,50 @@
+{
+  "attempt_count": 1,
+  "attempts": [
+    {
+      "attempt_index": 0,
+      "attempt_kind": "initial",
+      "raw_capture_file": "attempt-00-raw-response.json",
+      "raw_capture_sha256": "61514b149005184e0cf4eb4a3515a565bb36aa835301f26e34e99cb843ba1773",
+      "request_file": "attempt-00-request.json",
+      "request_sha256": "c0e003be4242c7c1b7e221abc60db9123c6c807b66bced9ca8451fcda97a8161",
+      "status": "validated",
+      "validation_error_code": null,
+      "validation_file": "attempt-00-validation.json",
+      "validation_sha256": "75cf1262ee4d87b62838958f928d46ed28fc07a7636158a7f79424cbc4e684bf"
+    }
+  ],
+  "maximum_http_transmissions": 4,
+  "maximum_schema_attempts": 2,
+  "oracle_selection_authorized": true,
+  "raw_capture_complete": true,
+  "request_id": "dapigen-scicf-short-horizon-multi-iteration-smoke-v1-iter-05-pool-01-job-4748",
+  "schema_version": 1,
+  "selected_intervention_ids": [
+    "cf-3ad79ce081e81496",
+    "cf-998708035912752f",
+    "cf-9e72009a848788da",
+    "cf-e40dece3b2e3f3e7"
+  ],
+  "semantic_repair_count": 0,
+  "status": "validated",
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": 0.6,
+    "ranked_intervention_ids": [
+      "cf-3ad79ce081e81496",
+      "cf-998708035912752f",
+      "cf-9e72009a848788da",
+      "cf-e40dece3b2e3f3e7"
+    ],
+    "reasoning": "Selected interventions that replace the long perfluorinated dianhydride chain with rigid, aromatic or cyclic dianhydrides to improve thermal/mechanical properties while maintaining moderate size and synthetic accessibility. Also included a diamine chain length variation to probe flexibility effects. These changes are expected to favorably trade off CTE, Tg, and tensile strength without excessive synthetic burden.",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-3ad79ce081e81496",
+      "cf-998708035912752f",
+      "cf-9e72009a848788da",
+      "cf-e40dece3b2e3f3e7"
+    ]
+  }
+}

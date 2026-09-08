@@ -100,6 +100,20 @@
 > training, effectiveness claims, or scientific claims. See
 > `reproduction/scicf/SHORT_HORIZON_MULTI_ITERATION_V1.md` and
 > `reproduction/results/scicf-short-horizon-preflight-20260907/`.
+> The exact schema-5 authorization was subsequently consumed by one n001 Slurm
+> submission, Job 4748. Sixty-seven tests and all six iterations passed at clean
+> implementation commit `5f2a6a1`. The run completed 768 PPO transitions, 12
+> DeepSeek pool decisions, selected and verified 47 candidates with `K=5`,
+> retained 20 non-zero empirical weights, and applied six one-step auxiliary
+> updates. One invalid response schema in iteration 3 was durably retained and
+> repaired within the single-repair bound. LLM time was 22.689 of 180 seconds,
+> evaluator use was 299 of 1,248 requested calls, and maximum auxiliary KL was
+> `3.72e-7`. All six control checkpoint hashes and previous-hash links matched.
+> No live provider failure occurred, so the circuit did not open. The result is
+> a short-horizon engineering pass, not evidence that SciCF improves PPO. It
+> authorizes no rerun, longer/formal training, matched comparison, effectiveness
+> claim, or scientific claim. See
+> `reproduction/results/scicf-short-horizon-real-schema5-20260907/`.
 
 SciCF-PPO is being added as a feature-gated extension of the frozen
 `dapigen-ppo-compat-baseline-v1` baseline. The upstream PPO clipped objective,

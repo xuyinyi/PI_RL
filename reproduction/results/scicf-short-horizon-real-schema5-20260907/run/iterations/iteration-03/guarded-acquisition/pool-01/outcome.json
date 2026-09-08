@@ -1,0 +1,62 @@
+{
+  "attempt_count": 2,
+  "attempts": [
+    {
+      "attempt_index": 0,
+      "attempt_kind": "initial",
+      "raw_capture_file": "attempt-00-raw-response.json",
+      "raw_capture_sha256": "7c312f3b29e8679eebd7ce1a3106020a3704ef6768f33ec4f5259825fa78a219",
+      "request_file": "attempt-00-request.json",
+      "request_sha256": "a75ae5bb912feb20bb363ad715537c326dc7fedeb87d0d934e88d76f57da6ef6",
+      "status": "invalid",
+      "validation_error_code": "ranked_response_schema_invalid",
+      "validation_file": "attempt-00-validation.json",
+      "validation_sha256": "fbea8e689dd4f462ed378807a29cab8e633bc015cf281ea223c6a42253cb7813"
+    },
+    {
+      "attempt_index": 1,
+      "attempt_kind": "schema_repair",
+      "raw_capture_file": "attempt-01-raw-response.json",
+      "raw_capture_sha256": "03829bc8f79b13a835868a8e6292543ea9f6d560f4fd58da5b6b90f0cf40fa2c",
+      "request_file": "attempt-01-request.json",
+      "request_sha256": "870616a0eeb2afd20f56f14f325c6fab78d0e7e8a046f4a6b354250d84f5f394",
+      "status": "validated",
+      "validation_error_code": null,
+      "validation_file": "attempt-01-validation.json",
+      "validation_sha256": "d65eb6a1c1411d97e7df5d129062ca5a8a8a5a9babbd471c64c43f3a2aeef07f"
+    }
+  ],
+  "maximum_http_transmissions": 4,
+  "maximum_schema_attempts": 2,
+  "oracle_selection_authorized": true,
+  "raw_capture_complete": true,
+  "request_id": "dapigen-scicf-short-horizon-multi-iteration-smoke-v1-iter-03-pool-01-job-4748",
+  "schema_version": 1,
+  "selected_intervention_ids": [
+    "cf-79cb2f3d5fe0a04d",
+    "cf-0bea6b09c27c5b95",
+    "cf-a3cc141d703b63fa",
+    "cf-6ce8897e1ac423fd"
+  ],
+  "semantic_repair_count": 1,
+  "status": "validated",
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": 0.6,
+    "ranked_intervention_ids": [
+      "cf-79cb2f3d5fe0a04d",
+      "cf-0bea6b09c27c5b95",
+      "cf-a3cc141d703b63fa",
+      "cf-6ce8897e1ac423fd"
+    ],
+    "reasoning": "Selected interventions at early timesteps that introduce diverse, rigid or bulky diamine/dianhydride building blocks, potentially improving thermal/mechanical properties while maintaining synthetic accessibility.",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-79cb2f3d5fe0a04d",
+      "cf-0bea6b09c27c5b95",
+      "cf-a3cc141d703b63fa",
+      "cf-6ce8897e1ac423fd"
+    ]
+  }
+}

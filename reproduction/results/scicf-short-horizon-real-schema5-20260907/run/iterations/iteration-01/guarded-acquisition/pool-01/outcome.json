@@ -1,0 +1,47 @@
+{
+  "attempt_count": 1,
+  "attempts": [
+    {
+      "attempt_index": 0,
+      "attempt_kind": "initial",
+      "raw_capture_file": "attempt-00-raw-response.json",
+      "raw_capture_sha256": "90014fb87dd7373cf2e5225241342dcda52a752062e67f9407dbf253fd938064",
+      "request_file": "attempt-00-request.json",
+      "request_sha256": "d9511ea3fa8388ff0e51677f7d11bc72e2152dec1f53c6be656d84eb1ca57412",
+      "status": "validated",
+      "validation_error_code": null,
+      "validation_file": "attempt-00-validation.json",
+      "validation_sha256": "e782eee373d2f699ae09017997b34ef4920b59ababd6fa0b60ef0969cd2720a4"
+    }
+  ],
+  "maximum_http_transmissions": 4,
+  "maximum_schema_attempts": 2,
+  "oracle_selection_authorized": true,
+  "raw_capture_complete": true,
+  "request_id": "dapigen-scicf-short-horizon-multi-iteration-smoke-v1-iter-01-pool-01-job-4748",
+  "schema_version": 1,
+  "selected_intervention_ids": [
+    "cf-459946b287735273",
+    "cf-b63f783ee4efb201",
+    "cf-3c4c4d066731b637"
+  ],
+  "semantic_repair_count": 0,
+  "status": "validated",
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": 0.7,
+    "ranked_intervention_ids": [
+      "cf-459946b287735273",
+      "cf-b63f783ee4efb201",
+      "cf-3c4c4d066731b637"
+    ],
+    "reasoning": "Prioritize interventions that replace the dianhydride with rigid, aromatic, or polycyclic alternatives (cf-459946b287735273, cf-b63f783ee4efb201) to potentially improve thermal/mechanical properties, and a diamine with extended aromatic/heterocyclic structure (cf-3c4c4d066731b637) to enhance rigidity and transmittance. These are chemically plausible and likely to yield informative property changes.",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-459946b287735273",
+      "cf-b63f783ee4efb201",
+      "cf-3c4c4d066731b637"
+    ]
+  }
+}

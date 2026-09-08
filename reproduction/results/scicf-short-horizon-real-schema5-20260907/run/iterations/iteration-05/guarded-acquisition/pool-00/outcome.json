@@ -1,0 +1,50 @@
+{
+  "attempt_count": 1,
+  "attempts": [
+    {
+      "attempt_index": 0,
+      "attempt_kind": "initial",
+      "raw_capture_file": "attempt-00-raw-response.json",
+      "raw_capture_sha256": "60a68007cba4f584da49fe9a2385f542fa0d125551dd759cab84851656d9df4e",
+      "request_file": "attempt-00-request.json",
+      "request_sha256": "e16ded68e6fe535a79eed929bed894ec16f25305499c3caf0ed89edc22dace73",
+      "status": "validated",
+      "validation_error_code": null,
+      "validation_file": "attempt-00-validation.json",
+      "validation_sha256": "203f82ba12852bb94aef3ef43612a36993b0aed3ac4f149bdfe28ff33275e9d2"
+    }
+  ],
+  "maximum_http_transmissions": 4,
+  "maximum_schema_attempts": 2,
+  "oracle_selection_authorized": true,
+  "raw_capture_complete": true,
+  "request_id": "dapigen-scicf-short-horizon-multi-iteration-smoke-v1-iter-05-pool-00-job-4748",
+  "schema_version": 1,
+  "selected_intervention_ids": [
+    "cf-417afacf5569f6d6",
+    "cf-63c459130b450478",
+    "cf-5e7a80508279cab0",
+    "cf-0cfbd2440503ca53"
+  ],
+  "semantic_repair_count": 0,
+  "status": "validated",
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": null,
+    "ranked_intervention_ids": [
+      "cf-417afacf5569f6d6",
+      "cf-63c459130b450478",
+      "cf-5e7a80508279cab0",
+      "cf-0cfbd2440503ca53"
+    ],
+    "reasoning": "Selected interventions introduce rigid, aromatic, and symmetric dianhydride or diamine building blocks at early timesteps, which are likely to enhance thermal/mechanical properties while maintaining moderate synthetic accessibility. These alternatives are chemically plausible and align with the goal of improving the multi-objective DAPiGen score.",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-417afacf5569f6d6",
+      "cf-63c459130b450478",
+      "cf-5e7a80508279cab0",
+      "cf-0cfbd2440503ca53"
+    ]
+  }
+}

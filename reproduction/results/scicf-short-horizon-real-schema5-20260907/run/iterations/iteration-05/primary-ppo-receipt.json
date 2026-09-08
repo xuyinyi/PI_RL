@@ -1,0 +1,53 @@
+{
+  "checkpoint": {
+    "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-short-horizon-real-schema5-5f2a6a1-20260907/iterations/iteration-05/primary-ppo-before-llm.pt",
+    "sha256": "89f72d4e53fd8dae26b2eb2fef456d5dabfea5d8a81a7cca009927c05602253d"
+  },
+  "credentials_loaded": false,
+  "durable_before_llm": true,
+  "external_api_invoked": false,
+  "iteration": 5,
+  "standard_ppo": {
+    "actor_advantages_sha256": "a456a9c3667517be64b705923d920d4283cc3e32e0f0df472dff7cdb7aa48aa1",
+    "batch_id": "p2b-000004-d788e8b91b17d46b",
+    "credit_evaluator_delta": {
+      "backend_calls": 0,
+      "cache_hits": 0,
+      "requested_by_source": {},
+      "requested_calls": 0,
+      "unique_calls": 0
+    },
+    "critic_returns_sha256": "abb9272459c19aa577bad36466d2ab7de7d0d4ec36d65c50d74b93151470fea5",
+    "gae_sha256": "a456a9c3667517be64b705923d920d4283cc3e32e0f0df472dff7cdb7aa48aa1",
+    "rollout_digest": "f2a1ed773a90c6581fb5ee951972ad18093a23e424687b24176cc170c9d32946",
+    "rollout_evaluator_delta": {
+      "backend_calls": 28,
+      "cache_hits": 0,
+      "requested_by_source": {
+        "scicf_ppo/on_policy": 28
+      },
+      "requested_calls": 28,
+      "unique_calls": 28
+    },
+    "successful_terminal_count": 28,
+    "transition_count": 128,
+    "update_metrics": {
+      "actor_loss": -0.030589411966502666,
+      "approximate_kl": 0.005548777058720589,
+      "clip_fraction": 0.00390625,
+      "entropy": 9.032639265060425,
+      "optimizer_steps": 8.0,
+      "stopped_for_target_kl": 0.0,
+      "value_loss": 0.016365465708076954
+    },
+    "update_receipt": {
+      "actor_advantages_sha256": "a456a9c3667517be64b705923d920d4283cc3e32e0f0df472dff7cdb7aa48aa1",
+      "critic_returns_sha256": "abb9272459c19aa577bad36466d2ab7de7d0d4ec36d65c50d74b93151470fea5",
+      "engine_contract_id": "dapigen-p2-single-ppo-engine-v1",
+      "optimizer_step_completed": true,
+      "policy_version_after": 9,
+      "policy_version_before": 8,
+      "source_batch_id": "p2b-000004-d788e8b91b17d46b"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "checkpoint": {
+    "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-short-horizon-real-schema5-5f2a6a1-20260907/iterations/iteration-04/primary-ppo-before-llm.pt",
+    "sha256": "9c01a605c5ed00e97e7c87e0155c4914a3aec142b162dcef0f2c4094de4d1651"
+  },
+  "credentials_loaded": false,
+  "durable_before_llm": true,
+  "external_api_invoked": false,
+  "iteration": 4,
+  "standard_ppo": {
+    "actor_advantages_sha256": "a38b1c99b7af15cf27e6d5b571eb0794d6cafd9faf832a7e408fc1d1a102dcca",
+    "batch_id": "p2b-000003-9a4ffc7f73bf900d",
+    "credit_evaluator_delta": {
+      "backend_calls": 0,
+      "cache_hits": 0,
+      "requested_by_source": {},
+      "requested_calls": 0,
+      "unique_calls": 0
+    },
+    "critic_returns_sha256": "178e52db9260f7e1720720ca5c0840510da2e4f0d4a9d0b6f472571e23cc786a",
+    "gae_sha256": "a38b1c99b7af15cf27e6d5b571eb0794d6cafd9faf832a7e408fc1d1a102dcca",
+    "rollout_digest": "e171b6401b5e1e805c44f1890addcb4821c720fef8c2a7738233d606eaf578c7",
+    "rollout_evaluator_delta": {
+      "backend_calls": 23,
+      "cache_hits": 0,
+      "requested_by_source": {
+        "scicf_ppo/on_policy": 23
+      },
+      "requested_calls": 23,
+      "unique_calls": 23
+    },
+    "successful_terminal_count": 23,
+    "transition_count": 128,
+    "update_metrics": {
+      "actor_loss": -0.027356477919965982,
+      "approximate_kl": 0.003458937630057335,
+      "clip_fraction": 0.015625,
+      "entropy": 9.013963222503662,
+      "optimizer_steps": 8.0,
+      "stopped_for_target_kl": 0.0,
+      "value_loss": 0.018198922276496887
+    },
+    "update_receipt": {
+      "actor_advantages_sha256": "a38b1c99b7af15cf27e6d5b571eb0794d6cafd9faf832a7e408fc1d1a102dcca",
+      "critic_returns_sha256": "178e52db9260f7e1720720ca5c0840510da2e4f0d4a9d0b6f472571e23cc786a",
+      "engine_contract_id": "dapigen-p2-single-ppo-engine-v1",
+      "optimizer_step_completed": true,
+      "policy_version_after": 7,
+      "policy_version_before": 6,
+      "source_batch_id": "p2b-000003-9a4ffc7f73bf900d"
+    }
+  }
+}

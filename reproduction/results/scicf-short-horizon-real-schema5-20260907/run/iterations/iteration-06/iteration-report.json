@@ -1,0 +1,567 @@
+{
+  "acquisition": {
+    "all_pool_decisions_validated": true,
+    "http_transmissions_observed": 2,
+    "http_transmissions_observed_is_exact": true,
+    "http_transmissions_upper_bound_for_started_decisions": 2,
+    "http_transmissions_used": 2,
+    "maximum_http_transmissions_total": 8,
+    "oracle_selection_authorized": true,
+    "pool_decision_count_expected": 2,
+    "pool_decision_count_started": 2,
+    "pool_outcomes": [
+      {
+        "attempt_count": 1,
+        "oracle_selection_authorized": true,
+        "outcome_sha256": "257e6ef00fbbd8c1caf9b1bf5cd39ac586b65f419b41a01ac71d189caaefeedc",
+        "pool_index": 0,
+        "request_id": "dapigen-scicf-short-horizon-multi-iteration-smoke-v1-iter-06-pool-00-job-4748",
+        "selected_intervention_ids": [
+          "cf-fc380991731432d8",
+          "cf-672c0bb0ed45f117",
+          "cf-7c16329f6a0bcfff",
+          "cf-a68f058e68d4dec4"
+        ],
+        "semantic_repair_count": 0,
+        "status": "validated",
+        "usage": {
+          "completion_tokens": 109,
+          "http_transmissions_observed": 1,
+          "prompt_tokens": 8055,
+          "returned_content_count": 1,
+          "token_accounting_complete": true
+        }
+      },
+      {
+        "attempt_count": 1,
+        "oracle_selection_authorized": true,
+        "outcome_sha256": "944541e4dbbf8ffa1fbd8e1e31b32bed4d56ada275cd311069b82da81031a214",
+        "pool_index": 1,
+        "request_id": "dapigen-scicf-short-horizon-multi-iteration-smoke-v1-iter-06-pool-01-job-4748",
+        "selected_intervention_ids": [
+          "cf-947ac6ad37aacfc7",
+          "cf-34c81d0e16a014e5",
+          "cf-526fbf8eed79abdc",
+          "cf-1ee38d60f429cc31"
+        ],
+        "semantic_repair_count": 0,
+        "status": "validated",
+        "usage": {
+          "completion_tokens": 101,
+          "http_transmissions_observed": 1,
+          "prompt_tokens": 7948,
+          "returned_content_count": 1,
+          "token_accounting_complete": true
+        }
+      }
+    ],
+    "reported_tokens": {
+      "completion": 210,
+      "prompt": 16003
+    },
+    "returned_content_count": 2,
+    "selected_intervention_ids": [
+      "cf-fc380991731432d8",
+      "cf-672c0bb0ed45f117",
+      "cf-7c16329f6a0bcfff",
+      "cf-a68f058e68d4dec4",
+      "cf-947ac6ad37aacfc7",
+      "cf-34c81d0e16a014e5",
+      "cf-526fbf8eed79abdc",
+      "cf-1ee38d60f429cc31"
+    ],
+    "semantic_attempt_count": 2,
+    "semantic_repair_count": 0,
+    "status": "validated_all_pools",
+    "token_accounting_complete": true
+  },
+  "auxiliary_receipt": {
+    "acquisition_payload": {
+      "all_pool_decisions_validated": true,
+      "http_transmissions_observed": 2,
+      "http_transmissions_observed_is_exact": true,
+      "http_transmissions_upper_bound_for_started_decisions": 2,
+      "http_transmissions_used": 2,
+      "maximum_http_transmissions_total": 8,
+      "oracle_selection_authorized": true,
+      "pool_decision_count_expected": 2,
+      "pool_decision_count_started": 2,
+      "pool_outcomes": [
+        {
+          "attempt_count": 1,
+          "oracle_selection_authorized": true,
+          "outcome_sha256": "257e6ef00fbbd8c1caf9b1bf5cd39ac586b65f419b41a01ac71d189caaefeedc",
+          "pool_index": 0,
+          "request_id": "dapigen-scicf-short-horizon-multi-iteration-smoke-v1-iter-06-pool-00-job-4748",
+          "selected_intervention_ids": [
+            "cf-fc380991731432d8",
+            "cf-672c0bb0ed45f117",
+            "cf-7c16329f6a0bcfff",
+            "cf-a68f058e68d4dec4"
+          ],
+          "semantic_repair_count": 0,
+          "status": "validated",
+          "usage": {
+            "completion_tokens": 109,
+            "http_transmissions_observed": 1,
+            "prompt_tokens": 8055,
+            "returned_content_count": 1,
+            "token_accounting_complete": true
+          }
+        },
+        {
+          "attempt_count": 1,
+          "oracle_selection_authorized": true,
+          "outcome_sha256": "944541e4dbbf8ffa1fbd8e1e31b32bed4d56ada275cd311069b82da81031a214",
+          "pool_index": 1,
+          "request_id": "dapigen-scicf-short-horizon-multi-iteration-smoke-v1-iter-06-pool-01-job-4748",
+          "selected_intervention_ids": [
+            "cf-947ac6ad37aacfc7",
+            "cf-34c81d0e16a014e5",
+            "cf-526fbf8eed79abdc",
+            "cf-1ee38d60f429cc31"
+          ],
+          "semantic_repair_count": 0,
+          "status": "validated",
+          "usage": {
+            "completion_tokens": 101,
+            "http_transmissions_observed": 1,
+            "prompt_tokens": 7948,
+            "returned_content_count": 1,
+            "token_accounting_complete": true
+          }
+        }
+      ],
+      "reported_tokens": {
+        "completion": 210,
+        "prompt": 16003
+      },
+      "returned_content_count": 2,
+      "selected_intervention_ids": [
+        "cf-fc380991731432d8",
+        "cf-672c0bb0ed45f117",
+        "cf-7c16329f6a0bcfff",
+        "cf-a68f058e68d4dec4",
+        "cf-947ac6ad37aacfc7",
+        "cf-34c81d0e16a014e5",
+        "cf-526fbf8eed79abdc",
+        "cf-1ee38d60f429cc31"
+      ],
+      "semantic_attempt_count": 2,
+      "semantic_repair_count": 0,
+      "status": "validated_all_pools",
+      "token_accounting_complete": true
+    },
+    "auxiliary_status": "applied",
+    "circuit_breaker": {
+      "config": {
+        "abstention_is_recoverable": true,
+        "circuit_cooldown_iterations": 3,
+        "maximum_consecutive_llm_failures": 2,
+        "no_pair_mass_is_recoverable": true,
+        "primary_ppo_checkpoint_required": true
+      },
+      "consecutive_llm_failures": 0,
+      "open_until_iteration": 0,
+      "schema_version": 1
+    },
+    "continue_training": true,
+    "iteration": 6,
+    "method_observed": "ppo_plus_scicf_soft_pair",
+    "primary_ppo_status": "committed_before_llm",
+    "refinement": {
+      "attempted_optimizer_steps": 1,
+      "candidate_ids": [
+        "cf-fc380991731432d8",
+        "cf-672c0bb0ed45f117",
+        "cf-7c16329f6a0bcfff",
+        "cf-a68f058e68d4dec4",
+        "cf-526fbf8eed79abdc"
+      ],
+      "continue_primary_training": true,
+      "counterfactual_actions_in_ppo_clipping": false,
+      "gradient_norm": 2.2029495239257812,
+      "llm_confidence_used_for_weight": false,
+      "maximum_joint_kl": 3.7180507206358016e-07,
+      "mean_joint_kl": 1.9707986211869866e-07,
+      "method_observed": "ppo_plus_scicf_soft_pair",
+      "optimizer_steps": 1,
+      "oracle_empirical_confidence_used_for_weight": true,
+      "pairwise_loss": 0.6937897205352783,
+      "policy_sha256_after": "11caf763d626c0d1781d54a3bb6be7f9f7319b8baf720688673a15a62f202c75",
+      "policy_sha256_before": "a5aa35c709cdb89cfd20a87037fe308759589b1569e5dc8169af3777d8c04f41",
+      "policy_version_after": 12,
+      "policy_version_before": 11,
+      "refinement_config": {
+        "delta_tolerance": 0.005,
+        "learning_rate": 1e-05,
+        "maximum_gradient_norm": 0.5,
+        "maximum_weight": 2.0,
+        "target_kl": 0.01
+      },
+      "soft_pair_gate": {
+        "config": {
+          "beta_prior_alpha": 0.5,
+          "magnitude_scale": 0.05,
+          "maximum_single_pair_mass_fraction": 0.75,
+          "maximum_training_weight": 2.0,
+          "minimum_effective_pair_mass": 0.5,
+          "minimum_training_weight": 0.05,
+          "minimum_weighted_candidate_count": 2,
+          "practical_delta_tolerance": 0.005,
+          "replicates": 5
+        },
+        "continue_primary_training": true,
+        "effective_pair_mass": 3.3966666666666665,
+        "eligible_for_optional_update": true,
+        "failures": [],
+        "maximum_single_pair_mass_fraction": 0.24533856722276742,
+        "total_training_weight": 6.793333333333333,
+        "weighted_candidate_count": 5
+      },
+      "status": "applied",
+      "weights": [
+        1.6666666666666665,
+        1.2800000000000002,
+        1.6666666666666665,
+        1.2800000000000002,
+        0.8999999999999999
+      ]
+    },
+    "scicf_applied": true,
+    "silent_fallback_used": false
+  },
+  "candidate_pools": [
+    {
+      "candidate_ids": [
+        "cf-593f1f3ae206d7bc",
+        "cf-84541c506f47d999",
+        "cf-a547636d3cd36c63",
+        "cf-cd2aab34f0db13bb",
+        "cf-81c985913cbc9807",
+        "cf-6d596208df4e81fa",
+        "cf-60cef6ddbfd56bbd",
+        "cf-7e7d6ec7c36e7efc",
+        "cf-a53be2e4869b0a30",
+        "cf-bfce8f3b31d7d832",
+        "cf-300940a377b9a875",
+        "cf-a68f058e68d4dec4",
+        "cf-fc380991731432d8",
+        "cf-7c16329f6a0bcfff",
+        "cf-1f0c0f7c590139cc",
+        "cf-06274db39aeceedf",
+        "cf-568aa99bc1324165",
+        "cf-4f3d52f37594acb5",
+        "cf-d0b65a06932585db",
+        "cf-a342039cccddad6c",
+        "cf-46a381142db70174",
+        "cf-ed70071faa590740",
+        "cf-0cc7d3adfa3c47c9",
+        "cf-672c0bb0ed45f117"
+      ],
+      "candidate_timesteps": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "episode_id": 331,
+      "policy_score_exposed": false,
+      "pool_index": 0,
+      "presented_ids_match_pool": true,
+      "reward_truth_exposed": false
+    },
+    {
+      "candidate_ids": [
+        "cf-6db73cd245388210",
+        "cf-122a253e23aea5fa",
+        "cf-1b6a687750b9d776",
+        "cf-34c81d0e16a014e5",
+        "cf-93c8cad4959ce02b",
+        "cf-526fbf8eed79abdc",
+        "cf-6e13ffd53d17aa59",
+        "cf-749bf1c1416c72de",
+        "cf-8ba12b9f937618bd",
+        "cf-779211f7beff3fe2",
+        "cf-408156b92b1da4bc",
+        "cf-947ac6ad37aacfc7",
+        "cf-a680d8f4c4b7db7b",
+        "cf-1ee38d60f429cc31",
+        "cf-43d6ef7941195466",
+        "cf-bcd223d98f9b73b0",
+        "cf-0970e5e5b71f9409",
+        "cf-702e3747e6c3900d",
+        "cf-63dc8343ee6182ff",
+        "cf-06a0c526df4a02a6",
+        "cf-763359b3a12f1292",
+        "cf-e668d9c84d50269e",
+        "cf-746fed209abe4ee0",
+        "cf-481857b7e69c94db"
+      ],
+      "candidate_timesteps": [
+        0,
+        1,
+        2
+      ],
+      "episode_id": 278,
+      "policy_score_exposed": false,
+      "pool_index": 1,
+      "presented_ids_match_pool": true,
+      "reward_truth_exposed": false
+    }
+  ],
+  "circuit_breaker_after_iteration": {
+    "config": {
+      "abstention_is_recoverable": true,
+      "circuit_cooldown_iterations": 3,
+      "maximum_consecutive_llm_failures": 2,
+      "no_pair_mass_is_recoverable": true,
+      "primary_ppo_checkpoint_required": true
+    },
+    "consecutive_llm_failures": 0,
+    "open_until_iteration": 0,
+    "schema_version": 1
+  },
+  "control_checkpoint": {
+    "completed_iteration": 6,
+    "control_checkpoint_path": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-short-horizon-real-schema5-5f2a6a1-20260907/iterations/iteration-06/control-checkpoint.json",
+    "control_checkpoint_sha256": "5a8efe21eba0259eafb666b2a26cdf2cc0f663732e466ac40a427784fca5c80e",
+    "engine_checkpoint_path": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-short-horizon-real-schema5-5f2a6a1-20260907/iterations/iteration-06/final-engine.pt",
+    "engine_checkpoint_sha256": "9577f0c4d5dc0db27eadac6dc079001e550670da970172b591a0a8c634798168"
+  },
+  "evaluator_ledger_after_iteration": {
+    "allowed_sources": [
+      "evaluation",
+      "scicf_ppo/counterfactual",
+      "scicf_ppo/factual",
+      "scicf_ppo/on_policy"
+    ],
+    "backend_by_source": {
+      "scicf_ppo/counterfactual": 50,
+      "scicf_ppo/factual": 48,
+      "scicf_ppo/on_policy": 157
+    },
+    "backend_calls": 255,
+    "budget_protocol_version": "terminal-requested-unique-backend-v2",
+    "cache_entries": 255,
+    "cache_hit_rate": 0.14715719063545152,
+    "cache_hits": 44,
+    "cache_scope": "scicf_short_horizon_multi_iteration_v1",
+    "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "invalid_results": 0,
+    "maximum_requested_calls": 1248,
+    "maximum_unique_calls": 1248,
+    "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+    "remaining_requested_calls": 949,
+    "remaining_unique_calls": 993,
+    "requested_by_source": {
+      "scicf_ppo/counterfactual": 72,
+      "scicf_ppo/factual": 69,
+      "scicf_ppo/on_policy": 158
+    },
+    "requested_calls": 299,
+    "unique_by_source": {
+      "scicf_ppo/counterfactual": 50,
+      "scicf_ppo/factual": 48,
+      "scicf_ppo/on_policy": 157
+    },
+    "unique_calls": 255
+  },
+  "execution_status": "passed",
+  "history_digest": "1a2bdb16a01ba33178808ee2c04c0297a977e782a443b760752b3caee003a682",
+  "integrity_failures": [],
+  "iteration": 6,
+  "llm_wall_budget_after_iteration": {
+    "completed_attempt_iterations": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "config": {
+      "maximum_seconds_per_iteration": 60.0,
+      "maximum_seconds_total": 180.0,
+      "minimum_transport_timeout_seconds": 0.01
+    },
+    "consumed_seconds": 22.688632991164923,
+    "remaining_total_seconds": 157.31136700883508,
+    "schema_version": 1
+  },
+  "llm_wall_clock": {
+    "budget_exhausted": false,
+    "config": {
+      "maximum_seconds_per_iteration": 60.0,
+      "maximum_seconds_total": 180.0,
+      "minimum_transport_timeout_seconds": 0.01
+    },
+    "elapsed_seconds": 3.0856976993381977,
+    "iteration": 6,
+    "remaining_total_seconds": 157.31136700883508,
+    "transmission_attempts": 2
+  },
+  "pairwise_refinement": {
+    "full_candidate_support_drift": {
+      "maximum_absolute_value_drift": 0.0017519555985927582,
+      "maximum_diamine_kl": 3.7180507206358016e-07,
+      "maximum_dianhydride_kl": 9.372251952299848e-08,
+      "maximum_joint_kl": 3.7180507206358016e-07,
+      "maximum_non_target_factor_kl": 0.0,
+      "maximum_target_factor_kl": 3.7180507206358016e-07,
+      "mean_absolute_value_drift": 0.0005397112108767033,
+      "mean_diamine_kl": 7.068772826338925e-08,
+      "mean_dianhydride_kl": 1.171531494037481e-08,
+      "mean_joint_kl": 8.240304320376406e-08,
+      "mean_non_target_factor_kl": 0.0,
+      "mean_target_factor_kl": 8.240304320376406e-08
+    },
+    "receipt": {
+      "attempted_optimizer_steps": 1,
+      "candidate_ids": [
+        "cf-fc380991731432d8",
+        "cf-672c0bb0ed45f117",
+        "cf-7c16329f6a0bcfff",
+        "cf-a68f058e68d4dec4",
+        "cf-526fbf8eed79abdc"
+      ],
+      "continue_primary_training": true,
+      "counterfactual_actions_in_ppo_clipping": false,
+      "gradient_norm": 2.2029495239257812,
+      "llm_confidence_used_for_weight": false,
+      "maximum_joint_kl": 3.7180507206358016e-07,
+      "mean_joint_kl": 1.9707986211869866e-07,
+      "method_observed": "ppo_plus_scicf_soft_pair",
+      "optimizer_steps": 1,
+      "oracle_empirical_confidence_used_for_weight": true,
+      "pairwise_loss": 0.6937897205352783,
+      "policy_sha256_after": "11caf763d626c0d1781d54a3bb6be7f9f7319b8baf720688673a15a62f202c75",
+      "policy_sha256_before": "a5aa35c709cdb89cfd20a87037fe308759589b1569e5dc8169af3777d8c04f41",
+      "policy_version_after": 12,
+      "policy_version_before": 11,
+      "refinement_config": {
+        "delta_tolerance": 0.005,
+        "learning_rate": 1e-05,
+        "maximum_gradient_norm": 0.5,
+        "maximum_weight": 2.0,
+        "target_kl": 0.01
+      },
+      "soft_pair_gate": {
+        "config": {
+          "beta_prior_alpha": 0.5,
+          "magnitude_scale": 0.05,
+          "maximum_single_pair_mass_fraction": 0.75,
+          "maximum_training_weight": 2.0,
+          "minimum_effective_pair_mass": 0.5,
+          "minimum_training_weight": 0.05,
+          "minimum_weighted_candidate_count": 2,
+          "practical_delta_tolerance": 0.005,
+          "replicates": 5
+        },
+        "continue_primary_training": true,
+        "effective_pair_mass": 3.3966666666666665,
+        "eligible_for_optional_update": true,
+        "failures": [],
+        "maximum_single_pair_mass_fraction": 0.24533856722276742,
+        "total_training_weight": 6.793333333333333,
+        "weighted_candidate_count": 5
+      },
+      "status": "applied",
+      "weights": [
+        1.6666666666666665,
+        1.2800000000000002,
+        1.6666666666666665,
+        1.2800000000000002,
+        0.8999999999999999
+      ]
+    },
+    "value_head_sha256_after": "6de68d6c694eb24ab0a3803c624dd2c2e9130a9a84fca505104ba78782bec2be",
+    "value_head_sha256_before": "6de68d6c694eb24ab0a3803c624dd2c2e9130a9a84fca505104ba78782bec2be",
+    "weighted_metrics_after": {
+      "maximum_signed_margin": 0.3072347640991211,
+      "minimum_signed_margin": -0.17107915878295898,
+      "total_training_weight": 6.793333333333333,
+      "weighted_candidate_count": 5,
+      "weighted_mean_pairwise_loss": 0.693338242790565,
+      "weighted_mean_signed_margin": 0.006882345594531545,
+      "weighted_preference_accuracy": 0.43375858684985286
+    },
+    "weighted_metrics_before": {
+      "maximum_signed_margin": 0.30614376068115234,
+      "minimum_signed_margin": -0.17115163803100586,
+      "total_training_weight": 6.793333333333333,
+      "weighted_candidate_count": 5,
+      "weighted_mean_pairwise_loss": 0.693789831466803,
+      "weighted_mean_signed_margin": 0.005958959094675538,
+      "weighted_preference_accuracy": 0.43375858684985286
+    }
+  },
+  "policy_hashes": {
+    "after_standard_ppo": "a5aa35c709cdb89cfd20a87037fe308759589b1569e5dc8169af3777d8c04f41",
+    "final": "11caf763d626c0d1781d54a3bb6be7f9f7319b8baf720688673a15a62f202c75",
+    "initial": "373b4d15a63642e4895c6fde463c0c95dff539b34fbc61f7650e1843d3991472"
+  },
+  "primary_ppo_checkpoint": {
+    "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-short-horizon-real-schema5-5f2a6a1-20260907/iterations/iteration-06/primary-ppo-before-llm.pt",
+    "sha256": "48c540bf2acda412b25e32e9f20dd97812215046ff886ab2e3d70dbb4d75d08f",
+    "written_before_llm": true
+  },
+  "provider_public_identity_written": true,
+  "standard_ppo": {
+    "actor_advantages_sha256": "ff134e5f99a8892db541d0818a6026ae1db4f8cbe888fe4da8609c49d9433bda",
+    "batch_id": "p2b-000005-afb9a41c6b001c67",
+    "credit_evaluator_delta": {
+      "backend_calls": 0,
+      "cache_hits": 0,
+      "requested_by_source": {},
+      "requested_calls": 0,
+      "unique_calls": 0
+    },
+    "critic_returns_sha256": "bc6357aff502b7ceee5a40fdd1f18253fd558c66c921b896024e46db3dfc5c3f",
+    "gae_sha256": "ff134e5f99a8892db541d0818a6026ae1db4f8cbe888fe4da8609c49d9433bda",
+    "rollout_digest": "61e6afac67d9e2d1a70dd50d3e9074e6c73d72350ee8c57b2f12a19674c27634",
+    "rollout_evaluator_delta": {
+      "backend_calls": 35,
+      "cache_hits": 0,
+      "requested_by_source": {
+        "scicf_ppo/on_policy": 35
+      },
+      "requested_calls": 35,
+      "unique_calls": 35
+    },
+    "successful_terminal_count": 35,
+    "transition_count": 128,
+    "update_metrics": {
+      "actor_loss": -0.03019331395626068,
+      "approximate_kl": 0.004993300884962082,
+      "clip_fraction": 0.0078125,
+      "entropy": 9.253012776374817,
+      "optimizer_steps": 8.0,
+      "stopped_for_target_kl": 0.0,
+      "value_loss": 0.014058622531592846
+    },
+    "update_receipt": {
+      "actor_advantages_sha256": "ff134e5f99a8892db541d0818a6026ae1db4f8cbe888fe4da8609c49d9433bda",
+      "critic_returns_sha256": "bc6357aff502b7ceee5a40fdd1f18253fd558c66c921b896024e46db3dfc5c3f",
+      "engine_contract_id": "dapigen-p2-single-ppo-engine-v1",
+      "optimizer_step_completed": true,
+      "policy_version_after": 11,
+      "policy_version_before": 10,
+      "source_batch_id": "p2b-000005-afb9a41c6b001c67"
+    }
+  },
+  "verification": {
+    "ledger_delta": {
+      "backend_calls": 23,
+      "cache_hits": 7,
+      "requested_by_source": {
+        "scicf_ppo/counterfactual": 15,
+        "scicf_ppo/factual": 15
+      },
+      "requested_calls": 30,
+      "unique_calls": 23
+    },
+    "soft_weighted_count": 5,
+    "verified_count": 8
+  }
+}

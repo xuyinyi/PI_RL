@@ -1,0 +1,89 @@
+{
+  "authorization_id": "scicf-short-horizon-schema5-one-run-5f2a6a1-20260907",
+  "authorization_sha256": "a57d9d42255a93b94be362109ca03b0188e79acf6c0d699edb01b480c863caad",
+  "authorized_iteration_range": [
+    1,
+    6
+  ],
+  "automatic_rerun_authorized": false,
+  "automatic_resume_authorized": false,
+  "credentials_loaded_at_intent_time": false,
+  "evaluator_asset": {
+    "asset_binding_id": "dapigen-reconstructed-afp-compatibility-evaluator-v1",
+    "asset_binding_sha256": "67cd8ed2c2cf29c823985a889033bc7ee3f0c898b82e32d992c2c34917d80eb9",
+    "asset_fingerprint": "0bdcea6155f5a53acd94afd322d408fe3e31c02cf13778a0c65f5f0938096ab4",
+    "asset_path": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v23-mask-dev-20260904/RL_PPO/GNN/model",
+    "compatibility_mode": "reconstructed-afp-compatibility",
+    "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "original_author_weights": false,
+    "required_file_count": 13,
+    "required_file_sha256": {
+      "Ensemble_cte_AFP_56.pt": "862ca8a97392302ad91bf784685c3b6af0b8439d4d5aa9439a01df38c2ca2d14",
+      "Ensemble_cte_AFP_settings.csv": "e50b62726b991aa991935ccfc0d994a7ae5362b418b876c3fd98294edd1dc38a",
+      "Ensemble_strength_AFP_84.pt": "078b0a5a67781e3d6f7dc488d09e41d87d555ed7fe6ee490ea2ddcd1ab7e6541",
+      "Ensemble_strength_AFP_settings.csv": "363df230aec1e6996301afc9f16308a10cfd093c0345c4d6d59fa0f701ba1260",
+      "Ensemble_tg_AFP_64.pt": "c333c54fe983e5924dcece1af6360c5a9cbbca5ca0b9f2063429b33d80dfbdd2",
+      "Ensemble_tg_AFP_settings.csv": "2d3a3b3bea5e6c636f6aeb493b8809fbefa88b0630a5fef2265c7dfe5f412123",
+      "Ensemble_transmittance(400)_AFP_43.pt": "a2220756d8faea96e29d768119ea13cf39a0c894a8c1664ba6fe5c2bac8a1bc0",
+      "Ensemble_transmittance(400)_AFP_settings.csv": "231e708ddd7ceb62b41d03dd6958c3f65bf47410defc9b32cf1328dbed64a448",
+      "cte_scaler.pkl": "c114884f6faef9efd6a1d6815969e0a0ab8f48a7c10ab9ab22638cf8cffc47c6",
+      "fpscores.pkl.gz": "10dcef9340c873e7b987924461b0af5365eb8dd96be607203debe8ddf80c1e73",
+      "strength_scaler.pkl": "22128758962a089e4ce6a52c6b9453aa53fd056c2af9f3889040b4df2b2263c8",
+      "tg_scaler.pkl": "567d3654755a7d966d649b571950e28ef9ebe1596e7d8eacaef867c8bac8f3c5",
+      "transmittance(400)_scaler.pkl": "5bde8e80e9996dbf0a983bcdc3c0981337fe3757252b5276af30dd0c14e4838c"
+    },
+    "validated_before_credentials": true
+  },
+  "evaluator_route_source_delta": {
+    "accepted_commit": "373b3291ac04dbf654c134bee2ca61a0c86d1a68",
+    "allowed_paths": [
+      "RL_PPO/envs/evaluator.py"
+    ],
+    "current_file_sha256": {
+      "RL_PPO/envs/evaluator.py": "90b27f5947dc9fbe9c6b4220f2fbbbb43ad82ff4ca552d7e7ac7ce82c6e420e1"
+    },
+    "exact": true,
+    "observed_paths": [
+      "RL_PPO/envs/evaluator.py"
+    ]
+  },
+  "external_api_invoked_at_intent_time": false,
+  "formal_training_authorized": false,
+  "polybert_asset": {
+    "asset_binding_id": "dapigen-polybert-reconstructed-compatibility-e7dce434-fulltree-v1",
+    "asset_binding_sha256": "7e2f1cf5caa38d3d42e7ebe2599435ec306aa74e2cffeb9c2cac23408876a7ed",
+    "checkpoint_fingerprint": "6bdd24f951dd90d3031e749ef0130752811bfefe6c850af82b805cf015ea195f",
+    "encoder_version": "polybert-sha256:6bdd24f951dd90d3031e749e",
+    "model_path": "/home/wch/workspaces/DAPiGen-reproduction/stage0-v23-mask-dev-20260904/RL_PPO/models",
+    "required_file_count": 14,
+    "required_file_sha256": {
+      ".gitattributes": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+      "1_Pooling/config.json": "683f6c40a16773ff51acae0782c2feadf657d547d83839cb3ceae12559674ac5",
+      "README.md": "86ebef16b6ab84cddc0039f68a9e0f42ff364aca27d7bc86c56265a54931d915",
+      "added_tokens.json": "8279a702dd980b8470bf5e18b8880a0bdc8ab015aff6d39442d03b4aa8daa37f",
+      "config.json": "ad391d9de8f9eff355554a7bb4635714250e1079f51b6b973f46d8b008be559a",
+      "config_sentence_transformers.json": "1241b64de469187877d2734714c906b23fbdf82da16dca63205e88e07b55f7ae",
+      "model.safetensors": "21cfab4a3b0599852fb8ef529a67e41632246b9256ed834938ba9b46cb24148f",
+      "modules.json": "8f4b264b80206c830bebbdcae377e137925650a433b689343a63bdc9b3145460",
+      "pytorch_model.bin": "469d1928fe140f3d8d93f69e69a11aebf540e7a2043b38a9a6758cf0bb640a9c",
+      "sentence_bert_config.json": "ec8e29d6dcb61b611b7d3fdd2982c4524e6ad985959fa7194eacfb655a8d0d51",
+      "special_tokens_map.json": "311de3f4eed9d76a43bf0d71f10e62e086ca65ccce9f15d5da0d2098bf519ecc",
+      "spm.model": "2285839ce5a54c35acd7a59c38e531c243a5c46476e1ba11080bf11d303618d5",
+      "tokenizer.json": "89891f8a97ba93608626d704722a8243fb64c700f4e9b09edcebe794680d3c78",
+      "tokenizer_config.json": "a7fe4028e90570619c41417ade2b7135b2ff56fb93a33fbac14ff42cc22de7d0"
+    },
+    "upstream_polybert_identity_verified": false,
+    "validated_before_credentials": true
+  },
+  "protocol_id": "dapigen-scicf-short-horizon-multi-iteration-smoke-v1",
+  "protocol_sha256": "ec4e70980e34ae9f69e38b10fc485588cfcf56238883f7066bb627511a044254",
+  "resume_control_checkpoint": null,
+  "schema_version": 1,
+  "slurm_job_id": "4748",
+  "source": {
+    "branch": "HEAD",
+    "commit": "5f2a6a100edcfd0b15fe82228a0eef8e1c2c2904",
+    "dirty": false,
+    "tags": []
+  }
+}

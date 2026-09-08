@@ -1,0 +1,12 @@
+{
+  "budget_exhausted": false,
+  "config": {
+    "maximum_seconds_per_iteration": 60.0,
+    "maximum_seconds_total": 180.0,
+    "minimum_transport_timeout_seconds": 0.01
+  },
+  "elapsed_seconds": 3.456754982471466,
+  "iteration": 4,
+  "remaining_total_seconds": 163.64978475123644,
+  "transmission_attempts": 2
+}

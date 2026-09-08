@@ -1,0 +1,30 @@
+{
+  "attempt_index": 0,
+  "raw_capture_file": "attempt-00-raw-response.json",
+  "raw_capture_sha256": "8b816c1c8c7eeb1bab07f79b8626a1424f80c06960f4eb3359b3f38e47b7ce58",
+  "raw_was_captured_before_validation": true,
+  "request_id": "dapigen-scicf-short-horizon-multi-iteration-smoke-v1-iter-06-pool-01-job-4748",
+  "schema_version": 1,
+  "status": "validated",
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": null,
+    "ranked_intervention_ids": [
+      "cf-947ac6ad37aacfc7",
+      "cf-34c81d0e16a014e5",
+      "cf-526fbf8eed79abdc",
+      "cf-1ee38d60f429cc31"
+    ],
+    "reasoning": "Selected interventions that introduce rigid, aromatic, or bulky motifs to potentially improve thermal/mechanical properties while maintaining synthetic accessibility, prioritizing later timesteps for higher impact.",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-947ac6ad37aacfc7",
+      "cf-34c81d0e16a014e5",
+      "cf-526fbf8eed79abdc",
+      "cf-1ee38d60f429cc31"
+    ]
+  },
+  "validation_error": null,
+  "validation_error_code": null
+}

@@ -1,0 +1,50 @@
+{
+  "attempt_count": 1,
+  "attempts": [
+    {
+      "attempt_index": 0,
+      "attempt_kind": "initial",
+      "raw_capture_file": "attempt-00-raw-response.json",
+      "raw_capture_sha256": "ef43fc699cb389df4de4fbc94b7622e78b72fda49680b60503b736178d51656f",
+      "request_file": "attempt-00-request.json",
+      "request_sha256": "b197ff3e97b8a0d7ade736491d976f7a5e75b87c414534e3b2192aaf227c758d",
+      "status": "validated",
+      "validation_error_code": null,
+      "validation_file": "attempt-00-validation.json",
+      "validation_sha256": "9f1d7ec96175198c632bf92eb1181be90437e1c988a3a618712e2298e91e6e54"
+    }
+  ],
+  "maximum_http_transmissions": 4,
+  "maximum_schema_attempts": 2,
+  "oracle_selection_authorized": true,
+  "raw_capture_complete": true,
+  "request_id": "dapigen-scicf-short-horizon-multi-iteration-smoke-v1-iter-01-pool-00-job-4748",
+  "schema_version": 1,
+  "selected_intervention_ids": [
+    "cf-cf6d52dc9ee1f5c0",
+    "cf-ce31cf0eb94cb5d7",
+    "cf-5baa843c4e4ae2f8",
+    "cf-4d486aa92985f517"
+  ],
+  "semantic_repair_count": 0,
+  "status": "validated",
+  "validated": {
+    "abstain": false,
+    "advisory_only": true,
+    "confidence": 0.7,
+    "ranked_intervention_ids": [
+      "cf-cf6d52dc9ee1f5c0",
+      "cf-ce31cf0eb94cb5d7",
+      "cf-5baa843c4e4ae2f8",
+      "cf-4d486aa92985f517"
+    ],
+    "reasoning": "Prioritize interventions that replace the initial dianhydride or diamine with complete, rigid, aromatic, or fluorinated alternatives to enhance thermal/mechanical properties while maintaining synthetic accessibility. The selected candidates introduce complete dianhydrides with extended aromatic/fluorinated cores or complete diamines with rigid/heteroaromatic structures, potentially improving Tg, tensile strength, and CTE without excessive synthetic burden.",
+    "schema_version": "scicf-online-ranked-interventions-v1",
+    "selected_intervention_ids": [
+      "cf-cf6d52dc9ee1f5c0",
+      "cf-ce31cf0eb94cb5d7",
+      "cf-5baa843c4e4ae2f8",
+      "cf-4d486aa92985f517"
+    ]
+  }
+}

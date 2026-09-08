@@ -1,0 +1,43 @@
+{
+  "api_key_persisted": false,
+  "circuit_breaker": {
+    "config": {
+      "abstention_is_recoverable": true,
+      "circuit_cooldown_iterations": 3,
+      "maximum_consecutive_llm_failures": 2,
+      "no_pair_mass_is_recoverable": true,
+      "primary_ppo_checkpoint_required": true
+    },
+    "consecutive_llm_failures": 0,
+    "open_until_iteration": 0,
+    "schema_version": 1
+  },
+  "completed_iteration": 6,
+  "credentials_persisted": false,
+  "engine_checkpoint": {
+    "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/scicf-short-horizon-real-schema5-5f2a6a1-20260907/iterations/iteration-06/final-engine.pt",
+    "sha256": "9577f0c4d5dc0db27eadac6dc079001e550670da970172b591a0a8c634798168"
+  },
+  "history_digest": "1a2bdb16a01ba33178808ee2c04c0297a977e782a443b760752b3caee003a682",
+  "llm_wall_clock_budget": {
+    "completed_attempt_iterations": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "config": {
+      "maximum_seconds_per_iteration": 60.0,
+      "maximum_seconds_total": 180.0,
+      "minimum_transport_timeout_seconds": 0.01
+    },
+    "consumed_seconds": 22.688632991164923,
+    "remaining_total_seconds": 157.31136700883508,
+    "schema_version": 1
+  },
+  "previous_control_sha256": "53876f0cf5ac003ddc647ff89e50d833f43b91df436c90f327b028fb3955de86",
+  "protocol_sha256": "ec4e70980e34ae9f69e38b10fc485588cfcf56238883f7066bb627511a044254",
+  "schema_version": 1
+}
