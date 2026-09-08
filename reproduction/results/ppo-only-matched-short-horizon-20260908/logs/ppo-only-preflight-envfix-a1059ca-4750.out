@@ -1,0 +1,12 @@
+job_id=4750 mode=preflight source=a1059ca9d3dcd2d9b111de2472f90966ebadb815
+NVIDIA H100 80GB HBM3, GPU-03068b81-fa6b-f9df-55b0-9dceed2a481c, 81559 MiB
+NVIDIA H100 80GB HBM3, GPU-bec01859-a9c2-4efd-1084-09c6ce93403d, 81559 MiB
+NVIDIA H100 80GB HBM3, GPU-555c9266-e44c-11f2-5f85-e4fa2c75275e, 81559 MiB
+NVIDIA H100 80GB HBM3, GPU-c587808a-0204-5c97-2ae1-0adaa8130295, 81559 MiB
+NVIDIA H100 80GB HBM3, GPU-053e7d1b-f234-548d-79fd-732cfef5e3dc, 81559 MiB
+NVIDIA H100 80GB HBM3, GPU-710449b3-bffc-9940-dcfc-1d7806b27077, 81559 MiB
+NVIDIA H100 80GB HBM3, GPU-c3870331-bbb2-2215-7757-9f8d19a6c703, 81559 MiB
+NVIDIA H100 80GB HBM3, GPU-29796cff-eba6-cbda-3a58-df073afd6aa0, 81559 MiB
+......................................                                   [100%]
+38 passed in 4.00s
+{"execution_status": "passed", "iteration_count": 0, "output_directory": "/home/wch/workspaces/DAPiGen-reproduction/runs/ppo-only-preflight-envfix-a1059ca-20260908"}

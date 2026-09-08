@@ -1,0 +1,100 @@
+{
+  "checkpoint": {
+    "path": "/home/wch/workspaces/DAPiGen-reproduction/runs/ppo-only-matched-short-horizon-v1-seed20260907-20260908/iterations/iteration-02/primary-ppo.pt",
+    "sha256": "f232c3c553a90ba16f9fa0d6c50bb58b1fa6be85f00e24ea85be98f877e4ee85"
+  },
+  "evaluator_ledger_after_iteration": {
+    "allowed_sources": [
+      "evaluation",
+      "ppo/on_policy"
+    ],
+    "backend_by_source": {
+      "ppo/on_policy": 49
+    },
+    "backend_calls": 49,
+    "budget_protocol_version": "terminal-requested-unique-backend-v2",
+    "cache_entries": 49,
+    "cache_hit_rate": 0.0,
+    "cache_hits": 0,
+    "cache_scope": "ppo_only_matched_short_horizon_v1",
+    "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+    "invalid_results": 0,
+    "maximum_requested_calls": 1248,
+    "maximum_unique_calls": 1248,
+    "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+    "remaining_requested_calls": 1199,
+    "remaining_unique_calls": 1199,
+    "requested_by_source": {
+      "ppo/on_policy": 49
+    },
+    "requested_calls": 49,
+    "unique_by_source": {
+      "ppo/on_policy": 49
+    },
+    "unique_calls": 49
+  },
+  "final_policy_sha256": "366599ddb6da2700f3ed199f9cb90117d979d8f82fb491c91f38269b52e6ceda",
+  "initial_policy_sha256": "ce518902a2321fa0968c200bc0850a6f753f60b4ec88075054582db22cd11b2f",
+  "integrity_passed": true,
+  "iteration": 2,
+  "previous_iteration_report_sha256": "856bace32f94199efb879f9d5c0959f5cc6a595b291d58e130223fe524c03a6e",
+  "rng_after": {
+    "engine_numpy": "2c4a5636190c9331a6b9aacc0f03836875fefa2571ed4c46f5676999a76fbaa0",
+    "python": "734bf9ddaeb9f5b6b9baefe8ea687acd94329d2a29ca036a6cf9860d547862cf",
+    "torch_cpu": "5bdf6e208fdba265f239b1f9698136e9dc3fc56a0685fb4a8e901d3f7031dfd6",
+    "torch_cuda": [
+      "be30b231d54059f35f23261c5304398563cb794368f8264a015e681b79e8669d"
+    ]
+  },
+  "rng_before": {
+    "engine_numpy": "4a95f58f4006ae507e6b186a76a584c597638c48bb7887dd6de2b875569b9b3e",
+    "python": "734bf9ddaeb9f5b6b9baefe8ea687acd94329d2a29ca036a6cf9860d547862cf",
+    "torch_cpu": "5bdf6e208fdba265f239b1f9698136e9dc3fc56a0685fb4a8e901d3f7031dfd6",
+    "torch_cuda": [
+      "be30b231d54059f35f23261c5304398563cb794368f8264a015e681b79e8669d"
+    ]
+  },
+  "standard_ppo": {
+    "actor_advantages_sha256": "3f3fe13c74f5dbedc749cc8370be2975cb86a5a310a318aa5d6e8b276c04bd91",
+    "batch_id": "p2b-000001-6f7f7faae9fe0ced",
+    "credit_evaluator_delta": {
+      "backend_calls": 0,
+      "cache_hits": 0,
+      "requested_by_source": {},
+      "requested_calls": 0,
+      "unique_calls": 0
+    },
+    "critic_returns_sha256": "0a88ceeef30baa0146698aefcabf896b5d518d65e57cfd2c790228cb20eb8941",
+    "gae_sha256": "3f3fe13c74f5dbedc749cc8370be2975cb86a5a310a318aa5d6e8b276c04bd91",
+    "rollout_digest": "938db7b854e0db84daa79f5bc7062096a2f24d7ede82a59b2050caccc5834c46",
+    "rollout_evaluator_delta": {
+      "backend_calls": 22,
+      "cache_hits": 0,
+      "requested_by_source": {
+        "ppo/on_policy": 22
+      },
+      "requested_calls": 22,
+      "unique_calls": 22
+    },
+    "successful_terminal_count": 22,
+    "transition_count": 128,
+    "update_metrics": {
+      "actor_loss": -0.017613282427191734,
+      "approximate_kl": 0.0023053623735904694,
+      "clip_fraction": 0.01171875,
+      "entropy": 8.863947749137878,
+      "optimizer_steps": 8.0,
+      "stopped_for_target_kl": 0.0,
+      "value_loss": 0.026454678503796458
+    },
+    "update_receipt": {
+      "actor_advantages_sha256": "3f3fe13c74f5dbedc749cc8370be2975cb86a5a310a318aa5d6e8b276c04bd91",
+      "critic_returns_sha256": "0a88ceeef30baa0146698aefcabf896b5d518d65e57cfd2c790228cb20eb8941",
+      "engine_contract_id": "dapigen-p2-single-ppo-engine-v1",
+      "optimizer_step_completed": true,
+      "policy_version_after": 2,
+      "policy_version_before": 1,
+      "source_batch_id": "p2b-000001-6f7f7faae9fe0ced"
+    }
+  }
+}

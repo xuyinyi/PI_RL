@@ -115,6 +115,15 @@
 > claim, or scientific claim. See
 > `reproduction/results/scicf-short-horizon-real-schema5-20260907/`.
 
+The separately authorized PPO-only control completed in n001 Job 4751 after
+38 tests and the full-runtime preflight in Job 4750. It matched the initial and
+first-post-PPO policy hashes, first rollout and GAE exactly. At seed 20260907,
+both methods used six iterations and 768 transitions: SciCF yielded 158
+evaluated terminals and PPO-only 146, with 299 versus 146 evaluator requests.
+The positive aggregate depended on the last iteration. This one-seed exploratory
+comparison does not establish reward or final-policy improvement. See
+`reproduction/results/ppo-only-matched-short-horizon-20260908/README.md`.
+
 SciCF-PPO is being added as a feature-gated extension of the frozen
 `dapigen-ppo-compat-baseline-v1` baseline. The upstream PPO clipped objective,
 DAPiGen observation/action spaces, and scientific reward implementation remain

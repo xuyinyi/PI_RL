@@ -1,0 +1,804 @@
+{
+  "actual_total_cost_matched": false,
+  "auxiliary_optimizer_steps": {
+    "ppo_only": 0,
+    "scicf": 6
+  },
+  "classification": "single_seed_exploratory_after_scicf_results_known",
+  "effectiveness_established": false,
+  "elapsed_seconds": {
+    "ppo_only_runner": 155.36467811837792,
+    "scicf_runner": 285.8757322207093
+  },
+  "eligible_complete_comparison": true,
+  "evaluator_count_differences_scicf_minus_ppo": {
+    "backend_calls": 109,
+    "cache_hits": 44,
+    "requested_calls": 153,
+    "unique_calls": 109
+  },
+  "final_evaluator_ledgers": {
+    "ppo_only": {
+      "allowed_sources": [
+        "evaluation",
+        "ppo/on_policy"
+      ],
+      "backend_by_source": {
+        "ppo/on_policy": 146
+      },
+      "backend_calls": 146,
+      "budget_protocol_version": "terminal-requested-unique-backend-v2",
+      "cache_entries": 146,
+      "cache_hit_rate": 0.0,
+      "cache_hits": 0,
+      "cache_scope": "ppo_only_matched_short_horizon_v1",
+      "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+      "invalid_results": 0,
+      "maximum_requested_calls": 1248,
+      "maximum_unique_calls": 1248,
+      "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+      "remaining_requested_calls": 1102,
+      "remaining_unique_calls": 1102,
+      "requested_by_source": {
+        "ppo/on_policy": 146
+      },
+      "requested_calls": 146,
+      "unique_by_source": {
+        "ppo/on_policy": 146
+      },
+      "unique_calls": 146
+    },
+    "scicf": {
+      "allowed_sources": [
+        "evaluation",
+        "scicf_ppo/counterfactual",
+        "scicf_ppo/factual",
+        "scicf_ppo/on_policy"
+      ],
+      "backend_by_source": {
+        "scicf_ppo/counterfactual": 50,
+        "scicf_ppo/factual": 48,
+        "scicf_ppo/on_policy": 157
+      },
+      "backend_calls": 255,
+      "budget_protocol_version": "terminal-requested-unique-backend-v2",
+      "cache_entries": 255,
+      "cache_hit_rate": 0.14715719063545152,
+      "cache_hits": 44,
+      "cache_scope": "scicf_short_horizon_multi_iteration_v1",
+      "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+      "invalid_results": 0,
+      "maximum_requested_calls": 1248,
+      "maximum_unique_calls": 1248,
+      "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+      "remaining_requested_calls": 949,
+      "remaining_unique_calls": 993,
+      "requested_by_source": {
+        "scicf_ppo/counterfactual": 72,
+        "scicf_ppo/factual": 69,
+        "scicf_ppo/on_policy": 158
+      },
+      "requested_calls": 299,
+      "unique_by_source": {
+        "scicf_ppo/counterfactual": 50,
+        "scicf_ppo/factual": 48,
+        "scicf_ppo/on_policy": 157
+      },
+      "unique_calls": 255
+    }
+  },
+  "independent_runs_per_arm": 1,
+  "iteration_2_to_6_secondary": {
+    "denominator_per_arm": 640,
+    "ppo_only_count": 119,
+    "scicf_count": 131,
+    "yield_difference_scicf_minus_ppo": 0.01875
+  },
+  "iterations": [
+    {
+      "cumulative_transitions": 128,
+      "iteration": 1,
+      "ppo_metric_differences_scicf_minus_ppo": {
+        "actor_loss": 0.0,
+        "approximate_kl": 0.0,
+        "clip_fraction": 0.0,
+        "entropy": 0.0,
+        "optimizer_steps": 0.0,
+        "stopped_for_target_kl": 0.0,
+        "value_loss": 0.0
+      },
+      "ppo_only": {
+        "ledger": {
+          "allowed_sources": [
+            "evaluation",
+            "ppo/on_policy"
+          ],
+          "backend_by_source": {
+            "ppo/on_policy": 27
+          },
+          "backend_calls": 27,
+          "budget_protocol_version": "terminal-requested-unique-backend-v2",
+          "cache_entries": 27,
+          "cache_hit_rate": 0.0,
+          "cache_hits": 0,
+          "cache_scope": "ppo_only_matched_short_horizon_v1",
+          "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+          "invalid_results": 0,
+          "maximum_requested_calls": 1248,
+          "maximum_unique_calls": 1248,
+          "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+          "remaining_requested_calls": 1221,
+          "remaining_unique_calls": 1221,
+          "requested_by_source": {
+            "ppo/on_policy": 27
+          },
+          "requested_calls": 27,
+          "unique_by_source": {
+            "ppo/on_policy": 27
+          },
+          "unique_calls": 27
+        },
+        "ppo": {
+          "actor_loss": -0.028126218356192112,
+          "approximate_kl": 0.008422786369919777,
+          "clip_fraction": 0.05078125,
+          "entropy": 9.375167846679688,
+          "optimizer_steps": 8.0,
+          "stopped_for_target_kl": 0.0,
+          "value_loss": 0.1083287859801203
+        },
+        "successful_terminal_count": 27,
+        "terminal_yield": 0.2109375,
+        "transition_count": 128
+      },
+      "scicf": {
+        "ledger": {
+          "allowed_sources": [
+            "evaluation",
+            "scicf_ppo/counterfactual",
+            "scicf_ppo/factual",
+            "scicf_ppo/on_policy"
+          ],
+          "backend_by_source": {
+            "scicf_ppo/counterfactual": 7,
+            "scicf_ppo/factual": 7,
+            "scicf_ppo/on_policy": 27
+          },
+          "backend_calls": 41,
+          "budget_protocol_version": "terminal-requested-unique-backend-v2",
+          "cache_entries": 41,
+          "cache_hit_rate": 0.08888888888888889,
+          "cache_hits": 4,
+          "cache_scope": "scicf_short_horizon_multi_iteration_v1",
+          "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+          "invalid_results": 0,
+          "maximum_requested_calls": 1248,
+          "maximum_unique_calls": 1248,
+          "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+          "remaining_requested_calls": 1203,
+          "remaining_unique_calls": 1207,
+          "requested_by_source": {
+            "scicf_ppo/counterfactual": 11,
+            "scicf_ppo/factual": 7,
+            "scicf_ppo/on_policy": 27
+          },
+          "requested_calls": 45,
+          "unique_by_source": {
+            "scicf_ppo/counterfactual": 7,
+            "scicf_ppo/factual": 7,
+            "scicf_ppo/on_policy": 27
+          },
+          "unique_calls": 41
+        },
+        "ppo": {
+          "actor_loss": -0.028126218356192112,
+          "approximate_kl": 0.008422786369919777,
+          "clip_fraction": 0.05078125,
+          "entropy": 9.375167846679688,
+          "optimizer_steps": 8.0,
+          "stopped_for_target_kl": 0.0,
+          "value_loss": 0.1083287859801203
+        },
+        "successful_terminal_count": 27,
+        "terminal_yield": 0.2109375,
+        "transition_count": 128
+      },
+      "terminal_count_difference_scicf_minus_ppo": 0
+    },
+    {
+      "cumulative_transitions": 256,
+      "iteration": 2,
+      "ppo_metric_differences_scicf_minus_ppo": {
+        "actor_loss": -0.002394613344222307,
+        "approximate_kl": 0.001041347160935402,
+        "clip_fraction": 0.00390625,
+        "entropy": -0.055658698081970215,
+        "optimizer_steps": 0.0,
+        "stopped_for_target_kl": 0.0,
+        "value_loss": -0.0004675558302551508
+      },
+      "ppo_only": {
+        "ledger": {
+          "allowed_sources": [
+            "evaluation",
+            "ppo/on_policy"
+          ],
+          "backend_by_source": {
+            "ppo/on_policy": 49
+          },
+          "backend_calls": 49,
+          "budget_protocol_version": "terminal-requested-unique-backend-v2",
+          "cache_entries": 49,
+          "cache_hit_rate": 0.0,
+          "cache_hits": 0,
+          "cache_scope": "ppo_only_matched_short_horizon_v1",
+          "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+          "invalid_results": 0,
+          "maximum_requested_calls": 1248,
+          "maximum_unique_calls": 1248,
+          "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+          "remaining_requested_calls": 1199,
+          "remaining_unique_calls": 1199,
+          "requested_by_source": {
+            "ppo/on_policy": 49
+          },
+          "requested_calls": 49,
+          "unique_by_source": {
+            "ppo/on_policy": 49
+          },
+          "unique_calls": 49
+        },
+        "ppo": {
+          "actor_loss": -0.017613282427191734,
+          "approximate_kl": 0.0023053623735904694,
+          "clip_fraction": 0.01171875,
+          "entropy": 8.863947749137878,
+          "optimizer_steps": 8.0,
+          "stopped_for_target_kl": 0.0,
+          "value_loss": 0.026454678503796458
+        },
+        "successful_terminal_count": 22,
+        "terminal_yield": 0.171875,
+        "transition_count": 128
+      },
+      "scicf": {
+        "ledger": {
+          "allowed_sources": [
+            "evaluation",
+            "scicf_ppo/counterfactual",
+            "scicf_ppo/factual",
+            "scicf_ppo/on_policy"
+          ],
+          "backend_by_source": {
+            "scicf_ppo/counterfactual": 16,
+            "scicf_ppo/factual": 11,
+            "scicf_ppo/on_policy": 49
+          },
+          "backend_calls": 76,
+          "budget_protocol_version": "terminal-requested-unique-backend-v2",
+          "cache_entries": 76,
+          "cache_hit_rate": 0.10588235294117647,
+          "cache_hits": 9,
+          "cache_scope": "scicf_short_horizon_multi_iteration_v1",
+          "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+          "invalid_results": 0,
+          "maximum_requested_calls": 1248,
+          "maximum_unique_calls": 1248,
+          "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+          "remaining_requested_calls": 1163,
+          "remaining_unique_calls": 1172,
+          "requested_by_source": {
+            "scicf_ppo/counterfactual": 20,
+            "scicf_ppo/factual": 15,
+            "scicf_ppo/on_policy": 50
+          },
+          "requested_calls": 85,
+          "unique_by_source": {
+            "scicf_ppo/counterfactual": 16,
+            "scicf_ppo/factual": 11,
+            "scicf_ppo/on_policy": 49
+          },
+          "unique_calls": 76
+        },
+        "ppo": {
+          "actor_loss": -0.02000789577141404,
+          "approximate_kl": 0.0033467095345258713,
+          "clip_fraction": 0.015625,
+          "entropy": 8.808289051055908,
+          "optimizer_steps": 8.0,
+          "stopped_for_target_kl": 0.0,
+          "value_loss": 0.025987122673541307
+        },
+        "successful_terminal_count": 23,
+        "terminal_yield": 0.1796875,
+        "transition_count": 128
+      },
+      "terminal_count_difference_scicf_minus_ppo": 1
+    },
+    {
+      "cumulative_transitions": 384,
+      "iteration": 3,
+      "ppo_metric_differences_scicf_minus_ppo": {
+        "actor_loss": -0.0021735895425081253,
+        "approximate_kl": -0.000540679320693016,
+        "clip_fraction": 0.0078125,
+        "entropy": 0.4327923059463501,
+        "optimizer_steps": 0.0,
+        "stopped_for_target_kl": 0.0,
+        "value_loss": 0.0021023937733843923
+      },
+      "ppo_only": {
+        "ledger": {
+          "allowed_sources": [
+            "evaluation",
+            "ppo/on_policy"
+          ],
+          "backend_by_source": {
+            "ppo/on_policy": 73
+          },
+          "backend_calls": 73,
+          "budget_protocol_version": "terminal-requested-unique-backend-v2",
+          "cache_entries": 73,
+          "cache_hit_rate": 0.0,
+          "cache_hits": 0,
+          "cache_scope": "ppo_only_matched_short_horizon_v1",
+          "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+          "invalid_results": 0,
+          "maximum_requested_calls": 1248,
+          "maximum_unique_calls": 1248,
+          "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+          "remaining_requested_calls": 1175,
+          "remaining_unique_calls": 1175,
+          "requested_by_source": {
+            "ppo/on_policy": 73
+          },
+          "requested_calls": 73,
+          "unique_by_source": {
+            "ppo/on_policy": 73
+          },
+          "unique_calls": 73
+        },
+        "ppo": {
+          "actor_loss": -0.02148821670562029,
+          "approximate_kl": 0.003282446414232254,
+          "clip_fraction": 0.0,
+          "entropy": 9.161494016647339,
+          "optimizer_steps": 8.0,
+          "stopped_for_target_kl": 0.0,
+          "value_loss": 0.01637151511386037
+        },
+        "successful_terminal_count": 24,
+        "terminal_yield": 0.1875,
+        "transition_count": 128
+      },
+      "scicf": {
+        "ledger": {
+          "allowed_sources": [
+            "evaluation",
+            "scicf_ppo/counterfactual",
+            "scicf_ppo/factual",
+            "scicf_ppo/on_policy"
+          ],
+          "backend_by_source": {
+            "scicf_ppo/counterfactual": 22,
+            "scicf_ppo/factual": 24,
+            "scicf_ppo/on_policy": 71
+          },
+          "backend_calls": 117,
+          "budget_protocol_version": "terminal-requested-unique-backend-v2",
+          "cache_entries": 117,
+          "cache_hit_rate": 0.1,
+          "cache_hits": 13,
+          "cache_scope": "scicf_short_horizon_multi_iteration_v1",
+          "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+          "invalid_results": 0,
+          "maximum_requested_calls": 1248,
+          "maximum_unique_calls": 1248,
+          "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+          "remaining_requested_calls": 1118,
+          "remaining_unique_calls": 1131,
+          "requested_by_source": {
+            "scicf_ppo/counterfactual": 30,
+            "scicf_ppo/factual": 28,
+            "scicf_ppo/on_policy": 72
+          },
+          "requested_calls": 130,
+          "unique_by_source": {
+            "scicf_ppo/counterfactual": 22,
+            "scicf_ppo/factual": 24,
+            "scicf_ppo/on_policy": 71
+          },
+          "unique_calls": 117
+        },
+        "ppo": {
+          "actor_loss": -0.023661806248128414,
+          "approximate_kl": 0.002741767093539238,
+          "clip_fraction": 0.0078125,
+          "entropy": 9.594286322593689,
+          "optimizer_steps": 8.0,
+          "stopped_for_target_kl": 0.0,
+          "value_loss": 0.01847390888724476
+        },
+        "successful_terminal_count": 22,
+        "terminal_yield": 0.171875,
+        "transition_count": 128
+      },
+      "terminal_count_difference_scicf_minus_ppo": -2
+    },
+    {
+      "cumulative_transitions": 512,
+      "iteration": 4,
+      "ppo_metric_differences_scicf_minus_ppo": {
+        "actor_loss": -0.0029706046916544437,
+        "approximate_kl": -2.1904706954956055e-05,
+        "clip_fraction": 0.01171875,
+        "entropy": -0.27177345752716064,
+        "optimizer_steps": 0.0,
+        "stopped_for_target_kl": 0.0,
+        "value_loss": 0.0017321708146482706
+      },
+      "ppo_only": {
+        "ledger": {
+          "allowed_sources": [
+            "evaluation",
+            "ppo/on_policy"
+          ],
+          "backend_by_source": {
+            "ppo/on_policy": 104
+          },
+          "backend_calls": 104,
+          "budget_protocol_version": "terminal-requested-unique-backend-v2",
+          "cache_entries": 104,
+          "cache_hit_rate": 0.0,
+          "cache_hits": 0,
+          "cache_scope": "ppo_only_matched_short_horizon_v1",
+          "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+          "invalid_results": 0,
+          "maximum_requested_calls": 1248,
+          "maximum_unique_calls": 1248,
+          "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+          "remaining_requested_calls": 1144,
+          "remaining_unique_calls": 1144,
+          "requested_by_source": {
+            "ppo/on_policy": 104
+          },
+          "requested_calls": 104,
+          "unique_by_source": {
+            "ppo/on_policy": 104
+          },
+          "unique_calls": 104
+        },
+        "ppo": {
+          "actor_loss": -0.02438587322831154,
+          "approximate_kl": 0.003480842337012291,
+          "clip_fraction": 0.00390625,
+          "entropy": 9.285736680030823,
+          "optimizer_steps": 8.0,
+          "stopped_for_target_kl": 0.0,
+          "value_loss": 0.016466751461848617
+        },
+        "successful_terminal_count": 31,
+        "terminal_yield": 0.2421875,
+        "transition_count": 128
+      },
+      "scicf": {
+        "ledger": {
+          "allowed_sources": [
+            "evaluation",
+            "scicf_ppo/counterfactual",
+            "scicf_ppo/factual",
+            "scicf_ppo/on_policy"
+          ],
+          "backend_by_source": {
+            "scicf_ppo/counterfactual": 34,
+            "scicf_ppo/factual": 33,
+            "scicf_ppo/on_policy": 94
+          },
+          "backend_calls": 161,
+          "budget_protocol_version": "terminal-requested-unique-backend-v2",
+          "cache_entries": 161,
+          "cache_hit_rate": 0.18686868686868688,
+          "cache_hits": 37,
+          "cache_scope": "scicf_short_horizon_multi_iteration_v1",
+          "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+          "invalid_results": 0,
+          "maximum_requested_calls": 1248,
+          "maximum_unique_calls": 1248,
+          "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+          "remaining_requested_calls": 1050,
+          "remaining_unique_calls": 1087,
+          "requested_by_source": {
+            "scicf_ppo/counterfactual": 49,
+            "scicf_ppo/factual": 54,
+            "scicf_ppo/on_policy": 95
+          },
+          "requested_calls": 198,
+          "unique_by_source": {
+            "scicf_ppo/counterfactual": 34,
+            "scicf_ppo/factual": 33,
+            "scicf_ppo/on_policy": 94
+          },
+          "unique_calls": 161
+        },
+        "ppo": {
+          "actor_loss": -0.027356477919965982,
+          "approximate_kl": 0.003458937630057335,
+          "clip_fraction": 0.015625,
+          "entropy": 9.013963222503662,
+          "optimizer_steps": 8.0,
+          "stopped_for_target_kl": 0.0,
+          "value_loss": 0.018198922276496887
+        },
+        "successful_terminal_count": 23,
+        "terminal_yield": 0.1796875,
+        "transition_count": 128
+      },
+      "terminal_count_difference_scicf_minus_ppo": -8
+    },
+    {
+      "cumulative_transitions": 640,
+      "iteration": 5,
+      "ppo_metric_differences_scicf_minus_ppo": {
+        "actor_loss": -0.005997466389089823,
+        "approximate_kl": 0.0003422833979129791,
+        "clip_fraction": -0.00390625,
+        "entropy": 0.14098107814788818,
+        "optimizer_steps": 0.0,
+        "stopped_for_target_kl": 0.0,
+        "value_loss": -0.004444696358405054
+      },
+      "ppo_only": {
+        "ledger": {
+          "allowed_sources": [
+            "evaluation",
+            "ppo/on_policy"
+          ],
+          "backend_by_source": {
+            "ppo/on_policy": 126
+          },
+          "backend_calls": 126,
+          "budget_protocol_version": "terminal-requested-unique-backend-v2",
+          "cache_entries": 126,
+          "cache_hit_rate": 0.0,
+          "cache_hits": 0,
+          "cache_scope": "ppo_only_matched_short_horizon_v1",
+          "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+          "invalid_results": 0,
+          "maximum_requested_calls": 1248,
+          "maximum_unique_calls": 1248,
+          "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+          "remaining_requested_calls": 1122,
+          "remaining_unique_calls": 1122,
+          "requested_by_source": {
+            "ppo/on_policy": 126
+          },
+          "requested_calls": 126,
+          "unique_by_source": {
+            "ppo/on_policy": 126
+          },
+          "unique_calls": 126
+        },
+        "ppo": {
+          "actor_loss": -0.024591945577412844,
+          "approximate_kl": 0.0052064936608076096,
+          "clip_fraction": 0.0078125,
+          "entropy": 8.891658186912537,
+          "optimizer_steps": 8.0,
+          "stopped_for_target_kl": 0.0,
+          "value_loss": 0.020810162066482008
+        },
+        "successful_terminal_count": 22,
+        "terminal_yield": 0.171875,
+        "transition_count": 128
+      },
+      "scicf": {
+        "ledger": {
+          "allowed_sources": [
+            "evaluation",
+            "scicf_ppo/counterfactual",
+            "scicf_ppo/factual",
+            "scicf_ppo/on_policy"
+          ],
+          "backend_by_source": {
+            "scicf_ppo/counterfactual": 42,
+            "scicf_ppo/factual": 33,
+            "scicf_ppo/on_policy": 122
+          },
+          "backend_calls": 197,
+          "budget_protocol_version": "terminal-requested-unique-backend-v2",
+          "cache_entries": 197,
+          "cache_hit_rate": 0.1581196581196581,
+          "cache_hits": 37,
+          "cache_scope": "scicf_short_horizon_multi_iteration_v1",
+          "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+          "invalid_results": 0,
+          "maximum_requested_calls": 1248,
+          "maximum_unique_calls": 1248,
+          "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+          "remaining_requested_calls": 1014,
+          "remaining_unique_calls": 1051,
+          "requested_by_source": {
+            "scicf_ppo/counterfactual": 57,
+            "scicf_ppo/factual": 54,
+            "scicf_ppo/on_policy": 123
+          },
+          "requested_calls": 234,
+          "unique_by_source": {
+            "scicf_ppo/counterfactual": 42,
+            "scicf_ppo/factual": 33,
+            "scicf_ppo/on_policy": 122
+          },
+          "unique_calls": 197
+        },
+        "ppo": {
+          "actor_loss": -0.030589411966502666,
+          "approximate_kl": 0.005548777058720589,
+          "clip_fraction": 0.00390625,
+          "entropy": 9.032639265060425,
+          "optimizer_steps": 8.0,
+          "stopped_for_target_kl": 0.0,
+          "value_loss": 0.016365465708076954
+        },
+        "successful_terminal_count": 28,
+        "terminal_yield": 0.21875,
+        "transition_count": 128
+      },
+      "terminal_count_difference_scicf_minus_ppo": 6
+    },
+    {
+      "cumulative_transitions": 768,
+      "iteration": 6,
+      "ppo_metric_differences_scicf_minus_ppo": {
+        "actor_loss": -0.00502040795981884,
+        "approximate_kl": -0.0010458342730998993,
+        "clip_fraction": 0.0078125,
+        "entropy": -0.0385744571685791,
+        "optimizer_steps": 0.0,
+        "stopped_for_target_kl": 0.0,
+        "value_loss": 0.006633689918089658
+      },
+      "ppo_only": {
+        "ledger": {
+          "allowed_sources": [
+            "evaluation",
+            "ppo/on_policy"
+          ],
+          "backend_by_source": {
+            "ppo/on_policy": 146
+          },
+          "backend_calls": 146,
+          "budget_protocol_version": "terminal-requested-unique-backend-v2",
+          "cache_entries": 146,
+          "cache_hit_rate": 0.0,
+          "cache_hits": 0,
+          "cache_scope": "ppo_only_matched_short_horizon_v1",
+          "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+          "invalid_results": 0,
+          "maximum_requested_calls": 1248,
+          "maximum_unique_calls": 1248,
+          "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+          "remaining_requested_calls": 1102,
+          "remaining_unique_calls": 1102,
+          "requested_by_source": {
+            "ppo/on_policy": 146
+          },
+          "requested_calls": 146,
+          "unique_by_source": {
+            "ppo/on_policy": 146
+          },
+          "unique_calls": 146
+        },
+        "ppo": {
+          "actor_loss": -0.02517290599644184,
+          "approximate_kl": 0.006039135158061981,
+          "clip_fraction": 0.0,
+          "entropy": 9.291587233543396,
+          "optimizer_steps": 8.0,
+          "stopped_for_target_kl": 0.0,
+          "value_loss": 0.007424932613503188
+        },
+        "successful_terminal_count": 20,
+        "terminal_yield": 0.15625,
+        "transition_count": 128
+      },
+      "scicf": {
+        "ledger": {
+          "allowed_sources": [
+            "evaluation",
+            "scicf_ppo/counterfactual",
+            "scicf_ppo/factual",
+            "scicf_ppo/on_policy"
+          ],
+          "backend_by_source": {
+            "scicf_ppo/counterfactual": 50,
+            "scicf_ppo/factual": 48,
+            "scicf_ppo/on_policy": 157
+          },
+          "backend_calls": 255,
+          "budget_protocol_version": "terminal-requested-unique-backend-v2",
+          "cache_entries": 255,
+          "cache_hit_rate": 0.14715719063545152,
+          "cache_hits": 44,
+          "cache_scope": "scicf_short_horizon_multi_iteration_v1",
+          "evaluator_version": "dapigen-persistent-qspr-v2:4e76ba44f9e1e7a0",
+          "invalid_results": 0,
+          "maximum_requested_calls": 1248,
+          "maximum_unique_calls": 1248,
+          "objective_contract": "dapigen-paper-equation-1-weighted-average-v1",
+          "remaining_requested_calls": 949,
+          "remaining_unique_calls": 993,
+          "requested_by_source": {
+            "scicf_ppo/counterfactual": 72,
+            "scicf_ppo/factual": 69,
+            "scicf_ppo/on_policy": 158
+          },
+          "requested_calls": 299,
+          "unique_by_source": {
+            "scicf_ppo/counterfactual": 50,
+            "scicf_ppo/factual": 48,
+            "scicf_ppo/on_policy": 157
+          },
+          "unique_calls": 255
+        },
+        "ppo": {
+          "actor_loss": -0.03019331395626068,
+          "approximate_kl": 0.004993300884962082,
+          "clip_fraction": 0.0078125,
+          "entropy": 9.253012776374817,
+          "optimizer_steps": 8.0,
+          "stopped_for_target_kl": 0.0,
+          "value_loss": 0.014058622531592846
+        },
+        "successful_terminal_count": 35,
+        "terminal_yield": 0.2734375,
+        "transition_count": 128
+      },
+      "terminal_count_difference_scicf_minus_ppo": 15
+    }
+  ],
+  "llm_cost": {
+    "ppo_only": {
+      "completion_tokens": 0,
+      "http_transmissions": 0,
+      "pool_decisions": 0,
+      "prompt_tokens": 0,
+      "seconds": 0
+    },
+    "scicf": {
+      "completion_tokens": 1695,
+      "http_transmissions": 13,
+      "pool_decisions": 12,
+      "prompt_tokens": 102845,
+      "seconds": 22.688632991164923
+    }
+  },
+  "missing_outcomes": {
+    "diversity": "not_available_in_matched_evidence",
+    "held_out_quality": "not_available_in_matched_evidence",
+    "reward_return": "not_available_in_matched_evidence",
+    "uniqueness": "not_available_in_matched_evidence",
+    "validity_per_completed_episode": "not_available_in_matched_evidence"
+  },
+  "primary_endpoint": {
+    "count_difference_scicf_minus_ppo": 12,
+    "denominator_per_arm": 768,
+    "ppo_only_count": 146,
+    "ppo_only_yield": 0.19010416666666666,
+    "scicf_count": 158,
+    "scicf_yield": 0.20572916666666666,
+    "yield_difference_scicf_minus_ppo": 0.015625
+  },
+  "provenance": {
+    "analysis_slurm_job": "4751",
+    "analysis_source": {
+      "branch": "HEAD",
+      "commit": "a1059ca9d3dcd2d9b111de2472f90966ebadb815",
+      "dirty": false,
+      "tags": []
+    },
+    "control_report_path": "/home/wch/workspaces/DAPiGen-reproduction/runs/ppo-only-matched-short-horizon-v1-seed20260907-20260908/control-report.json",
+    "control_report_sha256": "e70115954580fc43765a99b8404bf194f425797d8f44200e2d04a1b94c58a534",
+    "reference_report_sha256": "07ffac03f444a46bbb7e412550d1919b384fd9753777b466478ae08c0e3c1e11"
+  },
+  "rng_coupling": "same_initial_seed_later_stream_coupling_not_isolated"
+}

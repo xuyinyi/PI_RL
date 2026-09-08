@@ -5,9 +5,10 @@ Status date: 2026-09-08
 Plan status: **the schema-3 integration-v2 run remains archived as a no-go after
 zero strict pairs; the K=5 optional-LLM v3 single-iteration run completed in Job
 4736; the separately authorized six-iteration short-horizon engineering run
-completed in n001 Slurm Job 4748. It is not a matched comparison and does not
-authorize a rerun, longer or formal training, sealed-test access, an
-algorithm-effectiveness claim, or a scientific claim**
+completed in n001 Slurm Job 4748. Its separately frozen PPO-only control and
+descriptive comparison completed in Job 4751 after preflight 4750. The one-seed
+comparison is exploratory; it does not establish algorithm effectiveness or
+authorize further training, reruns or sealed-test access**
 
 ## 2026-09-06 architecture-first amendment
 
@@ -290,6 +291,21 @@ Actual auxiliary cost is reported separately. This is a one-seed exploratory
 comparison specified after observing SciCF results. Runner implementation,
 server preflight and the single real PPO-only submission are the proposed next
 execution scope; none has been performed by the protocol-freeze task.
+
+The user subsequently approved that execution scope. Additive implementation
+`a1059ca` reused the shared engine and added a runtime on-policy evaluator guard.
+Preflight Job 4749 failed before tests because the supplied base Python lacked
+pytest; using the exact interpreter/dependency paths from Job 4748, Job 4750
+passed 38 tests and full-runtime construction with zero PPO/AFP/API execution.
+The single-use authorization was consumed by real Job 4751, which completed six
+iterations and the analyzer with exit `0:0`. Initial and first-post-PPO policy
+hashes, first rollout, GAE and critic returns matched Job 4748 exactly. All six
+checkpoint/report links passed rehash verification. SciCF produced 158 evaluated
+terminals versus 146 for PPO-only over 768 transitions each (+1.5625 percentage
+points), with 299 versus 146 evaluator requests. The final iteration accounts
+for the positive aggregate; the first five had cumulative difference -3.
+Reward improvement, final-policy quality and multi-seed robustness remain
+unmeasured. Evidence: `reproduction/results/ppo-only-matched-short-horizon-20260908/`.
 
 This document is the authoritative forward plan for the DAPiGen reinforcement-learning project. The active route is:
 

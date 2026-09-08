@@ -1,0 +1,2 @@
+/home/wch/workspaces/DAPiGen-reproduction/envs/dapigen-py38/bin/python: No module named pytest
+srun: error: yanlih100n1: task 0: Exited with exit code 1
