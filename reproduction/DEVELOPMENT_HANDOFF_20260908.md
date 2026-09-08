@@ -1,10 +1,18 @@
 # DAPiGen / LLM-SciCF 开发交接文档
 
-更新日期：2026-09-08，Asia/Shanghai。面向接手开发者及后续 AI 编程助手。
+更新日期：2026-09-08，Asia/Shanghai。文档修订：ICASSP 投稿与 GitHub 交接增补版。
+面向接手开发者及后续 AI 编程助手。
 
 本交接基于本地仓库、已归档实验报告，以及当日约 09:11–09:14 对 n001 的只读核验。
 交接前最新代码/证据提交为 `4d35d3e3bfb3b615928e63fe3c624bf92af192d6`；本文件自身属于其后的文档提交。
 查看最终文档版本用 `git log -1`，不要将文档提交误认为实验执行版本。
+
+相关入口：
+
+- 当前计划：`reproduction/PROJECT_PLAN.md`
+- ICASSP 投稿清单：`reproduction/ICASSP_2027_SUBMISSION_CHECKLIST.md`
+- Figure 2 预先冻结的成功标准：`reproduction/FIG2_PUBLICATION_SUCCESS_CRITERIA.md`
+- 当日远端状态快照：`reproduction/results/handoff-status-20260908/REMOTE_STATUS.md`
 
 ## 1. 接手时首先要知道的结论
 
@@ -398,3 +406,151 @@ Mihomo 下载辅助配置历史位于服务器项目 `tools/mihomo/`，监听 lo
 > Stage 0/PPO 基础及六轮 SciCF、PPO-only 对照已完成。首轮等价精确通过；158 vs 146 只是一种子下的可评估终止产出差异，不是奖励提升证据。下一步优先准备共同 reward/terminal-event 日志与当前 1,246-D native checkpoint evaluator，明确 evaluation seeds、预算、invalid/重复处理后再做新评估。
 > 保留历史 offline no-go、compatibility baseline、P4-A 失败种子和已消耗单次授权。不要重新训练 AFP、改 mask/reward、重用旧输出目录、自动续跑六轮任务或开启 sealed test。Policy-CC/MCC-PPO 是未集成的可选路线，不是当前 SciCF 的已实现部分。
 > 先报告实际代码差距和可审阅实现计划；已授权的开发范围内直接推进，新的真实运行范围应具体绑定版本和预算。
+
+## 15. 2026-09-08 最终交接结论
+
+当前不是“算法已完成，只差写论文”，而是下列状态：
+
+1. **工程可达性已验证。** Stage 0、原生 PPO/GAE、LLM 合法 ID 选择、K=5 匹配反事实验证、soft weight、最多一次辅助更新、KL guard/rollback、checkpoint/resume 和一条 PPO-only 对照均有实现和归档证据。
+2. **算法有效性未建立。** Job 4748/4751 只有一个训练 seed，没有统一 reward distribution、没有 final-checkpoint held-out 评估，且实际 evaluator 请求为 299 对 146。
+3. **LLM 增量价值未建立。** 现有在线运行没有同时完成 PPO、Random-SciCF、Diversity-SciCF 和 LLM-SciCF 的等预算多种子对照。
+4. **科学性能结论未建立。** AFP/QSPR 是代理 evaluator；尚无独立 QSPR/适用域、MD/DFT、专家化学审查或湿实验闭环。
+5. **投稿工程计划已建立。** 正文 Figure 1/2、Table 1、五个对照算法、统计指标、预期成功阈值、四页结构、格式与系统提交清单已文档化，但正式数据和稿件未生成。
+
+因此，下一位开发者的首要任务不是盲目调高 reward，而是将现有工程链转换为可比较、可统计、可追溯的正式证据链。
+
+## 16. 已完成、部分完成和未完成总表
+
+| 类别 | 任务 | 状态 | 交接说明 |
+|---|---|---|---|
+| 资产 | 重建 AFP 与 polyBERT compatibility 运行时 | 已完成，有边界 | 可运行且有指纹；不是作者原始二进制资产 |
+| baseline | 原始 RLlib PPO compatibility baseline | 已完成并冻结 | 100 iterations/99,000 steps；评估模式坍塌，不是论文结果复现 |
+| framework | AlgorithmAdapter/CommonEvaluator/Slurm 框架 | 已完成旧任务范围 | 仅适配历史 1,200-D 任务；不可直接评估当前 1,246-D policy |
+| Stage 0 | v2.3/P1 environment、mask、replay、model parity | compatibility 范围已验收 | 作为当前 state/action/evaluator contract 单一来源 |
+| P2 | native PPO/GAE/budget/checkpoint | PPO 范围已完成 | Policy-CC/MCC-PPO 估计器与 I02--I04 仍未实现 |
+| offline SciCF | Gate 1--1B.3 | 试验已完成，efficacy no-go | 作为负向/诊断证据保留；sealed test 不开放 |
+| online SciCF | 架构、schema guard、asset binding、K=5 soft pair、resilience | 工程已完成 | 仅说明路径可达、失败可留痕、更新可受控 |
+| online run | SciCF 六轮 Job 4748 | 工程完成 | 768 transitions、6 aux updates、299 evaluator requests；非效果证据 |
+| control | PPO-only Job 4751 | 工程完成 | 首轮等价精确；一 seed 描述性对照 |
+| P4-A | 五种子标准 PPO 数组 | 运行终止，结案未完成 | 3 pass/2 failed_gate；需全量审计、聚合和本地归档 |
+| 测量 | 统一 reward/terminal-event 日志 | 未完成，P0 | H01；正式对照前必须完成 |
+| 评估 | 当前 1,246-D final-checkpoint evaluator | 未完成，P0 | H02；训练/评估账本必须隔离 |
+| protocol | 等 requested-call 正式比较口径 | 文档设计已有，实验协议未冻结 | H03；需将端点、seed、预算、失败和统计写入不可变协议 |
+| controls | Random/Diversity/Hard 在线对照 | 未完成 | 需共用候选池、K=5、verifier、aux update 和费用账本 |
+| RNG | 辅助路径 RNG 消耗隔离 | 未完成 | H05；必须测试不会额外扰动下轮 sampling RNG |
+| formal | 多种子等成本训练和 final evaluation | 未开始 | 建议 10 paired seeds；新预算/授权需单独绑定 |
+| statistics | AUC、CCDF、CI、paired permutation、claim gate | 计划已完成，数据未生成 | 预先阈值不得观察正式结果后更改 |
+| figures | Figure 1、Figure 2a/2b、Table 1 | 定义已完成，正式图未生成 | 所有点必须可从原始 ledger 重建 |
+| manuscript | ICASSP 四页正文 | 未开始 | 用正式数据冻结后再写结果和摘要 |
+| validation | held-out/alternative QSPR/DOA/MD/DFT/wet-lab | 未开始 | 未完成时仅能声称冻结 surrogate task 优化 |
+| release | GitHub 活动分支 | 本次交接中处理 | 远端分支、commit 和推送结果见本文第 20 节 |
+
+## 17. 当前核心代码地图
+
+| 模块 | 主要路径 | 责任/交接要点 |
+|---|---|---|
+| 原始任务及 compatibility 修复 | `RL_PPO/` | 保留上游差异；不在此直接实验性改 reward/mask |
+| Stage 0 任务合同 | `RL_PPO/envs/`, `reproduction/stage0/` | state/action/mask/evaluator/replay 的当前单一来源 |
+| 共享 PPO/GAE 引擎 | `reproduction/p2/engine.py`, `gae.py`, `budget.py`, `contracts.py` | 保持 PPO behavior-policy 数据与反事实辅助数据分离 |
+| 通用历史比较框架 | `reproduction/framework/` | 旧 1,200-D 运行框架；不可静默用于当前 1,246-D checkpoint |
+| SciCF 在线合同 | `reproduction/scicf/online/contracts.py`, `pipeline.py` | 候选、选择、验证和 aux receipt 数据边界 |
+| LLM 请求与响应防护 | `prompt.py`, `response_guard.py`, `resilience.py` | 合法 ID allowlist、raw response 先落盘、有界 retry/fail-closed/circuit |
+| 资产绑定 | `model_asset.py`, `evaluator_asset.py` | polyBERT/AFP 完整路径和指纹校验；不得随机初始化或 silent fallback |
+| soft counterfactual update | `soft_pair.py`, `stability.py` | empirical weight、pair mass、one-step aux、KL guard/rollback |
+| short-horizon/resume | `short_horizon.py`, `run_short_horizon_multi_iteration.py` | 持久化 breaker、预算、RNG/control hash 和 checkpoint 链 |
+| PPO-only control | `ppo_only_control.py`, `run_ppo_only_control.py`, `analyze_ppo_only_control.py` | 禁止非 on-policy evaluator 请求；当前 analyzer 明确标记 reward/held-out 缺失 |
+| 运行配置 | `reproduction/scicf/online/configs/` | 任何新实验必须新 config ID、seed、预算和唯一输出目录 |
+| Slurm 入口 | `reproduction/slurm/` | 依赖测试、preflight、训练和评估只通过管治的 Slurm 路径 |
+| 验证 | `reproduction/p2/tests/`, `reproduction/stage0/tests/`, `reproduction/tests/` | 区分 stub/unit 通过、真实 chemistry/asset runtime 和科学效果 |
+| 证据归档 | `reproduction/results/` | report/log/accounting/hash 是结果证据；不存放原始模型权重或凭据 |
+
+## 18. ICASSP 主线、对照和成功口径
+
+正文方法名建议统一为 **LLM-SciCF-Soft**。正式对照组为：
+
+1. PPO；
+2. PPO + Random-SciCF-K5-Soft；
+3. PPO + Diversity-SciCF-K5-Soft；
+4. PPO + LLM-SciCF-K5-Soft（ours）；
+5. PPO + LLM-SciCF-K5-Hard（消融）。
+
+Figure 2a 使用前四组，横轴为全部 requested training evaluator calls，纵轴为 best-so-far valid unique on-policy terminal objective；主统计量为 seed-level normalized AUC。Figure 2b 使用共同冻结 final checkpoint 的 held-out objective CCDF。
+
+建议的内部投稿强度目标：
+
+- AUC 相对 PPO 约 +8%，最低可辩护线 +5%；
+- paired 95% CI 下界高于 0，预注册 paired test `p < 0.05`；
+- 建议 10 paired seeds，至少 8/10 差值为正；
+- 达到冻结 PPO 质量目标时 evaluator calls 减少 15--20%；
+- final held-out objective 约 +5%，且 validity/uniqueness/diversity 不显著退化；
+- 若要宣称 LLM 选择有增量价值，还必须超过 Random，最好超过 Diversity 各约 3% AUC 并有成对不确定性支持。
+
+阈值只能作为正式实验前的决策 gate，不是录用保证，也不能看到数据后回填。详见 `FIG2_PUBLICATION_SUCCESS_CRITERIA.md`。
+
+## 19. 下一位开发者的首个可审阅开发包
+
+不要直接开始新训练。第一个开发包建议只覆盖 H01--H03 和 H05 的代码/协议基础：
+
+### 19.1 必须交付
+
+1. 新的统一 event schema，包含 reward、terminal reason、molecule identity、valid/duplicate、requested/unique/backend/cache calls、transition/checkpoint ID 和明确分母。
+2. 当前 1,246-D policy 的 common final-checkpoint evaluator，固定 evaluation seed/budget，训练和评估 ledger 隔离。
+3. 正式比较 protocol 草案，写死主端点、次端点、预算、seed map、stopping、invalid/duplicate/missing、CI、检验和 claim gate。
+4. RNG isolation test，证明辅助开关不会在预期 policy update 之外扰动下一轮 sampling RNG。
+5. synthetic fixtures 上的 analyzer/plotter，可在没有正式结果时验证 AUC、CCDF、failure handling 和 paired report schema。
+
+### 19.2 完成标准
+
+- 代码和 protocol diff 可独立审阅；
+- 无新的真实 API/evaluator/training 消耗；
+- 测试通过必须绑定 n001 Slurm job/report；
+- 不修改历史结果、冻结协议或已消耗 authorization；
+- 不把 historical CommonEvaluator 静默自适应成 1,246-D；
+- 完成后再请求明确的 pilot/formal 运行范围。
+
+## 20. GitHub 发布与公开边界
+
+当前本地发布分支是 `codex/scicf-soft-pair-resilience`，上游基线是 `origin/main` 的 `5f692946cbe0d15eede882dfe4cff7fb26eb7d8c`。本次交接前，该分支在 GitHub 远端不存在，本地相对 main 有 98 个项目历史提交。
+
+允许进入 GitHub 的内容：
+
+- 源代码、测试、协议、Slurm 入口和环境定义；
+- 不含凭据的请求/响应证据和资源账本；
+- 小型审计结果、report、hash manifest 和交接文档。
+
+禁止进入 GitHub 的内容：
+
+- API key、`.env` 凭据文件、subscription 内容、cookie/token；
+- `RL_PPO/models/` 下的 polyBERT 权重；
+- `RL_PPO/GNN/model/` 下的 AFP 权重、scaler 和 settings；
+- 服务器未管治大型 run 目录、私有数据或 sealed-test 内容。
+
+`.gitignore` 已覆盖上述核心权重和凭据模式。仓库内测试用 `unit-test-secret` 和格式示例 `sk-...` 是故意的虚假值，推送前仍需对 staged diff 执行精确凭据扫描。
+
+推送后必须补充/核对：
+
+```text
+Remote: https://github.com/xuyinyi/DAPiGen.git
+Branch: codex/scicf-soft-pair-resilience
+Remote commit: <verify after push>
+Push status: <verify after push>
+```
+
+不要直接合并到 `main`。应保留独立开发分支供审查；合并、发 PR 或公开 release 是另一个明确决策。
+
+## 21. 交接后的停止条件
+
+出现以下任一情况时，停止正式运行并回到诊断：
+
+1. 两组 event schema、分母或 requested-call 账本不一致；
+2. final evaluator 不能无适配地加载 1,246-D checkpoint；
+3. 辅助流程意外改变下一轮 sampling RNG；
+4. Random/Diversity/LLM 没有使用同候选池、K 或验证费用口径；
+5. 实验运行前协议、分析和成功阈值未冻结；
+6. 报告丢失失败 seed、invalid、duplicate、timeout 或 missing result；
+7. 为达到预期曲线而改 reward、mask、资产、预算或统计检验；
+8. 用 surrogate 结果宣称真实材料性能提升；
+9. 新运行未绑定具体 commit、asset fingerprint、seed、预算和唯一输出目录；
+10. 新 API/训练/评估使用了历史已消耗授权。
+
+上述停止不是项目失败，而是保护正式结果可审查性的必要边界。

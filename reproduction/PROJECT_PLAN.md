@@ -3,6 +3,10 @@
 Status date: 2026-09-08
 
 Handoff entry: [DEVELOPMENT_HANDOFF_20260908.md](DEVELOPMENT_HANDOFF_20260908.md).
+ICASSP execution checklist:
+[ICASSP_2027_SUBMISSION_CHECKLIST.md](ICASSP_2027_SUBMISSION_CHECKLIST.md).
+Prospective Figure 2 success criteria:
+[FIG2_PUBLICATION_SUCCESS_CRITERIA.md](FIG2_PUBLICATION_SUCCESS_CRITERIA.md).
 This update reconciles the repository and read-only n001 checks at approximately
 09:12 Asia/Shanghai. No wch jobs were queued/running at that snapshot. The
 2026-09-06 architecture-first user decision supersedes the older MCC-first work
@@ -25,6 +29,9 @@ order below; historical protocols and result decisions retain their original sco
 | Matched reward/final-policy evaluation | Not completed | Needs common native-engine evaluator integration and fixed evaluation protocol |
 | Multi-seed SciCF effectiveness and equal-cost comparison | Not started | Six-iteration pair is insufficient; random/heuristic online controls also pending |
 | Scientific and cross-environment validation | Not completed | No independent QSPR/MD/DFT/wet-lab or second-environment acceptance evidence |
+| ICASSP experiment/figure/submission design | Complete for prospective planning only | Five comparison arms, Figure 2 endpoints, internal success thresholds and submission checklist documented; no formal outcome exists |
+| ICASSP formal figures and manuscript | Not started | Figure 2 source data, Table 1, four-page manuscript and portal package remain open |
+| GitHub publication of active branch | In progress in this handoff | Local branch `codex/scicf-soft-pair-resilience` contains the core implementation history; remote branch verification/push must be recorded after publication |
 
 No new training or API call is authorized by this documentation update. The
 previous SciCF and PPO-only single-run authorizations have been consumed.
@@ -36,6 +43,56 @@ completed in n001 Slurm Job 4748. Its separately frozen PPO-only control and
 descriptive comparison completed in Job 4751 after preflight 4750. The one-seed
 comparison is exploratory; it does not establish algorithm effectiveness or
 authorize further training, reruns or sealed-test access**
+
+## 2026-09-08 ICASSP submission and development-handoff amendment
+
+The current paper target is ICASSP 2027. The research contribution is scoped as
+an algorithmic result: LLM-guided, verifier-weighted counterfactual refinement
+for improving evaluator-call efficiency on a frozen surrogate molecular-design
+task. Until independent validation exists, the project must not promote this to
+a claim of experimentally verified material-property improvement.
+
+The immediate core is **measurement and fair-comparison closure**, not blind
+maximization of a single-run reward or terminal count. The active order is:
+
+1. implement a common native-engine reward/terminal-event schema;
+2. implement a fixed-budget evaluator for the current 1,246-D final policy;
+3. freeze endpoints, requested-call budgets, seeds, stopping and failure rules;
+4. isolate RNG consumption and implement matched PPO, Random-SciCF,
+   Diversity-SciCF, LLM-SciCF-Soft and LLM-SciCF-Hard arms;
+5. pass a governed preflight and obtain a new run-specific authorization;
+6. run the preregistered paired-seed comparison;
+7. generate Figure 2 and Table 1 from archived source ledgers; and
+8. write and validate the four-page submission only after formal data freeze.
+
+The primary estimand is seed-level normalized area under the best-so-far valid,
+unique, on-policy terminal-objective curve versus all requested training
+evaluator calls. The desired internal ICASSP-strength target is approximately
+8% AUC improvement over PPO, 15--20% fewer evaluator calls to a frozen target
+quality, and approximately 5% improvement in common held-out final-checkpoint
+quality, with paired uncertainty and without material validity, uniqueness or
+diversity degradation. These are prospective internal gates, not official
+conference acceptance thresholds; their full definitions are in
+`FIG2_PUBLICATION_SUCCESS_CRITERIA.md` and must not be changed after viewing
+formal outcomes.
+
+The existing 158-versus-146 evaluated-terminal result does not satisfy this
+gate. It is one seed, lacks matched reward and final-policy evaluation, depends
+on a last-iteration reversal, and used 299 versus 146 requested evaluator calls.
+
+The documented ICASSP comparison arms are:
+
+| Arm | Purpose | Main paper placement |
+|---|---|---|
+| PPO | Parent-algorithm and end-to-end baseline | Figure 2 |
+| Random-SciCF-K5-Soft | Isolate counterfactual refinement without LLM selection | Figure 2 |
+| Diversity-SciCF-K5-Soft | Strong outcome-blind acquisition heuristic | Figure 2 |
+| LLM-SciCF-K5-Soft | Full proposed method | Figure 2 |
+| LLM-SciCF-K5-Hard | Isolate empirical soft weighting | Table 1 ablation |
+
+No implementation or execution is implied by adding these prospective arms to
+the plan. Random/Diversity online controls, the current final evaluator and the
+formal multi-seed run remain incomplete.
 
 ## 2026-09-06 architecture-first amendment
 
@@ -680,10 +737,19 @@ and online SciCF plus its one-run PPO-only control have separately completed.
 5. **Method isolation:** plan PPO + random/heuristic selection under the same
    K=5 verifier and auxiliary update, plus RNG-consumption isolation. Existing
    offline comparisons do not establish the LLM's online incremental value.
-6. **Legacy completion:** audit all five P4-A reports and failed evaluation
+6. **Prospective success gate documented:** retain the Figure 2 threshold
+   matrix and claim-promotion rules in the formal protocol; do not tune or
+   redefine them after seeing formal outcomes.
+7. **ICASSP package planning documented:** the submission checklist, Figure 2
+   definitions, four-page outline, portal checks and dated go/no-go sequence are
+   available, but no manuscript or formal figure is complete.
+8. **GitHub handoff:** publish the active core-code branch without credentials,
+   ignored model weights or private runtime assets; record the exact remote ref
+   and commit after push.
+9. **Legacy completion:** audit all five P4-A reports and failed evaluation
    checkpoints, aggregate without dropping failed seeds, and archive the result.
    Do not repair the frozen protocol's outcome by relaxing metrics or rerunning.
-7. **Later:** matched multi-seed/longer-horizon experiments, held-out structures,
+10. **Later:** matched multi-seed/longer-horizon experiments, held-out structures,
    alternative evaluators and a second environment. Policy-CC/MCC-PPO remain
    optional separately scoped implementation routes, not implied next actions.
 

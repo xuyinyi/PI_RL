@@ -3,6 +3,10 @@
 > **Current development entry (2026-09-08):** see
 > [PROJECT_PLAN.md](PROJECT_PLAN.md) and the detailed
 > [development handoff](DEVELOPMENT_HANDOFF_20260908.md).
+> The ICASSP execution package is indexed by
+> [ICASSP_2027_SUBMISSION_CHECKLIST.md](ICASSP_2027_SUBMISSION_CHECKLIST.md),
+> with prospective Figure 2 gates in
+> [FIG2_PUBLICATION_SUCCESS_CRITERIA.md](FIG2_PUBLICATION_SUCCESS_CRITERIA.md).
 > Stage 0/PPO engineering, six-iteration online SciCF (4748), and its matched
 > PPO-only control (4751) are complete within compatibility scope. The earlier
 > Policy-CC/MCC-PPO route remains unintegrated. Historical reproduction below
@@ -16,6 +20,9 @@ model, or a started PPO job as reproduction of the paper's results.
 Project gate: new-algorithm engineering may begin from the frozen reconstructed
 compatibility baseline. Comparative scientific claims remain blocked until the
 common paper-metric evaluator and matched multi-seed experiments are complete.
+The immediate development priority is common reward/terminal-event logging,
+the current 1,246-D final-checkpoint evaluator, and a frozen equal-requested-call
+comparison protocol; raw single-run performance tuning is not the active gate.
 
 ## Frozen coordinate
 

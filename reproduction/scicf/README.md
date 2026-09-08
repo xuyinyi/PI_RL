@@ -3,7 +3,12 @@
 Current handoff (2026-09-08): online K=5 SciCF and its PPO-only control completed
 six iterations each in Jobs 4748/4751. See
 [development handoff](../DEVELOPMENT_HANDOFF_20260908.md) for implemented modules,
-open tasks and exact runtime paths. The chronological paragraph below preserves
+open tasks and exact runtime paths. The ICASSP comparison and delivery gates are
+in [the submission checklist](../ICASSP_2027_SUBMISSION_CHECKLIST.md) and
+[Figure 2 success criteria](../FIG2_PUBLICATION_SUCCESS_CRITERIA.md). The active
+engineering priority is common reward/event logging, a current 1,246-D final
+checkpoint evaluator, and a frozen equal-requested-call comparison protocol.
+The chronological paragraph below preserves
 the scope of each earlier authorization; it is not a statement that later
 separately authorized work remains unimplemented.
 
